@@ -1,0 +1,125 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/test_texts/images/penny_images/penny_page_015.png",
+  "regions": [
+    {
+      "type": "TextRegion",
+      "score": 0.9995,
+      "bbox": [
+        1018.6,
+        2582.0,
+        1925.5,
+        3025.7
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9993,
+      "bbox": [
+        272.7,
+        321.7,
+        872.9,
+        1804.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9993,
+      "bbox": [
+        136.6,
+        2196.9,
+        1002.5,
+        3146.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9972,
+      "bbox": [
+        765.8,
+        112.3,
+        1293.6,
+        143.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9968,
+      "bbox": [
+        1144.2,
+        3072.1,
+        1819.5,
+        3127.8
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9959,
+      "bbox": [
+        318.1,
+        241.2,
+        850.9,
+        270.1
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9846,
+      "bbox": [
+        1046.7,
+        1126.9,
+        1922.1,
+        2489.8
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9804,
+      "bbox": [
+        413.5,
+        3343.8,
+        711.0,
+        3407.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9748,
+      "bbox": [
+        1394.5,
+        3352.1,
+        1719.2,
+        3413.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9714,
+      "bbox": [
+        1032.6,
+        197.5,
+        1952.2,
+        400.9
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.9323,
+      "bbox": [
+        128.6,
+        0.0,
+        293.1,
+        2198.7
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.7408,
+      "bbox": [
+        1717.2,
+        1000.6,
+        1911.7,
+        1023.7
+      ]
+    }
+  ]
+}

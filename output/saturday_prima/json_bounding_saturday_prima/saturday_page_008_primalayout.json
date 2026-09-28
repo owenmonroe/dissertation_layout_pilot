@@ -1,0 +1,245 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/test_texts/images/saturday_images/saturday_page_008.png",
+  "regions": [
+    {
+      "type": "TextRegion",
+      "score": 0.9999,
+      "bbox": [
+        253.2,
+        2634.4,
+        1126.1,
+        3147.3
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9999,
+      "bbox": [
+        266.0,
+        1145.2,
+        1146.2,
+        1735.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9999,
+      "bbox": [
+        877.4,
+        127.1,
+        1452.6,
+        163.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9998,
+      "bbox": [
+        344.6,
+        3278.2,
+        492.6,
+        3305.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9997,
+      "bbox": [
+        1182.2,
+        1543.3,
+        2049.8,
+        2087.2
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9996,
+      "bbox": [
+        1182.6,
+        2593.0,
+        2041.7,
+        2668.0
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9994,
+      "bbox": [
+        1241.5,
+        2698.6,
+        2064.0,
+        2990.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9993,
+      "bbox": [
+        1183.8,
+        2714.5,
+        1461.8,
+        3044.9
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9992,
+      "bbox": [
+        1824.1,
+        129.1,
+        2085.0,
+        165.0
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.999,
+      "bbox": [
+        1139.8,
+        218.1,
+        2092.9,
+        702.0
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9988,
+      "bbox": [
+        1193.6,
+        2465.1,
+        2066.9,
+        2520.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9986,
+      "bbox": [
+        1165.4,
+        2053.8,
+        2054.0,
+        2366.4
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.9962,
+      "bbox": [
+        410.4,
+        1757.9,
+        1008.9,
+        2590.0
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.995,
+      "bbox": [
+        263.8,
+        134.4,
+        283.5,
+        161.1
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9942,
+      "bbox": [
+        1350.4,
+        1491.4,
+        1919.3,
+        1518.5
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.9908,
+      "bbox": [
+        1309.9,
+        714.4,
+        1965.7,
+        1465.7
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.9906,
+      "bbox": [
+        430.6,
+        312.0,
+        1043.4,
+        1123.5
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9821,
+      "bbox": [
+        1183.4,
+        3039.0,
+        1443.6,
+        3131.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.981,
+      "bbox": [
+        445.8,
+        3252.9,
+        735.9,
+        3320.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9356,
+      "bbox": [
+        1478.0,
+        2680.5,
+        1773.4,
+        3026.3
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9304,
+      "bbox": [
+        1260.7,
+        2522.3,
+        1997.3,
+        2593.2
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9253,
+      "bbox": [
+        278.7,
+        209.5,
+        1353.5,
+        346.3
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9032,
+      "bbox": [
+        1360.2,
+        3292.3,
+        1857.3,
+        3331.1
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.7753,
+      "bbox": [
+        1466.5,
+        2948.2,
+        1994.2,
+        3115.7
+      ]
+    }
+  ]
+}

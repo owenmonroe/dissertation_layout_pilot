@@ -1,0 +1,125 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/test_texts/images/chambers_images/chambers_page_001.png",
+  "regions": [
+    {
+      "type": "TextRegion",
+      "score": 0.9999,
+      "bbox": [
+        959.1,
+        2599.8,
+        1688.5,
+        3697.0
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9997,
+      "bbox": [
+        134.4,
+        2705.6,
+        916.3,
+        3731.3
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9993,
+      "bbox": [
+        957.4,
+        1266.6,
+        1711.8,
+        2599.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.998,
+      "bbox": [
+        135.5,
+        1463.7,
+        918.5,
+        2625.9
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.9806,
+      "bbox": [
+        251.1,
+        0.0,
+        2657.9,
+        773.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9751,
+      "bbox": [
+        1756.6,
+        3930.4,
+        2236.3,
+        3980.0
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9725,
+      "bbox": [
+        561.5,
+        3891.7,
+        905.7,
+        3974.8
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9029,
+      "bbox": [
+        1695.5,
+        1391.6,
+        2492.8,
+        3696.5
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.8929,
+      "bbox": [
+        252.9,
+        2638.7,
+        815.9,
+        2665.2
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.8896,
+      "bbox": [
+        1748.1,
+        1289.7,
+        2521.2,
+        2206.2
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.8733,
+      "bbox": [
+        143.0,
+        1340.9,
+        908.1,
+        1440.9
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.8574,
+      "bbox": [
+        424.9,
+        3917.2,
+        608.7,
+        3951.7
+      ]
+    }
+  ]
+}

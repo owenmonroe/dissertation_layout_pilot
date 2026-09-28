@@ -1,0 +1,125 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/test_texts/images/penny_images/penny_page_011.png",
+  "regions": [
+    {
+      "type": "TextRegion",
+      "score": 0.9981,
+      "bbox": [
+        172.4,
+        2527.7,
+        1098.1,
+        3114.2
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9979,
+      "bbox": [
+        1096.7,
+        2481.6,
+        1955.7,
+        3044.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9935,
+      "bbox": [
+        171.0,
+        208.1,
+        1023.6,
+        1265.3
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9932,
+      "bbox": [
+        155.1,
+        1315.0,
+        1020.1,
+        1680.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9907,
+      "bbox": [
+        163.7,
+        1672.5,
+        1046.5,
+        2536.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9884,
+      "bbox": [
+        425.3,
+        3333.1,
+        725.7,
+        3399.2
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.968,
+      "bbox": [
+        792.3,
+        110.0,
+        1315.6,
+        146.0
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9635,
+      "bbox": [
+        1099.8,
+        1003.7,
+        1927.7,
+        2168.7
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9576,
+      "bbox": [
+        1065.8,
+        192.6,
+        1957.4,
+        827.5
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9545,
+      "bbox": [
+        1426.0,
+        3344.0,
+        1762.1,
+        3406.0
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.9382,
+      "bbox": [
+        4.3,
+        1784.3,
+        64.1,
+        3385.3
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.8919,
+      "bbox": [
+        1402.4,
+        905.6,
+        1662.0,
+        937.9
+      ]
+    }
+  ]
+}

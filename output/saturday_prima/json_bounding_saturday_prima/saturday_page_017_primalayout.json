@@ -1,0 +1,165 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/test_texts/images/saturday_images/saturday_page_017.png",
+  "regions": [
+    {
+      "type": "TextRegion",
+      "score": 1.0,
+      "bbox": [
+        1017.8,
+        2873.5,
+        1933.6,
+        3129.2
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.9999,
+      "bbox": [
+        154.8,
+        560.7,
+        1954.1,
+        1926.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.999,
+      "bbox": [
+        165.9,
+        2571.5,
+        1071.4,
+        3155.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9983,
+      "bbox": [
+        185.0,
+        2024.5,
+        1148.1,
+        2534.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9971,
+      "bbox": [
+        205.2,
+        717.1,
+        1090.6,
+        785.1
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9934,
+      "bbox": [
+        1352.2,
+        3277.7,
+        1852.6,
+        3312.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9933,
+      "bbox": [
+        379.3,
+        1953.3,
+        1724.4,
+        1979.5
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9696,
+      "bbox": [
+        1967.8,
+        3143.0,
+        2136.1,
+        3175.1
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.967,
+      "bbox": [
+        974.2,
+        2015.4,
+        1926.5,
+        2816.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9537,
+      "bbox": [
+        279.8,
+        3131.8,
+        390.1,
+        3160.7
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9494,
+      "bbox": [
+        446.1,
+        3239.1,
+        737.9,
+        3304.1
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.9368,
+      "bbox": [
+        1.5,
+        1521.0,
+        58.6,
+        3284.5
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.929,
+      "bbox": [
+        133.8,
+        517.1,
+        1899.8,
+        604.1
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.8766,
+      "bbox": [
+        345.9,
+        3259.3,
+        491.7,
+        3289.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.7383,
+      "bbox": [
+        1803.7,
+        3125.3,
+        1822.3,
+        3150.4
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.7182,
+      "bbox": [
+        336.3,
+        42.5,
+        1938.1,
+        482.3
+      ]
+    }
+  ]
+}

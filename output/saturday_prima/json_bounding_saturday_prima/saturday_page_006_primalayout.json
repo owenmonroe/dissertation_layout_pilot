@@ -1,0 +1,255 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/test_texts/images/saturday_images/saturday_page_006.png",
+  "regions": [
+    {
+      "type": "TextRegion",
+      "score": 1.0,
+      "bbox": [
+        242.2,
+        379.2,
+        1081.5,
+        2329.5
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9999,
+      "bbox": [
+        837.4,
+        109.1,
+        1415.2,
+        144.2
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9998,
+      "bbox": [
+        1907.1,
+        113.0,
+        2064.6,
+        145.8
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9995,
+      "bbox": [
+        1145.8,
+        1219.2,
+        2061.5,
+        1332.7
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9995,
+      "bbox": [
+        1134.5,
+        189.3,
+        2054.7,
+        549.8
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9993,
+      "bbox": [
+        342.2,
+        3291.4,
+        486.4,
+        3317.3
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9992,
+      "bbox": [
+        1145.4,
+        1602.8,
+        2044.7,
+        1962.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9991,
+      "bbox": [
+        243.3,
+        114.4,
+        260.6,
+        142.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9981,
+      "bbox": [
+        1533.9,
+        2374.4,
+        2045.2,
+        2592.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9981,
+      "bbox": [
+        421.4,
+        2326.8,
+        1341.0,
+        2398.9
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9979,
+      "bbox": [
+        237.7,
+        197.1,
+        1121.9,
+        434.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9979,
+      "bbox": [
+        1190.3,
+        932.7,
+        2011.1,
+        977.5
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9966,
+      "bbox": [
+        1150.6,
+        1052.5,
+        2039.8,
+        1216.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9948,
+      "bbox": [
+        1156.5,
+        579.1,
+        2049.7,
+        767.5
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9945,
+      "bbox": [
+        1142.5,
+        2045.9,
+        2045.1,
+        2276.7
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9778,
+      "bbox": [
+        1152.1,
+        1442.0,
+        2037.7,
+        1594.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.964,
+      "bbox": [
+        282.1,
+        2882.3,
+        1105.8,
+        3073.1
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9612,
+      "bbox": [
+        1143.8,
+        767.5,
+        2051.6,
+        858.4
+      ]
+    },
+    {
+      "type": "ImageRegion",
+      "score": 0.9246,
+      "bbox": [
+        7.8,
+        1669.4,
+        62.5,
+        3305.1
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.9169,
+      "bbox": [
+        418.7,
+        2823.8,
+        950.0,
+        2853.4
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.8937,
+      "bbox": [
+        1741.5,
+        2585.7,
+        2059.2,
+        2615.9
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.8755,
+      "bbox": [
+        435.0,
+        3277.9,
+        725.9,
+        3330.2
+      ]
+    },
+    {
+      "type": "SeparatorRegion",
+      "score": 0.8736,
+      "bbox": [
+        117.4,
+        3188.8,
+        2155.0,
+        3201.1
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.8555,
+      "bbox": [
+        1155.4,
+        1329.5,
+        2047.7,
+        1466.6
+      ]
+    },
+    {
+      "type": "TextRegion",
+      "score": 0.757,
+      "bbox": [
+        251.6,
+        2480.5,
+        530.5,
+        2629.1
+      ]
+    }
+  ]
+}

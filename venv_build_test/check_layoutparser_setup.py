@@ -39,7 +39,7 @@ from PIL import ImageDraw, ImageFont
 _MODELS_DIR = Path(__file__).resolve().parent.parent / "models"
 
 
-def load_primalayout_model(score_thresh: float = 0.75) -> lp.Detectron2LayoutModel:
+def load_primalayout_model(score_thresh: float = 0.7) -> lp.Detectron2LayoutModel:
     return lp.Detectron2LayoutModel(
         config_path=str(_MODELS_DIR / "PrimaLayout" / "config.yml"),
         model_path=str(_MODELS_DIR / "PrimaLayout" / "model_final.pth"),

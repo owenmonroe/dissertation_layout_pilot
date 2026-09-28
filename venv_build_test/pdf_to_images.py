@@ -5,7 +5,9 @@ can only operate on images, not PDFs directly.
 Usage:
     python pdf_to_images.py path/to/file.pdf [output_dir] [--dpi 300]
 
-Writes one PNG per page: output_dir/<pdf_stem>_page001.png, etc.
+Writes one PNG per page: output_dir/<stem>_page_001.png, etc., where
+<stem> defaults to the PDF's filename stem but can be overridden (e.g. to
+a short magazine name instead of a long library-catalog filename).
 Default output_dir is a sibling "images" folder next to the PDF.
 """
 
@@ -15,17 +17,20 @@ from pathlib import Path
 import pymupdf
 
 
-def pdf_to_images(pdf_path: Path, output_dir: Path, dpi: int = 300) -> list[Path]:
+def pdf_to_images(
+    pdf_path: Path, output_dir: Path, dpi: int = 300, stem: str | None = None
+) -> list[Path]:
     output_dir.mkdir(parents=True, exist_ok=True)
     zoom = dpi / 72  # PDF points are 72 per inch
     matrix = pymupdf.Matrix(zoom, zoom)
+    name_stem = stem if stem is not None else pdf_path.stem
 
     written = []
     with pymupdf.open(pdf_path) as doc:
         for page_index, page in enumerate(doc, start=1):
             pix = page.get_pixmap(matrix=matrix)
             pix.set_dpi(dpi, dpi)
-            out_path = output_dir / f"{pdf_path.stem}_page{page_index:03d}.png"
+            out_path = output_dir / f"{name_stem}_page_{page_index:03d}.png"
             pix.save(out_path)
             written.append(out_path)
     return written
