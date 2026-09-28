@@ -1,0 +1,11 @@
+name: layoutparser-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - detectron2=0.6=cpu_py311*
+  - pip
+  - pip:
+      - layoutparser
+      - pillow
+      - opencv-python
