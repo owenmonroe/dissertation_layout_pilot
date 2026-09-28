@@ -1,0 +1,5 @@
+# Downloaded model weights (large binaries, re-downloadable)
+models/
+
+# Generated page images
+test_texts/images/
