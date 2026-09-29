@@ -29,6 +29,35 @@ are loaded from local disk in `models/`.
   `cpu_py311*` conda-forge package — no CUDA on this Apple Silicon Mac), LayoutParser,
   OpenCV, Pillow, PyMuPDF.
 - Page rasterization: PDF pages rendered to PNG at **300 DPI**.
+
+### Venv setup
+
+Built from `venv_build_test/environment-layoutparser.yml`:
+
+```yaml
+name: layoutparser-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - detectron2=0.6=cpu_py311*
+  - pip
+  - pip:
+      - layoutparser
+      - pillow
+      - opencv-python
+      - pymupdf
+```
+
+To build and activate:
+
+```
+conda env create -f venv_build_test/environment-layoutparser.yml
+conda activate layoutparser-env
+```
+
+The env directory is managed by conda (outside the repo, under `~/anaconda3/envs/`),
+not committed to git — rebuild it from the yml file above on a fresh machine.
 - Score threshold: **0.7** for the main batch run (chosen after comparing 0.5 / 0.7 / 0.75
   by eye against a test page — 0.7 cleanly dropped low-confidence margin noise while
   keeping all real text/image regions). A separate **0.5** threshold experiment was also
