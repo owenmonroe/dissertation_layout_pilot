@@ -67,3 +67,9 @@ ACROSS ALL THREE
 - end of issue publisher info
 - (possible dialogue within article?)
 - ('continued/ing' as part of intro or outro)
+
+Prima Detectron LayoutParsers
+seems to only have
+- text
+- image
+- separator

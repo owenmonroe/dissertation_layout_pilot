@@ -3,3 +3,7 @@ models/
 
 # Generated page images
 test_texts/images/
+
+# Local virtual environments (installed packages, not source -- recreate via
+# the pip install commands documented for each, don't commit them)
+venv_build_test/*-env/
