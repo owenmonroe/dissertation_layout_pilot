@@ -77,8 +77,10 @@ def save_annotated_image(image, layout: lp.Layout, out_path: Path) -> None:
 
     draw = ImageDraw.Draw(annotated)
     font = ImageFont.load_default()
-    for block in layout:
-        label = f"{block.type} {block.score:.2f}"
+    for i, block in enumerate(layout):
+        # Index matches this block's position in the JSON "regions" list, so
+        # a box spotted here can be looked up directly in the JSON output.
+        label = f"#{i} {block.type} {block.score:.2f}"
         x, y = block.block.x_1, block.block.y_1
         text_bbox = draw.textbbox((x, y), label, font=font)
         draw.rectangle(text_bbox, fill="yellow")

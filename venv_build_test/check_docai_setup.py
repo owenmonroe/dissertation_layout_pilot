@@ -127,7 +127,7 @@ def save_annotated_image(image_path: Path, document: documentai.Document, out_pa
     n_drawn = 0
     # Only page 1 is drawn -- this script rasterizes a single page for the
     # annotation overlay, matching the one-page sanity-test scope.
-    for block in document.pages[0].blocks:
+    for i, block in enumerate(document.pages[0].blocks):
         bbox = block_bbox(block.layout)
         if bbox is None:
             continue
@@ -135,6 +135,12 @@ def save_annotated_image(image_path: Path, document: documentai.Document, out_pa
         draw.rectangle(
             [x1 * width, y1 * height, x2 * width, y2 * height], outline="red", width=5
         )
+        # Index matches this block's position in pages[0].blocks in the JSON,
+        # so a box spotted here can be looked up directly in the JSON output.
+        label = f"#{i}"
+        text_bbox = draw.textbbox((x1 * width, y1 * height), label)
+        draw.rectangle(text_bbox, fill="yellow")
+        draw.text((x1 * width, y1 * height), label, fill="red")
         n_drawn += 1
 
     image.save(out_path)

@@ -71,7 +71,19 @@ def print_layout(name: str, result, conf_thresh: float) -> None:
 def save_annotated_image(result, out_path: Path) -> None:
     # result.plot() returns a BGR numpy array (despite the pil=True flag name
     # in some doclayout-yolo versions), so this is saved with cv2, not PIL.
-    annotated = result.plot(pil=True, line_width=5, font_size=20)
+    # result.plot() returns a read-only array; copy it before drawing on top.
+    annotated = result.plot(pil=True, line_width=5, font_size=20).copy()
+
+    # Index matches this box's position in the JSON "regions" list, so a box
+    # spotted here can be looked up directly in the JSON output. Drawn in
+    # magenta to stand out from YOLO's own type/confidence labels.
+    for i, box in enumerate(result.boxes):
+        x1, y1 = int(box.xyxy[0][0]), int(box.xyxy[0][1])
+        cv2.putText(
+            annotated, f"#{i}", (x1, max(y1 - 10, 0)),
+            cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 0, 255), 3,
+        )
+
     cv2.imwrite(str(out_path), annotated)
     print(f"  -> wrote {out_path}")
 

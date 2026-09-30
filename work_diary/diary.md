@@ -58,7 +58,26 @@
 **Next steps plan:** take just the first 3 pages from each magazine --
 1. Hand-develop a "perfect" chunking with labels (gold standard) for those pages.
 2. Count false positives / blocking issues from each of the three models against
-   that gold standard.
+   that gold standard, using a shared error taxonomy so counts are comparable
+   across models:
+   - **Merge** -- one box contains multiple logical units (e.g. Google merging a
+     filler item into the preceding article)
+   - **Split** -- one logical unit fragmented across multiple boxes (e.g. YOLO
+     splitting a single article into per-paragraph boxes)
+   - **Under-coverage** -- box doesn't fully reach the region, cuts off text
+     (e.g. Prima's boxes falling short of the full column/paragraph)
+   - **Misplacement** -- box crosses columns oddly or spans unrelated content
+     (e.g. Google's boxes stretching awkwardly across columns)
+   - **Missed region** -- no box at all where one should be (e.g. Google not
+     boxing images/illustrations at all)
+   - **Mislabel** -- right box, wrong category (e.g. YOLO reading an epigraph
+     or block quote as a title)
 3. Run OCR extraction from each model's boxes, attempt a stitching algorithm.
 4. Evaluate text errors across articles by comparing against the original text
    directly (manual read-through, not just automated metrics).
+
+- Added a `#N` index label to every box in all three models' annotated output
+  images, so a box spotted visually can be looked up directly in that page's
+  JSON (see `documentation/box_index_ordering.md`) -- and set up
+  `evaluation/error_log_template.csv` to log errors against the taxonomy above
+  during the hand-annotation pass.
