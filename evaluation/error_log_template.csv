@@ -1,2 +1,175 @@
 magazine,page,model,block_index,error_type,notes
 penny,3,google,9,merge,"FAIR PLAY merged with Changes of Manners + Animal Sagacity into one box"
+chambers,1,google,0,good abandon,
+chambers,1,google,1,good abandon,
+chambers,1,google,2,split,"masthead image"
+chambers,1,google,3,split; merge,"masthead image and author text"
+chambers,1,google,4,good,
+chambers,1,google,5,good,
+chambers,1,google,6,good,
+chambers,1,google,7,good,
+chambers,1,google,8,misplacement,"title error"
+chambers,1,google,9,split,"title error"
+chambers,1,google,10,good,
+chambers,1,google,11,split,"caused by title error misplacement"
+chambers,1,google,12,missed region,"caused by title error misplacement"
+chambers,1,google,13,good abandon,
+chambers,1,google,14,good abandon,
+chambers,1,google,15,good abandon,
+chambers,1,google,16,good abandon,
+chambers,1,prima,0,split; missed region,
+chambers,1,prima,1,split,
+chambers,1,prima,2,split; missed region,
+chambers,1,prima,3,split,
+chambers,1,prima,4,good,
+chambers,1,prima,4,under-coverage,"masthead author, edition, date and price text not covered"
+chambers,1,prima,5,good abandon,
+chambers,1,prima,6,good abandon,
+chambers,1,prima,7,misplacement,"strange extra textbox"
+chambers,1,prima,8,split,"quote cut out"
+chambers,1,prima,9,missed region,"missing very top of column"
+chambers,1,prima,10,good,"title"
+chambers,1,prima,11,good abandon,
+chambers,1,yolo,0,split,"cut on indent and quote"
+chambers,1,yolo,1,split,"cut on indent and quote"
+chambers,1,yolo,2,split,"cut on indent"
+chambers,1,yolo,3,split,"cut on indent"
+chambers,1,yolo,4,good,
+chambers,1,yolo,5,split; mislabel,"quote taken out and picked up on as title"
+chambers,1,yolo,6,good,"masthead price labeled as title"
+chambers,1,yolo,7,good,"doubled on 12"
+chambers,1,yolo,8,good abandon,
+chambers,1,yolo,9,good,"masthead author line"
+chambers,1,yolo,10,good,"masthead edition"
+chambers,1,yolo,11,good,"masthead issue, doubled on 19"
+chambers,1,yolo,12,good,"double of 7"
+chambers,1,yolo,13,good abandon,"doubled on 15"
+chambers,1,yolo,14,good,"masthead date"
+chambers,1,yolo,15,good abandon,"double of 13"
+chambers,1,yolo,16,good,"masthead image"
+chambers,1,yolo,17,split,"quote seen as text, double of 5"
+chambers,1,yolo,18,good abandon,
+chambers,1,yolo,19,good,"masthead issue, double of 11"
+chambers,2,google,0,good abandon,"page number in header"
+chambers,2,google,1,split,"cut on indent"
+chambers,2,google,2,split,"odd cut out of last line before indent"
+chambers,2,google,3,split,"cut on indent and along random line"
+chambers,2,google,4,good abandon,"header title"
+chambers,2,google,5,split,"cut from random line in column"
+chambers,2,google,6,good,"includes byline William Chambers"
+chambers,2,google,7,good,"byline with place, date, author included in above"
+chambers,2,google,8,good,"title"
+chambers,2,google,9,split,"cut off at random line"
+chambers,2,google,10,misplacement,"random box"
+chambers,2,google,11,split,"random cut off on top"
+chambers,2,google,12,split,"cut last line before indent"
+chambers,2,google,13,split,"cut off top last line before indent"
+chambers,2,google,14,good abandon,
+chambers,2,google,15,good abandon,
+chambers,2,google,16,good abandon,
+chambers,2,prima,0,split; missed region,"split at indent, missing a top line"
+chambers,2,prima,1,split; missed region,"split at indent, missing a top line"
+chambers,2,prima,2,split; missed region,"split at indent, missing a top line"
+chambers,2,prima,3,split; missed region,"split at indent, missing a top line"
+chambers,2,prima,3,under-coverage,"title missed"
+chambers,2,prima,4,split,"split at indents, cut bottom line"
+chambers,2,prima,5,good,"missing by line"
+chambers,2,prima,5,under-coverage,"author, place, date byline missed"
+chambers,2,prima,6,split,"cut off top"
+chambers,2,prima,7,good abandon,
+chambers,2,prima,8,split,"overlapping 6 and 2, cutting top and bottom of column"
+chambers,2,prima,9,split,"cut at indent off top of line or bottom of paragraph"
+chambers,2,prima,10,good abandon,
+chambers,2,prima,11,split,"overlap with 9, cut at indent"
+chambers,2,prima,12,good,"separator line before title"
+chambers,2,prima,13,good abandon,"header title"
+chambers,2,yolo,0,split,"cut along indent"
+chambers,2,yolo,1,split,"cut at indents"
+chambers,2,yolo,2,good,"does not include byline which is good"
+chambers,2,yolo,3,split,"cut at indent"
+chambers,2,yolo,4,split,"cut on indent"
+chambers,2,yolo,5,split,"cut on indent"
+chambers,2,yolo,6,split,"cut on indent"
+chambers,2,yolo,7,split,"cut on indent"
+chambers,2,yolo,8,good,"by line author william chambers"
+chambers,2,yolo,9,good,"byline place, date"
+chambers,2,yolo,10,good abandon,
+chambers,2,yolo,11,good abandon,"page number header"
+chambers,2,yolo,12,good abandon,"header title"
+chambers,2,yolo,13,mislabel; split,"split at indent, text not title, doubled on 21"
+chambers,2,yolo,14,good,"title"
+chambers,2,yolo,15,misplacement abandon,
+chambers,2,yolo,16,good,"byline author, duplicate of 8"
+chambers,2,yolo,17,good abandon,
+chambers,2,yolo,18,good abandon,
+chambers,2,yolo,19,good,"title, double of 14"
+chambers,2,yolo,20,good abandon,
+chambers,2,yolo,21,split,"cut at indent, double of 13"
+chambers,3,google,0,good abandon,"title header"
+chambers,3,google,1,misplacement,"top line stretching across columns"
+chambers,3,google,2,missed region,"missing top line, cut from misplacement on 1"
+chambers,3,google,3,missed region,"missing top line, cut from misplacement on 1"
+chambers,3,google,4,good,"title"
+chambers,3,google,5,split,"only top part of column"
+chambers,3,google,6,split,"cut on indent"
+chambers,3,google,7,good abandon,"page number header"
+chambers,3,google,8,split,"cut on indent and not full column or paragraph"
+chambers,3,google,9,split,"cut on indent and missing top of column and paragraph"
+chambers,3,google,10,misplacement,"stretching across columns"
+chambers,3,google,11,split,"cut on indent, missing top of column paragraph"
+chambers,3,google,12,misplacement,"random few word box"
+chambers,3,google,13,misplacement,"random word box"
+chambers,3,google,14,split,"cut on top indent"
+chambers,3,google,15,misplacement,"random words box"
+chambers,3,google,16,split,"cut off top of column, overlap of 14"
+chambers,3,google,17,split,"cut on top indent, not full column paragraph"
+chambers,3,google,18,split,"not full column or paragraph"
+chambers,3,google,19,good abandon,
+chambers,3,google,20,good abandon,
+chambers,3,google,21,good abandon,
+chambers,3,google,22,good abandon,
+chambers,3,prima,0,split,"cut at indent"
+chambers,3,prima,1,split,"split at indent"
+chambers,3,prima,2,good abandon,
+chambers,3,prima,3,split,"cut at indent, not filling capturing full column, paragraph"
+chambers,3,prima,4,split; missed region,"not including top of column, leaves off sides of column overlap of 1 and 11"
+chambers,3,prima,5,split,"cut at indent, not including top of paragraph and column"
+chambers,3,prima,6,split; missed region,"not including bottom of paragraph and column"
+chambers,3,prima,7,split,"cut at indents"
+chambers,3,prima,8,split,"cut at indents, some side of column clipped"
+chambers,3,prima,8,under-coverage,"top of column missed"
+chambers,3,prima,9,split; missed region,"bottom of column and paragraph missed"
+chambers,3,prima,10,split,"split at indent"
+chambers,3,prima,11,split,"not cut at indent, missing top of column and bottom of paragraph and column"
+chambers,3,prima,12,good abandon,
+chambers,3,prima,13,split,"cut at indent, missing top and bottom of column"
+chambers,3,prima,14,good abandon,
+chambers,3,prima,15,split,"cut at indents, missing top and bottom of column"
+chambers,3,prima,16,good abandon,
+chambers,3,prima,17,split; missed region,"cut at indent, missing top of column"
+chambers,3,prima,17,under-coverage,"title missed"
+chambers,3,yolo,0,split,"cut at indent not full column"
+chambers,3,yolo,1,split,"cut at indents, not full column"
+chambers,3,yolo,2,split,"cut at indents, not full column"
+chambers,3,yolo,3,split,"cut at indents, not full column"
+chambers,3,yolo,4,split,"cut at indents, not full column"
+chambers,3,yolo,5,split,"cut at indents, not full column"
+chambers,3,yolo,6,split,"cut at indents, not full column"
+chambers,3,yolo,7,split,"cut at indents, not full column"
+chambers,3,yolo,8,split,"cut at indents, not full column"
+chambers,3,yolo,9,split,"cut at indents, not full column"
+chambers,3,yolo,10,split,"cut at indents, not full column"
+chambers,3,yolo,11,split,"cut at indents, not full column"
+chambers,3,yolo,12,split,"cut at indents, not full column"
+chambers,3,yolo,13,split,"cut at indents, not full column"
+chambers,3,yolo,14,split,"interesting asterisk footnote, cut at indents, not full column"
+chambers,3,yolo,15,good abandon,"header page number"
+chambers,3,yolo,16,good abandon,
+chambers,3,yolo,17,good,"title"
+chambers,3,yolo,18,split,"cut at indents, not top of column or paragraph"
+chambers,3,yolo,19,split,"cut, not full paragraph or column doubled on 20"
+chambers,3,yolo,20,split,"cut, not full paragraph or column double of 19"
+chambers,3,yolo,21,good abandon,"title header"
+chambers,3,yolo,22,misplacement abandon,"upper margin space"
+chambers,3,yolo,23,good abandon,
+chambers,3,yolo,24,good abandon,
