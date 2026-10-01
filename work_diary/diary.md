@@ -81,3 +81,48 @@
   JSON (see `documentation/box_index_ordering.md`) -- and set up
   `evaluation/error_log_template.csv` to log errors against the taxonomy above
   during the hand-annotation pass.
+
+## 2026-09-30
+
+- Copied the 9 evaluated page rasters (first 3 pages per magazine) into
+  `evaluation/groundtruth_texts/` as `<mag>_page_NNN_groundtruth.png`, as working
+  copies for building the gold-standard chunking.
+- Started filling in `evaluation/error_log_template.csv` box-by-box, working
+  interactively with Claude Code: Claude prompts magazine / page / model / box `#N`,
+  I give a verdict, then a note (or `0` for none), and Claude appends the row.
+  Order: magazine (chambers -> penny -> saturday), page 1-3, model
+  (Google -> PrimaLayout -> DocLayout-YOLO).
+- Verdicts are the error taxonomy (merge, split, under-coverage, misplacement,
+  missed region, mislabel) plus **good** and **good abandon** (correct box around page
+  furniture) so correct vs incorrect boxes can be counted, not just errors. Also
+  used **misplacement abandon** for misplaced boxes around furniture / empty margin.
+- Conventions settled along the way: several errors decided together on one box go
+  in one row joined with `; ` (e.g. `split; missed region`, ordered consistently
+  so `split; mislabel` is always written that way); an error noticed later for an
+  already-logged box gets a second row for the same index (mostly under-coverage of
+  titles / bylines / masthead text); notes record what the box covers (masthead,
+  byline, header title, page number) and how it fails (e.g. "cut at indent", "not
+  full column").
+- Found the PrimaLayout / YOLO `#N` labels unreadable in places: masthead boxes at
+  the top edge had labels drawn off-image, and stacked labels on duplicate boxes.
+  Wrote `evaluation/draw_eval_boxes.py` to paste larger `#N` tags onto the
+  untouched model output images (boxes kept exactly as the models output them;
+  near-identical boxes share one tag, e.g. `#7 | #12`). Indexes unchanged.
+- Found DocLayout-YOLO emits duplicate boxes: its YOLOv10 post-processing ranks
+  every (box, class) pair, so one region can be kept as both plain text and title,
+  and with no NMS near-identical boxes both survive the 0.2 threshold. Logged each
+  copy separately with "doubled on X" / "double of X" notes so results can be
+  reported with and without duplicates.
+- Caught a few misreads along the way (wrong box read under overlapping labels, a
+  non-existent index logged, a mislabel attributed to the wrong copy of a
+  duplicate) and corrected the rows -- checking box coordinates in the JSON when a
+  tag is ambiguous.
+- Patterns so far (chambers): splitting at paragraph indents is by far the most
+  common error across all three models; Google also draws misplaced boxes
+  stretching across columns and small random word boxes; PrimaLayout's boxes often
+  miss the top/bottom of a column and skip titles/bylines; YOLO is consistently
+  correct on page furniture and masthead parts but splits columns at every indent.
+- Finished all 9 chambers page/model combinations (168 boxes, every index checked
+  against the JSON). Penny and saturday still to do -- resume at penny p1 Google
+  box 0. Documented the process in
+  `documentation/evaluation_error_log_documentation.md`.

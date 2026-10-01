@@ -33,3 +33,7 @@ intuitive on some pages and not others.
 reflects reading order for any of the three models. Always confirm position
 from the bounding box coordinates (or the drawn box itself), not from where
 a box falls in the list.
+
+**Readable tags for evaluation:** the PrimaLayout / DocLayout-YOLO eval images
+in `evaluation/output_eval/` add a larger copy of each `#N` on top of these
+labels (same indexes) — see `documentation/evaluation_error_log_documentation.md`.

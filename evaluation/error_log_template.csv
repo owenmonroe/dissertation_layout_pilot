@@ -96,7 +96,7 @@ chambers,2,yolo,9,good,"byline place, date"
 chambers,2,yolo,10,good abandon,
 chambers,2,yolo,11,good abandon,"page number header"
 chambers,2,yolo,12,good abandon,"header title"
-chambers,2,yolo,13,mislabel; split,"split at indent, text not title, doubled on 21"
+chambers,2,yolo,13,split; mislabel,"split at indent, text not title, doubled on 21"
 chambers,2,yolo,14,good,"title"
 chambers,2,yolo,15,misplacement abandon,
 chambers,2,yolo,16,good,"byline author, duplicate of 8"
