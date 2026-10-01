@@ -1,18 +1,17 @@
 magazine,page,model,block_index,error_type,notes
-penny,3,google,9,merge,"FAIR PLAY merged with Changes of Manners + Animal Sagacity into one box"
 chambers,1,google,0,good abandon,
 chambers,1,google,1,good abandon,
-chambers,1,google,2,split,"masthead image"
-chambers,1,google,3,split; merge,"masthead image and author text"
+chambers,1,google,2,split,masthead image
+chambers,1,google,3,split; merge,masthead image and author text
 chambers,1,google,4,good,
 chambers,1,google,5,good,
 chambers,1,google,6,good,
 chambers,1,google,7,good,
-chambers,1,google,8,misplacement,"title error"
-chambers,1,google,9,split,"title error"
+chambers,1,google,8,misplacement,title error
+chambers,1,google,9,split,title error
 chambers,1,google,10,good,
-chambers,1,google,11,split,"caused by title error misplacement"
-chambers,1,google,12,missed region,"caused by title error misplacement"
+chambers,1,google,11,split,caused by title error misplacement
+chambers,1,google,12,missed region,caused by title error misplacement
 chambers,1,google,13,good abandon,
 chambers,1,google,14,good abandon,
 chambers,1,google,15,good abandon,
@@ -25,45 +24,45 @@ chambers,1,prima,4,good,
 chambers,1,prima,4,under-coverage,"masthead author, edition, date and price text not covered"
 chambers,1,prima,5,good abandon,
 chambers,1,prima,6,good abandon,
-chambers,1,prima,7,misplacement,"strange extra textbox"
-chambers,1,prima,8,split,"quote cut out"
-chambers,1,prima,9,missed region,"missing very top of column"
-chambers,1,prima,10,good,"title"
+chambers,1,prima,7,misplacement,strange extra textbox
+chambers,1,prima,8,split,quote cut out
+chambers,1,prima,9,missed region,missing very top of column
+chambers,1,prima,10,good,title
 chambers,1,prima,11,good abandon,
-chambers,1,yolo,0,split,"cut on indent and quote"
-chambers,1,yolo,1,split,"cut on indent and quote"
-chambers,1,yolo,2,split,"cut on indent"
-chambers,1,yolo,3,split,"cut on indent"
+chambers,1,yolo,0,split,cut on indent and quote
+chambers,1,yolo,1,split,cut on indent and quote
+chambers,1,yolo,2,split,cut on indent
+chambers,1,yolo,3,split,cut on indent
 chambers,1,yolo,4,good,
-chambers,1,yolo,5,split; mislabel,"quote taken out and picked up on as title"
-chambers,1,yolo,6,good,"masthead price labeled as title"
-chambers,1,yolo,7,good,"doubled on 12"
+chambers,1,yolo,5,split; mislabel,quote taken out and picked up on as title
+chambers,1,yolo,6,good,masthead price labeled as title
+chambers,1,yolo,7,good,doubled on 12
 chambers,1,yolo,8,good abandon,
-chambers,1,yolo,9,good,"masthead author line"
-chambers,1,yolo,10,good,"masthead edition"
+chambers,1,yolo,9,good,masthead author line
+chambers,1,yolo,10,good,masthead edition
 chambers,1,yolo,11,good,"masthead issue, doubled on 19"
-chambers,1,yolo,12,good,"double of 7"
-chambers,1,yolo,13,good abandon,"doubled on 15"
-chambers,1,yolo,14,good,"masthead date"
-chambers,1,yolo,15,good abandon,"double of 13"
-chambers,1,yolo,16,good,"masthead image"
+chambers,1,yolo,12,good,double of 7
+chambers,1,yolo,13,good abandon,doubled on 15
+chambers,1,yolo,14,good,masthead date
+chambers,1,yolo,15,good abandon,double of 13
+chambers,1,yolo,16,good,masthead image
 chambers,1,yolo,17,split,"quote seen as text, double of 5"
 chambers,1,yolo,18,good abandon,
 chambers,1,yolo,19,good,"masthead issue, double of 11"
-chambers,2,google,0,good abandon,"page number in header"
-chambers,2,google,1,split,"cut on indent"
-chambers,2,google,2,split,"odd cut out of last line before indent"
-chambers,2,google,3,split,"cut on indent and along random line"
-chambers,2,google,4,good abandon,"header title"
-chambers,2,google,5,split,"cut from random line in column"
-chambers,2,google,6,good,"includes byline William Chambers"
+chambers,2,google,0,good abandon,page number in header
+chambers,2,google,1,split,cut on indent
+chambers,2,google,2,split,odd cut out of last line before indent
+chambers,2,google,3,split,cut on indent and along random line
+chambers,2,google,4,good abandon,header title
+chambers,2,google,5,split,cut from random line in column
+chambers,2,google,6,good,includes byline William Chambers
 chambers,2,google,7,good,"byline with place, date, author included in above"
-chambers,2,google,8,good,"title"
-chambers,2,google,9,split,"cut off at random line"
-chambers,2,google,10,misplacement,"random box"
-chambers,2,google,11,split,"random cut off on top"
-chambers,2,google,12,split,"cut last line before indent"
-chambers,2,google,13,split,"cut off top last line before indent"
+chambers,2,google,8,good,title
+chambers,2,google,9,split,cut off at random line
+chambers,2,google,10,misplacement,random box
+chambers,2,google,11,split,random cut off on top
+chambers,2,google,12,split,cut last line before indent
+chambers,2,google,13,split,cut off top last line before indent
 chambers,2,google,14,good abandon,
 chambers,2,google,15,good abandon,
 chambers,2,google,16,good abandon,
@@ -71,33 +70,33 @@ chambers,2,prima,0,split; missed region,"split at indent, missing a top line"
 chambers,2,prima,1,split; missed region,"split at indent, missing a top line"
 chambers,2,prima,2,split; missed region,"split at indent, missing a top line"
 chambers,2,prima,3,split; missed region,"split at indent, missing a top line"
-chambers,2,prima,3,under-coverage,"title missed"
+chambers,2,prima,3,under-coverage,title missed
 chambers,2,prima,4,split,"split at indents, cut bottom line"
-chambers,2,prima,5,good,"missing by line"
+chambers,2,prima,5,good,missing by line
 chambers,2,prima,5,under-coverage,"author, place, date byline missed"
-chambers,2,prima,6,split,"cut off top"
+chambers,2,prima,6,split,cut off top
 chambers,2,prima,7,good abandon,
 chambers,2,prima,8,split,"overlapping 6 and 2, cutting top and bottom of column"
-chambers,2,prima,9,split,"cut at indent off top of line or bottom of paragraph"
+chambers,2,prima,9,split,cut at indent off top of line or bottom of paragraph
 chambers,2,prima,10,good abandon,
 chambers,2,prima,11,split,"overlap with 9, cut at indent"
-chambers,2,prima,12,good,"separator line before title"
-chambers,2,prima,13,good abandon,"header title"
-chambers,2,yolo,0,split,"cut along indent"
-chambers,2,yolo,1,split,"cut at indents"
-chambers,2,yolo,2,good,"does not include byline which is good"
-chambers,2,yolo,3,split,"cut at indent"
-chambers,2,yolo,4,split,"cut on indent"
-chambers,2,yolo,5,split,"cut on indent"
-chambers,2,yolo,6,split,"cut on indent"
-chambers,2,yolo,7,split,"cut on indent"
-chambers,2,yolo,8,good,"by line author william chambers"
+chambers,2,prima,12,good,separator line before title
+chambers,2,prima,13,good abandon,header title
+chambers,2,yolo,0,split,cut along indent
+chambers,2,yolo,1,split,cut at indents
+chambers,2,yolo,2,good,does not include byline which is good
+chambers,2,yolo,3,split,cut at indent
+chambers,2,yolo,4,split,cut on indent
+chambers,2,yolo,5,split,cut on indent
+chambers,2,yolo,6,split,cut on indent
+chambers,2,yolo,7,split,cut on indent
+chambers,2,yolo,8,good,by line author william chambers
 chambers,2,yolo,9,good,"byline place, date"
 chambers,2,yolo,10,good abandon,
-chambers,2,yolo,11,good abandon,"page number header"
-chambers,2,yolo,12,good abandon,"header title"
+chambers,2,yolo,11,good abandon,page number header
+chambers,2,yolo,12,good abandon,header title
 chambers,2,yolo,13,split; mislabel,"split at indent, text not title, doubled on 21"
-chambers,2,yolo,14,good,"title"
+chambers,2,yolo,14,good,title
 chambers,2,yolo,15,misplacement abandon,
 chambers,2,yolo,16,good,"byline author, duplicate of 8"
 chambers,2,yolo,17,good abandon,
@@ -105,41 +104,41 @@ chambers,2,yolo,18,good abandon,
 chambers,2,yolo,19,good,"title, double of 14"
 chambers,2,yolo,20,good abandon,
 chambers,2,yolo,21,split,"cut at indent, double of 13"
-chambers,3,google,0,good abandon,"title header"
-chambers,3,google,1,misplacement,"top line stretching across columns"
+chambers,3,google,0,good abandon,title header
+chambers,3,google,1,misplacement,top line stretching across columns
 chambers,3,google,2,missed region,"missing top line, cut from misplacement on 1"
 chambers,3,google,3,missed region,"missing top line, cut from misplacement on 1"
-chambers,3,google,4,good,"title"
-chambers,3,google,5,split,"only top part of column"
-chambers,3,google,6,split,"cut on indent"
-chambers,3,google,7,good abandon,"page number header"
-chambers,3,google,8,split,"cut on indent and not full column or paragraph"
-chambers,3,google,9,split,"cut on indent and missing top of column and paragraph"
-chambers,3,google,10,misplacement,"stretching across columns"
+chambers,3,google,4,good,title
+chambers,3,google,5,split,only top part of column
+chambers,3,google,6,split,cut on indent
+chambers,3,google,7,good abandon,page number header
+chambers,3,google,8,split,cut on indent and not full column or paragraph
+chambers,3,google,9,split,cut on indent and missing top of column and paragraph
+chambers,3,google,10,misplacement,stretching across columns
 chambers,3,google,11,split,"cut on indent, missing top of column paragraph"
-chambers,3,google,12,misplacement,"random few word box"
-chambers,3,google,13,misplacement,"random word box"
-chambers,3,google,14,split,"cut on top indent"
-chambers,3,google,15,misplacement,"random words box"
+chambers,3,google,12,misplacement,random few word box
+chambers,3,google,13,misplacement,random word box
+chambers,3,google,14,split,cut on top indent
+chambers,3,google,15,misplacement,random words box
 chambers,3,google,16,split,"cut off top of column, overlap of 14"
 chambers,3,google,17,split,"cut on top indent, not full column paragraph"
-chambers,3,google,18,split,"not full column or paragraph"
+chambers,3,google,18,split,not full column or paragraph
 chambers,3,google,19,good abandon,
 chambers,3,google,20,good abandon,
 chambers,3,google,21,good abandon,
 chambers,3,google,22,good abandon,
-chambers,3,prima,0,split,"cut at indent"
-chambers,3,prima,1,split,"split at indent"
+chambers,3,prima,0,split,cut at indent
+chambers,3,prima,1,split,split at indent
 chambers,3,prima,2,good abandon,
 chambers,3,prima,3,split,"cut at indent, not filling capturing full column, paragraph"
 chambers,3,prima,4,split; missed region,"not including top of column, leaves off sides of column overlap of 1 and 11"
 chambers,3,prima,5,split,"cut at indent, not including top of paragraph and column"
-chambers,3,prima,6,split; missed region,"not including bottom of paragraph and column"
-chambers,3,prima,7,split,"cut at indents"
+chambers,3,prima,6,split; missed region,not including bottom of paragraph and column
+chambers,3,prima,7,split,cut at indents
 chambers,3,prima,8,split,"cut at indents, some side of column clipped"
-chambers,3,prima,8,under-coverage,"top of column missed"
-chambers,3,prima,9,split; missed region,"bottom of column and paragraph missed"
-chambers,3,prima,10,split,"split at indent"
+chambers,3,prima,8,under-coverage,top of column missed
+chambers,3,prima,9,split; missed region,bottom of column and paragraph missed
+chambers,3,prima,10,split,split at indent
 chambers,3,prima,11,split,"not cut at indent, missing top of column and bottom of paragraph and column"
 chambers,3,prima,12,good abandon,
 chambers,3,prima,13,split,"cut at indent, missing top and bottom of column"
@@ -147,8 +146,8 @@ chambers,3,prima,14,good abandon,
 chambers,3,prima,15,split,"cut at indents, missing top and bottom of column"
 chambers,3,prima,16,good abandon,
 chambers,3,prima,17,split; missed region,"cut at indent, missing top of column"
-chambers,3,prima,17,under-coverage,"title missed"
-chambers,3,yolo,0,split,"cut at indent not full column"
+chambers,3,prima,17,under-coverage,title missed
+chambers,3,yolo,0,split,cut at indent not full column
 chambers,3,yolo,1,split,"cut at indents, not full column"
 chambers,3,yolo,2,split,"cut at indents, not full column"
 chambers,3,yolo,3,split,"cut at indents, not full column"
@@ -163,13 +162,335 @@ chambers,3,yolo,11,split,"cut at indents, not full column"
 chambers,3,yolo,12,split,"cut at indents, not full column"
 chambers,3,yolo,13,split,"cut at indents, not full column"
 chambers,3,yolo,14,split,"interesting asterisk footnote, cut at indents, not full column"
-chambers,3,yolo,15,good abandon,"header page number"
+chambers,3,yolo,15,good abandon,header page number
 chambers,3,yolo,16,good abandon,
-chambers,3,yolo,17,good,"title"
+chambers,3,yolo,17,good,title
 chambers,3,yolo,18,split,"cut at indents, not top of column or paragraph"
 chambers,3,yolo,19,split,"cut, not full paragraph or column doubled on 20"
 chambers,3,yolo,20,split,"cut, not full paragraph or column double of 19"
-chambers,3,yolo,21,good abandon,"title header"
-chambers,3,yolo,22,misplacement abandon,"upper margin space"
+chambers,3,yolo,21,good abandon,title header
+chambers,3,yolo,22,misplacement abandon,upper margin space
 chambers,3,yolo,23,good abandon,
 chambers,3,yolo,24,good abandon,
+penny,1,google,0,good,big masthead title
+penny,1,google,1,good,issue number masthead
+penny,1,google,2,good,"masthead text ""of the"""
+penny,1,google,3,good,masthead text
+penny,1,google,4,good,masthead text
+penny,1,google,5,good,title
+penny,1,google,6,good,"text, slightly into next column due to tilted page"
+penny,1,google,7,good,masthead text date
+penny,1,google,8,good,
+penny,1,google,9,good,"include answer, takes left column a bit due to page tilt"
+penny,1,google,9,under-coverage,in column image not boxed
+penny,1,google,10,good abandon,page number
+penny,1,google,11,good abandon,
+penny,1,google,12,good abandon,
+penny,1,google,13,good abandon,
+penny,1,prima,0,split,cut at indent
+penny,1,prima,1,split,"cut at indent, not top column"
+penny,1,prima,2,split,cut at indents not whole article
+penny,1,prima,3,split,"cut at indent, not whole article"
+penny,1,prima,4,good abandon,
+penny,1,prima,5,split,cut at indent
+penny,1,prima,5,merge,title part of text box not separate box
+penny,1,prima,6,good abandon,
+penny,1,prima,7,good abandon,
+penny,1,prima,8,misplacement,text box stretch into left column
+penny,1,prima,9,good abandon,page number footer
+penny,1,prima,10,split; missed region,"cut at indent, missing top line of paragraph, but working under the image"
+penny,1,prima,11,good,image missing a bit of the bottom
+penny,1,prima,12,good,whole full masthead classified as image but ok
+penny,1,yolo,0,split,cut at indent not whole article column
+penny,1,yolo,1,split,cut at indent not whole article column
+penny,1,yolo,2,split,cut at indent not whole article column
+penny,1,yolo,3,split,cut at indent not whole article column
+penny,1,yolo,4,good,
+penny,1,yolo,5,split,cut at indent not whole article column
+penny,1,yolo,6,split,"cut at indent not whole article column, missed top of article aside the image"
+penny,1,yolo,7,split,"cut at indent and text below image, interesting key box aside image with indent leading to full column paragraph below"
+penny,1,yolo,8,good,title
+penny,1,yolo,9,good abandon,
+penny,1,yolo,10,good,title
+penny,1,yolo,11,good,"title, doubled on 17"
+penny,1,yolo,11,under-coverage,SDUK author masthead not covered
+penny,1,yolo,12,good,perfect image capture
+penny,1,yolo,13,good abandon,footer page number
+penny,1,yolo,14,good,masthead publisher
+penny,1,yolo,15,good abandon,
+penny,1,yolo,16,good,"masthead date, label text not title"
+penny,1,yolo,17,good,"masthead title, double of 11"
+penny,1,yolo,18,good abandon,
+penny,1,yolo,19,good,masthead issue number
+penny,1,yolo,20,good abandon,
+penny,2,google,0,good abandon,page number header
+penny,2,google,1,misplacement,odd box stretch across both columns top of page
+penny,2,google,2,split,end line of paragraph couple of words box
+penny,2,google,3,split,cut at indents
+penny,2,google,4,good,title
+penny,2,google,5,good,"excellent box, full article along column under title"
+penny,2,google,6,split; missed region,"cut at last line, missing top of column, perhaps due to misplacement of box 1"
+penny,2,google,7,split,odd box one word end of paragraph line
+penny,2,google,8,split,cut at indent
+penny,2,google,9,good abandon,
+penny,2,google,10,good abandon,
+penny,2,google,11,good abandon,
+penny,2,prima,0,good abandon,
+penny,2,prima,1,split,"cut at indent, end of column"
+penny,2,prima,2,split,cut at indent not full article column
+penny,2,prima,3,split,cut at indent and not full paragraph
+penny,2,prima,4,split,cut at indent seems to miss bottom of last line
+penny,2,prima,4,under-coverage,title missing not captured
+penny,2,prima,5,split,"cut at indents, not full article column"
+penny,2,prima,6,split,"cut at indent, not full article column, missing last line in paragraph"
+penny,2,prima,7,split,cut at indents not full article column
+penny,2,prima,8,good abandon,
+penny,2,prima,9,split; missed region,"cut at indent at bottom, not reaching side of column"
+penny,2,prima,10,good abandon,
+penny,2,prima,11,good abandon,
+penny,2,prima,12,misplacement,cut at indent and stretched into right column
+penny,2,yolo,0,split,split at indent not full article column
+penny,2,yolo,1,split,split at indent not full article column
+penny,2,yolo,2,split,split at indent not full article column
+penny,2,yolo,3,split,split at indent not full article column
+penny,2,yolo,4,split,split at indent not full article column
+penny,2,yolo,5,split,split at indent not full article column
+penny,2,yolo,6,split,split at indent not full article column
+penny,2,yolo,7,split,split at indent not full article column
+penny,2,yolo,8,good,title
+penny,2,yolo,9,good abandon,title header
+penny,2,yolo,10,split,"split at indent not full article column, doubled on 16"
+penny,2,yolo,11,good abandon,date header
+penny,2,yolo,12,good abandon,
+penny,2,yolo,13,good abandon,
+penny,2,yolo,14,good abandon,page number header
+penny,2,yolo,15,good abandon,
+penny,2,yolo,16,split,"split at indent not full article column, double of 10"
+penny,2,yolo,17,good abandon,
+penny,3,google,0,good abandon,header date
+penny,3,google,1,good,"perfect box, article captured within column before next title"
+penny,3,google,2,good,title
+penny,3,google,3,split,"cut with isolated quote, tough edge case here"
+penny,3,google,4,split,"cut of isolated quote, tough edge case here that looks like title"
+penny,3,google,5,split,"cut under isolated quote, tough edge case here"
+penny,3,google,6,good abandon,header page number
+penny,3,google,7,good,perfect box encompassing multiple paragraphs and box quote before title and separator
+penny,3,google,8,good,title
+penny,3,google,9,merge,"FAIR PLAY merged with Changes of Manners + Animal Sagacity into one box, filler paragraph articles combined and have separator line but not separated line title"
+penny,3,google,10,good abandon,page number footer
+penny,3,google,11,good abandon,
+penny,3,google,12,good abandon,
+penny,3,google,13,good abandon,
+penny,3,google,14,good abandon,
+penny,3,google,15,good abandon,
+penny,3,prima,0,split,cut at indent not full article column
+penny,3,prima,1,split,"cut at indent not full article column, below inline quote"
+penny,3,prima,2,good,seems to cut off bit of top and bottom line
+penny,3,prima,3,good,"perfect box, captured paragraph box"
+penny,3,prima,4,split,cut at indent not full article column
+penny,3,prima,5,good abandon,
+penny,3,prima,6,split,"cut at indent not full article column, above inline quote"
+penny,3,prima,6,under-coverage,title not captured
+penny,3,prima,7,split,cut at indent not full article column
+penny,3,prima,8,missed region,capturing paragraph filler article missing top line
+penny,3,prima,9,split,"cut at indent not full article column, seems to miss some of last line in paragraph"
+penny,3,prima,10,split,cut at indent not full article column
+penny,3,prima,10,under-coverage,"box quote and end of paragraph not covered at all, between boxes 13 and 10"
+penny,3,prima,11,split,"cut at indent not full article column, seems to miss a bit of last line"
+penny,3,prima,12,good abandon,
+penny,3,prima,13,split,"cut at indent not full article column, leaves out undercovered box quote and end of paragraph"
+penny,3,prima,14,good abandon,
+penny,3,prima,15,good,separator region line prior to title
+penny,3,prima,16,good abandon,
+penny,3,prima,17,good abandon,page number footer
+penny,3,yolo,0,split,cut at indent not full article column
+penny,3,yolo,1,good,perfect box capturing paragraph length article under title
+penny,3,yolo,2,split,cut at indents not full article column
+penny,3,yolo,3,split,"cut at indent not full article column, under inline quote"
+penny,3,yolo,4,split,cut at indents not full article column
+penny,3,yolo,5,split,cut at indents not full article column
+penny,3,yolo,6,good,perfect box for one paragraph length article
+penny,3,yolo,7,good,perfect box for one paragraph length article
+penny,3,yolo,8,split,cut at indent not full article column
+penny,3,yolo,9,split,cut at indent not full article column
+penny,3,yolo,10,split,cut at indent not full article column
+penny,3,yolo,11,split,"cut at indent not full article column, under box quote"
+penny,3,yolo,12,good,title
+penny,3,yolo,13,good,title
+penny,3,yolo,14,split,"cut at indent not full article column, appears above box quote"
+penny,3,yolo,15,split,captures box quote within article column
+penny,3,yolo,16,good abandon,page number header
+penny,3,yolo,17,good abandon,
+penny,3,yolo,18,good abandon,
+penny,3,yolo,19,good abandon,page number header
+penny,3,yolo,20,good abandon,
+penny,3,yolo,21,good abandon,"page number footer, double on 22"
+penny,3,yolo,22,good abandon,"page number footer, double of 21"
+penny,3,yolo,23,split,captured on sentence of box quote at sort of an indent
+penny,3,yolo,24,good abandon,
+saturday,1,google,0,misplacement,"box over image piece, image confusion"
+saturday,1,google,1,split,"splitting masthead text, combining with image"
+saturday,1,google,2,good,masthead date
+saturday,1,google,3,good,masthead issue number
+saturday,1,google,4,good,masthead date
+saturday,1,google,5,split,"side of masthead title image, 'saturday' and 'magazine' are split"
+saturday,1,google,5,under-coverage,"masthead image emblem not fully covered, image confusion"
+saturday,1,google,6,good,masthead price
+saturday,1,google,7,good,"perfect box, SPCK author line masthead"
+saturday,1,google,8,good,title
+saturday,1,google,9,misplacement,first line of article stretching across columns
+saturday,1,google,10,split,text cut by misplaced column stretching boxes
+saturday,1,google,11,split,text cut by misplaced column stretching boxes
+saturday,1,google,12,misplacement,box stretching across columns
+saturday,1,google,13,split,cut column box underneath misplaced box 12 stretched across columns
+saturday,1,google,14,split,cut column box underneath misplaced box 12 stretched across columns
+saturday,1,google,15,good abandon,page number footer
+saturday,1,google,16,good abandon,
+saturday,1,google,17,good abandon,
+saturday,1,google,18,good abandon,
+saturday,1,google,19,good abandon,
+saturday,1,prima,0,good,title
+saturday,1,prima,1,split,cut at indents not whole article column
+saturday,1,prima,2,split,cut at indents not whole article column
+saturday,1,prima,3,split,cut at indents not whole article column
+saturday,1,prima,4,split,cut at indents not whole article column
+saturday,1,prima,5,split,"cut at indents not whole article column, likely missing top line of paragraph"
+saturday,1,prima,6,split,cut at indents not whole article column
+saturday,1,prima,7,good abandon,
+saturday,1,prima,8,good,SPCK byline on masthead
+saturday,1,prima,9,good abandon,
+saturday,1,prima,10,good abandon,
+saturday,1,prima,11,good,masthead issue number
+saturday,1,prima,11,under-coverage,"masthead title, image, date, not covered"
+saturday,1,prima,12,good abandon,
+saturday,1,yolo,0,split,cut at indents not whole article column
+saturday,1,yolo,1,split,cut at indents not whole article column
+saturday,1,yolo,2,split,cut at indents not whole article column
+saturday,1,yolo,3,split,cut at indents not whole article column
+saturday,1,yolo,4,split,cut at indents not whole article column
+saturday,1,yolo,5,good,title
+saturday,1,yolo,6,good,masthead issue number
+saturday,1,yolo,7,good abandon,
+saturday,1,yolo,8,split,cut at indents not whole article column
+saturday,1,yolo,9,good,SPCK masthead byline
+saturday,1,yolo,10,good abandon,
+saturday,1,yolo,11,good,masthead price
+saturday,1,yolo,12,good abandon,
+saturday,1,yolo,13,good abandon,footer vol number
+saturday,1,yolo,14,mislabel,"masthead image title date price vol, could be ok as abandon"
+saturday,1,yolo,15,good abandon,footer page number
+saturday,1,yolo,16,missed region,"title, saturday cut from magazine by masthead image"
+saturday,1,yolo,17,good abandon,
+saturday,1,yolo,18,good abandon,
+saturday,2,google,0,good abandon,header page number
+saturday,2,google,1,good abandon,page header title
+saturday,2,google,2,good abandon,page header date
+saturday,2,google,3,misplacement,thin box stretching across two columns
+saturday,2,google,4,split,cut by thin misplaced boxes 3 and 6
+saturday,2,google,5,split,cut by thin misplaced boxes 3 and 6
+saturday,2,google,6,misplacement,thin box stretching across both columns
+saturday,2,google,7,split,cut by thin misplaced box 6
+saturday,2,google,8,split; merge,"split at indent, and merges title into box, rare indent cut for google"
+saturday,2,google,9,split,split at indents and cut by misplaced box 6
+saturday,2,google,10,misplacement,box stretch across both columns
+saturday,2,google,11,split,cut at indent capturing top line of a paragraph
+saturday,2,google,12,good abandon,
+saturday,2,google,13,good abandon,
+saturday,2,google,14,good abandon,
+saturday,2,google,15,good abandon,
+saturday,2,prima,0,split,"cut at indents, not full article column"
+saturday,2,prima,1,split,"cut at indents, not full article column"
+saturday,2,prima,2,split,"cut at indents, not full article column"
+saturday,2,prima,3,split,"cut at indents, not full article column"
+saturday,2,prima,4,split,"cut at indents, not full article column, missing bit of top line in paragraph"
+saturday,2,prima,5,split,"cut at indents, not full article column"
+saturday,2,prima,6,split; missed region,"cut at indents, not full article column, missing top line"
+saturday,2,prima,7,split,"cut at indents, not full article column"
+saturday,2,prima,8,split,"cut at indents, not full article column"
+saturday,2,prima,9,good,title
+saturday,2,prima,10,good abandon,header
+saturday,2,prima,11,good abandon,header date
+saturday,2,prima,12,good abandon,header title
+saturday,2,prima,13,good abandon,
+saturday,2,prima,14,good abandon,
+saturday,2,prima,15,good abandon,
+saturday,2,yolo,0,split,"cut at indents, not full article column"
+saturday,2,yolo,1,split,"cut at indents, not full article column"
+saturday,2,yolo,2,split,"cut at indents, not full article column"
+saturday,2,yolo,3,split,"cut at indents, not full article column"
+saturday,2,yolo,4,split,"cut at indents, not full article column"
+saturday,2,yolo,5,split,"cut at indents, not full article column"
+saturday,2,yolo,6,split,"cut at indents, not full article column"
+saturday,2,yolo,7,split,"cut at indents, not full article column"
+saturday,2,yolo,8,split,"cut at indents, not full article column"
+saturday,2,yolo,9,good abandon,header title
+saturday,2,yolo,10,good abandon,header date
+saturday,2,yolo,11,good abandon,
+saturday,2,yolo,12,good abandon,header page number
+saturday,2,yolo,13,good abandon,
+saturday,2,yolo,14,good abandon,
+saturday,2,yolo,15,good,title
+saturday,2,yolo,16,good abandon,
+saturday,3,google,0,good abandon,page header date
+saturday,3,google,1,good abandon,artefact from previous page of scanned volume
+saturday,3,google,2,good abandon,header title
+saturday,3,google,3,good abandon,header page number
+saturday,3,google,4,misplacement,thin box stretch across both columns
+saturday,3,google,5,split,cut by misplaced thin box 4 above
+saturday,3,google,6,merge,captures column article and title
+saturday,3,google,7,split,cut by thin misplaced box 4 above
+saturday,3,google,8,merge,captures poem article with title and the next title
+saturday,3,google,9,merge,captures poem article and byline
+saturday,3,google,10,merge,"combines two paragraph articles, montagu dedication and southey quote"
+saturday,3,google,11,good abandon,footer page number
+saturday,3,google,12,good abandon,
+saturday,3,google,13,good abandon,
+saturday,3,google,14,good abandon,
+saturday,3,google,15,good abandon,
+saturday,3,prima,0,split,"cut at indents, not full article column"
+saturday,3,prima,1,split,"cut at indents, not full article column, underneath line quote, cutting off bit of last line"
+saturday,3,prima,2,good,one paragraph article captured
+saturday,3,prima,3,good,captures poem one stanza poem article
+saturday,3,prima,4,split,"cut at indents, not full article column"
+saturday,3,prima,5,split,"cut at indents, not full article column"
+saturday,3,prima,6,good abandon,header page number
+saturday,3,prima,7,good abandon,
+saturday,3,prima,8,split,except for first line
+saturday,3,prima,9,good,"captures one paragraph article, might cut off bit of top line"
+saturday,3,prima,10,good,title
+saturday,3,prima,11,good,captures one paragraph end of article
+saturday,3,prima,12,good abandon,header title
+saturday,3,prima,13,good,article byline
+saturday,3,prima,14,good,title
+saturday,3,prima,15,good abandon,header page number
+saturday,3,prima,16,good abandon,
+saturday,3,prima,17,good abandon,
+saturday,3,prima,18,split,first sentence of poem article
+saturday,3,prima,19,split,first line of poem article
+saturday,3,prima,20,good,poem article byline
+saturday,3,prima,21,good,title
+saturday,3,prima,22,split,cut last line of poem article
+saturday,3,yolo,0,good,end of article paragraph captured
+saturday,3,yolo,1,good,"perfect box, one paragraph article captured"
+saturday,3,yolo,2,split,"cut at indents, not full article column"
+saturday,3,yolo,3,split,"cut at indents, not full article column, cut from inline quote"
+saturday,3,yolo,4,split,"cut at indents, not full article column, cut under inline quote"
+saturday,3,yolo,5,split,"cut at indents, not full article column"
+saturday,3,yolo,6,good,one paragraph poem article captured
+saturday,3,yolo,7,good,one paragraph poem article captured
+saturday,3,yolo,8,good abandon,header title
+saturday,3,yolo,9,good,title
+saturday,3,yolo,10,good,title
+saturday,3,yolo,11,good abandon,header page number
+saturday,3,yolo,12,good abandon,footer page number
+saturday,3,yolo,13,good abandon,
+saturday,3,yolo,14,good,poem article byline
+saturday,3,yolo,15,good abandon,header page number
+saturday,3,yolo,16,good,"perfect box, one paragraph article captured, doubled on 23"
+saturday,3,yolo,17,good,poem article byline
+saturday,3,yolo,18,good,title
+saturday,3,yolo,19,split,"cutout inline quote, tough edge case"
+saturday,3,yolo,20,good abandon,
+saturday,3,yolo,21,good abandon,
+saturday,3,yolo,22,good abandon,
+saturday,3,yolo,23,good,"perfect box, one paragraph article captured, double of 16"
