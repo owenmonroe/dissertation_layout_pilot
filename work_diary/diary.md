@@ -126,3 +126,46 @@
   against the JSON). Penny and saturday still to do -- resume at penny p1 Google
   box 0. Documented the process in
   `documentation/evaluation_error_log_documentation.md`.
+
+## 2026-10-01
+
+- **Indexing boxes:** cleaned up the eval images so every box can be identified.
+  `draw_eval_boxes.py` puts a large white `#N` tag on each PrimaLayout / YOLO box
+  (index = position in the JSON), and now also removes the pipeline's small
+  magenta `#N` labels from the YOLO pages. Those came from our own
+  `save_annotated_image`, not from YOLO, and doubled up with the white tags. Only
+  the magenta pixels are replaced; YOLO's boxes, labels and JSON are untouched.
+- **Error log:** finished penny and saturday by hand, then checked coverage against
+  the JSON: all 27 page/model combinations complete (495 rows, 482 boxes), no
+  missing or invalid indexes.
+- **Analysis:** built `evaluation/error_analysis.ipynb` (total errors, errors by
+  type, errors by magazine, per page, error causes from notes, content vs
+  furniture) plus a fragmentation check against my gold-standard boxes in
+  `evaluation/groundtruth_texts/`.
+
+**Key findings:**
+- % of boxes correct: Document AI 55.6%, YOLO 54.5%, PrimaLayout 41.4%. All three
+  box page furniture (headers, page numbers) almost perfectly, which inflates
+  these. On content boxes only: YOLO 35.6%, Document AI 30.9%, PrimaLayout 18.8%.
+- **Splitting is the dominant error** for every model (61% of Document AI's
+  errors, 73% of PrimaLayout's, 92% of YOLO's). The notes show why: ~150 split
+  errors mention indents and ~120 columns. The models segment at paragraph level,
+  while the unit I want is the whole article column.
+- **Fragmentation** (content boxes / gold boxes, all 9 pages): Document AI 1.54,
+  PrimaLayout 1.60, YOLO 2.10 (1.95 without duplicates). YOLO draws about 2 boxes
+  per true region.
+- **Chambers is the hardest magazine to box**: 0.68 errors per box vs 0.49 penny
+  and 0.45 saturday, and fragmentation 1.8-2.6 across models. Chambers p3 is the
+  worst page (5 gold content boxes; YOLO drew 19).
+- **YOLO tracks the page well but splits it:** almost no missed regions (1) or
+  misplacements (2). Its errors are nearly all splits stacked within the right
+  column, plus easy-to-remove duplicates, so merging boxes in post-processing
+  could recover a lot.
+- **PrimaLayout misses regions:** 15 missed regions and 9 under-coverage (column
+  tops/bottoms, titles, bylines). This is lost text, which merging can't fix.
+- **Document AI misplaces boxes:** 15 misplacements, boxes stretching across
+  columns, which then cut up neighbouring boxes (16 errors noted as caused by
+  another misplaced box). It also merges short filler items into articles
+  (saturday p3: 7 content boxes vs 13 gold).
+- Leaning towards YOLO plus a box-merging step for article extraction, rather than
+  picking the model with the fewest raw errors. Caveat: only 3 pages per magazine.

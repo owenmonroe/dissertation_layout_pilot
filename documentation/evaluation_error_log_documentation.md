@@ -11,16 +11,19 @@ counts are comparable across models.
 
 ## Files created
 
-- `evaluation/groundtruth_texts/` — copies of the 9 evaluated page rasters,
-  renamed `<mag>_page_<NNN>_groundtruth.png` (e.g.
-  `chambers_page_001_groundtruth.png`), copied unchanged from
-  `test_texts/images/<mag>_images/`. Working copies for building the
-  hand-made gold-standard chunking; the originals are left untouched.
+- `evaluation/groundtruth_texts/` — the hand-made gold standard: the 9
+  evaluated page rasters (`<mag>_page_<NNN>_groundtruth.png`, copied from
+  `test_texts/images/<mag>_images/`, originals untouched) with the ideal boxes
+  drawn on by hand, numbered and labelled (masthead image/text, title, text,
+  intro/outro byline, header/footer abandon). The boxes exist only as drawings,
+  so the analysis notebook uses box counts read off these images.
 - `evaluation/output_eval/<mag>_<model>_eval/` — one annotated image per
   page/model, viewed during the hand-evaluation (see below).
 - `evaluation/draw_eval_boxes.py` — adds readable box-index tags to the
-  PrimaLayout and DocLayout-YOLO eval images.
+  PrimaLayout and DocLayout-YOLO eval images (and strips the pipeline's magenta
+  labels from the YOLO ones).
 - `evaluation/error_log_template.csv` — the error log itself.
+- `evaluation/error_analysis.ipynb` — analysis of the error log (see below).
 
 ## Producing the eval images
 
@@ -137,21 +140,39 @@ checked against the JSON coordinates when a tag is ambiguous.
 
 ## Progress
 
-As of 2026-09-30:
+**Complete (2026-10-01).** All 27 page/model combinations are logged: 495 rows
+covering 482 boxes. Every box index in every page's JSON has at least one row
+(Google indexes = Document AI `pages[0].blocks`; PrimaLayout / YOLO = JSON
+`regions`), and no row points to an index that doesn't exist. 13 boxes have a
+second row (an error spotted later).
 
-- **Done:** all 9 chambers page/model combinations — 168 boxes, every index
-  checked against the JSON (no missing or extra indexes).
-- **Not started:** penny and saturday (18 page/model combinations). Resume at
-  penny p1 google box 0 (14 boxes).
+Final row counts: split 181, good abandon 150, good 101, misplacement 18,
+split; missed region 14, under-coverage 12, missed region 6, merge 6,
+split; merge 2, split; mislabel 2, misplacement abandon 2, mislabel 1.
 
-Chambers row counts so far: split 69, good abandon 42, good 30,
-split; missed region 10, misplacement 8, under-coverage 5, missed region 4,
-misplacement abandon 2, split; merge 1, split; mislabel 2.
+The template's original example row (`penny,3,google,9,merge`) was kept as a
+real verdict. Combined verdicts are written in a fixed order (`split; mislabel`,
+never `mislabel; split`) so they count together.
 
-### Known issues to resolve before analysis
+## Analysis notebook
 
-- The template's original example row (`penny,3,google,9,merge,...`) is still
-  in the CSV — confirm it as a real verdict or delete it before penny p3 google
-  is logged.
-- Combined verdicts are written in a fixed order (`split; mislabel`, not
-  `mislabel; split`) so they count together.
+`evaluation/error_analysis.ipynb` reads the error log and prints tables through
+small functions, each of which takes an optional `model=` and
+`drop_duplicates=True` (leaves out YOLO's second copies, notes `double of X`):
+
+- `total_errors()` — boxes, errors, incorrect boxes, errors per page and % of
+  boxes correct per model.
+- `errors_by_type()` — error type × model (counts, or `normalize=True` for %).
+- `errors_by_magazine(metric=...)` / `hardest_magazine()` — magazine × model, as
+  error counts, errors per box or % correct.
+- Extras: `errors_by_page()`, `errors_by_note_tag()` (counts error causes from
+  keywords in the notes, e.g. "indent", "column"), `content_vs_furniture()`.
+- Fragmentation: `boxes_per_page()` and `fragmentation()` compare model box
+  counts with the gold standard (`GOLD_BOXES`, counted from
+  `groundtruth_texts/`). Ratio = model boxes / gold boxes; above 1 means
+  over-segmentation, below 1 merging or missed regions.
+
+Counting rules: `good` and `good abandon` are correct; a combined verdict counts
+one error per part but one incorrect box; `misplacement abandon` counts as a
+misplacement. Run it from the repo root or `evaluation/` with any Python that
+has pandas (e.g. the anaconda base environment).
