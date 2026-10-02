@@ -43,10 +43,16 @@ output — no box is added, removed, moved or re-typed for evaluation.
   corner. Boxes whose corners are all within 10 px of each other share one tag
   (`#7 | #12`), tags are kept on the page, and overlapping tags are nudged
   down. The index is still the box's position in the JSON `regions` list, so it
-  matches the pipeline's original labels and the JSON. The pipeline's small
-  magenta labels are still visible underneath — only the white tags are new.
+  matches the pipeline's original labels and the JSON. On PrimaLayout pages the
+  pipeline's small magenta labels are still visible underneath. On YOLO pages
+  they are removed first (they come from our pipeline's `save_annotated_image`,
+  not from YOLO): only the magenta label pixels and their anti-aliased edges are
+  replaced, with what was underneath them (YOLO's own `result.plot()` rebuilt
+  from the JSON). Every other pixel — boxes, colours, YOLO's type/score labels —
+  is unchanged from the pipeline output, and `output/` and the JSON are untouched.
 
-To regenerate (system Python with Pillow is enough, no model venv needed):
+To regenerate (run with system Python, so the white tags render as before; the
+YOLO label-stripping step calls `venv_build_test/doclayoutyolo-env` itself):
 
 ```
 python evaluation/draw_eval_boxes.py
