@@ -14,6 +14,7 @@ images in evaluation/output_eval/<mag>_yolo_eval/.
 """
 
 import json
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -26,13 +27,30 @@ COLUMNS = {"penny": 2, "saturday": 2, "chambers": 3}
 OVERLAP_DROP = 0.8
 # A box spans columns when it covers at least this share of 2+ columns' width.
 SPAN_SHARE = 0.2
-# Issue-start pages have a spanning masthead box in this top share of the page.
-MASTHEAD_TOP = 0.12
-# Masthead ends at the first full paragraph (taller than this) ...
+# Issue-start pages carry masthead wording in this top share of the page ...
+ISSUE_MARK_TOP = 0.2
+ISSUE_MARKS = re.compile(
+    r"published every|(?-i:PRICE\W*(?:ON\s+)?(?:ONE|TWO|THREE|A)\b)|^\W*n[º°o]\.?\s*\d|under the direction"
+    r"|society for the diffusion", re.I)
+# ... or the magazine's name in large type (taller than this; the running
+# header with the same name is small and is YOLO furniture anyway).
+NAMES = {
+    "penny": re.compile(r"penny\s+magazine", re.I),
+    "saturday": re.compile(r"^\W*(?:the\s+)?saturday\W*$|^\W*magazine\W*$", re.I),
+    "chambers": re.compile(r"chambers|edinburgh\s+journal", re.I),
+}
+NAME_MIN_PX = 70
+# Masthead lines are short; a longer box near the top is article text.
+MASTHEAD_MAX_WORDS = 40
+# Masthead wording, for reading down the masthead.
+MASTHEAD_WORDS = re.compile(
+    ISSUE_MARKS.pattern + r"|\bprice\b|magazine|journal|saturday|society|committee|knowledge"
+    r"|january|february|march|april|may|june|july|august|september|october|november"
+    r"|december|\b1[78]\d\d\b", re.I)
+# A figure this near the top of an issue-start page is part of the masthead.
+MASTHEAD_FIGURE_TOP = 0.12
+# Masthead ends at the first full paragraph (taller than this).
 MIN_PARAGRAPH_PX = 120
-# ... or the first column title at least this share of a column wide (not a
-# tiny "[1.]" issue-number box).
-MIN_TITLE_SHARE = 0.25
 
 YOLO_ROLES = {
     "title": "title",
@@ -180,26 +198,33 @@ def column_of(pg: Page, x1: float, x2: float) -> int | None:
 def mark_masthead(pg: Page) -> None:
     """On an issue's first page, the boxes at the top before the first article.
 
-    An issue-start page has a spanning box near the top (the magazine's name).
-    Reading down from the top, boxes are masthead (name, society, "published
-    every Saturday", date, issue number) until the first thing that belongs to
-    an article: a column-width title, a figure, or a full paragraph of text.
+    Needs box text, so it runs after OCR. An issue starts on a page whose top
+    has masthead wording ("PUBLISHED EVERY SATURDAY", "PRICE ONE PENNY",
+    "Nº 1.") or the magazine's name in large type. Reading down from the top,
+    boxes are masthead while they hold masthead wording, short bits with no
+    real word ("OF THE", "1.]"), or a figure right at the top (a masthead
+    image), until the first title or text that belongs to an article (any
+    other title, or a full paragraph). A figure further down is the issue's
+    opening illustration: kept, and the walk carries on past it, since its
+    box can start above the last masthead line.
     """
     content = [r for r in pg.regions if r.role in CONTENT_ROLES]
-    pg.issue_start = any(
-        r.column is None and r.role in ("title", "text") and r.y1 < MASTHEAD_TOP * pg.height
-        for r in content
-    )
+    top = [r for r in content if r.y1 < ISSUE_MARK_TOP * pg.height
+           and len(r.text.split()) <= MASTHEAD_MAX_WORDS]
+    pg.issue_start = any(ISSUE_MARKS.search(r.text) for r in top) or any(
+        NAMES[pg.magazine].search(r.text) and r.y2 - r.y1 >= NAME_MIN_PX for r in top)
     if not pg.issue_start:
         return
     for r in sorted(content, key=lambda r: r.y1):
-        article_starts = (
-            (r.role == "title" and r.column is not None
-             and r.x2 - r.x1 >= MIN_TITLE_SHARE * column_width(pg))
-            or r.role == "figure"
-            or (r.role == "text" and r.y2 - r.y1 >= MIN_PARAGRAPH_PX)
-        )
-        if article_starts:
+        if r.role == "figure":
+            if r.y1 < MASTHEAD_FIGURE_TOP * pg.height:
+                r.role = "masthead"
+            continue
+        no_real_word = not re.search(r"[A-Za-z]{4,}", r.text)
+        is_masthead = ISSUE_MARKS.search(r.text) or no_real_word or (
+            MASTHEAD_WORDS.search(r.text)
+            and not (r.role == "text" and r.y2 - r.y1 >= MIN_PARAGRAPH_PX))
+        if not is_masthead:
             break
         r.role = "masthead"
 

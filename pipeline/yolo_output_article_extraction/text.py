@@ -120,13 +120,14 @@ def recover_unboxed(pg: Page, lines: list[Line]) -> list[Line]:
     """Turn blocks of unboxed lines into text regions; return lines still unboxed.
 
     Lines are split by column, then consecutive lines no more than ~1.5 line
-    heights apart form a block. Blocks above the content (masthead) or below it
-    (scan watermark) are left out, as are single lines.
+    heights apart form a block. Blocks above the content or below it (scan
+    watermark) are left out, as are single lines. Runs before the masthead is
+    marked, so masthead lines YOLO missed are recovered and then marked too.
     """
     content = [r for r in pg.regions if r.role in ("title", "text", "figure", "caption")]
     if not content or not lines:
         return lines
-    top = max([r.y2 for r in pg.regions if r.role == "masthead"] + [min(r.y1 for r in content)])
+    top = min(r.y1 for r in content)
     bottom = max(r.y2 for r in content)
     leftover, blocks = [], {}
     for line in lines:

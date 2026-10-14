@@ -24,13 +24,14 @@ Run from the repo root with any Python that has pandas and Pillow:
 
 import argparse
 import sqlite3
+import warnings
 from pathlib import Path
 
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 
 from articles import PAGE_NO, page_metadata, segment
-from layout import COLUMNS, REPO_ROOT, load_page, order_regions
+from layout import COLUMNS, REPO_ROOT, load_page, mark_masthead, order_regions
 from text import assign_docai_text, assign_tesseract_text, docai_json_path, recover_unboxed
 
 OUT_ROOT = REPO_ROOT / "output" / "article_extraction"
@@ -102,9 +103,10 @@ def main() -> None:
         use_docai = args.ocr == "docai" and docai_json_path(mag, n).exists()
         unboxed = assign_docai_text(pg) if use_docai else assign_tesseract_text(pg)
         unboxed = recover_unboxed(pg, unboxed)
+        mark_masthead(pg)
         order_regions(pg)
         pages.append(pg)
-        meta = page_metadata(pg)
+        meta = page_metadata(pg, " | ".join(l.text for l in unboxed))
         if pg.issue_start and meta["issue_no"] is None:  # number YOLO drew no box for
             meta["issue_no"] = next((int(m.group(1)) for l in unboxed
                                      if (m := PAGE_NO.match(l.text.strip()))), None)
@@ -128,8 +130,21 @@ def main() -> None:
         seq += pg.issue_start or seq == 0
         issue_seq.append(seq)
     pages_df["issue_seq"] = issue_seq
-    issue_meta = pages_df.sort_values(["issue_start"], ascending=False).groupby("issue_seq")[
-        ["issue_no", "issue_date"]].first()
+    # Per issue: the number from its masthead; the date from whichever page has
+    # it with the year (issue-start pages often lose the year to OCR).
+    by_issue = pages_df.sort_values(["issue_start"], ascending=False).groupby("issue_seq")
+    issue_meta = by_issue[["issue_no", "issue_date"]].first()
+    for seq, group in by_issue:
+        with_year = [d for d in group["issue_date"].dropna() if d[-4:].isdigit()]
+        if with_year:
+            issue_meta.loc[seq, "issue_date"] = with_year[0]
+    # A date OCR'd without its year takes the year of the issue before it.
+    year = None
+    for seq, date in issue_meta["issue_date"].items():
+        if isinstance(date, str) and date[-4:].isdigit():
+            year = date[-4:]
+        elif isinstance(date, str) and year:
+            issue_meta.loc[seq, "issue_date"] = f"{date}, {year}"
 
     article_of = {}
     article_rows = []
@@ -141,7 +156,9 @@ def main() -> None:
         article_rows.append({
             "article_id": a.article_id, "magazine": mag, "issue_seq": a.issue_seq,
             "issue_no": meta.get("issue_no"), "issue_date": meta.get("issue_date"),
-            "title": a.title, "title_source": a.title_source,
+            "title": a.title, "title_source": a.title_source, "title_note": a.title_note or None,
+            "byline": a.byline or None, "attribution": a.attribution or None,
+            "end_note": a.end_note or None,
             "start_page": a.pages[0] if a.pages else None,
             "end_page": a.pages[-1] if a.pages else None,
             "pages": ";".join(map(str, a.pages)),
@@ -191,7 +208,9 @@ def main() -> None:
             others = pd.read_sql(f"select * from {name} where magazine != ?", db, params=(mag,)) \
                 if exists else pd.DataFrame()
             if len(others):
-                df = pd.concat([others, df], ignore_index=True)
+                with warnings.catch_warnings():  # all-empty columns (e.g. no bylines yet)
+                    warnings.simplefilter("ignore", FutureWarning)
+                    df = pd.concat([others, df], ignore_index=True)
             df.to_sql(name, db, if_exists="replace", index=False)
 
     print(f"{mag}: {len(pages)} pages, {len(articles)} articles, "

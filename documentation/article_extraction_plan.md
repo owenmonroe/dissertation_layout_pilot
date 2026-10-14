@@ -92,9 +92,19 @@ rows).
 - **Columns:** the text area is split into equal columns (2 for penny and
   saturday, 3 for chambers). A box covering at least 20% of two columns
   **spans** them.
-- **Masthead:** a page with a spanning box in its top 12% starts an issue.
-  Reading down from the top, boxes are masthead until the first column-width
-  title, figure, or full paragraph.
+- **Masthead and issue starts** (`mark_masthead`, run after OCR because it
+  reads the text):
+  - A page starts an issue if, near its top, a short box carries masthead
+    wording ("PUBLISHED EVERY SATURDAY", "PRICE ONE PENNY", "Nº 1.", "UNDER THE
+    DIRECTION OF…", "Society for the Diffusion…"), or if the magazine's name is
+    in large type.
+  - Reading down from the top, boxes are masthead while they hold masthead
+    wording, dates, or no real word ("OF THE", "1.]", OCR of the Saturday
+    seal).
+  - The walk stops at the first title or paragraph that belongs to an article.
+  - A figure in the top 12% of the page is the masthead image. A figure lower
+    down is the issue's opening illustration: it is kept, and the walk carries
+    on past it.
 - **Reading order:** spanning boxes (e.g. an illustration across both columns)
   cut the page into horizontal bands. Within a band: column 1 top to bottom,
   then column 2, … and the spanning box is read between bands. This handles
@@ -114,6 +124,8 @@ rows).
   stopping a line short) are attached to it.
 - **Missed regions:** blocks of 2+ unboxed lines in a column become new text
   regions (`yolo_type = unboxed_ocr`), so text YOLO never boxed isn't lost.
+  This runs before the masthead is marked, so masthead lines YOLO missed are
+  also caught as masthead.
 - **Joining:** hyphenated line ends are rejoined. Boxes are joined with a
   paragraph break, unless a box ends mid-sentence (a paragraph running on into
   the next column or page).
@@ -128,58 +140,111 @@ rows).
 - A **run-in head** starts an article: 2–6 capitalised words then a full
   stop/dash, e.g. "Animal Sagacity.—In the immense forests…". These are the
   short filler items YOLO never boxes a title for. `title_source = run_in`.
+- An **attribution** at the end of a box ends its article: "…swift
+  destruction.—MONTAGU'S Dedication.", "…—SOUTHEY.". The attribution must be
+  Title Case or capitals, up to 6 words, and is stored in `attribution`.
+  - Saturday's short untitled items end this way rather than starting with a
+    run-in head.
+  - A title box holding only initials ("D. C.") is also an attribution.
+- **Opening in capitals:** a box whose first word is in capitals ("I HAVE sat
+  upon the shore…", "HE whose heart…") starts a new untitled article. All of
+  these must hold:
+  - the current article already has text;
+  - the previous box ended a sentence;
+  - there is at least 20 px of space before the box (where the printed rule
+    sits), or a column or page break. On Saturday p. 3, real item breaks have
+    27–65 px of space, while a headnote running into its poem has 2–7 px.
+- **Byline:** a short "FROM THE REV. WILLIAM JONES." / "BY …" / "[Abridged
+  from …]" box straight after a title is stored in `byline`, not text.
+- **"[To be continued.]"** ends its article and is stored in `end_note`.
+- **Title notes:** bracketed parts of a title ("[Concluded from our last.]",
+  "[July 15th.]") move to `title_note`.
 - Other text continues the current article, **across columns and pages**: text
   at the top of a page before its first title continues the last article of the
   previous page.
 - A **masthead** closes the current article: articles don't run across issues.
+- **Publisher's imprint** at the end of an issue ("LONDON: JOHN WILLIAM
+  PARKER, WEST STRAND", "THE COMMITTEE OF GENERAL LITERATURE…", the list of
+  agents) is role `imprint`, not an article. Once found, the rest of that
+  page is imprint too.
 - **Figures** are linked to the article they sit in (crop saved to
   `figures/`); **captions** to the nearest figure. An untitled article opening
-  with a figure takes its title from text printed in the figure ("POMPEII.").
+  with a figure takes its title from text printed in the figure ("POMPEII.",
+  "HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA"). An illustration printed
+  above its article's title is moved into that article.
 - YOLO mislabel fixes:
   - a "caption" over 25 words is read as text (italic headnotes);
   - an all-capitals, unbracketed "caption" is read as a title ("THE MOLE.");
+  - a short all-capitals text box (2–15 words) is read as a title ("PROCESSION
+    OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA");
+  - a box with no letters at all is furniture ("4,060,000", stray "1 |");
   - a text box of 3 or fewer words at the foot of the page is a printer's
     signature ("VOL. I.").
-- **Metadata:** the printed page number comes from the header furniture (years
-  excluded). Issue date and number come from the masthead.
+- **Metadata:**
+  - The printed page number comes from the header furniture (years excluded).
+  - Issue number and date come from the masthead, including masthead lines
+    YOLO didn't box.
+  - Issue-start pages often lose the year to OCR, so the issue takes the date
+    with a year from any of its pages (the last page carries it), or else the
+    year of the issue before.
 
-## Status: penny (26 sampled pages, 3 issues)
+New article columns from these rules: `title_note`, `byline`, `attribution`,
+`end_note`.
+
+## Status
+
+Check images in `output/article_extraction/<mag>/reading_order/` show every
+page with boxes coloured by article and labelled `<reading order> · <article>`.
+These are the quickest way to review results.
+
+### Penny (26 sampled pages, 3 issues)
 
 - **Pages 1–3 match the hand-identified articles exactly:** Reading for All;
   Charing Cross (pp. 1–2); Van Diemen's Land (pp. 2–3); Antiquity of Beer
   (crosses columns); Fair Play; Changes of Manners and Animal Sagacity (run-in
   fillers, separate rows).
-- **All 26 pages:** 45 articles, 13 figures.
-  - Title sources: 37 YOLO title boxes, 7 run-in heads, 1 from figure text.
-  - Issues detected on pp. 1, 9, 17 (March 31, April 7, April 14, 1832).
+- **All 26 pages:** 46 articles, 13 figures.
+  - Issues on pp. 1, 9, 17 (March 31, April 7, April 14, 1832).
   - One missed YOLO region was recovered (p. 10).
-  - The text left unboxed is the scan watermark, masthead fragments, and one
-    title fragment ('"My Library', p. 23).
-- **Check images:** `output/article_extraction/penny/reading_order/` shows
-  every page with boxes coloured by article and labelled
-  `<reading order> · <article>`. These are the quickest way to review results.
+- **Printed p. 24:** the capitals rule splits out the separate items "Comfort
+  and good temper" and a Nelson anecdote, matching the volume index.
 
-### Known issues (penny)
+### Saturday (24 sampled pages, 3 issues)
 
-- **Duplicated scan pages:** PDF pages 22–23 repeat printed pages 20–21 in
-  the sample PDF, so three articles appear twice. Fix: flag pages whose
-  printed number repeats within an issue and whose text matches.
-- **Non-title "titles":** a statistics line ("4,060,000", p. 7) and a verse
-  couplet (p. 19) labelled `title` by YOLO start spurious articles. A
-  run-in false positive ("Under Seven", p. 18) is likely a table.
-- **Articles continued across issues:** "VAN DIEMEN'S LAND. [Concluded from
-  our last.]" is a separate article in issue 2. Link these with
-  `continues_article_id` (title match plus "Continued/Concluded" notes).
-- **OCR errors:** e.g. "SOMERS ET-HOUSE". The volume index can correct titles
-  (below).
-- **Issue numbers:** the masthead number is found for issues 1 and 3, not 2
-  (OCR'd as "2.1").
+- **Page 3 matches the gold standard exactly:** On the Right Use of Knowledge
+  (continued); On the Study of Natural History (ends "—Journal of a
+  Naturalist"); To Solitude and Answer (bylines "FROM THE REV. WILLIAM
+  JONES." / "FROM G. H. GLASSE."); the untitled Montagu item; the untitled
+  Southey item.
+- **All 24 pages:** 35 articles, 13 figures.
+  - Issues 1–3 with numbers and dates (July 7, 14, 21, 1832).
+  - 8 untitled short items, each closed by an attribution or opening in
+    capitals: Seneca, "A. M.", "D. C.", James Montgomery, and others.
+  - 3 bylines, 1 "[To be continued.]".
+  - Imprints and agents' lists excluded.
+
+### Known issues
+
+- **Duplicated scan pages (penny):** PDF pages 22–23 repeat printed pages
+  20–21 in the sample PDF, so three articles appear twice. Fix: flag pages
+  whose printed number repeats within an issue and whose text matches.
+- **Spurious titles:** a verse couplet (penny p. 19) labelled `title` by YOLO
+  starts an article. A run-in false positive ("Under Seven", penny p. 18) is
+  likely a table.
+- **Missed item breaks:** where an item neither opens in capitals after a gap
+  nor ends with an attribution, it stays merged. Example: the Ghost Story
+  inside The Firmament (penny p. 24). The volume index check can flag these.
+- **Articles continued across issues:** penny "VAN DIEMEN'S LAND" with
+  `title_note` "[Concluded from our last.]", and Saturday's Jagganátha article
+  ("[To be continued.]" → issue 3). Link these with `continues_article_id`.
+- **Untitled items:** the `title` column is empty for them. The attribution,
+  or the index, can label them.
+- **OCR errors in titles:** e.g. "SOMERS ET-HOUSE", "HISTORY OF LELLS".
+- **Penny issue 2's number** isn't found (OCR'd as "2.1").
 
 ## Next steps
 
-1. **Saturday (2 columns):** run, review check images, tune.
-   - Expected: verse/hymn items, intro/outro bylines ("FROM THE REV. WILLIAM
-     JONES."), masthead image.
+1. ~~Saturday~~ (done, above).
 2. **Chambers (3 columns):** `COLUMNS["chambers"] = 3` is in place.
    - Check: the band/column logic with three columns; titles that span two
      columns; Chambers has no illustrations but more run-in items.

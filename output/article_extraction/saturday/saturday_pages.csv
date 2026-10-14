@@ -1,0 +1,25 @@
+magazine,page,printed_page,issue_date,issue_no,issue_start,ocr,n_boxes,n_content,n_dropped,n_recovered,unboxed_lines,unboxed_text,page_image,issue_seq
+saturday,1,,July 7,1,True,docai,19,7,4,0,1,parchments,test_texts/images/saturday_images/saturday_page_001.png,1
+saturday,2,2,July 7,,False,docai,17,10,1,0,0,,test_texts/images/saturday_images/saturday_page_002.png,1
+saturday,3,3,,,False,docai,25,16,1,1,0,,test_texts/images/saturday_images/saturday_page_003.png,1
+saturday,4,4,July 7,,False,docai,18,9,3,0,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_004.png,1
+saturday,5,5,,,False,docai,22,12,4,1,1,SF-1301,test_texts/images/saturday_images/saturday_page_005.png,1
+saturday,6,6,July 7,,False,docai,25,13,6,0,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_006.png,1
+saturday,7,7,,,False,docai,20,12,1,1,0,,test_texts/images/saturday_images/saturday_page_007.png,1
+saturday,8,,"July 7, 1832",,False,docai,30,21,3,1,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_008.png,1
+saturday,9,,July 14,2,True,docai,23,7,3,0,2,comarca | 22:24 GMT,test_texts/images/saturday_images/saturday_page_009.png,2
+saturday,10,10,July 14,,False,docai,19,11,2,0,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_010.png,2
+saturday,11,11,,,False,docai,19,11,1,1,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_011.png,2
+saturday,12,12,,,False,docai,19,10,3,0,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_012.png,2
+saturday,13,13,,,False,docai,23,14,1,0,0,,test_texts/images/saturday_images/saturday_page_013.png,2
+saturday,14,14,July 14,,False,docai,35,25,3,0,2,1 | 22:24 GMT,test_texts/images/saturday_images/saturday_page_014.png,2
+saturday,15,15,,,False,docai,24,13,2,0,2,14 | ac,test_texts/images/saturday_images/saturday_page_015.png,2
+saturday,16,16,"July 14, 1832",,False,docai,30,19,4,0,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_016.png,2
+saturday,17,,July 21,3,True,docai,23,9,2,1,2,22:24 GMT | EDUCATION,test_texts/images/saturday_images/saturday_page_017.png,3
+saturday,18,18,July 21,,False,docai,15,7,1,0,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_018.png,3
+saturday,19,19,,,False,docai,16,9,0,1,3,eri | B | en,test_texts/images/saturday_images/saturday_page_019.png,3
+saturday,20,20,July 21,,False,docai,31,19,6,0,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_020.png,3
+saturday,21,21,,,False,docai,29,18,4,0,1,2,test_texts/images/saturday_images/saturday_page_021.png,3
+saturday,22,22,July 21,,False,docai,20,12,1,0,1,22:24 GMT,test_texts/images/saturday_images/saturday_page_022.png,3
+saturday,23,23,,,False,docai,20,12,1,0,4,"21, | ble | دو | ""II""",test_texts/images/saturday_images/saturday_page_023.png,3
+saturday,24,24,"July 21, 1832",,False,docai,38,26,5,0,0,,test_texts/images/saturday_images/saturday_page_024.png,3
