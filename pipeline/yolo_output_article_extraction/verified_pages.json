@@ -1,0 +1,62 @@
+[
+  {
+    "magazine": "penny",
+    "page": 1,
+    "checked": "Owen's article list for penny pp. 1-3 (2026-10-14)",
+    "articles": [
+      "READING FOR ALL",
+      "CHARING CROSS"
+    ]
+  },
+  {
+    "magazine": "penny",
+    "page": 2,
+    "checked": "Owen's article list for penny pp. 1-3 (2026-10-14)",
+    "articles": [
+      "CHARING CROSS",
+      "VAN DIEMEN'S LAND"
+    ]
+  },
+  {
+    "magazine": "penny",
+    "page": 3,
+    "checked": "Owen's article list for penny pp. 1-3 (2026-10-14)",
+    "articles": [
+      "VAN DIEMEN'S LAND",
+      "ANTIQUITY OF BEER",
+      "FAIR PLAY",
+      "Changes of Manners",
+      "Animal Sagacity"
+    ]
+  },
+  {
+    "magazine": "saturday",
+    "page": 3,
+    "checked": "matches Owen's gold standard boxes (evaluation/groundtruth_texts), 2026-10-14",
+    "articles": [
+      "ON THE RIGHT USE OF KNOWLEDGE",
+      "ON THE STUDY OF NATURAL HISTORY",
+      "TO SOLITUDE",
+      "ANSWER",
+      "[untitled — MONTAGU'S Dedication]",
+      "[untitled — SOUTHEY]"
+    ]
+  },
+  {
+    "magazine": "chambers",
+    "page": 8,
+    "checked": "checked by Claude against the page image, 2026-10-14 - Owen to confirm",
+    "articles": [
+      "PLAGUE. CHOLERA",
+      "HAARLEM",
+      "FOWLS",
+      "SMOKING",
+      "ANECDOTE OF MR. JEFFREY",
+      "THE MUSSULMAUN'S SABBATH",
+      "THE WASP",
+      "A JUDGMENT OF GOD",
+      "UNNATURAL CHARACTERS IN FICTION",
+      "CATS"
+    ]
+  }
+]

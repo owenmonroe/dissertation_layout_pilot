@@ -31,7 +31,8 @@ import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 
 from articles import PAGE_NO, page_metadata, segment
-from layout import COLUMNS, REPO_ROOT, load_page, mark_masthead, order_regions
+from layout import REPO_ROOT, load_page, mark_masthead, order_regions
+from magazines import MAGAZINES
 from text import assign_docai_text, assign_tesseract_text, docai_json_path, recover_unboxed
 
 OUT_ROOT = REPO_ROOT / "output" / "article_extraction"
@@ -54,8 +55,7 @@ def column_name(column: int | None, magazine: str) -> str:
     "spanning" for a box across columns."""
     if column is None:
         return "spanning"
-    names = ["left", "right"] if COLUMNS[magazine] == 2 else ["left", "middle", "right"]
-    return names[column - 1]
+    return MAGAZINES[magazine].column_names[column - 1]
 
 
 def save_check_image(pg, article_of: dict, out_path: Path) -> None:
@@ -85,22 +85,13 @@ def save_check_image(pg, article_of: dict, out_path: Path) -> None:
     image.save(out_path, quality=85)
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--magazine", required=True, choices=sorted(COLUMNS))
-    parser.add_argument("--pages", help="page range, e.g. 1-3 (default: every page with YOLO output)")
-    parser.add_argument("--ocr", choices=["docai", "tesseract"], default="docai")
-    args = parser.parse_args()
-
-    mag = args.magazine
-    out_dir = OUT_ROOT / mag
-    for sub in ("figures", "reading_order"):
-        (out_dir / sub).mkdir(parents=True, exist_ok=True)
-
+def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
+    """Run the pipeline for one magazine in memory: returns the pages, the
+    articles, the region -> article map, and the three tables. Writes nothing."""
     pages, page_rows = [], []
-    for n in parse_pages(args.pages, mag):
+    for n in parse_pages(page_spec, mag):
         pg = load_page(mag, n)
-        use_docai = args.ocr == "docai" and docai_json_path(mag, n).exists()
+        use_docai = ocr == "docai" and docai_json_path(mag, n).exists()
         unboxed = assign_docai_text(pg) if use_docai else assign_tesseract_text(pg)
         unboxed = recover_unboxed(pg, unboxed)
         mark_masthead(pg)
@@ -171,12 +162,6 @@ def main() -> None:
     region_rows = []
     for pg in pages:
         for r in sorted(pg.regions, key=lambda r: (r.order is None, r.order or 0, r.index)):
-            image_file = None
-            if r.role == "figure":
-                image_file = out_dir / "figures" / f"{r.region_id}.jpg"
-                with Image.open(pg.image_path) as im:
-                    im.convert("RGB").crop(tuple(map(int, r.bbox))).save(image_file, quality=90)
-                image_file = str(image_file.relative_to(REPO_ROOT))
             region_rows.append({
                 "region_id": r.region_id, "magazine": mag, "page": r.page,
                 "yolo_index": r.index, "yolo_type": r.yolo_type, "score": r.score,
@@ -186,10 +171,10 @@ def main() -> None:
                 "reading_order": r.order, "article_id": article_of.get(r.region_id),
                 "x1": round(r.x1), "y1": round(r.y1), "x2": round(r.x2), "y2": round(r.y2),
                 "y_top_frac": round(r.y1 / pg.height, 3), "y_bottom_frac": round(r.y2 / pg.height, 3),
-                "text": r.text, "caption": r.caption or None, "image_file": image_file,
+                "text": r.text, "caption": r.caption or None,
+                "image_file": str(figure_path(r).relative_to(REPO_ROOT)) if r.role == "figure" else None,
                 "note": r.note or None,
             })
-        save_check_image(pg, article_of, out_dir / "reading_order" / f"{mag}_page_{pg.page:03d}_order.jpg")
 
     tables = {
         "pages": pages_df,
@@ -199,8 +184,27 @@ def main() -> None:
     for name, cols in {"pages": ["printed_page", "issue_no"], "articles": ["issue_no"],
                        "regions": ["band", "reading_order"]}.items():
         tables[name][cols] = tables[name][cols].astype("Int64")
+    return {"pages": pages, "articles": articles, "article_of": article_of, "tables": tables}
+
+
+def figure_path(r) -> Path:
+    return OUT_ROOT / r.magazine / "figures" / f"{r.region_id}.jpg"
+
+
+def write_outputs(mag: str, result: dict) -> None:
+    """Figure crops, reading-order check images, CSVs, and this magazine's rows
+    in the SQLite database."""
+    out_dir = OUT_ROOT / mag
+    for sub in ("figures", "reading_order"):
+        (out_dir / sub).mkdir(parents=True, exist_ok=True)
+    for pg in result["pages"]:
+        for r in (r for r in pg.regions if r.role == "figure"):
+            with Image.open(pg.image_path) as im:
+                im.convert("RGB").crop(tuple(map(int, r.bbox))).save(figure_path(r), quality=90)
+        save_check_image(pg, result["article_of"],
+                         out_dir / "reading_order" / f"{mag}_page_{pg.page:03d}_order.jpg")
     with sqlite3.connect(DB_PATH) as db:
-        for name, df in tables.items():
+        for name, df in result["tables"].items():
             df.to_csv(out_dir / f"{mag}_{name}.csv", index=False)
             # Keep the other magazines' rows; rewrite the table so its columns
             # always match this version of the pipeline.
@@ -214,12 +218,24 @@ def main() -> None:
                     df = pd.concat([others, df], ignore_index=True)
             df.to_sql(name, db, if_exists="replace", index=False)
 
-    print(f"{mag}: {len(pages)} pages, {len(articles)} articles, "
-          f"{sum(r['role'] == 'figure' for r in region_rows)} figures")
-    for row in article_rows:
-        print(f"  {row['article_id']}  p{row['pages']:<8} {row['title_source']:10} "
-              f"{row['word_count']:5} words  {row['title'][:60]!r}")
-    print(f"Wrote {out_dir.relative_to(REPO_ROOT)}/ and {DB_PATH.relative_to(REPO_ROOT)}")
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--magazine", required=True, choices=sorted(MAGAZINES))
+    parser.add_argument("--pages", help="page range, e.g. 1-3 (default: every page with YOLO output)")
+    parser.add_argument("--ocr", choices=["docai", "tesseract"], default="docai")
+    args = parser.parse_args()
+
+    mag = args.magazine
+    result = extract(mag, args.pages, args.ocr)
+    write_outputs(mag, result)
+    articles = result["tables"]["articles"]
+    n_figures = (result["tables"]["regions"]["role"] == "figure").sum()
+    print(f"{mag}: {len(result['pages'])} pages, {len(articles)} articles, {n_figures} figures")
+    for row in articles.itertuples():
+        print(f"  {row.article_id}  p{row.pages:<8} {row.title_source:10} "
+              f"{row.word_count:5} words  {row.title[:60]!r}")
+    print(f"Wrote {(OUT_ROOT / mag).relative_to(REPO_ROOT)}/ and {DB_PATH.relative_to(REPO_ROOT)}")
 
 
 if __name__ == "__main__":

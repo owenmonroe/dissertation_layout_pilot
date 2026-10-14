@@ -66,10 +66,12 @@ uncertain boundaries, cleaning OCR, and describing illustrations.
 
 | File | Step |
 |---|---|
+| `magazines.py` | **Per-magazine settings**: columns, the magazine's name, extra masthead wording, imprint patterns, whether real items have run-in heads in capitals (Chambers). Everything else is shared. |
 | `layout.py` | Load YOLO boxes; drop overlapping duplicates; assign roles and columns; find the masthead; reading order |
 | `text.py` | Text for each box: Document AI OCR words assigned to YOLO boxes (or tesseract); recover text YOLO missed |
 | `articles.py` | Group ordered boxes into articles; titles; cross-page stitching; figures and captions; page/issue metadata |
-| `run_extraction.py` | Run it, write CSVs, SQLite, figure crops and reading-order check images |
+| `run_extraction.py` | `extract()` runs the pipeline in memory; `write_outputs()` writes CSVs, SQLite, figure crops and reading-order check images |
+| `check_verified.py` + `verified_pages.json` | **Regression check**: re-runs every magazine in memory and compares the hand-checked pages with their recorded articles |
 
 ```
 python pipeline/yolo_output_article_extraction/run_extraction.py --magazine penny
@@ -77,6 +79,30 @@ python pipeline/yolo_output_article_extraction/run_extraction.py --magazine penn
 ```
 
 Any Python with pandas and Pillow works (e.g. the anaconda base environment).
+
+**Input pages:** the pipeline reads `output/<mag>_yolo/` and `output/<mag>_google/`,
+the DocLayout-YOLO and Document AI output for every page of the sampled PDFs
+(24–26 pages per magazine, run on 2026-09-29). `evaluation/output_eval/` holds
+only the first 3 pages of each, which were hand-evaluated box by box. So boxes
+on pages 4+ are unevaluated YOLO output.
+
+**After changing a rule or `magazines.py`:**
+
+```
+python pipeline/yolo_output_article_extraction/check_verified.py
+```
+
+It reports `ok` or `FAIL` (expected vs got) for each verified page, in about
+8 seconds. To record a page once you have checked its articles:
+
+```
+python pipeline/yolo_output_article_extraction/check_verified.py --add saturday 5 --note "checked by Owen"
+```
+
+Verified so far:
+- penny pp. 1–3 (Owen's article list);
+- Saturday p. 3 (Owen's gold standard);
+- Chambers p. 8 (checked by Claude against the page image; to be confirmed).
 Output: `output/article_extraction/<mag>/` (`<mag>_pages.csv`,
 `<mag>_articles.csv`, `<mag>_regions.csv`, `figures/`, `reading_order/`) and
 `output/article_extraction/articles.sqlite` (each run replaces that magazine's
@@ -302,18 +328,16 @@ These are the quickest way to review results.
   settle these.
 - **Chambers p. 24:** the bottom of the page mixes column text with the
   imprint, so a few words land in the wrong item.
-- **Rules are getting magazine-specific:** e.g. `RUN_IN_CAPITALS_ONLY`, and
-  Chambers' masthead words. Planned refactor:
-  - move per-magazine settings into one config;
-  - add a regression check of the verified pages (penny pp. 1–3, Saturday
-    p. 3, Chambers p. 8), so a rule added for one magazine can't silently
-    change another.
+- **Few verified pages:** the regression check only guards what's in
+  `verified_pages.json`. Adding pages as they're checked makes it stronger;
+  ideally a few per magazine, including miscellany pages and an issue's
+  first and last pages.
 
 ## Next steps
 
 1. ~~Saturday~~ (done, above).
-2. ~~Chambers~~ (done, above). Next: the config refactor and regression
-   check (see known issues).
+2. ~~Chambers~~ (done, above), plus the per-magazine config (`magazines.py`)
+   and regression check (`check_verified.py`). The refactor changed no output.
 3. **Volume index as a check and title source.** Each volume opens with an
    alphabetical index of titles and page numbers (e.g. "Animal sagacity, 3";
    "Beer, antiquity of, 3"; "Charing Cross, account of, 1"). Plan:

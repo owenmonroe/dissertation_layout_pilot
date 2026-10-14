@@ -18,10 +18,10 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from magazines import MAGAZINES
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
-# Text columns per page.
-COLUMNS = {"penny": 2, "saturday": 2, "chambers": 3}
 # Drop a box when at least this share of it is covered by higher-scoring boxes
 # (YOLO duplicates, and low-score boxes stretched over several real ones).
 OVERLAP_DROP = 0.8
@@ -33,20 +33,15 @@ ISSUE_MARK_TOP = 0.35
 ISSUE_MARKS = re.compile(
     r"published every|(?-i:PRICE\W*(?:ON\s+)?(?:ONE|TWO|THREE|A)\b)|^\W*n[º°o]\.?\s*\d|under the direction"
     r"|society for the diffusion", re.I)
-# ... or the magazine's name in large type (taller than this; the running
-# header with the same name is small and is YOLO furniture anyway).
-NAMES = {
-    "penny": re.compile(r"penny\s+magazine", re.I),
-    "saturday": re.compile(r"^\W*(?:the\s+)?saturday\W*$|^\W*magazine\W*$", re.I),
-    "chambers": re.compile(r"edinburgh\s+journal", re.I),
-}
+# ... or the magazine's name (magazines.py) in large type, taller than this;
+# the running header with the same name is small and is YOLO furniture anyway.
 NAME_MIN_PX = 70
 # Masthead lines are short; a longer box near the top is article text.
 MASTHEAD_MAX_WORDS = 40
-# Masthead wording, for reading down the masthead.
+# Masthead wording shared by all magazines, for reading down the masthead;
+# each magazine adds its own (magazines.py).
 MASTHEAD_WORDS = re.compile(
-    ISSUE_MARKS.pattern + r"|\bprice\b|magazine|journal|saturday|society|committee|knowledge"
-    r"|conducted by|author of|\bedition\b|halfpence"
+    ISSUE_MARKS.pattern + r"|\bprice\b|magazine|journal"
     r"|january|february|march|april|may|june|july|august|september|october|november"
     r"|december|\b1[78]\d\d\b", re.I)
 # A figure this near the top of an issue-start page is part of the masthead.
@@ -182,14 +177,14 @@ def assign_columns(pg: Page) -> None:
 
 
 def column_width(pg: Page) -> float:
-    return (pg.text_right - pg.text_left) / COLUMNS[pg.magazine]
+    return (pg.text_right - pg.text_left) / MAGAZINES[pg.magazine].columns
 
 
 def column_of(pg: Page, x1: float, x2: float) -> int | None:
     """1-based column a span x1..x2 sits in, or None if it spans columns."""
     col_w = column_width(pg)
     overlaps = []
-    for c in range(COLUMNS[pg.magazine]):
+    for c in range(MAGAZINES[pg.magazine].columns):
         left = pg.text_left + c * col_w
         overlaps.append(max(0, min(x2, left + col_w) - max(x1, left)))
     if sum(o >= SPAN_SHARE * col_w for o in overlaps) >= 2:
@@ -213,8 +208,9 @@ def mark_masthead(pg: Page) -> None:
     content = [r for r in pg.regions if r.role in CONTENT_ROLES]
     top = [r for r in content if r.y1 < ISSUE_MARK_TOP * pg.height
            and len(r.text.split()) <= MASTHEAD_MAX_WORDS]
+    magazine = MAGAZINES[pg.magazine]
     pg.issue_start = any(ISSUE_MARKS.search(r.text) for r in top) or any(
-        NAMES[pg.magazine].search(r.text) and r.y2 - r.y1 >= NAME_MIN_PX for r in top)
+        magazine.name.search(r.text) and r.y2 - r.y1 >= NAME_MIN_PX for r in top)
     if not pg.issue_start:
         return
     for r in sorted(content, key=lambda r: r.y1):
@@ -224,7 +220,7 @@ def mark_masthead(pg: Page) -> None:
             continue
         no_real_word = not re.search(r"[A-Za-z]{4,}", r.text)
         is_masthead = ISSUE_MARKS.search(r.text) or no_real_word or (
-            MASTHEAD_WORDS.search(r.text)
+            (MASTHEAD_WORDS.search(r.text) or magazine.masthead_words.search(r.text))
             and not (r.role == "text" and r.y2 - r.y1 >= MIN_PARAGRAPH_PX))
         if not is_masthead:
             break
@@ -238,7 +234,7 @@ def order_regions(pg: Page) -> None:
         r.band = sum(s.cy < r.cy for s in spanning) if r.column else spanning.index(r)
     order = 1
     for band in range(len(spanning) + 1):
-        for col in range(1, COLUMNS[pg.magazine] + 1):
+        for col in range(1, MAGAZINES[pg.magazine].columns + 1):
             for r in sorted((r for r in content if r.column == col and r.band == band),
                             key=lambda r: r.cy):
                 r.order, order = order, order + 1

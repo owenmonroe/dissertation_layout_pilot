@@ -36,7 +36,7 @@ Walking the content boxes of a magazine in reading order, page after page:
 import re
 from dataclasses import dataclass, field
 
-from layout import NAMES
+from magazines import MAGAZINES
 from text import SENTENCE_END, join_regions
 
 MONTHS = ("january february march april may june july august september october "
@@ -51,9 +51,6 @@ PAGE_NO = re.compile(r"^\[?\s*(\d{1,4})\s*\.?\]?$")
 # the opening is tried in turn, so "ANECDOTE OF MR. JEFFREY.—" gets past "MR.".
 RUN_IN_SEPARATOR = re.compile(r"\s*(?:\.\s*[—–-]{1,2}|[—–]{1,2}|-(?=[A-Z])|\.)\s*(?=[A-Z“\"‘'])")
 RUN_IN_SPAN = 90  # characters of the paragraph the head can take up
-# Magazines whose real items have run-in heads in capitals; there, a mixed-case
-# run-in head ("The Bow.", "The String.") is a subsection inside an article.
-RUN_IN_CAPITALS_ONLY = {"chambers"}
 # OCR sometimes loses the stop/dash after a head ("NIGHT-FALL IN ITALY In Mr.
 # Bell's ..."): 3+ words in capitals opening the paragraph, then a normal word.
 CAPITALS_HEAD = re.compile(r"^((?:[A-Z][A-Z'’-]+|OF|THE|AND|IN|ON|AT|FOR|TO|A|AN)"
@@ -90,10 +87,6 @@ CAPITALS_OPENING = re.compile(r"^[\"“‘']?(?:[AI]\s+)?[A-Z]{2,}[A-Z'’]*\s+(
 BYLINE = re.compile(r"^\W*(?:FROM|BY)\b|^\s*\[\s*(?:Abridged|From|Extracted|Translated|Selected)\b")
 BYLINE_MAX_WORDS = 10
 END_NOTE = re.compile(r"^\W*to be (?:continued|concluded)\b", re.I)
-IMPRINT = re.compile(
-    r"^\W*(?:LONDON\s*:|PRINTED BY|PUBLISHED BY|JOHN WILLIAM PARKER"
-    r"|THE COMMITTEE OF GENERAL LITERATURE)|WEST STRAND|PALL[- ]MALL EAST|publisher'?s agents",
-    re.I)
 IMPRINT_BELOW = 0.6  # share of page height
 BRACKET_NOTE = re.compile(r"^\W{0,3}\[")
 SMALL_WORDS = {"of", "the", "and", "in", "on", "at", "for", "to", "a", "an"}
@@ -248,6 +241,7 @@ def segment(pages: list) -> list[Article]:
             issue_seq += 1
             current, last = None, None
         in_imprint = False
+        magazine = MAGAZINES[pg.magazine]
         for r in pg.ordered:
             words = r.text.split()
             if r.role == "caption" and len(words) > CAPTION_MAX_WORDS:
@@ -262,7 +256,7 @@ def segment(pages: list) -> list[Article]:
                 r.role, r.note = "furniture", "printer's signature at foot of page"
                 continue
             if r.role in ("title", "text") and (in_imprint or (
-                    r.y1 > IMPRINT_BELOW * pg.height and IMPRINT.search(r.text))):
+                    r.y1 > IMPRINT_BELOW * pg.height and magazine.imprint.search(r.text))):
                 r.role, r.note = "imprint", "publisher's imprint at end of issue"
                 in_imprint = True  # the rest of the page is imprint too (agents' lists)
                 continue
@@ -274,7 +268,7 @@ def segment(pages: list) -> list[Article]:
                 continue
             if r.role == "title" and not reads_as_heading(r.text):
                 r.role, r.note = "text", "YOLO title that doesn't read as a heading, read as text"
-            if r.role == "title" and NAMES[pg.magazine].search(r.text) and not pg.issue_start:
+            if r.role == "title" and magazine.name.search(r.text) and not pg.issue_start:
                 r.role, r.note = "furniture", "magazine name"
                 continue
             title_only = current and current.title_regions and not current.regions \
@@ -300,7 +294,7 @@ def segment(pages: list) -> list[Article]:
                     r.role = "byline"
                     continue
                 head = run_in_head(r.text)
-                capitals_only = pg.magazine in RUN_IN_CAPITALS_ONLY
+                capitals_only = magazine.run_in_capitals_only
                 if head and current and (
                         title_only
                         or (capitals_only and not head.isupper())
