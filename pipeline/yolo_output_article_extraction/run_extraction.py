@@ -33,7 +33,8 @@ from PIL import Image, ImageDraw, ImageFont
 from articles import PAGE_NO, page_metadata, segment
 from layout import REPO_ROOT, load_page, mark_masthead, order_regions
 from magazine_rules_config import MAGAZINES
-from text import assign_docai_text, assign_tesseract_text, docai_json_path, recover_unboxed
+from text import (assign_docai_text, assign_tesseract_text, docai_json_path, drop_empty,
+                  recover_unboxed)
 
 OUT_ROOT = REPO_ROOT / "output" / "article_extraction"
 DB_PATH = OUT_ROOT / "articles.sqlite"
@@ -60,7 +61,9 @@ def column_name(column: int | None, magazine: str) -> str:
 
 def save_check_image(pg, article_of: dict, out_path: Path) -> None:
     """Page with content boxes coloured by article and labelled
-    '<reading order> · <article>'; masthead / furniture / dropped boxes in grey."""
+    '<reading order> · <article>' (or the role, e.g. 'imprint', for a box in
+    no article); masthead / furniture / dropped boxes in grey. Labels that
+    would overlap are nudged down so none is hidden."""
     with Image.open(pg.image_path) as im:
         image = im.convert("RGB").resize(
             (int(pg.width * CHECK_IMAGE_SCALE), int(pg.height * CHECK_IMAGE_SCALE)))
@@ -70,6 +73,7 @@ def save_check_image(pg, article_of: dict, out_path: Path) -> None:
     except OSError:
         font = ImageFont.load_default()
     s = CHECK_IMAGE_SCALE
+    labels = []
     for r in pg.regions:
         box = [v * s for v in r.bbox]
         if not r.order:
@@ -78,10 +82,22 @@ def save_check_image(pg, article_of: dict, out_path: Path) -> None:
         art = article_of.get(r.region_id)
         colour = PALETTE[(int(art.split("_")[-1]) - 1) % len(PALETTE)] if art else "#000000"
         draw.rectangle(box, outline=colour, width=4)
-        label = f"{r.order} · {art.split('_')[-1].lstrip('0') if art else '?'}"
-        l, t, rr, b = draw.textbbox((box[0] + 4, box[1] + 4), label, font=font)
+        labels.append((r.order, box, colour, f"{r.order} · {art.split('_')[-1].lstrip('0') if art else r.role}"))
+    placed = []
+    for _, box, colour, label in sorted(labels):  # in reading order
+        x, y = box[0] + 4, box[1] + 4
+        l, t, rr, b = draw.textbbox((x, y), label, font=font)
+        moved = True
+        while moved:
+            moved = False
+            for pl, pt, pr, pb in placed:
+                if l < pr and rr > pl and t < pb and b > pt:
+                    dy = pb - t + 4
+                    y, t, b = y + dy, t + dy, b + dy
+                    moved = True
         draw.rectangle((l - 3, t - 3, rr + 3, b + 3), fill=colour)
-        draw.text((box[0] + 4, box[1] + 4), label, fill="white", font=font)
+        draw.text((x, y), label, fill="white", font=font)
+        placed.append((l - 3, t - 3, rr + 3, b + 3))
     image.save(out_path, quality=85)
 
 
@@ -94,6 +110,7 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         use_docai = ocr == "docai" and docai_json_path(mag, n).exists()
         unboxed = assign_docai_text(pg) if use_docai else assign_tesseract_text(pg)
         unboxed = recover_unboxed(pg, unboxed)
+        drop_empty(pg)
         mark_masthead(pg)
         order_regions(pg)
         pages.append(pg)
@@ -114,6 +131,14 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         })
 
     articles = segment(pages)
+    # Segmenting can set boxes aside as furniture (no words, printer's
+    # signatures, magazine name): renumber reading order without them.
+    for pg in pages:
+        for n, r in enumerate((r for r in pg.ordered if r.role != "furniture"), start=1):
+            r.order = n
+        for r in pg.regions:
+            if r.role == "furniture":
+                r.order = None
     pages_df = pd.DataFrame(page_rows)
     # Issue number / date for each issue, from its pages (masthead first).
     issue_seq, seq = [], 0

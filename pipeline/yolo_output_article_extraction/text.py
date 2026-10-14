@@ -160,6 +160,15 @@ def recover_unboxed(pg: Page, lines: list[Line]) -> list[Line]:
     return leftover
 
 
+def drop_empty(pg: Page) -> None:
+    """A title/text/caption box that got no OCR words at all is empty, or a
+    duplicate of a box that got the words (each word goes to one box); drop it
+    before reading order is numbered."""
+    for r in pg.regions:
+        if r.role in ("title", "text", "caption") and not r.text.strip():
+            r.role, r.note = "dropped", "no OCR words: empty box, or a duplicate of one that got them"
+
+
 def assign_tesseract_text(pg: Page) -> list[Line]:
     from PIL import Image
 

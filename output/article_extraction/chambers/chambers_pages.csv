@@ -1,6 +1,6 @@
 magazine,page,printed_page,issue_date,issue_no,issue_start,ocr,n_boxes,n_content,n_dropped,n_recovered,unboxed_lines,unboxed_text,page_image,issue_seq
 chambers,1,,"February 4, 1832",1,True,docai,20,7,4,0,0,,test_texts/images/chambers_images/chambers_page_001.png,1
-chambers,2,2,,,False,docai,22,13,4,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_002.png,1
+chambers,2,2,,,False,docai,22,12,5,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_002.png,1
 chambers,3,3,,,False,docai,25,18,2,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_003.png,1
 chambers,4,4,,,False,docai,23,16,2,0,3,Original from | HARVARD UNIVERSITY | ❘,test_texts/images/chambers_images/chambers_page_004.png,1
 chambers,5,5,,,False,docai,23,16,3,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_005.png,1

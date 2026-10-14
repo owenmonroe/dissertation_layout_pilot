@@ -357,9 +357,46 @@ These are the quickest way to review results.
 5. **Illustrations:** store as `regions` rows (role `figure`) with a crop,
    caption and owning article. Later: a short description from a
    vision-language model.
-6. **Scale-up:** run on full volumes once all three magazines look right on
+6. **Front end for new volumes.** Test issues and the full corpus don't have
+   page images, YOLO boxes or Document AI OCR yet. One driver should run PDF
+   → 300 DPI page images → DocLayout-YOLO (in `doclayoutyolo-env`) → Document
+   AI → article extraction for any volume, with consistent folders and a
+   volume ID. It should reuse `pipeline/run_doclayoutyolo_batch.py` (which
+   already makes the page images and runs YOLO) and
+   `pipeline/run_docai_batch.py`.
+7. **Evaluation: development pages, then a locked baseline.**
+   - **Two sets of pages:**
+     - *Development:* the 74 sample pages. Rules have been tuned on these,
+       so annotating them is for finding and fixing errors, not for reporting
+       accuracy.
+     - *Test:* fresh issues, one per magazine from a later year (e.g. 1836,
+       1840, 1843), that no rule has been tuned on. Freeze the pipeline (git
+       tag), annotate them once, and report those numbers as the baseline. Later
+       years also show whether the rules hold as layouts change.
+   - **Reading order and article assignment:** a spreadsheet with one row per
+     content box: page, reading order, column, role, article and its title,
+     first words. Rows are pre-filled as correct; only errors are marked, with
+     notes. Error types, following the box study:
+     - **order:** box read out of sequence;
+     - **split:** one article broken into two;
+     - **merge:** two articles joined;
+     - **misattached:** box joined to the wrong article;
+     - **role:** title/text/caption/byline/attribution/masthead/imprint
+       confused;
+     - **missed:** text lost;
+     - **metadata:** issue, date or page number wrong.
+
+     Metrics: % of boxes correctly placed; article-start precision and recall;
+     each per magazine.
+   - **OCR:**
+     - *WER and CER* against a **literal transcription** of what is printed,
+       keeping the magazine's own typos and spellings. Passages are sampled
+       from the test issues (development pages can be used to settle the
+       comparison rules first). Normalise only what isn't content, e.g.
+       line-end hyphenation, and record those choices.
+     - *Completeness*, separately and automatically on every page: words lost
+       or duplicated by assigning OCR words to boxes, from article text
+       compared with Document AI's full page text.
+8. **Scale-up:** run on full volumes once all three magazines look right on
    the samples. Re-check that Document AI output exists for every page, or use
    tesseract.
-7. **Evaluation:** compare extracted articles with a hand list of articles for
-   the 9 gold-standard pages (titles, boundaries, word counts), as was done for
-   the boxes.
