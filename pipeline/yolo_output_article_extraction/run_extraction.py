@@ -159,6 +159,7 @@ def main() -> None:
             "title": a.title, "title_source": a.title_source, "title_note": a.title_note or None,
             "byline": a.byline or None, "attribution": a.attribution or None,
             "end_note": a.end_note or None,
+            "subsections": "; ".join(a.subsections) or None,
             "start_page": a.pages[0] if a.pages else None,
             "end_page": a.pages[-1] if a.pages else None,
             "pages": ";".join(map(str, a.pages)),

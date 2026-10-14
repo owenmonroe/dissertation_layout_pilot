@@ -100,7 +100,10 @@ rows).
     in large type.
   - Reading down from the top, boxes are masthead while they hold masthead
     wording, dates, or no real word ("OF THE", "1.]", OCR of the Saturday
-    seal).
+    seal). Chambers adds "CONDUCTED BY…", "AUTHOR OF…", "EIGHTH EDITION",
+    "PRICE THREE HALFPENCE".
+  - Masthead wording is looked for in the top 35% of the page, since
+    Chambers' masthead image alone fills the top fifth.
   - The walk stops at the first title or paragraph that belongs to an article.
   - A figure in the top 12% of the page is the masthead image. A figure lower
     down is the issue's opening illustration: it is kept, and the walk carries
@@ -137,15 +140,45 @@ rows).
 
 - A **title** box starts an article (consecutive title boxes before any text
   form one title).
-- A **run-in head** starts an article: 2–6 capitalised words then a full
-  stop/dash, e.g. "Animal Sagacity.—In the immense forests…". These are the
-  short filler items YOLO never boxes a title for. `title_source = run_in`.
+- A **run-in head** starts an article. These are the short filler items YOLO
+  never boxes a title for. `title_source = run_in`.
+  - Form: up to 8 words in Title Case or capitals, then a full stop and/or
+    dash, then the text carries on with a capital. Examples: "Animal
+    Sagacity.—In the immense forests…", "THE WASP. The manners…", "CHEAP
+    STEW—Sour…".
+  - Each full stop or dash in the opening is tried in turn, so the head gets
+    past abbreviations ("ANECDOTE OF MR. JEFFREY.—") and hyphens
+    ("NIGHT-FALL IN ITALY").
+  - Rejected: heads ending in initials or an abbreviation ("LL.D.", "N.Y.",
+    "St."), heads starting with a lowercase word, and whole sentences.
+  - One word in capitals of 4+ letters also counts ("HAARLEM.", "FOWLS.",
+    "ERRATUM.").
+  - When OCR loses the stop/dash, 3+ words in capitals followed by a normal
+    word still count ("NIGHT-FALL IN ITALY In Mr. Bell's…").
+- **Run-in subsections** stay inside their article and are listed in
+  `subsections`, unless a rule-sized gap (20 px) or a column/page break comes
+  first. A head is a subsection when:
+  - a titled article opens on a run-in head ("TWO USEFUL RECEIPTS" →
+    "FUMIGATING MIXTURE.—", "CHEAP STEW.—");
+  - in Chambers, the head is mixed case ("The Bow.", "The String."); Chambers'
+    real items have heads in capitals;
+  - in Chambers, the head sits inside an article with a YOLO title ("PLAGUE.
+    CHOLERA" → "CLEANLINESS.—", "SYMPTOMS OF THE DISEASE.—").
 - An **attribution** at the end of a box ends its article: "…swift
   destruction.—MONTAGU'S Dedication.", "…—SOUTHEY.". The attribution must be
   Title Case or capitals, up to 6 words, and is stored in `attribution`.
   - Saturday's short untitled items end this way rather than starting with a
     run-in head.
   - A title box holding only initials ("D. C.") is also an attribution.
+  - When OCR drops the dash, a final Title Case phrase still counts if it
+    reads as a source citation: a possessive or a word like
+    Journal/Review/Travels. Examples: "…all was calm. Elliot's Letters from
+    the North of Europe.", "Cobbett's Cottage Economy.".
+- A **bracketed editor's note** after an article closed by an attribution
+  ("[Such is the history of Ferguson's struggles…]") joins that article.
+- A **sign-off boxed as a title** (a title-led "article" of 12 words or fewer
+  straight before another titled article, e.g. "WILLIAM CHAMBERS. / EDINBURGH,
+  1st February, 1832.") joins the previous article's `attribution`.
 - **Opening in capitals:** a box whose first word is in capitals ("I HAVE sat
   upon the shore…", "HE whose heart…") starts a new untitled article. All of
   these must hold:
@@ -173,6 +206,12 @@ rows).
   "HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA"). An illustration printed
   above its article's title is moved into that article.
 - YOLO mislabel fixes:
+  - a "title" that doesn't read as a heading (under 60% of its words
+    capitalised) is text: "system of human society", the epigraph "With merit
+    needless, and without it vain", the verse couplet "Truths would you
+    teach…";
+  - a "title" holding the magazine's name mid-issue ("CHAMBERS' EDINBURGH
+    JOURNAL") is furniture;
   - a "caption" over 25 words is read as text (italic headnotes);
   - an all-capitals, unbracketed "caption" is read as a title ("THE MOLE.");
   - a short all-capitals text box (2–15 words) is read as a title ("PROCESSION
@@ -189,7 +228,7 @@ rows).
     year of the issue before.
 
 New article columns from these rules: `title_note`, `byline`, `attribution`,
-`end_note`.
+`end_note`, `subsections`.
 
 ## Status
 
@@ -223,6 +262,21 @@ These are the quickest way to review results.
   - 3 bylines, 1 "[To be continued.]".
   - Imprints and agents' lists excluded.
 
+### Chambers (24 sampled pages, 3 issues, 3 columns)
+
+- **The three-column reading order works:** left, middle, then right column,
+  with articles carried across columns and pages.
+- **All 24 pages:** 58 articles. Issues 1–3 dated February 4, 11, 18, 1832.
+  The imprint and agents' lists are excluded.
+- **Chambers' miscellany columns** (e.g. p. 8) split into their separate
+  items: HAARLEM, FOWLS, SMOKING, Anecdote of Mr. Jeffrey, The Mussulmaun's
+  Sabbath, The Wasp, A Judgment of God, Cats. Each mostly ends with a source
+  citation (`attribution`).
+- **Articles with subsections stay whole:**
+  - Plague. Cholera (Cleanliness, Diet, Temperance, Symptoms, Remedial Means);
+  - Column for the Boys and Archery (The Bow, The String…);
+  - Two Useful Receipts.
+
 ### Known issues
 
 - **Duplicated scan pages (penny):** PDF pages 22–23 repeat printed pages
@@ -240,14 +294,26 @@ These are the quickest way to review results.
 - **Untitled items:** the `title` column is empty for them. The attribution,
   or the index, can label them.
 - **OCR errors in titles:** e.g. "SOMERS ET-HOUSE", "HISTORY OF LELLS".
-- **Penny issue 2's number** isn't found (OCR'd as "2.1").
+- **Issue numbers:** penny issue 2's isn't found (OCR'd as "2.1"), and
+  Chambers issue 3 reads 8 (OCR misreading of 3).
+- **Subsection or item? (Chambers):** a capitals run-in head inside a titled
+  article with no gap before it is taken as a subsection. "NEGRO DOCTOR" inside
+  "NEW SOUTH WALES" (p. 14) may really be a separate item; the index check can
+  settle these.
+- **Chambers p. 24:** the bottom of the page mixes column text with the
+  imprint, so a few words land in the wrong item.
+- **Rules are getting magazine-specific:** e.g. `RUN_IN_CAPITALS_ONLY`, and
+  Chambers' masthead words. Planned refactor:
+  - move per-magazine settings into one config;
+  - add a regression check of the verified pages (penny pp. 1–3, Saturday
+    p. 3, Chambers p. 8), so a rule added for one magazine can't silently
+    change another.
 
 ## Next steps
 
 1. ~~Saturday~~ (done, above).
-2. **Chambers (3 columns):** `COLUMNS["chambers"] = 3` is in place.
-   - Check: the band/column logic with three columns; titles that span two
-     columns; Chambers has no illustrations but more run-in items.
+2. ~~Chambers~~ (done, above). Next: the config refactor and regression
+   check (see known issues).
 3. **Volume index as a check and title source.** Each volume opens with an
    alphabetical index of titles and page numbers (e.g. "Animal sagacity, 3";
    "Beer, antiquity of, 3"; "Charing Cross, account of, 1"). Plan:

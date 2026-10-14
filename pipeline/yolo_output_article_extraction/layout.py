@@ -27,8 +27,9 @@ COLUMNS = {"penny": 2, "saturday": 2, "chambers": 3}
 OVERLAP_DROP = 0.8
 # A box spans columns when it covers at least this share of 2+ columns' width.
 SPAN_SHARE = 0.2
-# Issue-start pages carry masthead wording in this top share of the page ...
-ISSUE_MARK_TOP = 0.2
+# Issue-start pages carry masthead wording in this top share of the page
+# (Chambers' masthead image alone fills the top fifth) ...
+ISSUE_MARK_TOP = 0.35
 ISSUE_MARKS = re.compile(
     r"published every|(?-i:PRICE\W*(?:ON\s+)?(?:ONE|TWO|THREE|A)\b)|^\W*n[º°o]\.?\s*\d|under the direction"
     r"|society for the diffusion", re.I)
@@ -37,7 +38,7 @@ ISSUE_MARKS = re.compile(
 NAMES = {
     "penny": re.compile(r"penny\s+magazine", re.I),
     "saturday": re.compile(r"^\W*(?:the\s+)?saturday\W*$|^\W*magazine\W*$", re.I),
-    "chambers": re.compile(r"chambers|edinburgh\s+journal", re.I),
+    "chambers": re.compile(r"edinburgh\s+journal", re.I),
 }
 NAME_MIN_PX = 70
 # Masthead lines are short; a longer box near the top is article text.
@@ -45,6 +46,7 @@ MASTHEAD_MAX_WORDS = 40
 # Masthead wording, for reading down the masthead.
 MASTHEAD_WORDS = re.compile(
     ISSUE_MARKS.pattern + r"|\bprice\b|magazine|journal|saturday|society|committee|knowledge"
+    r"|conducted by|author of|\bedition\b|halfpence"
     r"|january|february|march|april|may|june|july|august|september|october|november"
     r"|december|\b1[78]\d\d\b", re.I)
 # A figure this near the top of an issue-start page is part of the masthead.

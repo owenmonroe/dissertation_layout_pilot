@@ -36,6 +36,7 @@ Walking the content boxes of a magazine in reading order, page after page:
 import re
 from dataclasses import dataclass, field
 
+from layout import NAMES
 from text import SENTENCE_END, join_regions
 
 MONTHS = ("january february march april may june july august september october "
@@ -44,23 +45,44 @@ MONTHS = ("january february march april may june july august september october "
 DATE = re.compile(r"\b(" + "|".join(MONTHS) + r")\.?\s+(\d{1,2})\b(?:\s*,?\s*(1[78]\d\d))?", re.I)
 ISSUE_NO = re.compile(r"(?:\bN[oº°]\.?\s*|\[\s*)(\d{1,4})\s*\.?\s*\]?", re.I)
 PAGE_NO = re.compile(r"^\[?\s*(\d{1,4})\s*\.?\]?$")
-# Run-in head: 2-6 capitalised words (small connecting words allowed), then a
-# full stop and/or dash, then the text carries on with a capital.
-RUN_IN = re.compile(
-    r"^[\"“‘']?((?:[A-Z][\w'’-]*)(?:\s+(?:[A-Z][\w'’-]*|of|the|and|in|on|at|for|to|a|an)){1,5})"
-    r"\s*(?:\.\s*[—–-]{1,2}|[—–]{1,2}|\.)\s*(?=[A-Z“\"‘'])"
-)
+# Run-in head: 2-8 words opening a paragraph, ended by a full stop and/or
+# dash, with the text carrying on in capitals: "Animal Sagacity.—In the ...",
+# "THE WASP. The manners ...", "CHEAP STEW—Sour ...". Each full stop / dash in
+# the opening is tried in turn, so "ANECDOTE OF MR. JEFFREY.—" gets past "MR.".
+RUN_IN_SEPARATOR = re.compile(r"\s*(?:\.\s*[—–-]{1,2}|[—–]{1,2}|-(?=[A-Z])|\.)\s*(?=[A-Z“\"‘'])")
+RUN_IN_SPAN = 90  # characters of the paragraph the head can take up
+# Magazines whose real items have run-in heads in capitals; there, a mixed-case
+# run-in head ("The Bow.", "The String.") is a subsection inside an article.
+RUN_IN_CAPITALS_ONLY = {"chambers"}
+# OCR sometimes loses the stop/dash after a head ("NIGHT-FALL IN ITALY In Mr.
+# Bell's ..."): 3+ words in capitals opening the paragraph, then a normal word.
+CAPITALS_HEAD = re.compile(r"^((?:[A-Z][A-Z'’-]+|OF|THE|AND|IN|ON|AT|FOR|TO|A|AN)"
+                           r"(?:\s+(?:[A-Z][A-Z'’-]+|OF|THE|AND|IN|ON|AT|FOR|TO|A|AN)){2,7})"
+                           r"\s+(?=[A-Z][a-z])")
+ABBREVIATIONS = {"st", "mr", "mrs", "dr", "messrs", "capt", "col", "gen", "rev", "sir",
+                 "lord", "esq", "no", "vol", "mt"}
 # A title printed inside a figure box: its opening run of capitals.
+# A YOLO "title" is a real heading only if it reads like one: capitals or
+# Title Case. Lowercase lines and epigraphs ("system of human society",
+# "With merit needless, and without it vain") are text YOLO mislabelled.
+HEADING_SHARE = 0.6
 FIGURE_TITLE = re.compile(r"^([A-Z][A-Z'’ ,&-]{2,80}?)\s*(?:[.(\[]|$)")
 # A title box holding only initials ("D. C.") signs off the item above it.
 INITIALS = re.compile(r"^\W*(?:[A-Z]\.\s*){1,3}\W*$")
 CAPTION_MAX_WORDS = 25
+OUTRO_MAX_WORDS = 12
 CAPS_TITLE_MAX_WORDS = 15
 SIGNATURE_MAX_WORDS = 3
 SIGNATURE_BELOW = 0.88  # share of page height
 # Attribution: a dash then a name or source in capitals / Title Case.
 ATTRIBUTION = re.compile(r"[.!?\"”’,;:)]\s*[—–-]{1,2}\s*([A-Z][A-Za-z'’.,& ]{1,60}?)\.?\s*$")
 ATTRIBUTION_MAX_WORDS = 6
+# OCR sometimes drops the dash: "... all was calm. Elliot's Letters from the
+# North of Europe." Without a dash, only a source citation counts: Title Case,
+# with a possessive or ending in a word like Journal / Review.
+ATTRIBUTION_NO_DASH = re.compile(r"[.!?\"”’]\s+([A-Z][A-Za-z'’.,& ]{3,80}?)\.?\s*$")
+SOURCE_WORDS = {"journal", "magazine", "review", "travels", "history", "economy", "cyclopaedia",
+                "cyclopedia", "letters", "anecdotes", "companion", "knowledge", "sketches", "tour"}
 # A new item needs space (or a column / page break) before it, where the
 # magazines print a short rule; paragraphs within an item sit closer.
 ITEM_GAP_PX = 20
@@ -73,6 +95,7 @@ IMPRINT = re.compile(
     r"|THE COMMITTEE OF GENERAL LITERATURE)|WEST STRAND|PALL[- ]MALL EAST|publisher'?s agents",
     re.I)
 IMPRINT_BELOW = 0.6  # share of page height
+BRACKET_NOTE = re.compile(r"^\W{0,3}\[")
 SMALL_WORDS = {"of", "the", "and", "in", "on", "at", "for", "to", "a", "an"}
 
 
@@ -88,6 +111,7 @@ class Article:
     figures: list = field(default_factory=list)
     captions: list = field(default_factory=list)
     notes: list = field(default_factory=list)  # byline / end-note boxes
+    subsections: list = field(default_factory=list)  # run-in subsection heads
     byline: str = ""
     attribution: str = ""
     end_note: str = ""
@@ -107,28 +131,62 @@ class Article:
 
 
 def run_in_head(text: str) -> str | None:
-    m = RUN_IN.match(text)
-    if not m:
-        return None
-    head = m.group(1)
-    words = head.split()
-    capitalised = sum(w[0].isupper() for w in words)
-    if capitalised < 2 or words[-1].lower() in SMALL_WORDS:
-        return None
-    if head.isupper() and not re.search(r"[—–-]", m.group(0)[len(head):]):
-        return None  # all-capitals heads ("HUMMING BIRDS.—") need the dash
-    return head
+    opening = text.lstrip("\"“‘' ")[:RUN_IN_SPAN]
+    for sep in RUN_IN_SEPARATOR.finditer(opening):
+        head = opening[:sep.start()].strip()
+        words = head.split()
+        if len(words) < 2 and sep.group().strip() == "-":
+            continue  # a hyphen inside the head: "NIGHT-FALL IN ITALY."
+        if len(words) == 1 and words[0].isupper() and len(words[0]) >= 4:
+            return head  # one word in capitals: "HAARLEM. We paid ...", "FOWLS."
+        if not 2 <= len(words) <= 8:
+            return None  # one word, or a whole sentence: not a heading
+        if words[-1].lower().strip(".") in ABBREVIATIONS:
+            continue  # "Returning to the St. Lawrence", "MR. JEFFREY"
+        if re.fullmatch(r"[A-Z]{1,2}", words[-1]) or "." in words[-1]:
+            continue  # initials: "Alexander Adam, LL.D.", "Monroe County, N.Y."
+        heading_words = all(w[0].isupper() or w.lower() in SMALL_WORDS for w in words)
+        capitalised = sum(w[0].isupper() for w in words)
+        if heading_words and capitalised >= 2 and words[0][0].isupper() \
+                and words[-1].lower() not in SMALL_WORDS:
+            return head
+        return None  # the first sentence isn't a heading: no run-in head
+    m = CAPITALS_HEAD.match(opening)
+    return m.group(1) if m else None
 
 
 def attribution(text: str) -> str | None:
     m = ATTRIBUTION.search(text)
-    if not m:
-        return None
-    words = m.group(1).split()
-    title_case = all(w[0].isupper() or w.lower() in SMALL_WORDS for w in words)
-    if len(words) > ATTRIBUTION_MAX_WORDS or not title_case:
+    if m:
+        words = m.group(1).split()
+        title_case = all(w[0].isupper() or w.lower() in SMALL_WORDS for w in words)
+        if len(words) <= ATTRIBUTION_MAX_WORDS and title_case:
+            return m.group(1).strip()
         return None  # e.g. a poem line: "—This Cot his morning ray."
-    return m.group(1).strip()
+    m = ATTRIBUTION_NO_DASH.search(text)
+    if m:
+        words = m.group(1).split()
+        title_case = all(w[0].isupper() or w.lower() in SMALL_WORDS for w in words)
+        cites = any("'s" in w or "’s" in w for w in words) or words[-1].lower().strip(".") in SOURCE_WORDS
+        if 2 <= len(words) <= 8 and title_case and cites:
+            return m.group(1).strip()
+    return None
+
+
+def reads_as_heading(text: str) -> bool:
+    words = [w for w in re.findall(r"[A-Za-z][\w'’]*", text) if w.lower() not in SMALL_WORDS]
+    if not words:
+        return False
+    return sum(w[0].isupper() for w in words) / len(words) >= HEADING_SHARE
+
+
+def item_break(current: Article, r) -> bool:
+    """A rule-sized gap, or a column / page break, before box r."""
+    if not current.regions:
+        return True
+    prev = current.regions[-1]
+    same_column = prev.page == r.page and prev.column == r.column
+    return not same_column or r.y1 - prev.y2 >= ITEM_GAP_PX
 
 
 def new_item(current: Article, r) -> bool:
@@ -184,10 +242,11 @@ def segment(pages: list) -> list[Article]:
         articles.append(current)
         return current
 
+    last = None  # the last article closed by an attribution / end note
     for pg in pages:
         if pg.issue_start or issue_seq == 0:
             issue_seq += 1
-            current = None
+            current, last = None, None
         in_imprint = False
         for r in pg.ordered:
             words = r.text.split()
@@ -211,7 +270,12 @@ def segment(pages: list) -> list[Article]:
                 if current:
                     current.end_note = r.text
                     current.notes.append(r)
-                r.role, current = "end_note", None
+                r.role, current, last = "end_note", None, current
+                continue
+            if r.role == "title" and not reads_as_heading(r.text):
+                r.role, r.note = "text", "YOLO title that doesn't read as a heading, read as text"
+            if r.role == "title" and NAMES[pg.magazine].search(r.text) and not pg.issue_start:
+                r.role, r.note = "furniture", "magazine name"
                 continue
             title_only = current and current.title_regions and not current.regions \
                 and current.title_regions[-1].page == r.page
@@ -236,7 +300,27 @@ def segment(pages: list) -> list[Article]:
                     r.role = "byline"
                     continue
                 head = run_in_head(r.text)
-                if head:
+                capitals_only = pg.magazine in RUN_IN_CAPITALS_ONLY
+                if head and current and (
+                        title_only
+                        or (capitals_only and not head.isupper())
+                        or (not item_break(current, r)
+                            and (current.subsections
+                                 or (capitals_only and current.title_source == "yolo_title")))):
+                    # Run-in subsection, not a new item:
+                    #  - a titled article opening on a run-in head ("TWO USEFUL
+                    #    RECEIPTS" / "FUMIGATING MIXTURE.—");
+                    #  - Chambers: a mixed-case head ("The Bow."), or a head inside
+                    #    a titled article ("PLAGUE. CHOLERA" / "CLEANLINESS.—");
+                    #  - another head in an article already divided this way;
+                    #  unless a rule-sized gap or column/page break comes first.
+                    current.subsections.append(head)
+                    r.note = f"run-in subsection: {head}"
+                    head = None
+                if current is None and last and BRACKET_NOTE.match(r.text):
+                    current = last  # "[Such is the history of ...]": editor's note on it
+                    r.note = "bracketed editor's note joined to the article above"
+                elif head:
                     start(head, "run_in")
                 elif current is None or new_item(current, r):
                     start("", "none")
@@ -244,7 +328,7 @@ def segment(pages: list) -> list[Article]:
                 source = attribution(r.text)
                 if source:
                     current.attribution = source
-                    current = None
+                    current, last = None, current
             elif r.role == "figure":
                 if current is None:
                     start("", "none")
@@ -264,6 +348,18 @@ def segment(pages: list) -> list[Article]:
             nxt.figures[:0], nxt.captions[:0] = a.figures, a.captions
             a.figures, a.captions = [], []
     articles = [a for a in articles if a.all_regions]
+    # A short title-led "article" (a few words) straight before another titled
+    # article is the previous article's sign-off that YOLO boxed as a title:
+    # "WILLIAM CHAMBERS. / EDINBURGH, 1st February, 1832."
+    for prev, a, nxt in zip(articles, articles[1:], articles[2:]):
+        if a.title_source == "yolo_title" and not a.figures and nxt.title_source == "yolo_title" \
+                and len(a.text.split()) <= OUTRO_MAX_WORDS and a.issue_seq == prev.issue_seq:
+            prev.attribution = " ".join(filter(None, [prev.attribution, a.title, a.text]))
+            prev.notes += a.title_regions + a.regions
+            a.title_regions, a.regions = [], []
+    articles = [a for a in articles if a.all_regions]
+    for n, a in enumerate(articles, start=1):  # number without gaps
+        a.article_id = f"{a.magazine}_{n:04d}"
     for a in articles:
         # Untitled article opening with an illustration whose title is printed
         # inside the figure box (e.g. "POMPEII. [Restored View of Pompeii.]").
