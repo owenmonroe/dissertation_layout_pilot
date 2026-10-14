@@ -126,7 +126,7 @@ PrimaLayout produced no duplicate boxes on these 9 pages.
   `doubled on X` (on the first) / `double of X` (on the second), so analysis
   can be reported with and without duplicates.
 - **Region type notes:** notes record what the box covers, using
-  `box_label_taxonomy.md` terms where possible (masthead image, byline, page
+  `documentation/box_label_taxonomy.md` terms where possible (masthead image, byline, page
   number header, title header, …).
 
 ### How the log was filled in
