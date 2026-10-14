@@ -32,7 +32,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from articles import PAGE_NO, page_metadata, segment
 from layout import REPO_ROOT, load_page, mark_masthead, order_regions
-from magazines import MAGAZINES
+from magazine_rules_config import MAGAZINES
 from text import assign_docai_text, assign_tesseract_text, docai_json_path, recover_unboxed
 
 OUT_ROOT = REPO_ROOT / "output" / "article_extraction"

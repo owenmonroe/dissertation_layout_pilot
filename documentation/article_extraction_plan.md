@@ -66,7 +66,7 @@ uncertain boundaries, cleaning OCR, and describing illustrations.
 
 | File | Step |
 |---|---|
-| `magazines.py` | **Per-magazine settings**: columns, the magazine's name, extra masthead wording, imprint patterns, whether real items have run-in heads in capitals (Chambers). Everything else is shared. |
+| `magazine_rules_config.py` | **Per-magazine settings**: columns, the magazine's name, extra masthead wording, imprint patterns, whether real items have run-in heads in capitals (Chambers). Everything else is shared. |
 | `layout.py` | Load YOLO boxes; drop overlapping duplicates; assign roles and columns; find the masthead; reading order |
 | `text.py` | Text for each box: Document AI OCR words assigned to YOLO boxes (or tesseract); recover text YOLO missed |
 | `articles.py` | Group ordered boxes into articles; titles; cross-page stitching; figures and captions; page/issue metadata |
@@ -86,7 +86,7 @@ the DocLayout-YOLO and Document AI output for every page of the sampled PDFs
 only the first 3 pages of each, which were hand-evaluated box by box. So boxes
 on pages 4+ are unevaluated YOLO output.
 
-**After changing a rule or `magazines.py`:**
+**After changing a rule or `magazine_rules_config.py`:**
 
 ```
 python pipeline/yolo_output_article_extraction/check_verified.py
@@ -336,7 +336,7 @@ These are the quickest way to review results.
 ## Next steps
 
 1. ~~Saturday~~ (done, above).
-2. ~~Chambers~~ (done, above), plus the per-magazine config (`magazines.py`)
+2. ~~Chambers~~ (done, above), plus the per-magazine config (`magazine_rules_config.py`)
    and regression check (`check_verified.py`). The refactor changed no output.
 3. **Volume index as a check and title source.** Each volume opens with an
    alphabetical index of titles and page numbers (e.g. "Animal sagacity, 3";

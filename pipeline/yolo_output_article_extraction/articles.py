@@ -36,7 +36,7 @@ Walking the content boxes of a magazine in reading order, page after page:
 import re
 from dataclasses import dataclass, field
 
-from magazines import MAGAZINES
+from magazine_rules_config import MAGAZINES
 from text import SENTENCE_END, join_regions
 
 MONTHS = ("january february march april may june july august september october "

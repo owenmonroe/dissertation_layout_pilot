@@ -18,7 +18,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from magazines import MAGAZINES
+from magazine_rules_config import MAGAZINES
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -33,13 +33,13 @@ ISSUE_MARK_TOP = 0.35
 ISSUE_MARKS = re.compile(
     r"published every|(?-i:PRICE\W*(?:ON\s+)?(?:ONE|TWO|THREE|A)\b)|^\W*n[º°o]\.?\s*\d|under the direction"
     r"|society for the diffusion", re.I)
-# ... or the magazine's name (magazines.py) in large type, taller than this;
+# ... or the magazine's name (magazine_rules_config.py) in large type, taller than this;
 # the running header with the same name is small and is YOLO furniture anyway.
 NAME_MIN_PX = 70
 # Masthead lines are short; a longer box near the top is article text.
 MASTHEAD_MAX_WORDS = 40
 # Masthead wording shared by all magazines, for reading down the masthead;
-# each magazine adds its own (magazines.py).
+# each magazine adds its own (magazine_rules_config.py).
 MASTHEAD_WORDS = re.compile(
     ISSUE_MARKS.pattern + r"|\bprice\b|magazine|journal"
     r"|january|february|march|april|may|june|july|august|september|october|november"

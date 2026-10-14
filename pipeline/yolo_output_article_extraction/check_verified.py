@@ -3,7 +3,7 @@
 verified_pages.json lists, for each checked page, the articles on it in
 reading order (title, or "[untitled — <attribution>]"). This re-runs the
 extraction in memory for each magazine (nothing is written) and reports any
-page whose articles changed. Run it after changing a rule or magazines.py:
+page whose articles changed. Run it after changing a rule or magazine_rules_config.py:
 
     python pipeline/yolo_output_article_extraction/check_verified.py
 
