@@ -47,7 +47,7 @@ Headers, page numbers, margins and dropped duplicate boxes are left out.
 | `role` | title, text, figure, caption, byline, attribution, end_note, imprint, masthead |
 | `article`, `article_id`, `article_title` | the article the box was put in (`article` = the number on the check image) |
 | `box_start`, `box_end` | the box's first and last few words |
-| `verdict` | pre-filled `ok`; set to `error` for a wrong box |
+| `verdict` | pre-filled `ok`; `error` for a wrong box; `excluded` for boxes not evaluated (e.g. duplicate scan pages, penny PDF pp. 22–23) |
 | `error_type` | see below (several joined with `; `) |
 | `notes` | free text |
 
@@ -80,13 +80,26 @@ Headers, page numbers, margins and dropped duplicate boxes are left out.
   These feed the automatic completeness check and the pipeline's text fixes.
 - `metadata` is logged only when something printed was missed or misread. A
   page with no printed page number correctly has none.
-- A caption included inside a figure box is a `role` error.
+- A caption or title included inside a figure box is a `role` error, even if
+  the pipeline recovers the title from the figure's text.
+- A box the log leaves out (furniture) that is really content, e.g. an
+  asterisked footnote giving an article's source, gets a row added during
+  the evaluation, with a `role` error. Proposed new role: `footnote`, stored
+  with the article like `byline` / `attribution`.
 - **Recurring features (series)**: e.g. "BRITISH ANIMALS." over the Dormouse
   and the Swallow; "THE WEEK"; "BIOGRAPHIC SKETCHES"; "Column for the Boys".
   - Each piece under the heading is its own article row, with a shared
     `series` label.
   - A series heading taken as a title (or as text) is a `role` error on the
     heading box.
+- **Front and back matter** (agreed 2026-10-15). Source lines, epigraphs and
+  continuation notes before the text are front matter; sign-offs, footnotes
+  and "[To be continued.]" after it are back matter. Where they sit varies,
+  so position, not kind, decides.
+  - A front/back-matter box read as article text, boxed as a title, or set
+    aside as furniture is a `role` error.
+  - A sign-off inside a paragraph box (e.g. "…mass. Everett's Essay.") can't
+    be a box error; it's a `text:` note.
 - **Continuations across issues** ("[Concluded from our last.]") are not
   series. Each part is its own row, later linked by `continues_article_id`.
   A continuation note read as article text is a `role` error (it belongs with
@@ -105,5 +118,4 @@ page 1 onward.
 Template built 2026-10-14: 1,086 boxes (penny 334, Saturday 336, Chambers
 416).
 
-As of 2026-10-14: penny pp. 1–16 recorded. Resume at penny p. 17 (first page
-of issue 3).
+As of 2026-10-15: penny and Saturday complete. Resume at Chambers p. 1.

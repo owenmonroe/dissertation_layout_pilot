@@ -333,6 +333,56 @@ These are the quickest way to review results.
   ("[To be continued.]" → issue 3). Link these with `continues_article_id`.
 - **Untitled items:** the `title` column is empty for them. The attribution,
   or the index, can label them.
+- **Series (recurring features), decided during the reading-order
+  evaluation:**
+  - Each piece is its own article row, with a shared `series` label, e.g.
+    the Dormouse, the Swallow and the Mole each get `series = "British
+    Animals"`.
+  - The pipeline needs two rules:
+    1. a title that recurs across issues is a series name ("THE WEEK" →
+       `series = "The Week"`). Numbered titles are series parts ("FAMILIAR
+       REMARKS ON ARCHITECTURE. I." → series "Familiar Remarks on
+       Architecture", part I);
+    2. a heading box above a subtitle is a series heading ("BRITISH ANIMALS."
+       over "THE DORMOUSE.", including when it's inside a figure box). It
+       applies to the titled articles that follow, until a new heading or the
+       issue's end; the volume index can confirm.
+  - Series agreed so far: British Animals, Familiar Remarks on Architecture,
+    Botanical Diversions (tentative), The Week, and the Committee of General
+    Literature and Education's notices (Saturday pp. 16, 24; also
+    `article_type = editorial_notice`).
+  - Continuations across issues ("[Concluded from our last.]") are not
+    series. Link them with `continues_article_id`.
+- **Front and back matter fields** (from the evaluation, penny pp. 6–25).
+  Source lines, epigraphs, continuation notes and footnotes currently land in
+  `title_note`, `byline` or the article text, depending on how YOLO boxed
+  them. Replace this with fixed fields filled by what the line is:
+  - *Front*, between the title and the first paragraph: `series`, `subtitle`,
+    `source` (all "[From …]" / "FROM THE REV. …" / "[From a Correspondent.]"
+    lines), `epigraph` ("My Library / Was Dukedom large enough." —Prospero),
+    `continuation_note` ("[Concluded from our last.]").
+  - *Back:* `attribution`, `footnotes` (asterisked notes, including ones
+    YOLO calls furniture), `end_note` ("[To be continued.]").
+
+  `source` also supports Chapter 4 (reprints, sources, voices).
+
+  Inline sign-offs at the end of a paragraph box ("…order of being.—Journal
+  of a Naturalist.", "…—SOUTHEY") are already detected (the current
+  `attribution`). The fix is to cut them out of the body text into
+  `back_matter`. Misses with no dash or possessive ("Tour of a German
+  Prince.") are collected in the evaluation notes.
+- **Imprint rule too broad (Saturday p. 16):** "THE COMMITTEE OF GENERAL
+  LITERATURE AND EDUCATION," also heads editorial notices to readers, and
+  because the rest of the page after an imprint match is set aside, a notice
+  was lost. Match the publisher lines (LONDON:, JOHN WILLIAM PARKER, Sold by…)
+  only, and stop treating the rest of the page as imprint after a title.
+- **Editorial paratext** (errata, notices to readers): keep as articles.
+  Possibly a later `article_type` label (e.g. `editorial_notice`), rather than
+  a series.
+- **Tables:** OCR jumbles the numbers in tables (penny pp. 7, 18). Plan: give
+  table boxes a `table` role, so they're easy to find and to leave out of
+  topic modelling and the WER sample. Use a table-structure OCR or hand
+  transcription only for tables the argument needs.
 - **OCR errors in titles:** e.g. "SOMERS ET-HOUSE", "HISTORY OF LELLS".
 - **Subsection or item? (Chambers):** a capitals run-in head inside a titled
   article with no gap before it is taken as a subsection. "NEGRO DOCTOR" inside
