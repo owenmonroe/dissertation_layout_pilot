@@ -248,7 +248,21 @@ rows).
 - **Metadata:**
   - The printed page number comes from the header furniture (years excluded).
   - Issue number and date come from the masthead, including masthead lines
-    YOLO didn't box.
+    YOLO didn't box. The raw masthead text is kept in `pages.masthead_text`.
+  - **Issue numbers** matter most for matching archival sources (authors are
+    paid and indexed by number). The number is recorded without punctuation
+    ("1.]", "No. 2.", "Nº 3." → 1, 2, 3), and "2.1" / "2.l" (a misread "2.]")
+    is handled.
+  - **Issue sequence check** (`pages.issue_check`): numbers should go up by
+    one.
+    - A number one OCR-confusable digit away from the expected one is
+      corrected and noted, e.g. Chambers "No. 3." read as 8: "corrected:
+      read 8, expected 3".
+    - Gaps and missing numbers are flagged.
+    - A restart is flagged as a possible **new series**. No "NEW SERIES"
+      label is needed: a repeated number read with its date shows it.
+  - Edition (e.g. Chambers' "EIGHTH EDITION" reprints) isn't a field; it
+    stays in `masthead_text`.
   - Issue-start pages often lose the year to OCR, so the issue takes the date
     with a year from any of its pages (the last page carries it), or else the
     year of the issue before.
@@ -320,8 +334,6 @@ These are the quickest way to review results.
 - **Untitled items:** the `title` column is empty for them. The attribution,
   or the index, can label them.
 - **OCR errors in titles:** e.g. "SOMERS ET-HOUSE", "HISTORY OF LELLS".
-- **Issue numbers:** penny issue 2's isn't found (OCR'd as "2.1"), and
-  Chambers issue 3 reads 8 (OCR misreading of 3).
 - **Subsection or item? (Chambers):** a capitals run-in head inside a titled
   article with no gap before it is taken as a subsection. "NEGRO DOCTOR" inside
   "NEW SOUTH WALES" (p. 14) may really be a separate item; the index check can

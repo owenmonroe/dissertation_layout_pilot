@@ -74,6 +74,23 @@ Headers, page numbers, margins and dropped duplicate boxes are left out.
   (as in the box study).
 - An article boundary error is logged once, where the boundary should be (or
   wrongly is), not on every box of the article.
+- Text-level observations go in `notes` with a `text:` prefix and aren't
+  counted. This covers words swapped between neighbouring boxes by page tilt,
+  stray furniture words ("OL.I."), scrambled tilted lines, and table OCR.
+  These feed the automatic completeness check and the pipeline's text fixes.
+- `metadata` is logged only when something printed was missed or misread. A
+  page with no printed page number correctly has none.
+- A caption included inside a figure box is a `role` error.
+- **Recurring features (series)**: e.g. "BRITISH ANIMALS." over the Dormouse
+  and the Swallow; "THE WEEK"; "BIOGRAPHIC SKETCHES"; "Column for the Boys".
+  - Each piece under the heading is its own article row, with a shared
+    `series` label.
+  - A series heading taken as a title (or as text) is a `role` error on the
+    heading box.
+- **Continuations across issues** ("[Concluded from our last.]") are not
+  series. Each part is its own row, later linked by `continues_article_id`.
+  A continuation note read as article text is a `role` error (it belongs with
+  the title).
 
 ## Workflow
 
@@ -85,5 +102,8 @@ page 1 onward.
 
 ## Progress
 
-Not started (template built 2026-10-14: 1,086 boxes — penny 334, Saturday
-336, Chambers 416).
+Template built 2026-10-14: 1,086 boxes (penny 334, Saturday 336, Chambers
+416).
+
+As of 2026-10-14: penny pp. 1–16 recorded. Resume at penny p. 17 (first page
+of issue 3).

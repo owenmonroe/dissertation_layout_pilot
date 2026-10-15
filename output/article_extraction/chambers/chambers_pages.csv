@@ -1,25 +1,25 @@
-magazine,page,printed_page,issue_date,issue_no,issue_start,ocr,n_boxes,n_content,n_dropped,n_recovered,unboxed_lines,unboxed_text,page_image,issue_seq
-chambers,1,,"February 4, 1832",1,True,docai,20,7,4,0,0,,test_texts/images/chambers_images/chambers_page_001.png,1
-chambers,2,2,,,False,docai,22,12,5,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_002.png,1
-chambers,3,3,,,False,docai,25,18,2,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_003.png,1
-chambers,4,4,,,False,docai,23,16,2,0,3,Original from | HARVARD UNIVERSITY | ❘,test_texts/images/chambers_images/chambers_page_004.png,1
-chambers,5,5,,,False,docai,23,16,3,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_005.png,1
-chambers,6,6,,,False,docai,30,25,2,0,4,CHAMBERS' EDINBURGH JOURNAL. | Original from | HARVARD UNIVERSITY | .,test_texts/images/chambers_images/chambers_page_006.png,1
-chambers,7,7,,,False,docai,16,10,2,2,4,"Original from | HARVARD UNIVERSITY | , | for",test_texts/images/chambers_images/chambers_page_007.png,1
-chambers,8,8,,,False,docai,29,20,2,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_008.png,1
-chambers,9,,"February 11, 1832",2,True,docai,18,9,1,0,4,CONDUCTED BY c. | Original from | HARVARD UNIVERSITY | 16:25 GMT,test_texts/images/chambers_images/chambers_page_009.png,2
-chambers,10,10,,,False,docai,18,13,0,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_010.png,2
-chambers,11,,,,False,docai,16,12,0,0,3,"Original from | HARVARD UNIVERSITY | ,",test_texts/images/chambers_images/chambers_page_011.png,2
-chambers,12,12,,,False,docai,14,9,1,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_012.png,2
-chambers,13,13,,,False,docai,24,18,1,0,3,Original from | HARVARD UNIVERSITY | 16:25 GMT,test_texts/images/chambers_images/chambers_page_013.png,2
-chambers,14,14,,,False,docai,32,22,5,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_014.png,2
-chambers,15,15,,,False,docai,27,20,2,1,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_015.png,2
-chambers,16,16,,,False,docai,31,19,8,0,1,slim,test_texts/images/chambers_images/chambers_page_016.png,2
-chambers,17,,"February 18, 1832",8,True,docai,20,12,0,0,2,No. 8. | 16:25 GMT,test_texts/images/chambers_images/chambers_page_017.png,3
-chambers,18,18,,,False,docai,24,18,1,5,2,to | is,test_texts/images/chambers_images/chambers_page_018.png,3
-chambers,19,19,,,False,docai,38,28,5,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_019.png,3
-chambers,20,20,,,False,docai,36,30,2,3,4,Original from | HARVARD UNIVERSITY | 12 | Generated at University of Illinois at Urbana-Champaign through HathiTrust on 2026-05-21 16:25 GMT,test_texts/images/chambers_images/chambers_page_020.png,3
-chambers,21,21,,,False,docai,26,18,2,0,6,Original from | HARVARD UNIVERSITY | Hun | 4585 tons. | to | 26,test_texts/images/chambers_images/chambers_page_021.png,3
-chambers,22,22,,,False,docai,18,14,0,0,3,Original from | HARVARD UNIVERSITY | 16:25 GMT,test_texts/images/chambers_images/chambers_page_022.png,3
-chambers,23,23,,,False,docai,34,26,2,0,1,16:25 GMT,test_texts/images/chambers_images/chambers_page_023.png,3
-chambers,24,24,,,False,docai,18,12,2,2,7,Original from | HARVARD UNIVERSITY | . | a | . | in | .,test_texts/images/chambers_images/chambers_page_024.png,3
+magazine,page,printed_page,issue_date,issue_no,issue_start,masthead_text,ocr,n_boxes,n_content,n_dropped,n_recovered,unboxed_lines,unboxed_text,page_image,issue_seq,issue_check
+chambers,1,,"February 4, 1832",1,True,"PRICE THREE HALFPENCE. | CONDUCTED BY WILLIAM CHAMBERS, AUTHOR OF ""THE BOOK OF SCOTLAND,” “GAZETTEER OF SCOTLAND,"" &c. | EIGHTH EDITION. | No. 1. | SATURDAY, FEBRUARY 4,1832 | CHAMBERS EDINBURGH JOURNAL",docai,20,7,4,0,0,,test_texts/images/chambers_images/chambers_page_001.png,1,
+chambers,2,2,"February 4, 1832",1,False,,docai,22,12,5,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_002.png,1,
+chambers,3,3,"February 4, 1832",1,False,,docai,25,18,2,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_003.png,1,
+chambers,4,4,"February 4, 1832",1,False,,docai,23,16,2,0,3,Original from | HARVARD UNIVERSITY | ❘,test_texts/images/chambers_images/chambers_page_004.png,1,
+chambers,5,5,"February 4, 1832",1,False,,docai,23,16,3,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_005.png,1,
+chambers,6,6,"February 4, 1832",1,False,,docai,30,25,2,0,4,CHAMBERS' EDINBURGH JOURNAL. | Original from | HARVARD UNIVERSITY | .,test_texts/images/chambers_images/chambers_page_006.png,1,
+chambers,7,7,"February 4, 1832",1,False,,docai,16,10,2,2,4,"Original from | HARVARD UNIVERSITY | , | for",test_texts/images/chambers_images/chambers_page_007.png,1,
+chambers,8,8,"February 4, 1832",1,False,,docai,29,20,2,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_008.png,1,
+chambers,9,,"February 11, 1832",2,True,"SATURDAY, FEBRUARY 11, 1832. | PRICE THREE HALFPENCE. | No. 2. | EIGHTH EDITION. | WILLIAM CHAMBERS, AUTHOR OF ""THE BOOK OF SCOTLAND,"" ""GAZETTEER OF SCOTLAND,"" & | CHAMBERS JOURNAL EDINBURGH",docai,18,9,1,0,4,CONDUCTED BY c. | Original from | HARVARD UNIVERSITY | 16:25 GMT,test_texts/images/chambers_images/chambers_page_009.png,2,
+chambers,10,10,"February 11, 1832",2,False,,docai,18,13,0,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_010.png,2,
+chambers,11,,"February 11, 1832",2,False,,docai,16,12,0,0,3,"Original from | HARVARD UNIVERSITY | ,",test_texts/images/chambers_images/chambers_page_011.png,2,
+chambers,12,12,"February 11, 1832",2,False,,docai,14,9,1,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_012.png,2,
+chambers,13,13,"February 11, 1832",2,False,,docai,24,18,1,0,3,Original from | HARVARD UNIVERSITY | 16:25 GMT,test_texts/images/chambers_images/chambers_page_013.png,2,
+chambers,14,14,"February 11, 1832",2,False,,docai,32,22,5,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_014.png,2,
+chambers,15,15,"February 11, 1832",2,False,,docai,27,20,2,1,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_015.png,2,
+chambers,16,16,"February 11, 1832",2,False,,docai,31,19,8,0,1,slim,test_texts/images/chambers_images/chambers_page_016.png,2,
+chambers,17,,"February 18, 1832",3,True,"SATURDAY, FEBRUARY 18, 1832. | PRICE THREE HALFPENCE. | EIGHTH EDITION. | CONDUCTED by WilliAM CHAMBERS, AUTHOR OF ""TH BOOK OF SCOTLAND,” “GAZETTEER OF SCOTLAND,"" &c. | CHAMBERS EDINBURGH JOURNAL",docai,20,12,0,0,2,No. 8. | 16:25 GMT,test_texts/images/chambers_images/chambers_page_017.png,3,"corrected: read 8, expected 3 (OCR confusion)"
+chambers,18,18,"February 18, 1832",3,False,,docai,24,18,1,5,2,to | is,test_texts/images/chambers_images/chambers_page_018.png,3,"corrected: read 8, expected 3 (OCR confusion)"
+chambers,19,19,"February 18, 1832",3,False,,docai,38,28,5,0,2,Original from | HARVARD UNIVERSITY,test_texts/images/chambers_images/chambers_page_019.png,3,"corrected: read 8, expected 3 (OCR confusion)"
+chambers,20,20,"February 18, 1832",3,False,,docai,36,30,2,3,4,Original from | HARVARD UNIVERSITY | 12 | Generated at University of Illinois at Urbana-Champaign through HathiTrust on 2026-05-21 16:25 GMT,test_texts/images/chambers_images/chambers_page_020.png,3,"corrected: read 8, expected 3 (OCR confusion)"
+chambers,21,21,"February 18, 1832",3,False,,docai,26,18,2,0,6,Original from | HARVARD UNIVERSITY | Hun | 4585 tons. | to | 26,test_texts/images/chambers_images/chambers_page_021.png,3,"corrected: read 8, expected 3 (OCR confusion)"
+chambers,22,22,"February 18, 1832",3,False,,docai,18,14,0,0,3,Original from | HARVARD UNIVERSITY | 16:25 GMT,test_texts/images/chambers_images/chambers_page_022.png,3,"corrected: read 8, expected 3 (OCR confusion)"
+chambers,23,23,"February 18, 1832",3,False,,docai,34,26,2,0,1,16:25 GMT,test_texts/images/chambers_images/chambers_page_023.png,3,"corrected: read 8, expected 3 (OCR confusion)"
+chambers,24,24,"February 18, 1832",3,False,,docai,18,12,2,2,7,Original from | HARVARD UNIVERSITY | . | a | . | in | .,test_texts/images/chambers_images/chambers_page_024.png,3,"corrected: read 8, expected 3 (OCR confusion)"

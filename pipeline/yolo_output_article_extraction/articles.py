@@ -45,6 +45,18 @@ MONTHS = ("january february march april may june july august september october "
 DATE = re.compile(r"\b(" + "|".join(MONTHS) + r")\.?\s+(\d{1,2})\b(?:\s*,?\s*(1[78]\d\d))?", re.I)
 ISSUE_NO = re.compile(r"(?:\bN[oº°]\.?\s*|\[\s*)(\d{1,4})\s*\.?\s*\]?", re.I)
 PAGE_NO = re.compile(r"^\[?\s*(\d{1,4})\s*\.?\]?$")
+# An issue number on its own in the masthead: "1.]", "No. 2.", "Nº 3.", and
+# "2.1" / "2.l" (the closing bracket of "2.]" misread). Punctuation is ignored.
+ISSUE_LABEL = re.compile(r"^\W*(?:N[oº°]\.?\s*)?(\d{1,4})\s*(?:\.\s*[\]1lI|]?|\])?\W*$")
+
+
+def issue_number(texts: list[str]) -> int | None:
+    for t in texts:
+        m = ISSUE_LABEL.match(t.strip())
+        if m and not 1700 <= int(m.group(1)) < 1900:  # not the year
+            return int(m.group(1))
+    m = ISSUE_NO.search(" ".join(texts))
+    return int(m.group(1)) if m else None
 # Run-in head: 2-8 words opening a paragraph, ended by a full stop and/or
 # dash, with the text carrying on in capitals: "Animal Sagacity.—In the ...",
 # "THE WASP. The manners ...", "CHEAP STEW—Sour ...". Each full stop / dash in
@@ -209,9 +221,6 @@ def page_metadata(pg, extra_text: str = "") -> dict:
     masthead = [r.text.strip() for r in pg.regions if r.role == "masthead"]
     if pg.issue_start:
         masthead += extra_text.split(" | ")
-    issue = next((m for t in masthead
-                  if (m := PAGE_NO.match(t)) and not 1700 <= int(m.group(1)) < 1900), None) or \
-        ISSUE_NO.search(" ".join(masthead))
     date_text = None
     if date:
         date_text = f"{date.group(1).title()} {int(date.group(2))}"
@@ -219,7 +228,7 @@ def page_metadata(pg, extra_text: str = "") -> dict:
     return {
         "printed_page": number,
         "issue_date": date_text,
-        "issue_no": int(issue.group(1)) if issue else None,
+        "issue_no": issue_number(masthead) if pg.issue_start else None,
     }
 
 

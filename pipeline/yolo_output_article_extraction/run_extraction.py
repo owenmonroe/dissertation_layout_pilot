@@ -30,7 +30,7 @@ from pathlib import Path
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 
-from articles import PAGE_NO, page_metadata, segment
+from articles import page_metadata, segment
 from layout import REPO_ROOT, load_page, mark_masthead, order_regions
 from magazine_rules_config import MAGAZINES
 from text import (assign_docai_text, assign_tesseract_text, docai_json_path, drop_empty,
@@ -114,12 +114,13 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         mark_masthead(pg)
         order_regions(pg)
         pages.append(pg)
+        # Unboxed text joins the masthead text: masthead lines YOLO drew no box
+        # for (e.g. the issue number) are found there.
         meta = page_metadata(pg, " | ".join(l.text for l in unboxed))
-        if pg.issue_start and meta["issue_no"] is None:  # number YOLO drew no box for
-            meta["issue_no"] = next((int(m.group(1)) for l in unboxed
-                                     if (m := PAGE_NO.match(l.text.strip()))), None)
+        masthead_text = " | ".join(r.text for r in pg.regions if r.role == "masthead" and r.text)
         page_rows.append({
             "magazine": mag, "page": n, **meta, "issue_start": pg.issue_start,
+            "masthead_text": masthead_text or None,
             "ocr": "docai" if use_docai else "tesseract",
             "n_boxes": len(pg.regions),
             "n_content": sum(1 for r in pg.regions if r.order),
@@ -161,6 +162,12 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
             year = date[-4:]
         elif isinstance(date, str) and year:
             issue_meta.loc[seq, "issue_date"] = f"{date}, {year}"
+
+    issue_meta["issue_check"] = check_issue_numbers(issue_meta)
+    pages_df["issue_check"] = pages_df["issue_seq"].map(issue_meta["issue_check"])
+    # Every page carries its issue's number and full date.
+    pages_df["issue_no"] = pages_df["issue_seq"].map(issue_meta["issue_no"])
+    pages_df["issue_date"] = pages_df["issue_seq"].map(issue_meta["issue_date"])
 
     article_of = {}
     article_rows = []
@@ -210,6 +217,40 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
                        "regions": ["band", "reading_order"]}.items():
         tables[name][cols] = tables[name][cols].astype("Int64")
     return {"pages": pages, "articles": articles, "article_of": article_of, "tables": tables}
+
+
+# Digits OCR confuses with each other (Chambers "No. 3." read as "No. 8.").
+CONFUSABLE = {frozenset(p) for p in ["38", "68", "08", "17", "56", "09"]}
+
+
+def check_issue_numbers(issue_meta: pd.DataFrame) -> pd.Series:
+    """Issue numbers should go up by one. Where the number read is one OCR-
+    confusable digit away from the expected one, correct it (in place) and say
+    so; otherwise flag gaps, restarts (a new series: read with the dates) and
+    missing numbers. Returns the check text per issue ("" when in sequence)."""
+    checks, prev = {}, None
+    for seq in issue_meta.index:
+        no = issue_meta.loc[seq, "issue_no"]
+        expected = prev + 1 if prev is not None else None
+        check = ""
+        if pd.isna(no):
+            check = "issue number not found" + (f" (expected {expected})" if expected else "")
+        elif expected is not None and no != expected:
+            read, want = str(int(no)), str(expected)
+            diff = [(a, b) for a, b in zip(read, want) if a != b]
+            if len(read) == len(want) and len(diff) == 1 and frozenset(diff[0]) in CONFUSABLE:
+                issue_meta.loc[seq, "issue_no"] = expected
+                check = f"corrected: read {read}, expected {want} (OCR confusion)"
+            elif no < prev:
+                check = f"restart: {prev} → {int(no)} (new series? check the dates)"
+            else:
+                check = f"gap: {prev} → {int(no)}"
+        if not pd.isna(issue_meta.loc[seq, "issue_no"]):
+            prev = int(issue_meta.loc[seq, "issue_no"])
+        elif prev is not None:
+            prev += 1  # carry the expected sequence past a missing number
+        checks[seq] = check
+    return pd.Series(checks)
 
 
 def figure_path(r) -> Path:
