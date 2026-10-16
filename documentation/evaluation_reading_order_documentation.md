@@ -66,6 +66,9 @@ Headers, page numbers, margins and dropped duplicate boxes are left out.
   page is in no box. Logged on the nearest box, with a note.
 - `metadata`: issue number, date or printed page wrong. Logged on the page's
   first row.
+- `misplacement`: a box that cuts across the text, e.g. a vertical strip of
+  line-end words cut from a column's edge, so its text can't be read in any
+  order (term from the box study).
 
 ### Conventions
 
@@ -118,4 +121,4 @@ page 1 onward.
 Template built 2026-10-14: 1,086 boxes (penny 334, Saturday 336, Chambers
 416).
 
-As of 2026-10-15: penny and Saturday complete. Resume at Chambers p. 1.
+As of 2026-10-16: all three magazines complete (development set, 1,068 boxes evaluated; penny PDF pp. 22–23 excluded as duplicate scan pages).

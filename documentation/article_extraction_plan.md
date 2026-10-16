@@ -366,6 +366,40 @@ These are the quickest way to review results.
 
   `source` also supports Chapter 4 (reprints, sources, voices).
 
+  **Sign-off detection, redesign (Owen's point, Chambers p. 8).** A reader
+  knows a source line by its dash, italics, and position at the end of a
+  paragraph or article, not by capitalisation or a word list. Titles in these
+  magazines vary in capitalisation, spelling and punctuation, and prepositions
+  are rightly lowercase ("Letters from the North of Europe"). OCR loses two of
+  the cues (dashes are often dropped; style wasn't recorded). Plan:
+  1. Recover italics: re-run Document AI OCR with style info (per-word
+     italic/bold) switched on, after checking the cost per page.
+  2. Main test is position and length: a short final phrase (about 12 words
+     or fewer) after a sentence end, closing an article's last paragraph.
+     Accept it on any extra cue: dash, italics, possessive, or source word
+     anywhere (including "Bible"). No capitalisation requirement.
+  3. Ambiguous endings go to an LLM check ("is this closing phrase a source
+     citation?").
+  4. Separate *recording* a source from *ending* an article. Today a detected
+     sign-off also ends the article (which is how Saturday's short items
+     split), so the no-dash fallback was kept strict with a "looks like a
+     citation" test (possessive, or a source word last). That test loses real
+     sources: "Paradise Lost", "Northanger Abbey", "Canterbury Tales",
+     "History of the Bible". Instead:
+     - record any short final phrase of an article's last paragraph as back
+       matter, with no citation test (a false positive only mislabels a
+       phrase);
+     - end an article only on a dash, italics, or a boundary confirmed
+       otherwise (a title or masthead follows).
+     Add "Bible" to the source words ("magazine" is already there).
+  5. Owen's decision for the no-dash fallback: keep the 2-8 word check and
+     the capitalisation check, widening the lowercase exceptions to the
+     prepositions and conjunctions titles leave lowercase (from, by, with,
+     upon, into, through, among, over, under, against, after, before, near,
+     or, nor, but, as, plus of, the, and, in, on, at, for, to, a, an). Drop the
+     "looks like a citation" check for recording sources; it only suits one
+     kind of source.
+
   Inline sign-offs at the end of a paragraph box ("…order of being.—Journal
   of a Naturalist.", "…—SOUTHEY") are already detected (the current
   `attribution`). The fix is to cut them out of the body text into
@@ -379,6 +413,10 @@ These are the quickest way to review results.
 - **Editorial paratext** (errata, notices to readers): keep as articles.
   Possibly a later `article_type` label (e.g. `editorial_notice`), rather than
   a series.
+- **Side-edge fragments (Chambers p. 7):** when a YOLO box's side stops a
+  few px short, line-end words fall outside it, and the unboxed-text recovery
+  makes them into tiny boxes read after the column. Words just past a box's
+  side edge should rejoin their lines in that box.
 - **Tables:** OCR jumbles the numbers in tables (penny pp. 7, 18). Plan: give
   table boxes a `table` role, so they're easy to find and to leave out of
   topic modelling and the WER sample. Use a table-structure OCR or hand
