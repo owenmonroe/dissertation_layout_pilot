@@ -1,12 +1,19 @@
-# Article Extraction from DocLayout-YOLO Output — Plan and Status
+# Article Extraction — v1 Rules (as evaluated)
+
+> **Snapshot: do not edit.** These are the rules of the article-extraction
+> pipeline exactly as they stood for the development evaluation
+> (`v1_evaluation.md`, 2026-10-14 to 2026-10-16). The code is tagged
+> `extraction-v1` in git (`git checkout extraction-v1` to re-run it). Changes
+> decided in the evaluation are in `v2_decisions.md`; the roadmap is in
+> `README.md`.
 
 ## Goal
 
 Turn each magazine page into **articles** (title + full text) for topic modelling
 and classification, while keeping **where each article sits** (magazine, issue,
 date, page, column, reading order) so juxtaposition on the page can be
-studied. DocLayout-YOLO is the layout model: the evaluation
-(`evaluation_error_log_documentation.md`) showed it almost never misses or
+studied. DocLayout-YOLO is the layout model: the box study
+(`../evaluation_error_log_documentation.md`) showed it almost never misses or
 misplaces regions; its main fault is splitting articles at paragraph indents,
 which is exactly what merging boxes into articles undoes.
 
@@ -270,7 +277,7 @@ rows).
 New article columns from these rules: `title_note`, `byline`, `attribution`,
 `end_note`, `subsections`.
 
-## Status
+## Status of v1 on the sample pages (before the evaluation)
 
 Check images in `output/article_extraction/<mag>/reading_order/` show every
 page with boxes coloured by article and labelled `<reading order> · <article>`.
@@ -316,187 +323,3 @@ These are the quickest way to review results.
   - Plague. Cholera (Cleanliness, Diet, Temperance, Symptoms, Remedial Means);
   - Column for the Boys and Archery (The Bow, The String…);
   - Two Useful Receipts.
-
-### Known issues
-
-- **Duplicated scan pages (penny):** PDF pages 22–23 repeat printed pages
-  20–21 in the sample PDF, so three articles appear twice. Fix: flag pages
-  whose printed number repeats within an issue and whose text matches.
-- **Spurious titles:** a verse couplet (penny p. 19) labelled `title` by YOLO
-  starts an article. A run-in false positive ("Under Seven", penny p. 18) is
-  likely a table.
-- **Missed item breaks:** where an item neither opens in capitals after a gap
-  nor ends with an attribution, it stays merged. Example: the Ghost Story
-  inside The Firmament (penny p. 24). The volume index check can flag these.
-- **Articles continued across issues:** penny "VAN DIEMEN'S LAND" with
-  `title_note` "[Concluded from our last.]", and Saturday's Jagganátha article
-  ("[To be continued.]" → issue 3). Link these with `continues_article_id`.
-- **Untitled items:** the `title` column is empty for them. The attribution,
-  or the index, can label them.
-- **Series (recurring features), decided during the reading-order
-  evaluation:**
-  - Each piece is its own article row, with a shared `series` label, e.g.
-    the Dormouse, the Swallow and the Mole each get `series = "British
-    Animals"`.
-  - The pipeline needs two rules:
-    1. a title that recurs across issues is a series name ("THE WEEK" →
-       `series = "The Week"`). Numbered titles are series parts ("FAMILIAR
-       REMARKS ON ARCHITECTURE. I." → series "Familiar Remarks on
-       Architecture", part I);
-    2. a heading box above a subtitle is a series heading ("BRITISH ANIMALS."
-       over "THE DORMOUSE.", including when it's inside a figure box). It
-       applies to the titled articles that follow, until a new heading or the
-       issue's end; the volume index can confirm.
-  - Series agreed so far: British Animals, Familiar Remarks on Architecture,
-    Botanical Diversions (tentative), The Week, and the Committee of General
-    Literature and Education's notices (Saturday pp. 16, 24; also
-    `article_type = editorial_notice`).
-  - Continuations across issues ("[Concluded from our last.]") are not
-    series. Link them with `continues_article_id`.
-- **Front and back matter fields** (from the evaluation, penny pp. 6–25).
-  Source lines, epigraphs, continuation notes and footnotes currently land in
-  `title_note`, `byline` or the article text, depending on how YOLO boxed
-  them. Replace this with fixed fields filled by what the line is:
-  - *Front*, between the title and the first paragraph: `series`, `subtitle`,
-    `source` (all "[From …]" / "FROM THE REV. …" / "[From a Correspondent.]"
-    lines), `epigraph` ("My Library / Was Dukedom large enough." —Prospero),
-    `continuation_note` ("[Concluded from our last.]").
-  - *Back:* `attribution`, `footnotes` (asterisked notes, including ones
-    YOLO calls furniture), `end_note` ("[To be continued.]").
-
-  `source` also supports Chapter 4 (reprints, sources, voices).
-
-  **Sign-off detection, redesign (Owen's point, Chambers p. 8).** A reader
-  knows a source line by its dash, italics, and position at the end of a
-  paragraph or article, not by capitalisation or a word list. Titles in these
-  magazines vary in capitalisation, spelling and punctuation, and prepositions
-  are rightly lowercase ("Letters from the North of Europe"). OCR loses two of
-  the cues (dashes are often dropped; style wasn't recorded). Plan:
-  1. Recover italics: re-run Document AI OCR with style info (per-word
-     italic/bold) switched on, after checking the cost per page.
-  2. Main test is position and length: a short final phrase (about 12 words
-     or fewer) after a sentence end, closing an article's last paragraph.
-     Accept it on any extra cue: dash, italics, possessive, or source word
-     anywhere (including "Bible"). No capitalisation requirement.
-  3. Ambiguous endings go to an LLM check ("is this closing phrase a source
-     citation?").
-  4. Separate *recording* a source from *ending* an article. Today a detected
-     sign-off also ends the article (which is how Saturday's short items
-     split), so the no-dash fallback was kept strict with a "looks like a
-     citation" test (possessive, or a source word last). That test loses real
-     sources: "Paradise Lost", "Northanger Abbey", "Canterbury Tales",
-     "History of the Bible". Instead:
-     - record any short final phrase of an article's last paragraph as back
-       matter, with no citation test (a false positive only mislabels a
-       phrase);
-     - end an article only on a dash, italics, or a boundary confirmed
-       otherwise (a title or masthead follows).
-     Add "Bible" to the source words ("magazine" is already there).
-  5. Owen's decision for the no-dash fallback: keep the 2-8 word check and
-     the capitalisation check, widening the lowercase exceptions to the
-     prepositions and conjunctions titles leave lowercase (from, by, with,
-     upon, into, through, among, over, under, against, after, before, near,
-     or, nor, but, as, plus of, the, and, in, on, at, for, to, a, an). Drop the
-     "looks like a citation" check for recording sources; it only suits one
-     kind of source.
-
-  Inline sign-offs at the end of a paragraph box ("…order of being.—Journal
-  of a Naturalist.", "…—SOUTHEY") are already detected (the current
-  `attribution`). The fix is to cut them out of the body text into
-  `back_matter`. Misses with no dash or possessive ("Tour of a German
-  Prince.") are collected in the evaluation notes.
-- **Imprint rule too broad (Saturday p. 16):** "THE COMMITTEE OF GENERAL
-  LITERATURE AND EDUCATION," also heads editorial notices to readers, and
-  because the rest of the page after an imprint match is set aside, a notice
-  was lost. Match the publisher lines (LONDON:, JOHN WILLIAM PARKER, Sold by…)
-  only, and stop treating the rest of the page as imprint after a title.
-- **Editorial paratext** (errata, notices to readers): keep as articles.
-  Possibly a later `article_type` label (e.g. `editorial_notice`), rather than
-  a series.
-- **Side-edge fragments (Chambers p. 7):** when a YOLO box's side stops a
-  few px short, line-end words fall outside it, and the unboxed-text recovery
-  makes them into tiny boxes read after the column. Words just past a box's
-  side edge should rejoin their lines in that box.
-- **Tables:** OCR jumbles the numbers in tables (penny pp. 7, 18). Plan: give
-  table boxes a `table` role, so they're easy to find and to leave out of
-  topic modelling and the WER sample. Use a table-structure OCR or hand
-  transcription only for tables the argument needs.
-- **OCR errors in titles:** e.g. "SOMERS ET-HOUSE", "HISTORY OF LELLS".
-- **Subsection or item? (Chambers):** a capitals run-in head inside a titled
-  article with no gap before it is taken as a subsection. "NEGRO DOCTOR" inside
-  "NEW SOUTH WALES" (p. 14) may really be a separate item; the index check can
-  settle these.
-- **Chambers p. 24:** the bottom of the page mixes column text with the
-  imprint, so a few words land in the wrong item.
-- **Few verified pages:** the regression check only guards what's in
-  `verified_pages.json`. Adding pages as they're checked makes it stronger;
-  ideally a few per magazine, including miscellany pages and an issue's
-  first and last pages.
-
-## Next steps
-
-1. ~~Saturday~~ (done, above).
-2. ~~Chambers~~ (done, above), plus the per-magazine config (`magazine_rules_config.py`)
-   and regression check (`check_verified.py`). The refactor changed no output.
-3. **Volume index as a check and title source.** Each volume opens with an
-   alphabetical index of titles and page numbers (e.g. "Animal sagacity, 3";
-   "Beer, antiquity of, 3"; "Charing Cross, account of, 1"). Plan:
-   - OCR the index pages into an `index_entries` table (entry, pages).
-   - Match each article to entries on the same printed page by word overlap.
-     Entries are inverted and paraphrased, so match on content words, not
-     exact strings.
-   - Use the matches to:
-     - validate article boundaries: an index entry with no matching article
-       suggests a missed split;
-     - name untitled articles;
-     - correct OCR'd titles.
-   - Page numbers in the index are printed page numbers, which the `pages`
-     table now records.
-4. **Duplicate-page detection and cross-issue continuation links** (known
-   issues above).
-5. **Illustrations:** store as `regions` rows (role `figure`) with a crop,
-   caption and owning article. Later: a short description from a
-   vision-language model.
-6. **Front end for new volumes.** Test issues and the full corpus don't have
-   page images, YOLO boxes or Document AI OCR yet. One driver should run PDF
-   → 300 DPI page images → DocLayout-YOLO (in `doclayoutyolo-env`) → Document
-   AI → article extraction for any volume, with consistent folders and a
-   volume ID. It should reuse `pipeline/run_doclayoutyolo_batch.py` (which
-   already makes the page images and runs YOLO) and
-   `pipeline/run_docai_batch.py`.
-7. **Evaluation: development pages, then a locked baseline.**
-   - **Two sets of pages:**
-     - *Development:* the 74 sample pages. Rules have been tuned on these,
-       so annotating them is for finding and fixing errors, not for reporting
-       accuracy.
-     - *Test:* fresh issues, one per magazine from a later year (e.g. 1836,
-       1840, 1843), that no rule has been tuned on. Freeze the pipeline (git
-       tag), annotate them once, and report those numbers as the baseline. Later
-       years also show whether the rules hold as layouts change.
-   - **Reading order and article assignment:** a spreadsheet with one row per
-     content box: page, reading order, column, role, article and its title,
-     first words. Rows are pre-filled as correct; only errors are marked, with
-     notes. Error types, following the box study:
-     - **order:** box read out of sequence;
-     - **split:** one article broken into two;
-     - **merge:** two articles joined;
-     - **misattached:** box joined to the wrong article;
-     - **role:** title/text/caption/byline/attribution/masthead/imprint
-       confused;
-     - **missed:** text lost;
-     - **metadata:** issue, date or page number wrong.
-
-     Metrics: % of boxes correctly placed; article-start precision and recall;
-     each per magazine.
-   - **OCR:**
-     - *WER and CER* against a **literal transcription** of what is printed,
-       keeping the magazine's own typos and spellings. Passages are sampled
-       from the test issues (development pages can be used to settle the
-       comparison rules first). Normalise only what isn't content, e.g.
-       line-end hyphenation, and record those choices.
-     - *Completeness*, separately and automatically on every page: words lost
-       or duplicated by assigning OCR words to boxes, from article text
-       compared with Document AI's full page text.
-8. **Scale-up:** run on full volumes once all three magazines look right on
-   the samples. Re-check that Document AI output exists for every page, or use
-   tesseract.

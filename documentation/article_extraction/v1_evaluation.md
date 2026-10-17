@@ -1,12 +1,13 @@
-# Evaluation — Reading Order and Article Assignment
+# Article Extraction — v1 Evaluation (Reading Order and Article Assignment)
 
 ## Purpose
 
 Hand-evaluation of the article-extraction pipeline
-(`pipeline/yolo_output_article_extraction/`, see `article_extraction_plan.md`):
+(`pipeline/yolo_output_article_extraction/`, v1 rules in `v1_rules.md`, code
+tag `extraction-v1`):
 for every box it placed, is the box in the right reading order, the right
 article and the right role? This is the second evaluation after the box study
-(`evaluation_error_log_documentation.md`), with matching error types where
+(`../evaluation_error_log_documentation.md`), with matching error types where
 possible.
 
 Two rounds:
@@ -116,9 +117,54 @@ them with the check image and replies `ok` or names the errors by reading-order
 number. Claude records them in the log. Order: penny → Saturday → Chambers,
 page 1 onward.
 
-## Progress
+## Results (development set, complete 2026-10-16)
 
-Template built 2026-10-14: 1,086 boxes (penny 334, Saturday 336, Chambers
-416).
+Template built 2026-10-14 (1,086 boxes); 4 rows were added during the
+evaluation for content YOLO had set aside as furniture (footnotes, "[To be
+continued.]"), giving 1,090 rows. Penny PDF pp. 22–23 (22 rows) are excluded
+as duplicate scan pages, so **1,068 boxes were evaluated**.
 
-As of 2026-10-16: all three magazines complete (development set, 1,068 boxes evaluated; penny PDF pp. 22–23 excluded as duplicate scan pages).
+| | Penny | Saturday | Chambers | All |
+|---|---|---|---|---|
+| Boxes evaluated | 313 | 339 | 416 | 1,068 |
+| Correct | 280 (89.5%) | 314 (92.6%) | 377 (90.6%) | **971 (90.9%)** |
+
+Errors by type (a box with two errors counts in both rows):
+
+| Error | Penny | Saturday | Chambers | All |
+|---|---|---|---|---|
+| `role` | 15 | 23 | 25 | 63 |
+| `merge` | 16 | 1 | 5 | 22 |
+| `misplacement` | 0 | 0 | 8 | 8 |
+| `split` | 2 | 0 | 1 | 3 |
+| `misattached` | 0 | 1 | 1 | 2 |
+| `missed` | 0 | 0 | 1 | 1 |
+| `metadata` | 0 | 0 | 0 | 0 |
+| `order` | 0 | 0 | 0 | **0** |
+
+### Findings
+
+1. **Reading order works.** No order errors on any page, including Chambers'
+   three columns and pages split by full-width illustrations.
+2. **Role errors are two-thirds of all errors,** and nearly all involve front
+   or back matter: source lines, bylines, epigraphs, footnotes, sign-offs,
+   continuation notes, series headings. They're read as text, boxed as titles,
+   or set aside as furniture. This led to the front/back-matter design
+   (`v2_decisions.md`).
+3. **Merges are mostly items with no marker.** 16 of 22 are penny's
+   one-paragraph fillers, which appear mid-issue and at issue ends, and some
+   run to several paragraphs. The rest are run-in heads the rules missed
+   (Chambers "VATICAN", "VEGETABLES", the Africa hunt).
+4. **Page tilt (Chambers) causes misplacements:** vertical strips of line-end
+   words that the unboxed-text recovery turned into boxes (pp. 7, 18, 20, 24).
+   It also scrambles inline sources at column edges, though the words survive.
+5. **Saturday's item boundaries are reliable** (one merge), because its items
+   are marked by sign-offs and capitals openings. Its errors are almost all
+   front/back matter.
+6. **Text-level observations** (`text:` notes, not counted) include tilt word
+   swaps, printer's marks ("VOL. I.", "3-2"), OCR of quotation marks as
+   "44", and jumbled tables. They feed the completeness check and OCR
+   evaluation.
+
+The decisions these results led to, each with its evidence, are in
+`v2_decisions.md`.
