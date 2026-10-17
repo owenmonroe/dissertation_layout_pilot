@@ -11,9 +11,13 @@ three linked tables, written as CSV and into one SQLite database:
             belongs to (figures included,
             with a crop saved to figures/)
 
-Writes output/article_extraction/<mag>/ (CSVs, figures/, reading_order/
-check images) and output/article_extraction/articles.sqlite (rows for this
-magazine replaced on each run).
+Writes output/article_extraction/<version>/<mag>/ (CSVs, figures/,
+reading_order/ check images, run_info.json) and
+output/article_extraction/<version>/articles.sqlite (rows for this magazine
+replaced on each run), where <version> is PIPELINE_VERSION below. Every table
+row carries pipeline_version, and run_info.json records the git commit the
+output came from. Frozen versions (v1: tag extraction-v1, the evaluated
+output) are never written to.
 
 Run from the repo root with any Python that has pandas and Pillow:
 
@@ -23,7 +27,11 @@ Run from the repo root with any Python that has pandas and Pillow:
 """
 
 import argparse
+import datetime
+import json
 import sqlite3
+import subprocess
+import sys
 import warnings
 from pathlib import Path
 
@@ -36,7 +44,13 @@ from magazine_rules_config import MAGAZINES
 from text import (assign_docai_text, assign_tesseract_text, docai_json_path, drop_empty,
                   recover_unboxed)
 
-OUT_ROOT = REPO_ROOT / "output" / "article_extraction"
+# The rules version this code implements; output goes to its own folder.
+# v1 is frozen (git tag extraction-v1; output/article_extraction/v1/ is the
+# output the reading-order evaluation describes). Bump this when a version is
+# frozen and work on the next one starts.
+PIPELINE_VERSION = "v2"
+FROZEN_VERSIONS = {"v1"}
+OUT_ROOT = REPO_ROOT / "output" / "article_extraction" / PIPELINE_VERSION
 DB_PATH = OUT_ROOT / "articles.sqlite"
 CHECK_IMAGE_SCALE = 0.4
 PALETTE = ["#d62728", "#1f77b4", "#2ca02c", "#9467bd", "#ff7f0e", "#17becf",
@@ -216,6 +230,8 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
     for name, cols in {"pages": ["printed_page", "issue_no"], "articles": ["issue_no"],
                        "regions": ["band", "reading_order"]}.items():
         tables[name][cols] = tables[name][cols].astype("Int64")
+    for df in tables.values():
+        df.insert(0, "pipeline_version", PIPELINE_VERSION)
     return {"pages": pages, "articles": articles, "article_of": article_of, "tables": tables}
 
 
@@ -257,6 +273,30 @@ def figure_path(r) -> Path:
     return OUT_ROOT / r.magazine / "figures" / f"{r.region_id}.jpg"
 
 
+def git_state() -> tuple[str, bool]:
+    """Current commit, and whether the pipeline code has uncommitted changes."""
+    def git(*args):
+        return subprocess.run(["git", *args], cwd=REPO_ROOT, capture_output=True,
+                              text=True).stdout.strip()
+    code_dir = Path(__file__).resolve().parent.relative_to(REPO_ROOT)
+    return git("rev-parse", "--short", "HEAD"), bool(git("status", "--porcelain", str(code_dir)))
+
+
+def write_run_info(mag: str, result: dict, page_spec: str | None, ocr: str) -> None:
+    commit, dirty = git_state()
+    pages = [pg.page for pg in result["pages"]]
+    info = {
+        "pipeline_version": PIPELINE_VERSION,
+        "git_commit": commit,
+        "uncommitted_changes": dirty,
+        "run_date": datetime.datetime.now().isoformat(timespec="seconds"),
+        "magazine": mag,
+        "pages": page_spec or f"{min(pages)}-{max(pages)}",
+        "ocr": ocr,
+    }
+    (OUT_ROOT / mag / "run_info.json").write_text(json.dumps(info, indent=2) + "\n")
+
+
 def write_outputs(mag: str, result: dict) -> None:
     """Figure crops, reading-order check images, CSVs, and this magazine's rows
     in the SQLite database."""
@@ -292,9 +332,13 @@ def main() -> None:
     parser.add_argument("--ocr", choices=["docai", "tesseract"], default="docai")
     args = parser.parse_args()
 
+    if PIPELINE_VERSION in FROZEN_VERSIONS:
+        sys.exit(f"{PIPELINE_VERSION} is frozen; its output must not be overwritten. "
+                 "Set PIPELINE_VERSION to the version being built.")
     mag = args.magazine
     result = extract(mag, args.pages, args.ocr)
     write_outputs(mag, result)
+    write_run_info(mag, result, args.pages, args.ocr)
     articles = result["tables"]["articles"]
     n_figures = (result["tables"]["regions"]["role"] == "figure").sum()
     print(f"{mag}: {len(result['pages'])} pages, {len(articles)} articles, {n_figures} figures")

@@ -4,7 +4,7 @@ Each model's annotated output images (`output/<mag>_<model>/...png`) have a
 small `#N` label drawn on every box, added specifically so a box spotted
 visually can be looked up directly in that page's JSON output — `#N` is the
 Nth entry in that model's box/block list for the page (see
-`evaluation/error_log_template.csv` for the error-logging workflow this
+`evaluation/boxing_error_log_template.csv` for the error-logging workflow this
 supports).
 
 The index is **not** computed or reordered by this project's code — it's

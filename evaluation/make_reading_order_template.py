@@ -8,14 +8,16 @@ margins) and dropped duplicate boxes are left out.
 
 Rows are pre-filled verdict "ok"; during the evaluation only errors are
 changed. Each row matches a labelled box on the check image
-output/article_extraction/<mag>/reading_order/<mag>_page_NNN_order.jpg
+output/article_extraction/<version>/<mag>/reading_order/<mag>_page_NNN_order.jpg
 ('<reading order> · <article>').
 
-Reads output/article_extraction/<mag>/<mag>_{regions,articles,pages}.csv, so
-run the pipeline first. Usage:
+Reads output/article_extraction/<version>/<mag>/<mag>_{regions,articles,pages}.csv,
+so run that version of the pipeline first. Each log belongs to one version's
+output: the development log (evaluation/reading_order_error_log.csv) is v1's.
+Usage:
 
-    python evaluation/make_reading_order_template.py
-    python evaluation/make_reading_order_template.py --magazines penny --out evaluation/x.csv
+    python evaluation/make_reading_order_template.py --version v2 --out evaluation/reading_order_error_log_v2.csv
+    python evaluation/make_reading_order_template.py --version v2 --magazines penny --out evaluation/x.csv
 
 Refuses to overwrite an existing log (it may hold annotations) unless --force.
 """
@@ -28,7 +30,6 @@ import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 EXTRACTION = REPO_ROOT / "output" / "article_extraction"
-DEFAULT_OUT = REPO_ROOT / "evaluation" / "reading_order_error_log.csv"
 SNIPPET_WORDS = 8
 
 
@@ -47,10 +48,11 @@ def article_label(row) -> str:
     return "[untitled]"
 
 
-def magazine_rows(mag: str) -> pd.DataFrame:
-    regions = pd.read_csv(EXTRACTION / mag / f"{mag}_regions.csv")
-    articles = pd.read_csv(EXTRACTION / mag / f"{mag}_articles.csv")
-    pages = pd.read_csv(EXTRACTION / mag / f"{mag}_pages.csv")
+def magazine_rows(mag: str, version: str) -> pd.DataFrame:
+    out = EXTRACTION / version / mag
+    regions = pd.read_csv(out / f"{mag}_regions.csv")
+    articles = pd.read_csv(out / f"{mag}_articles.csv")
+    pages = pd.read_csv(out / f"{mag}_pages.csv")
     titles = {a.article_id: article_label(a) for a in articles.itertuples()}
     issues = articles.groupby("issue_seq")[["issue_no", "issue_date"]].first()
 
@@ -78,17 +80,21 @@ def magazine_rows(mag: str) -> pd.DataFrame:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--magazines", nargs="+", default=["penny", "saturday", "chambers"])
-    parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    parser.add_argument("--version", required=True,
+                        help="pipeline version whose output to read, e.g. v2")
+    parser.add_argument("--out", type=Path, required=True,
+                        help="new log file, e.g. evaluation/reading_order_error_log_v2.csv")
     parser.add_argument("--force", action="store_true", help="overwrite an existing log")
     args = parser.parse_args()
 
     if args.out.exists() and not args.force:
         sys.exit(f"{args.out} exists (it may hold annotations); use --force to overwrite")
-    log = pd.concat([magazine_rows(m) for m in args.magazines], ignore_index=True)
+    log = pd.concat([magazine_rows(m, args.version) for m in args.magazines], ignore_index=True)
+    log.insert(0, "pipeline_version", args.version)
     for col in ("printed_page", "issue_no", "reading_order"):
         log[col] = log[col].astype("Int64")
     log.to_csv(args.out, index=False)
-    print(f"Wrote {args.out.relative_to(REPO_ROOT)}: {len(log)} boxes")
+    print(f"Wrote {args.out}: {len(log)} boxes from {args.version}")
     print(log.groupby("magazine").agg(pages=("page", "nunique"), boxes=("region_id", "size"))
           .reindex(args.magazines).to_string())
 

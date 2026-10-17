@@ -20,18 +20,34 @@ Related: the box study that chose DocLayout-YOLO,
 
 ## Versions
 
-| Version | Git tag | State |
-|---|---|---|
-| v1 | `extraction-v1` | Evaluated on the 74 development pages (2026-10-14 to 2026-10-16): 1,068 boxes, 90.9% correct, no reading-order errors. Rules: `v1_rules.md`. |
-| v2 | (`extraction-v2` when frozen) | In progress: the decisions in `v2_decisions.md`. |
+Each rules version has its own code tag, output folder and evaluation log, so
+it's always clear which rules produced which output.
 
-To re-run v1 exactly: `git checkout extraction-v1`, then run the pipeline
-(below), then `git checkout main`.
+| Version | Git tag | Output folder | Evaluation log | State |
+|---|---|---|---|---|
+| v1 | `extraction-v1` | `output/article_extraction/v1/` | `evaluation/reading_order_error_log.csv` | Frozen. Evaluated on the 74 development pages (2026-10-14 to 2026-10-16): 1,068 boxes, 90.9% correct, no reading-order errors. Rules: `v1_rules.md`. |
+| v2 | `extraction-v2` (when frozen) | `output/article_extraction/v2/` | (re-check in step 3; test issues in step 5) | In progress: the decisions in `v2_decisions.md`. |
+
+How versions are kept apart:
+- **Code:** `PIPELINE_VERSION` in `run_extraction.py` decides the output folder.
+  Frozen versions (`FROZEN_VERSIONS`) refuse to be written to.
+- **Output:** each magazine folder has a `run_info.json` (version, git commit,
+  whether the code had uncommitted changes, run date, pages). v1's were
+  written retroactively. Every v2 table row has a `pipeline_version` column.
+- **Evaluation logs:** each log belongs to one version's output and is never
+  overwritten. `make_reading_order_template.py --version <v> --out <new file>`
+  builds a new one.
+
+To re-run v1 exactly: `git checkout extraction-v1`, run the pipeline, then
+`git checkout main`. v1's code writes to the old unversioned folder, so move
+or compare its output by hand.
 
 ## Roadmap (agreed 2026-10-16)
 
 1. **Set up this documentation zone and tag `extraction-v1`.** *Done
-   2026-10-16.*
+   2026-10-16.* Also done: version folders for output (v1 moved unchanged
+   into `output/article_extraction/v1/`), run records, the `pipeline_version`
+   column.
 2. **Build v2** from `v2_decisions.md`:
    - front/back matter fields;
    - the sign-off rules;
@@ -75,9 +91,10 @@ python pipeline/yolo_output_article_extraction/run_extraction.py --magazine penn
 python pipeline/yolo_output_article_extraction/check_verified.py
 ```
 
-- **Output:** `output/article_extraction/<mag>/` (CSVs, `figures/`,
-  `reading_order/` check images) and `output/article_extraction/articles.sqlite`
-  (tables `pages`, `articles`, `regions`).
+- **Output:** `output/article_extraction/<version>/<mag>/` (CSVs, `figures/`,
+  `reading_order/` check images, `run_info.json`) and
+  `output/article_extraction/<version>/articles.sqlite` (tables `pages`,
+  `articles`, `regions`).
 - **Per-magazine settings:**
   `pipeline/yolo_output_article_extraction/magazine_rules_config.py`.
 - **Python:** any Python with pandas and Pillow works.

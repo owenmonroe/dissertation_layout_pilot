@@ -22,7 +22,7 @@ counts are comparable across models.
 - `evaluation/draw_eval_boxes.py` — adds readable box-index tags to the
   PrimaLayout and DocLayout-YOLO eval images (and strips the pipeline's magenta
   labels from the YOLO ones).
-- `evaluation/error_log_template.csv` — the error log itself.
+- `evaluation/boxing_error_log_template.csv` — the error log itself.
 - `evaluation/error_analysis.ipynb` — analysis of the error log (see below).
 
 ## Producing the eval images
@@ -92,7 +92,7 @@ PrimaLayout produced no duplicate boxes on these 9 pages.
 
 ## The error log
 
-`evaluation/error_log_template.csv` — one row per box judgement:
+`evaluation/boxing_error_log_template.csv` — one row per box judgement:
 
 | Column | Meaning |
 |---|---|

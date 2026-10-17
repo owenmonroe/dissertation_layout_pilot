@@ -10,6 +10,23 @@ v2 is built; `v1_rules.md` stays as it was.
 
 ---
 
+## 0. Versioned output (built 2026-10-16)
+
+**Decision.** Keep each version's output apart, so the v1 output the
+evaluation log describes is never overwritten.
+- `output/article_extraction/<version>/`;
+- `run_info.json` per magazine;
+- a `pipeline_version` column;
+- `FROZEN_VERSIONS` guard;
+- the template script takes `--version`.
+
+v1's output was moved unchanged into `v1/`. The only edit was its figure paths
+(`regions.image_file`), updated to follow the move. A first v2 run (rules not
+yet changed) matched v1 exactly apart from the version column and figure
+paths.
+
+**Status:** built.
+
 ## 1. Front matter and back matter
 
 **Decision.** Replace `title_note`, `byline`, `attribution` and `end_note`

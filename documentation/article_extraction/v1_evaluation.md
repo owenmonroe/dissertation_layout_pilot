@@ -24,11 +24,13 @@ transcription); OCR noise in a box is not an error here.
 ## Files
 
 - `evaluation/make_reading_order_template.py` builds the log from the
-  pipeline's CSVs in `output/article_extraction/<mag>/`. It refuses to
+  pipeline's CSVs in `output/article_extraction/<version>/<mag>/` (`--version`).
+  It refuses to
   overwrite an existing log unless run with `--force`.
-- `evaluation/reading_order_error_log.csv` is the log.
+- `evaluation/reading_order_error_log.csv` is the log. It describes **v1's
+  output**, `output/article_extraction/v1/` (git tag `extraction-v1`).
 - The check images are in
-  `output/article_extraction/<mag>/reading_order/<mag>_page_NNN_order.jpg`.
+  `output/article_extraction/v1/<mag>/reading_order/<mag>_page_NNN_order.jpg`.
   Each box is labelled `<reading order> · <article>`, matching the log's
   `reading_order` and `article` columns. Grey boxes are masthead, furniture
   or dropped.

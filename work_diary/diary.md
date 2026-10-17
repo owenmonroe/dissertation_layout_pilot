@@ -79,7 +79,7 @@
 - Added a `#N` index label to every box in all three models' annotated output
   images, so a box spotted visually can be looked up directly in that page's
   JSON (see `documentation/box_index_ordering.md`) -- and set up
-  `evaluation/error_log_template.csv` to log errors against the taxonomy above
+  `evaluation/boxing_error_log_template.csv` to log errors against the taxonomy above
   during the hand-annotation pass.
 
 ## 2026-09-30
@@ -87,7 +87,7 @@
 - Copied the 9 evaluated page rasters (first 3 pages per magazine) into
   `evaluation/groundtruth_texts/` as `<mag>_page_NNN_groundtruth.png`, as working
   copies for building the gold-standard chunking.
-- Started filling in `evaluation/error_log_template.csv` box-by-box, working
+- Started filling in `evaluation/boxing_error_log_template.csv` box-by-box, working
   interactively with Claude Code: Claude prompts magazine / page / model / box `#N`,
   I give a verdict, then a note (or `0` for none), and Claude appends the row.
   Order: magazine (chambers -> penny -> saturday), page 1-3, model

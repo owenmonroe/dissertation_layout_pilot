@@ -6,6 +6,10 @@
 > `extraction-v1` in git (`git checkout extraction-v1` to re-run it). Changes
 > decided in the evaluation are in `v2_decisions.md`; the roadmap is in
 > `README.md`.
+>
+> *Path update (2026-10-16), the only edit since the snapshot:* v1's output
+> now lives in `output/article_extraction/v1/`; the paths below were updated to
+> match.
 
 ## Goal
 
@@ -110,9 +114,9 @@ Verified so far:
 - penny pp. 1–3 (Owen's article list);
 - Saturday p. 3 (Owen's gold standard);
 - Chambers p. 8 (checked by Claude against the page image; to be confirmed).
-Output: `output/article_extraction/<mag>/` (`<mag>_pages.csv`,
+Output: `output/article_extraction/v1/<mag>/` (`<mag>_pages.csv`,
 `<mag>_articles.csv`, `<mag>_regions.csv`, `figures/`, `reading_order/`) and
-`output/article_extraction/articles.sqlite` (each run replaces that magazine's
+`output/article_extraction/v1/articles.sqlite` (each run replaces that magazine's
 rows).
 
 ### 1. Layout (`layout.py`)
@@ -279,7 +283,7 @@ New article columns from these rules: `title_note`, `byline`, `attribution`,
 
 ## Status of v1 on the sample pages (before the evaluation)
 
-Check images in `output/article_extraction/<mag>/reading_order/` show every
+Check images in `output/article_extraction/v1/<mag>/reading_order/` show every
 page with boxes coloured by article and labelled `<reading order> · <article>`.
 These are the quickest way to review results.
 

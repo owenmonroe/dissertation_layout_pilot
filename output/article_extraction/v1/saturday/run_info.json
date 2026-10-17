@@ -1,0 +1,11 @@
+{
+  "pipeline_version": "v1",
+  "git_tag": "extraction-v1",
+  "git_commit": "1e1dd50c",
+  "uncommitted_changes": false,
+  "run_date": "2026-10-14T17:15:20",
+  "magazine": "saturday",
+  "pages": "1-24",
+  "ocr": "docai",
+  "note": "Written retroactively on 2026-10-16 when outputs were moved into version folders; v1 ran before run records existed. These files are unchanged since the evaluation (reading-order log: evaluation/reading_order_error_log.csv). On the same day, regions.image_file paths (figure crops) were updated from output/article_extraction/<mag>/ to output/article_extraction/v1/<mag>/ to follow the move; no other content changed."
+}
