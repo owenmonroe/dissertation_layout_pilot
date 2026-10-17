@@ -32,6 +32,13 @@ class Magazine:
     # run-in head ("The Bow.") or a run-in head inside a titled article
     # ("PLAGUE. CHOLERA" / "CLEANLINESS.—") is a subsection, not an item.
     run_in_capitals_only: bool = False
+    # Titles of this magazine's own editorial notices, beyond the shared
+    # wording (notices, errata, addresses to readers): e.g. its publishing
+    # body's notices. None: shared wording only.
+    editorial: re.Pattern | None = None
+    # The volume's printed index (PDF, path from the repo root), used to check
+    # items (volume_index.py). None: no index yet.
+    volume_index: str | None = None
 
     @property
     def column_names(self) -> list[str]:
@@ -39,7 +46,8 @@ class Magazine:
 
 
 # Imprint wording shared by the London/Edinburgh publishers.
-_IMPRINT = r"^\W*(?:LONDON\s*:|PRINTED BY|PUBLISHED BY)|publisher'?s agents"
+_IMPRINT = (r"^\W*(?:LONDON\s*:|PRINTED BY|PUBLISHED BY)|publisher'?s agents"
+            r"|\bPrinters?, \d")  # "C. RICHARDS, Printer, 100, St. Martin's Lane"
 
 MAGAZINES = {
     m.key: m for m in [
@@ -49,6 +57,8 @@ MAGAZINES = {
             name=re.compile(r"penny\s+magazine", re.I),
             masthead_words=re.compile(r"society|knowledge", re.I),
             imprint=re.compile(_IMPRINT + r"|CHARLES KNIGHT|PALL[- ]MALL EAST", re.I),
+            volume_index="test_texts/volume_index/"
+                         "penny_1832_vol_index_inu-30000093220105-442-443-444-1791991769.pdf",
         ),
         Magazine(
             key="saturday",
@@ -57,8 +67,10 @@ MAGAZINES = {
             name=re.compile(r"^\W*(?:the\s+)?saturday\W*$|^\W*magazine\W*$", re.I),
             masthead_words=re.compile(r"saturday|society|committee|knowledge", re.I),
             imprint=re.compile(
-                _IMPRINT + r"|^\W*(?:JOHN WILLIAM PARKER|THE COMMITTEE OF GENERAL LITERATURE)"
-                r"|WEST STRAND", re.I),
+                _IMPRINT + r"|^\W*JOHN WILLIAM PARKER|WEST STRAND", re.I),
+            # The SPCK committee's notices to readers are articles (editorial
+            # notices), not imprint.
+            editorial=re.compile(r"COMMITTEE OF GENERAL LITERATURE", re.I),
         ),
         Magazine(
             key="chambers",

@@ -41,6 +41,8 @@ from PIL import Image, ImageDraw, ImageFont
 from articles import page_metadata, segment
 from layout import REPO_ROOT, load_page, mark_masthead, order_regions
 from magazine_rules_config import MAGAZINES
+from rules import mark_rules
+from volume_index import check_index, parse_index
 from text import (assign_docai_text, assign_tesseract_text, docai_json_path, drop_empty,
                   recover_unboxed)
 
@@ -125,6 +127,7 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         unboxed = assign_docai_text(pg) if use_docai else assign_tesseract_text(pg)
         unboxed = recover_unboxed(pg, unboxed)
         drop_empty(pg)
+        mark_rules(pg)
         mark_masthead(pg)
         order_regions(pg)
         pages.append(pg)
@@ -154,6 +157,10 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         for r in pg.regions:
             if r.role == "furniture":
                 r.order = None
+    index_rows = None
+    if MAGAZINES[mag].volume_index:
+        entries = parse_index(REPO_ROOT / MAGAZINES[mag].volume_index)
+        index_rows = check_index(entries, articles, page_rows)
     pages_df = pd.DataFrame(page_rows)
     # Issue number / date for each issue, from its pages (masthead first).
     issue_seq, seq = [], 0
@@ -193,12 +200,13 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         article_rows.append({
             "article_id": a.article_id, "magazine": mag, "issue_seq": a.issue_seq,
             "issue_no": meta.get("issue_no"), "issue_date": meta.get("issue_date"),
-            "title": a.title, "title_source": a.title_source,
+            "title": a.title, "title_source": a.title_source, "article_type": a.article_type,
             "series": a.series or None, "series_part": a.series_part or None,
             "series_evidence": a.series_evidence or None,
             "continues_article_id": a.continues_article_id or None,
             "continued_by_article_id": a.continued_by_article_id or None,
             "continuation_evidence": a.continuation_evidence or None,
+            "index_entries": " | ".join(a.index_entries) or None,
             "front_matter": a.front_matter or None, "back_matter": a.back_matter or None,
             "subsections": "; ".join(a.subsections) or None,
             "start_page": a.pages[0] if a.pages else None,
@@ -207,6 +215,7 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
             "page_columns": ";".join(f"p{p} {column_name(c, mag)}" for p, c in cols),
             "n_regions": len(a.regions), "n_figures": len(a.figures),
             "word_count": len(a.text.split()), "text": a.text,
+            "n_tables": len(a.tables), "table_text": a.table_text or None,
         })
 
     region_rows = []
@@ -217,7 +226,7 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
                 "yolo_index": r.index, "yolo_type": r.yolo_type, "score": r.score,
                 "role": r.role,
                 "column": column_name(r.column, mag)
-                if r.role in ("title", "series_heading", "text", "figure", "caption",
+                if r.role in ("title", "series_heading", "text", "table", "figure", "caption",
                               "front_matter", "back_matter")
                 and r.order else None,
                 "band": r.band if r.order else None,
@@ -235,6 +244,24 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         "articles": pd.DataFrame(article_rows),
         "regions": pd.DataFrame(region_rows),
     }
+    if index_rows is not None:
+        tables["index_check"] = pd.DataFrame(index_rows).assign(magazine=mag)
+    # The publisher's imprint of each issue, for publishing history (who
+    # published and printed it, where, at what price, over the years).
+    seq_of = dict(zip(pages_df["page"], pages_df["issue_seq"]))
+    imprint_rows = []
+    for seq, meta in issue_meta.iterrows():
+        boxes = sorted((r for pg in pages if seq_of[pg.page] == seq
+                        for r in pg.regions if r.role == "imprint"),
+                       key=lambda r: (r.page, r.y1, r.x1))
+        imprint_rows.append({
+            "magazine": mag, "issue_seq": seq, "issue_no": meta.get("issue_no"),
+            "issue_date": meta.get("issue_date"),
+            "pages": ";".join(sorted({str(r.page) for r in boxes})) or None,
+            "n_boxes": len(boxes),
+            "imprint_text": " | ".join(r.text.strip() for r in boxes if r.text.strip()) or None,
+        })
+    tables["imprints"] = pd.DataFrame(imprint_rows)
     for name, cols in {"pages": ["printed_page", "issue_no"], "articles": ["issue_no"],
                        "regions": ["band", "reading_order"]}.items():
         tables[name][cols] = tables[name][cols].astype("Int64")

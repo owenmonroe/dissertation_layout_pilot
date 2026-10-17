@@ -83,6 +83,8 @@ class Region:
     # text is the article body.
     front_text: str = ""
     back_text: str = ""
+    rule_above: bool = False  # a printed item rule just above (rules.py)
+    rule_below: bool = False
 
     @property
     def body(self) -> str:

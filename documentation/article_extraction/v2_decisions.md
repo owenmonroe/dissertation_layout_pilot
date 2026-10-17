@@ -210,8 +210,61 @@ Fillers are not only at issue ends, and some run to several paragraphs, so
 some have a head, some a rule above, some nothing, e.g. b11), p11 b8, p16
 b8–10, p20 b2, p26 b5 and b8 (the ghost story is 7 boxes long).
 
-**Status:** decided. Needs the index pages OCR'd and parsed (penny vol. 1
-index PDF supplied).
+**Status:** built 2026-10-16 (`rules.py`, `volume_index.py`).
+
+**1. Printed rules** (`rules.py`). How rules are found:
+- A rule is a solid, isolated horizontal line in the page image.
+- Detections on neighbouring rows are grouped, so a tilted rule counts once.
+- It must be centred in its column on the page grid.
+
+Rules ignored:
+- off-centre lines: table totals, footnote rules;
+- lines inside illustrations;
+- lines under titles (Chambers' title underlines), captions and figures;
+- lines in or under boxes of figures (tables).
+
+What a rule does:
+- A rule between two text boxes starts a new item.
+- A rule running through a YOLO text box splits the box (new region type
+  `rule_split`).
+- A footnote under its rule is back matter.
+
+Results:
+- 16 of the 22 logged merges are fixed: penny p8 ×5, p11, p16 ×3, p20, p26
+  ×2; Saturday p23; Chambers p14, p16, p20.
+- No v1-correct boundary was broken, except Saturday p21 b10. There the
+  bell-weights table sits under a real printed rule and is now its own item
+  (Owen to decide).
+- Still merged (no rule printed):
+  - penny p8 b3–5, three italic run-in heads with lowercase words
+    (decision 5);
+  - penny p8 b11, Michael Angelo, at a column top;
+  - Chambers p22 VATICAN and p24 VEGETABLES (decisions 5 and 8);
+  - Willie Cossar Pins (Chambers p16): its rule is only half detected, and
+    it is a run-in head mid-box.
+
+**2. Volume index** (`volume_index.py`; the PDF is in
+`test_texts/volume_index/`, set per magazine as `volume_index` in
+`magazine_rules_config.py`; penny only so far).
+- Entries are parsed from the PDF text layer (three columns, hanging indent).
+- Each entry is matched by its distinctive words to the articles on the
+  printed pages it cites.
+- Output: `<mag>_index_check.csv`, one row per entry: matched / shared /
+  unmatched.
+- Each article gets an `index_entries` column: subject terms, and the only
+  heading untitled fillers have ("Air-balloon", "Ghost Story by Judge
+  Powell").
+- The index flags pages; it doesn't change the articles.
+- On penny, "shared" points at the remaining p8 merges ("Instruction and
+  Amusement", "Secret of great Workers" and "Devotion of great Minds" all
+  match "A Popular Error"; "Angelo" and "Chinese" share one article).
+- "Unmatched" is mostly garbled index OCR ("Dorse" for Dormouse).
+
+Possible later uses:
+- the index groups series pieces ("British animals, the Dormouse, 12; the
+  Swallow, ib.; the Mole, 20"), which could replace the Swallow's manual
+  series correction;
+- Saturday and Chambers need their volume indexes.
 
 ## 5. Run-in heads and subsections
 
@@ -230,7 +283,39 @@ index PDF supplied).
 - An in-line title run into a poem's text is a title ("WHAT is true
   knowledge?", Saturday p11 b8).
 
-**Status:** decided.
+**Status:** built 2026-10-16. Owen: rules must generalise to many more, and
+more complex, volumes; it's fine to miss some articles, as long as the rules
+aren't brittle. So each rule rests on a printing convention, not on
+particular pages:
+- "?" and "!" end a run-in head, but only for heads in capitals ("WHICH WAS
+  THE GREATER FOOL?"). In mixed case they usually end speech ("Then-oh
+  William!").
+- With a dash after it, a head may have lowercase words: it begins and ends
+  capitalised, with at least half its main words capitalised ("Science
+  preceding Art.—", "The Secret of great Workers.—"). Without a dash, heads
+  stay strict.
+- A spaced dash after a one-word capitals head counts ("VATICAN -Perhaps").
+- No run-in head in a table (a box mostly of figures).
+- After a paragraph ending in a colon ("…as under :-", "…of our own day:—"),
+  the next box continues the item. A head there is at most a subsection.
+- A capitals head whose paragraph ends with its own dash sign-off is an item,
+  not a subsection.
+
+Fixed:
+- penny p8 b4 (Secret of great Workers) and p11 (Science preceding Art);
+- Saturday p23 (titled "WHICH WAS THE GREATER FOOL?");
+- Chambers p22 VATICAN;
+- also, from the colon rule: penny p15 TO A DAISY stays inside Poesie, and
+  penny p18 "Under Seven" (a table row) is no longer a head.
+
+Not fixed (would need italics, or page-specific rules):
+- penny p8 b3 "Instruction and Amusement" (no punctuation) and b5 "Devotion
+  of a great Mind to its Duties" (OCR lost the dash);
+- Saturday p11 "WHAT is true knowledge?" (a mixed-case title in a poem);
+- Chambers p24 VEGETABLES (tilt; decision 8).
+
+A mid-box head rule was considered and dropped: the cases thought to need it
+turned out to be at box starts.
 
 ## 6. Captions, figures and tables
 
@@ -244,7 +329,31 @@ index PDF supplied).
   modelling and WER). Table-structure OCR or transcription only where the
   argument needs a table.
 
-**Status:** decided.
+**Status:** built 2026-10-16.
+- **Captions inside illustration boxes.** Bracketed text inside a figure box
+  becomes the figure's caption ("[Restored View of Pompeii.]",
+  "[Date-Palm, and Fruit.]"). A capitals heading inside a figure box was
+  already used as the title (Pompeii, Jagganátha) or the series heading
+  (British Animals).
+- **YOLO captions read as text.** A "caption" that ends in a colon
+  (introducing what follows), or that has no illustration on its page, is
+  text. Saturday p21's "The following are the weights of the principal bells
+  in Europe:—" now opens an item with the bell table. That item is separate
+  from History of Bells because of the printed rule above it. Owen confirmed:
+  keep it separate, with its intro.
+- **Tables.** A box gets the role `table` if YOLO typed it as a table, or if
+  it is mostly figures (30% or more of words) with hardly any running prose,
+  so a paragraph about numbers stays text (Saturday p6, Figure 9).
+  - Tables stay with their article but are left out of its text (Owen: keep
+    them labelled and out of topic modelling and WER). New article columns
+    `n_tables` and `table_text`.
+  - A capitals opening after an item that is only a table starts a new item.
+  - Found: penny p7 (religions), p18 (passage prices); Saturday p6
+    (population), p16 (bread), p21 (bells), p22 (mortality); Chambers p16
+    (libraries).
+- **Illustration above its title:** built with decision 1.
+- Subsections (Owen): the least important element. No rules only for
+  recording them; it's fine if they stay article text.
 
 ## 7. Imprint and editorial notices
 
@@ -260,7 +369,42 @@ index PDF supplied).
 **Evidence.** Saturday p16 b15–16, p24 b18–19 (notices lost as imprint);
 p24 b20–23 (announcement, correctly imprint); p16 b14 (Erratum kept).
 
-**Status:** decided.
+**Status:** built 2026-10-16.
+- **Imprint matches publisher lines only.** The Committee was taken out of
+  Saturday's imprint pattern. After the imprint starts, a heading that isn't
+  itself a publisher line makes the page articles again.
+- **Publisher's announcements are imprint.** Selling wording in a box's first
+  line ("ready for delivery", "price Sixpence", "monthly parts", "sold by"),
+  or a heading followed by such a box, low on an issue's last page (Saturday
+  p24 b20–23).
+  - Limited to the last page because ordinary prose has phrases like "to be
+    had at the low price" (Chambers p10).
+- **New article column `article_type`:** `article` or `editorial_notice`.
+  - A notice is recognised by shared title wording: a title that is just
+    "NOTICE", "ERRATUM" or "TO CORRESPONDENTS" (or "NOTICE TO …").
+  - "Notice of …" is the period's wording for a biography, so it doesn't
+    count.
+  - Addresses and introductions to readers ("Reading for All", "The Editor's
+    Address to his Readers", "A Postscript to our First Readers") are normal
+    articles (Owen).
+  - Plus each magazine's own publishing body (`editorial` in
+    `magazine_rules_config.py`; Saturday: the Committee of General Literature
+    and Education).
+- **Found:** the Committee's notices (Saturday p16, p24), with series "The
+  Committee of General Literature and Education" from the recurring-title
+  rule; Saturday's Erratum.
+- **Imprints kept per issue,** for publishing history (Owen).
+  - Low on an issue's last page, a box YOLO set aside or called a figure is
+    imprint if it has imprint wording (penny's "LONDON:—CHARLES KNIGHT …" on
+    all three issues; Chambers p8; Saturday's "C. RICHARDS, Printer").
+  - New table `<mag>_imprints.csv` (also in SQLite): one row per issue, with
+    number, date, page and the full imprint text in reading order.
+  - Already visible in the sample:
+    - penny's printer, William Clowes, moves from Duke Street, Lambeth to
+      Stamford Street (issue 3);
+    - Chambers' London publication changes from "for R. & J. CHAMBERS" to
+      "by W. S. ORR" (issue 3);
+    - Saturday's prices and agents.
 
 ## 8. Text recovery and junk boxes
 
