@@ -13,7 +13,10 @@ modelling, classification and juxtaposition analysis. Pipeline code:
 | `v1_rules.md` | the pipeline's rules **as evaluated** (snapshot, never edited) |
 | `v1_evaluation.md` | the reading-order evaluation: method, conventions, results, findings |
 | `v2_decisions.md` | decisions and new rules from the evaluation, each with evidence and status |
+| `v2_recheck.md` | v2 re-checked against the v1 log (roadmap step 3): method and the script's numbers |
 | `evaluation/reading_order_error_log.csv` | the error log itself (1,090 rows), built by `evaluation/make_reading_order_template.py` |
+| `evaluation/compare_versions.py` | looks up every logged box in another version's output; writes `evaluation/reading_order_v1_vs_v2.csv` and `..._summary.md` |
+| `evaluation/compare_versions.ipynb` | runs the same comparison and shows the tables: outcomes by error type and magazine, before/after % correct, regressions, persisting errors, page lookup |
 
 Related: the box study that chose DocLayout-YOLO,
 `../evaluation_error_log_documentation.md`.
@@ -26,7 +29,7 @@ it's always clear which rules produced which output.
 | Version | Git tag | Output folder | Evaluation log | State |
 |---|---|---|---|---|
 | v1 | `extraction-v1` | `output/article_extraction/v1/` | `evaluation/reading_order_error_log.csv` | Frozen. Evaluated on the 74 development pages (2026-10-14 to 2026-10-16): 1,068 boxes, 90.9% correct, no reading-order errors. Rules: `v1_rules.md`. |
-| v2 | `extraction-v2` (when frozen) | `output/article_extraction/v2/` | (re-check in step 3; test issues in step 5) | In progress: the decisions in `v2_decisions.md`. |
+| v2 | `extraction-v2` (when frozen) | `output/article_extraction/v2/` | re-check: `evaluation/reading_order_v1_vs_v2.csv` (`v2_recheck.md`); test issues in step 5 | All decisions in `v2_decisions.md` built (italics deferred). Re-checked on the development pages (`v2_recheck.md`): of 97 v1 errors, 29 fixed (script-checked), 58 changed (to annotate), 10 unchanged. |
 
 How versions are kept apart:
 - **Code:** `PIPELINE_VERSION` in `run_extraction.py` decides the output folder.
@@ -58,10 +61,11 @@ or compare its output by hand.
    - duplicate scan pages;
    - tables.
 
-   Update each decision's status as it's built.
+   Update each decision's status as it's built. *Done 2026-10-16*, except
+   italics (Document AI style information; check the cost first).
 3. **Re-check v2 on the development pages,** mostly automatically by comparing
    the new output with the error log. The v1 numbers are the "before" for
-   showing improvement.
+   showing improvement. *Done 2026-10-16* (`v2_recheck.md`).
 4. **Build the front end for new volumes:** PDF → 300 DPI page images →
    DocLayout-YOLO (in `doclayoutyolo-env`) → Document AI → extraction, for any
    volume, with a volume ID. Reuse `pipeline/run_doclayoutyolo_batch.py` and

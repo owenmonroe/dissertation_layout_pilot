@@ -37,6 +37,7 @@ RULE_CHARS = {"|", "I", "l", "❘", "/", "¦"}
 STRIP_WORDS_PER_LINE = 1.5
 STRIP_MAX_WIDTH = 0.15  # share of the column width
 SIDE_GAP_PX = 30  # a strip or line this close to a box's side belongs to that box
+REJOIN_MIN_LINES = 3  # only paragraph boxes take rejoined words ("12" + "EDINBURGHSHIRE." isn't one)
 REJOIN_BELOW = 0.15  # share of page height: above it (masthead, running head) nothing is rejoined
 # Printer's marks caught in a text box: a signature or volume mark after the
 # last sentence ("... perfection. VOL. I.", "... crime. 3-2", "... sea. C").
@@ -221,6 +222,7 @@ def rejoin(lines: list[Line], boxes: list[Region]) -> bool:
     of words just past a box's side goes onto the box's lines at the same
     height (end or start of the line); a line just above or below a box in
     its column becomes the box's first or last line. False if no box is near."""
+    boxes = [r for r in boxes if len(r.lines) >= REJOIN_MIN_LINES]  # paragraphs, not headings
     x1, x2 = min(l.bbox[0] for l in lines), max(l.bbox[2] for l in lines)
     y1, y2 = min(l.bbox[1] for l in lines), max(l.bbox[3] for l in lines)
     height = max(l.bbox[3] - l.bbox[1] for l in lines)
