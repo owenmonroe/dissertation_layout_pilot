@@ -43,8 +43,12 @@ def snippet(text, end=False) -> str:
 def article_label(row) -> str:
     if isinstance(row.title, str) and row.title:
         return row.title
-    if isinstance(row.attribution, str) and row.attribution:
-        return f"[untitled — {row.attribution}]"
+    sign_off = getattr(row, "attribution", None)  # v1
+    if not isinstance(sign_off, str) or not sign_off:
+        back = getattr(row, "back_matter", None)  # v2: the last piece of back matter
+        sign_off = back.split(" | ")[-1] if isinstance(back, str) and back else None
+    if sign_off:
+        return f"[untitled — {sign_off}]"
     return "[untitled]"
 
 

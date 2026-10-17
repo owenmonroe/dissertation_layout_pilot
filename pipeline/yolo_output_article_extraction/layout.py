@@ -78,6 +78,20 @@ class Region:
     text: str = ""
     caption: str = ""
     note: str = ""
+    # Front / back matter cut out of this box's text (v2): a bracketed source
+    # opening the first paragraph, a sign-off closing the last. The rest of the
+    # text is the article body.
+    front_text: str = ""
+    back_text: str = ""
+
+    @property
+    def body(self) -> str:
+        body = self.text
+        if self.front_text and body.startswith(self.front_text):
+            body = body[len(self.front_text):]
+        if self.back_text and body.rstrip().endswith(self.back_text):
+            body = body.rstrip()[:-len(self.back_text)]
+        return body.strip().rstrip("—–- ").strip()
 
     @property
     def region_id(self) -> str:

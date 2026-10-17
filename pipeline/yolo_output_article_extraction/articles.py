@@ -14,9 +14,21 @@ Walking the content boxes of a magazine in reading order, page after page:
   - a text box opening with a word in capitals ("I HAVE sat upon the shore",
     "HE whose heart") starts a new untitled article if the current one already
     has text: the magazines set an item's first word in small capitals;
-  - a short "FROM THE REV. WILLIAM JONES." / "BY ..." box straight after a
-    title is the article's byline, not text;
-  - "[To be continued.]" ends its article and is kept as an end note;
+  - front matter (v2): what sits between a title and the first paragraph is
+    the article's front_matter, not text: bylines ("FROM THE REV. WILLIAM
+    JONES.", "BY SAMUEL TAYLOR COLERIDGE."), bracketed source lines and
+    headnotes ("[From a Correspondent.]", "[July 15th.]"), quoted sayings,
+    subtitles ("AN ENGLISH TALE, BY MISS MITFORD."), continuation notes
+    ("Continued.", "[Concluded from our last.]"), whether YOLO boxed them as
+    a second title, as text, or as the opening of the first paragraph;
+  - back matter (v2): what closes an article is its back_matter: a sign-off
+    cut from the end of the last paragraph ("...—SOUTHEY."), short source
+    boxes ("B. MONTAGU'S Selections."), footnotes ("* ..."; also ones YOLO
+    set aside as furniture), bracketed editor's notes, "To be continued";
+  - "[To be continued.]" ends its article (back matter), also when printed at
+    the end of a paragraph box ("...—Agricultural Journal. (To be continued.)");
+  - series and continuations across issues are assigned afterwards
+    (series.py);
   - a short all-capitals text box is a title YOLO boxed as text ("PROCESSION
     OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA");
   - any other text box continues the current article, including across a page
@@ -78,20 +90,23 @@ HEADING_SHARE = 0.6
 FIGURE_TITLE = re.compile(r"^([A-Z][A-Z'’ ,&-]{2,80}?)\s*(?:[.(\[]|$)")
 # A title box holding only initials ("D. C.") signs off the item above it.
 INITIALS = re.compile(r"^\W*(?:[A-Z]\.\s*){1,3}\W*$")
+INITIALS_DATED = re.compile(r"^\W*(?:[A-Z]\.\s*){1,3}[A-Z][a-z]+\.?,?\s*\d{4}\.?\s*$")  # "D. C. July, 1832."
+SUBTITLE = re.compile(r"^\s*[A-Z][A-Z'’ ,&-]{3,40}\.?\s*$")  # "EDINBURGHSHIRE."
 CAPTION_MAX_WORDS = 25
 OUTRO_MAX_WORDS = 12
 CAPS_TITLE_MAX_WORDS = 15
 SIGNATURE_MAX_WORDS = 3
 SIGNATURE_BELOW = 0.88  # share of page height
 # Attribution: a dash then a name or source in capitals / Title Case.
-ATTRIBUTION = re.compile(r"[.!?\"”’,;:)]\s*[—–-]{1,2}\s*([A-Z][A-Za-z'’.,& ]{1,60}?)\.?\s*$")
+ATTRIBUTION = re.compile(r"[.!?\"”’,;:)]\s*[—–-]{1,2}\s*([A-Z][A-Za-zÀ-ÿæœ'’.,& ]{1,60}?)\.?\s*$")
 ATTRIBUTION_MAX_WORDS = 6
 # OCR sometimes drops the dash: "... all was calm. Elliot's Letters from the
-# North of Europe." Without a dash, only a source citation counts: Title Case,
-# with a possessive or ending in a word like Journal / Review.
-ATTRIBUTION_NO_DASH = re.compile(r"[.!?\"”’]\s+([A-Z][A-Za-z'’.,& ]{3,80}?)\.?\s*$")
-SOURCE_WORDS = {"journal", "magazine", "review", "travels", "history", "economy", "cyclopaedia",
-                "cyclopedia", "letters", "anecdotes", "companion", "knowledge", "sketches", "tour"}
+# North of Europe." v2: a short Title Case final phrase of an article's last
+# paragraph is recorded as back matter, with no "looks like a citation" test
+# (that lost "Paradise Lost", "History of the Bible"); it doesn't end the
+# article, since without a dash it may be an ordinary closing line.
+ATTRIBUTION_NO_DASH = re.compile(r"[.!?\"”’]\s+([A-Z][A-Za-zÀ-ÿæœ'’.,& ]{3,80}?)\.?\s*$")
+NO_DASH_WORDS = (2, 8)
 # A new item needs space (or a column / page break) before it, where the
 # magazines print a short rule; paragraphs within an item sit closer.
 ITEM_GAP_PX = 20
@@ -102,6 +117,29 @@ END_NOTE = re.compile(r"^\W*to be (?:continued|concluded)\b", re.I)
 IMPRINT_BELOW = 0.6  # share of page height
 BRACKET_NOTE = re.compile(r"^\W{0,3}\[")
 SMALL_WORDS = {"of", "the", "and", "in", "on", "at", "for", "to", "a", "an"}
+# Lowercase words allowed in a source title (Owen, v2): prepositions and
+# conjunctions as titles print them ("Letters from the North of Europe").
+TITLE_SMALL_WORDS = SMALL_WORDS | {"from", "by", "with", "upon", "into", "through", "among",
+                                   "over", "under", "against", "after", "before", "near",
+                                   "or", "nor", "but", "as"}
+# Front matter (v2).
+FRONT_TITLE = re.compile(r"^\W*\[|^[\"“‘']|\bBY\b|^\W*(?:continued|concluded)\b", re.I)
+CONTINUATION_NOTE = re.compile(r"^\W*(?:continued|concluded)(?: from [^.\]]{0,40})?\.?\W*$", re.I)
+# A bracketed source or a continuation note opening the first paragraph:
+# "[From The Alhambra, by WASHINGTON IRVING.] MANY are ...",
+# "Concluded from No. I. When the ceremony ..."
+FRONT_PREFIX = re.compile(r"^\s*(\[[^\]]{3,200}\]|(?:Concluded|Continued) from (?:No\.\s*[IVXLC\d]+|[^.]{1,40})\.)\s*")
+BRACKETED = re.compile(r"^\W{0,3}\[.*\]\W*$", re.S)
+FIGURE_HEADING = re.compile(r"^\s*[A-Z][A-Z'’ ,&-]{3,}\.\s*$")  # "BRITISH ANIMALS."
+# "To be continued" closing a paragraph box, with any source before it:
+# "...flour barrels." Agricultural Journal. -To be continued."
+CONTINUED_TAIL = re.compile(r"[\s.\-—–(]*\(?\s*To be (?:continued|concluded)\b.{0,30}$", re.I | re.S)
+TAIL_SOURCE_MAX_WORDS = 12  # "Murray's Literary History of Galloway. Second Edition."
+TITLE_CONTINUATION = re.compile(r"[.,]?\s+((?:Continued|Concluded)\.?)\s*$")  # "ARCHERY. Concluded."
+FOOTNOTE = re.compile(r"^\s*[*†‡]")
+# A short box after an article's text that reads as a source line:
+# "B. MONTAGU'S Selections.", "Literary Gazette", "D. C. July, 1832."
+SOURCE_BOX_MAX_WORDS = 8
 
 
 @dataclass
@@ -115,16 +153,44 @@ class Article:
     title_regions: list = field(default_factory=list)
     figures: list = field(default_factory=list)
     captions: list = field(default_factory=list)
-    notes: list = field(default_factory=list)  # byline / end-note boxes
+    front_regions: list = field(default_factory=list)  # whole boxes of front matter
+    back_regions: list = field(default_factory=list)  # whole boxes of back matter
+    front_parts: list = field(default_factory=list)  # front matter text, in order
+    back_parts: list = field(default_factory=list)  # back matter text, in order
     subsections: list = field(default_factory=list)  # run-in subsection heads
-    byline: str = ""
-    attribution: str = ""
-    end_note: str = ""
-    title_note: str = ""  # bracketed part of a title: "[Concluded from our last.]"
+    series: str = ""  # recurring feature ("Biographic Sketches", "The Week"); see series.py
+    series_part: str = ""  # numbered part ("I")
+    series_evidence: str = ""
+    continues_article_id: str = ""  # the earlier part of the same piece
+    continued_by_article_id: str = ""
+    continuation_evidence: str = ""
 
     @property
     def text(self) -> str:
-        return join_regions([r.text for r in self.regions])
+        return join_regions([r.body for r in self.regions])
+
+    @property
+    def front_matter(self) -> str:
+        return " | ".join(p for p in self.front_parts if p)
+
+    @property
+    def back_matter(self) -> str:
+        return " | ".join(p for p in self.back_parts if p)
+
+    def add_front(self, r, text=None):
+        """Front matter: a whole box (r), or text cut from a box (text)."""
+        if text is None:
+            self.front_regions.append(r)
+            r.role = "front_matter"
+            text = r.text
+        self.front_parts.append(text.strip())
+
+    def add_back(self, r, text=None):
+        if text is None:
+            self.back_regions.append(r)
+            r.role = "back_matter"
+            text = r.text
+        self.back_parts.append(text.strip().lstrip("—–- "))
 
     @property
     def pages(self) -> list[int]:
@@ -132,7 +198,8 @@ class Article:
 
     @property
     def all_regions(self) -> list:
-        return self.title_regions + self.regions + self.figures + self.captions + self.notes
+        return (self.title_regions + self.front_regions + self.regions + self.figures
+                + self.captions + self.back_regions)
 
 
 def run_in_head(text: str) -> str | None:
@@ -160,22 +227,47 @@ def run_in_head(text: str) -> str | None:
     return m.group(1) if m else None
 
 
-def attribution(text: str) -> str | None:
+def title_case(words: list[str]) -> bool:
+    """Words of a source title: capitalised, or small words in lowercase, and
+    not ending on a small word or a comma ("Astronomy, as" isn't a title)."""
+    return bool(words) and all(w[0].isupper() or w.lower() in TITLE_SMALL_WORDS
+                               or not w[0].isalpha() for w in words) \
+        and words[-1].lower() not in TITLE_SMALL_WORDS and not words[-1].endswith(",")
+
+
+def attribution(text: str):
+    """A dash sign-off closing the text ("...nature.—SOUTHEY."): returns the
+    sign-off as printed (from its first word to the end), or None. It ends
+    the article."""
     m = ATTRIBUTION.search(text)
-    if m:
-        words = m.group(1).split()
-        title_case = all(w[0].isupper() or w.lower() in SMALL_WORDS for w in words)
-        if len(words) <= ATTRIBUTION_MAX_WORDS and title_case:
-            return m.group(1).strip()
-        return None  # e.g. a poem line: "—This Cot his morning ray."
+    if m and len(m.group(1).split()) <= ATTRIBUTION_MAX_WORDS and title_case(m.group(1).split()):
+        return text[m.start(1):].strip()
+    return None  # e.g. a poem line: "—This Cot his morning ray."
+
+
+def no_dash_source(text: str):
+    """A short Title Case final phrase with no dash ("...all was calm.
+    Elliot's Letters from the North of Europe."): recorded as back matter
+    when it closes an article's last paragraph; doesn't end the article."""
     m = ATTRIBUTION_NO_DASH.search(text)
-    if m:
-        words = m.group(1).split()
-        title_case = all(w[0].isupper() or w.lower() in SMALL_WORDS for w in words)
-        cites = any("'s" in w or "’s" in w for w in words) or words[-1].lower().strip(".") in SOURCE_WORDS
-        if 2 <= len(words) <= 8 and title_case and cites:
-            return m.group(1).strip()
+    if not m:
+        return None
+    before = text[:m.start()].split()
+    if before and before[-1][:1].isupper():
+        return None  # an OCR full stop inside a name: "...the Roya. Academy of Arts."
+    words = m.group(1).split()
+    if NO_DASH_WORDS[0] <= len(words) <= NO_DASH_WORDS[1] and title_case(words):
+        return text[m.start(1):].strip()
     return None
+
+
+def reads_as_source(text: str) -> bool:
+    """A short box that reads as a source line rather than a sentence."""
+    if INITIALS_DATED.match(text):
+        return True
+    words = text.split()
+    return 0 < len(words) <= SOURCE_BOX_MAX_WORDS and title_case(
+        [w for w in words if re.search(r"[A-Za-z]", w)])
 
 
 def reads_as_heading(text: str) -> bool:
@@ -244,7 +336,7 @@ def segment(pages: list) -> list[Article]:
         articles.append(current)
         return current
 
-    last = None  # the last article closed by an attribution / end note
+    last = None  # the last article closed by a sign-off / end note
     for pg in pages:
         if pg.issue_start or issue_seq == 0:
             issue_seq += 1
@@ -271,9 +363,10 @@ def segment(pages: list) -> list[Article]:
                 continue
             if r.role in ("title", "text") and END_NOTE.match(r.text) and len(words) <= 6:
                 if current:
-                    current.end_note = r.text
-                    current.notes.append(r)
-                r.role, current, last = "end_note", None, current
+                    current.add_back(r)  # "[To be continued.]"
+                else:
+                    r.role = "back_matter"
+                current, last = None, current
                 continue
             if r.role == "title" and not reads_as_heading(r.text):
                 r.role, r.note = "text", "YOLO title that doesn't read as a heading, read as text"
@@ -286,21 +379,36 @@ def segment(pages: list) -> list[Article]:
                     and not (title_only and BYLINE.match(r.text)):
                 r.role, r.note = "title", "all-capitals YOLO text read as title"
             if r.role == "title" and INITIALS.match(r.text) and current and current.regions:
-                current.attribution = r.text.strip()
-                current.notes.append(r)
-                r.role, current = "attribution", None
+                current.add_back(r)  # "D. C." signing off the item above
+                current, last = None, current
                 continue
             if r.role == "title":
-                if title_only:
+                if title_only and FRONT_TITLE.search(r.text):
+                    # A second title box that's a source, quoted saying, byline or
+                    # continuation note: "[From a Correspondent.]", "AN ENGLISH TALE,
+                    # BY MISS MITFORD.", "Continued."
+                    current.add_front(r)
+                elif title_only:
                     current.title = f"{current.title} {r.text}".strip()
+                    current.title_regions.append(r)
                 else:
                     start(r.text, "yolo_title")
-                current.title_regions.append(r)
+                    current.title_regions.append(r)
             elif r.role == "text":
-                if title_only and BYLINE.match(r.text) and len(words) <= BYLINE_MAX_WORDS:
-                    current.byline = r.text
-                    current.notes.append(r)
-                    r.role = "byline"
+                if title_only and (
+                        (BYLINE.match(r.text) and len(words) <= BYLINE_MAX_WORDS)
+                        or BRACKETED.match(r.text) or CONTINUATION_NOTE.match(r.text)
+                        or (SUBTITLE.match(r.text) and len(words) <= 4)):
+                    # byline, "[July 15th.]", "[Concluded from our last.]",
+                    # a capitals subtitle ("EDINBURGHSHIRE.")
+                    current.add_front(r)
+                    continue
+                if FOOTNOTE.match(r.text) and (current or last):
+                    (current or last).add_back(r)  # "* Kilbagie was the greatest ..."
+                    continue
+                if BRACKETED.match(r.text) and ((current and current.regions) or (not current and last)):
+                    (current or last).add_back(r)  # "[Such is the history of ...]"
+                    r.note = "bracketed editor's note: back matter of the article above"
                     continue
                 head = run_in_head(r.text)
                 capitals_only = magazine.run_in_capitals_only
@@ -320,17 +428,25 @@ def segment(pages: list) -> list[Article]:
                     current.subsections.append(head)
                     r.note = f"run-in subsection: {head}"
                     head = None
-                if current is None and last and BRACKET_NOTE.match(r.text):
-                    current = last  # "[Such is the history of ...]": editor's note on it
-                    r.note = "bracketed editor's note joined to the article above"
-                elif head:
+                if head:
                     start(head, "run_in")
                 elif current is None or new_item(current, r):
                     start("", "none")
+                if not current.regions:
+                    m = FRONT_PREFIX.match(r.text)
+                    if m:  # "[From The Alhambra, ...] MANY are ...", "Concluded from No. I. When ..."
+                        r.front_text = r.text[:m.end()].strip()
+                        current.add_front(r, m.group(1))
                 current.regions.append(r)
-                source = attribution(r.text)
-                if source:
-                    current.attribution = source
+                tail = CONTINUED_TAIL.search(r.text)
+                if tail and current.text.strip():
+                    close_continued(current, r, tail)
+                    current, last = None, current
+                    continue
+                sign_off = attribution(r.text)
+                if sign_off:
+                    r.back_text = sign_off
+                    current.add_back(r, sign_off.rstrip("."))
                     current, last = None, current
             elif r.role == "figure":
                 if current is None:
@@ -344,12 +460,33 @@ def segment(pages: list) -> list[Article]:
                 owner = next((a for a in articles if fig in a.figures), None)
                 if owner:
                     owner.captions.append(cap)
-    # An illustration printed above its article's title opens an "article" of
-    # its own with no text; move it into the article whose title follows it.
+        attach_furniture_matter(pg, articles)
+    # An illustration printed above an article's title belongs to that article
+    # when it heads the page before any of the article above (a full-width cut,
+    # Saturday p12) or carries a printed heading of its own ("BRITISH ANIMALS."
+    # over the Mole, penny p20). A figure after the article's own title or text
+    # stays with it (penny p4, p12, p13, p17).
+    def heads_next(f, a: Article, title) -> bool:
+        if f.page != title.page or f.order > title.order:
+            return False
+        if a.title_regions and any(t.page == f.page and t.order > f.order for t in a.title_regions):
+            return False  # it already heads its own article's title
+        if any(r.page == f.page and r.order < f.order
+               for r in a.title_regions + a.regions):
+            return bool(FIGURE_HEADING.match(f.text or ""))
+        return True
+
     for a, nxt in zip(articles, articles[1:]):
-        if a.figures and not a.regions and nxt.pages and nxt.pages[0] == a.pages[-1]:
-            nxt.figures[:0], nxt.captions[:0] = a.figures, a.captions
-            a.figures, a.captions = [], []
+        if not (a.figures and nxt.title_regions):
+            continue
+        title = nxt.title_regions[0]
+        moving = [f for f in a.figures if heads_next(f, a, title)]
+        if moving:
+            nxt.figures[:0] = moving
+            a.figures = [f for f in a.figures if f not in moving]
+            caps = [c for c in a.captions if c.page == title.page]
+            nxt.captions[:0] = caps
+            a.captions = [c for c in a.captions if c not in caps]
     articles = [a for a in articles if a.all_regions]
     # A short title-led "article" (a few words) straight before another titled
     # article is the previous article's sign-off that YOLO boxed as a title:
@@ -357,12 +494,17 @@ def segment(pages: list) -> list[Article]:
     for prev, a, nxt in zip(articles, articles[1:], articles[2:]):
         if a.title_source == "yolo_title" and not a.figures and nxt.title_source == "yolo_title" \
                 and len(a.text.split()) <= OUTRO_MAX_WORDS and a.issue_seq == prev.issue_seq:
-            prev.attribution = " ".join(filter(None, [prev.attribution, a.title, a.text]))
-            prev.notes += a.title_regions + a.regions
+            for r in a.title_regions + a.regions:
+                prev.add_back(r)
             a.title_regions, a.regions = [], []
     articles = [a for a in articles if a.all_regions]
+    for a in articles:
+        close_back_matter(a)
     for n, a in enumerate(articles, start=1):  # number without gaps
         a.article_id = f"{a.magazine}_{n:04d}"
+    from series import (apply_corrections, assign_series_leaders, link_continuations,
+                        number_series_parts, series_of_recurring_titles)
+    assign_series_leaders(articles)
     for a in articles:
         # Untitled article opening with an illustration whose title is printed
         # inside the figure box (e.g. "POMPEII. [Restored View of Pompeii.]").
@@ -371,7 +513,73 @@ def segment(pages: list) -> list[Article]:
             if m:
                 a.title, a.title_source = m.group(1), "figure_text"
         title, bracket, note = a.title.partition("[")
-        if bracket and title.strip():
-            a.title, a.title_note = title, f"[{note}".strip()
+        if bracket and title.strip():  # "VAN DIEMEN'S LAND. [Concluded from our last.]"
+            a.title = title
+            a.front_parts.insert(0, f"[{note}".strip())
+        m = TITLE_CONTINUATION.search(a.title)
+        if m and a.title[:m.start()].strip():  # "ARCHERY. Concluded."
+            a.title = a.title[:m.start()]
+            a.front_parts.insert(0, m.group(1))
         a.title = a.title.strip().rstrip(".").strip()
+    number_series_parts(articles)
+    link_continuations(articles)
+    series_of_recurring_titles(articles)
+    apply_corrections(articles)
     return articles
+
+
+def close_continued(a: Article, r, tail) -> None:
+    """A paragraph box ending "To be continued": the note, and any source
+    printed before it (with or without a dash), are back matter, and the
+    part ends here."""
+    rest = r.text[:tail.start()]
+    m = ATTRIBUTION.search(rest)
+    source = None
+    if m and len(m.group(1).split()) <= TAIL_SOURCE_MAX_WORDS and title_case(m.group(1).split()):
+        source = rest[m.start(1):]
+    else:
+        source = no_dash_source(rest)
+    start = rest.rfind(source) if source else tail.start()
+    r.back_text = r.text[start:].strip()
+    if source:
+        a.add_back(r, source.strip().rstrip("."))
+    a.add_back(r, tail.group().strip(" -—–().") )
+
+
+def close_back_matter(a: Article) -> None:
+    """Back matter that only shows once the article is complete: short source
+    boxes after its text ("B. MONTAGU'S Selections.", "D. C. July, 1832."),
+    and a no-dash sign-off closing its last paragraph ("...Elliot's Letters
+    from the North of Europe.")."""
+    while len(a.regions) > 1 and reads_as_source(a.regions[-1].text):
+        r = a.regions.pop()
+        a.back_regions.insert(0, r)
+        r.role = "back_matter"
+        a.back_parts.insert(0, r.text.strip())
+    if a.regions and not a.regions[-1].back_text:
+        r = a.regions[-1]
+        source = no_dash_source(r.text)
+        if source and source != r.text.strip():
+            r.back_text = source
+            a.back_parts.insert(0, source.rstrip("."))
+
+
+def attach_furniture_matter(pg, articles: list[Article]) -> None:
+    """Footnotes and "[To be continued.]" that YOLO set aside as furniture
+    (abandon) are back matter: a footnote goes to the article on the page whose
+    text has the asterisk, else the page's last article; a continuation note
+    to the page's last article."""
+    on_page = [a for a in articles if any(r.page == pg.page for r in a.regions)]
+    if not on_page:
+        return
+    for r in pg.regions:
+        if r.role != "furniture" or not r.text:
+            continue
+        if FOOTNOTE.match(r.text):
+            marked = [a for a in on_page
+                      if any(r2.page == pg.page and "*" in r2.text for r2 in a.regions)]
+            (marked or on_page)[-1].add_back(r)
+            r.note = "footnote set aside as furniture by YOLO: back matter"
+        elif END_NOTE.match(r.text) and len(r.text.split()) <= 6:
+            on_page[-1].add_back(r)
+            r.note = "continuation note set aside as furniture by YOLO: back matter"

@@ -59,7 +59,21 @@ Front/back matter must be recovered wherever YOLO put it:
 sources as extremely important (Library of Entertaining Knowledge, Library of
 Useful Knowledge, Working Man's Companion, the Lady Jean note).
 
-**Status:** decided.
+**Status:** built 2026-10-16.
+- Articles have `front_matter` / `back_matter` (pieces joined with " | ").
+  Whole boxes get the roles `front_matter` / `back_matter`.
+- Text cut from a box is recorded in the regions table's `front_text` /
+  `back_text` columns and left out of the article text.
+- Of the 41 logged front/back-matter errors, 37 are fixed. Still open:
+  - the Lady Jean ballad epigraph merged into the first paragraph (Chambers
+    p4 b6);
+  - the long editor's introduction and dateline before the Emigration letter
+    (Chambers p20 b26–27);
+  - a footnote scrambled by page tilt (Chambers p18 b11; see decision 8).
+- One correction found along the way: an illustration above a title moves to
+  that article only if it heads the page, or carries its own printed heading
+  ("BRITISH ANIMALS."). A figure after an article's own title or text stays
+  with that article.
 
 ## 2. Sign-off (inline source) detection
 
@@ -92,8 +106,26 @@ or possessive: "Tour of a German Prince." (penny p26). Sources that must still
 be caught: "Library of Entertaining Knowledge" (Chambers p13 b13), "Paradise
 Lost"-type titles.
 
-**Status:** decided. (An LLM check for ambiguous endings was considered and
-not chosen.)
+**Status:** built 2026-10-16, except italics. (An LLM check for ambiguous
+endings was considered and not chosen.)
+
+The rules as built:
+- **Dash sign-off.** A dash, then 2–8 words in title case. The phrase may not
+  end on a small word or a comma ("- Astronomy, as" is the start of a
+  sentence). It is cut into `back_matter` and ends the article.
+- **No-dash final phrase.** Recorded as back matter but doesn't end the
+  article. It is skipped when the word before it is capitalised, which means
+  an OCR full stop inside a name ("…the Roya. Academy of Arts.").
+- **Short source boxes** after the text are back matter ("B. MONTAGU'S
+  Selections.", "D. C. July, 1832.").
+
+Checked against the log:
+- every v1-correct row that changed is an improvement (a source now recorded);
+- article boundaries are unchanged apart from the Saturday p12 fix;
+- the 5 verified pages still pass.
+
+Still to do: italics (re-run Document AI with style info after checking the
+cost).
 
 ## 3. Series and continuations (general rules)
 
@@ -124,7 +156,42 @@ Progress of Printing (likely).
 **Evidence.** Series headings joined into titles: penny p12 b1, p20 b4;
 Saturday p9 b1; Chambers p5 b13, p12 b6, p15 b1, p21 b10, p23 b1–2.
 
-**Status:** decided.
+**Status:** built 2026-10-16 (`series.py`).
+- New article columns: `series`, `series_part`, `series_evidence`,
+  `continues_article_id`, `continued_by_article_id`, `continuation_evidence`.
+  The `*_evidence` columns say which rule fired, for checking.
+- Series heading boxes get the role `series_heading`.
+- **Series found:**
+  - British Animals: Dormouse, Mole;
+  - The Week: issues 1–3;
+  - Biographic Sketches: Dr. Adam, James Ferguson, Dr. Alexander Murray;
+  - Column for the Boys: Archery, both parts;
+  - Familiar Remarks on Architecture: part I;
+  - Botanical Diversions: marked candidate, since it appears in one issue
+    only.
+- **Continuations linked:**
+  - Van Diemen's Land;
+  - Jagganátha (by the shared word, plus "in our first number");
+  - Lady Jean;
+  - Formation of Scottish Society;
+  - Emigration, issues 1→2→3;
+  - Archery. Its p15 part, printed under "COLUMN FOR THE BOYS." alone, takes
+    the title Archery from its continuation.
+- **New:** "To be continued" at the end of a paragraph box is now back matter
+  (with the source before it) and ends the part. This also fixed the
+  "American Musquitoes!" merge (Chambers p20 b24).
+- **Not done:**
+  - The Swallow (penny p12) has no heading of its own; it is printed under
+    the Dormouse's "BRITISH ANIMALS." heading. A general rule ("the next piece
+    on the page inherits the series") would wrongly put nine other pieces into
+    series (Plague under Biographic Sketches, The British Museum under The
+    Week). So its series is set by hand in
+    `pipeline/yolo_output_article_extraction/series_corrections.json`.
+    `series_evidence` says "manual correction". The volume index may give
+    this automatically later (decision 4);
+  - the Committee notices wait for decision 7;
+  - Origin and Progress of Printing and Sketches in Topography have only one
+    part in the sample, so nothing to link yet.
 
 ## 4. Filler items (unmarked short items)
 

@@ -1,0 +1,12 @@
+{
+  "_about": "Series the rules can't see, set by hand from the evaluation. Each entry names an article by magazine, start page and title (as extracted) and gives its series. Applied at the end of series.py; series_evidence says 'manual correction'.",
+  "corrections": [
+    {
+      "magazine": "penny",
+      "page": 12,
+      "title": "THE SWALLOW",
+      "series": "British Animals",
+      "note": "printed under the same 'BRITISH ANIMALS.' heading as the Dormouse, with no heading of its own (evaluation log, penny p12 b1)"
+    }
+  ]
+}
