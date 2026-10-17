@@ -1,8 +1,8 @@
 {
   "pipeline_version": "v2",
-  "git_commit": "780c986f",
+  "git_commit": "12fd9807",
   "uncommitted_changes": true,
-  "run_date": "2026-10-16T21:05:11",
+  "run_date": "2026-10-16T21:19:00",
   "magazine": "penny",
   "pages": "1-26",
   "ocr": "docai"

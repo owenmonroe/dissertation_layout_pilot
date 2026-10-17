@@ -41,10 +41,11 @@ from PIL import Image, ImageDraw, ImageFont
 from articles import page_metadata, segment
 from layout import REPO_ROOT, load_page, mark_masthead, order_regions
 from magazine_rules_config import MAGAZINES
+from duplicates import find_duplicates, set_aside
 from rules import mark_rules
 from volume_index import check_index, parse_index
-from text import (assign_docai_text, assign_tesseract_text, docai_json_path, drop_empty,
-                  recover_unboxed)
+from text import (assign_docai_text, assign_tesseract_text, clean_marks, docai_json_path,
+                  drop_empty, recover_unboxed)
 
 # The rules version this code implements; output goes to its own folder.
 # v1 is frozen (git tag extraction-v1; output/article_extraction/v1/ is the
@@ -126,6 +127,7 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         use_docai = ocr == "docai" and docai_json_path(mag, n).exists()
         unboxed = assign_docai_text(pg) if use_docai else assign_tesseract_text(pg)
         unboxed = recover_unboxed(pg, unboxed)
+        clean_marks(pg)
         drop_empty(pg)
         mark_rules(pg)
         mark_masthead(pg)
@@ -148,7 +150,15 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
             "page_image": str(pg.image_path.relative_to(REPO_ROOT)),
         })
 
-    articles = segment(pages)
+    duplicates = find_duplicates(pages)
+    for pg in pages:
+        if pg.page in duplicates:
+            set_aside(pg, duplicates[pg.page])
+    for row in page_rows:
+        row["duplicate_of"] = duplicates.get(row["page"])
+        if row["duplicate_of"]:
+            row["issue_start"] = False
+    articles = segment([pg for pg in pages if pg.page not in duplicates])
     # Segmenting can set boxes aside as furniture (no words, printer's
     # signatures, magazine name): renumber reading order without them.
     for pg in pages:

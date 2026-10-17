@@ -420,7 +420,42 @@ p24 b20–23 (announcement, correctly imprint); p16 b14 (Erratum kept).
 
 **Evidence.** 8 misplacements (Chambers pp. 7, 18, 20, 24), 1 missed.
 
-**Status:** decided.
+**Status:** built 2026-10-16 (`text.py`). Nearly all of these came from one
+step, the recovery of OCR lines YOLO didn't box, which turned tilt strips,
+junk and the watermark into boxes.
+- **Watermark.** The scan's stamps ("hdl.handle.net", "Google-digitized",
+  "Original from", "Digitized by", "… GMT") are never text.
+- **Tilt strips.** A recovered block averaging 1.5 words a line or fewer is a
+  strip of cut-off words, not a paragraph. On the development pages, real
+  recovered paragraphs run 2.5–9.6 words a line and strips exactly 1.0.
+  - If the strip is narrow and lies at a text box's side edge, each word
+    rejoins the box line at its height (end or start of the line).
+  - Otherwise it is junk and is set aside as unboxed text ("10 кат his this
+    rith hat", "Is an").
+- **Single lines.** A leftover line at a box's side edge rejoins its line;
+  one just above or below a box in its column becomes the box's first or
+  last line ("4585 tons.", Chambers p21).
+  - Nothing is rejoined in the top 15% of the page, where masthead lines are
+    read for the issue number. Issue numbers are unchanged.
+- **Printer's marks** are removed from text boxes:
+  - a signature after the last sentence ("… sea. C", "… crime. 3");
+  - "VOL. I." at a box's end;
+  - "02" at a box's start before a lowercase word.
+- **OCR'd quotation marks:** "44"/"66" before a capitalised word becomes an
+  opening quotation mark ("44 When he was …" → "“When he was …").
+- **Result:**
+  - all 8 logged misplacements fixed (no strip boxes remain);
+  - the missed line, both junk boxes and the watermark fixed;
+  - printer's marks fixed on penny p1, p9, p17, Saturday p1, p17 and
+    Chambers p12, p13.
+  - The only boxes still built from unboxed lines are real ones: Saturday's
+    agents list (imprint), a masthead fragment and the Chambers p18
+    footnote.
+- **Not fixed:**
+  - "… their own 3-2" (Saturday p19): a signature after a word, not a full
+    stop. Removing number ranges there would risk real text ("pp. 3-4").
+  - VEGETABLES (Chambers p24): its head is scrambled into the line before by
+    tilt.
 
 ## 9. Duplicate scan pages
 
@@ -431,7 +466,21 @@ the duplicates will shift.
 **Evidence.** Penny PDF pp. 22–23 repeat printed pp. 20–21 (also in the
 HathiTrust PDF); excluded from the evaluation.
 
-**Status:** decided.
+**Status:** built 2026-10-16 (`duplicates.py`).
+- **The rule is text, not the printed number,** which OCR often misreads. A
+  page is a duplicate when it shares 60% or more of its words with one of
+  the six pages scanned before it.
+- **Measured on the development pages:** the two duplicates overlap their
+  originals by 0.97 and 1.00. Every other page overlaps its predecessors by
+  0.19 at most, so the threshold has a wide margin.
+- **Duplicates are left out of article extraction.** The pages table records
+  `duplicate_of`, and their boxes stay in the regions table with role
+  `duplicate_page`.
+- **Result:**
+  - penny scan pages 22–23 are found (duplicates of 20–21);
+  - none are found in Saturday or Chambers;
+  - The Library now runs from printed p21 to p24 without a copy in between;
+  - penny has 53 articles (was 58).
 
 ## 10. Metadata (built during v1, kept)
 

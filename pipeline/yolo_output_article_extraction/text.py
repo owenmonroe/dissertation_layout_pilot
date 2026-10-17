@@ -26,6 +26,25 @@ from layout import CONTENT_ROLES, REPO_ROOT, Page, Region, column_of
 PAD_PX = 6  # tolerance when testing whether a line centre is inside a box
 NEAR_PX = 30
 SENTENCE_END = re.compile(r"[.!?:;\"”’)\]]$")
+# The scan's own stamps (HathiTrust / Google): never text.
+WATERMARK = re.compile(r"hdl\.handle\.net|google-digitized|public domain|digitized by|"
+                       r"generated at|original from|\b\d\d:\d\d GMT\b", re.I)
+# Column rules OCR'd as characters.
+RULE_CHARS = {"|", "I", "l", "❘", "/", "¦"}
+# A recovered block with about one word per line is a strip of line-end (or
+# line-start) words cut off a box by page tilt, not a paragraph: real
+# paragraphs run 2.5+ words a line on the development pages, strips 1.0.
+STRIP_WORDS_PER_LINE = 1.5
+STRIP_MAX_WIDTH = 0.15  # share of the column width
+SIDE_GAP_PX = 30  # a strip or line this close to a box's side belongs to that box
+REJOIN_BELOW = 0.15  # share of page height: above it (masthead, running head) nothing is rejoined
+# Printer's marks caught in a text box: a signature or volume mark after the
+# last sentence ("... perfection. VOL. I.", "... crime. 3-2", "... sea. C").
+TRAILING_MARK = re.compile(r"(?<=[.!?\"”’:;])\s+(?:VOL\.?\s*[IVX]+\.?|[A-Z]|\d{1,2}(?:-\d{1,2})?|[A-Z]\s?\d)\s*$")
+VOLUME_MARK = re.compile(r"\s+VOL\.?\s*[IVX]+\.?\s*$")  # anywhere at a box's end: "... The VOL. I."
+LEADING_MARK = re.compile(r"^\s*0\d\s+(?=[a-z])")  # "02 of the heroine"
+# An opening quotation mark OCR'd as "44" or "66": "44 When he was about ..."
+QUOTE_DIGITS = re.compile(r"(?:(?<=^)|(?<=\s))(?:44|66)\s+(?=[A-Z])")
 
 
 @dataclass
@@ -108,7 +127,7 @@ def assign_docai_text(pg: Page) -> list[Line]:
             words[r.region_id].append(token)
             if "words attached" not in r.note:
                 r.note = (r.note + "; " if r.note else "") + "words attached from just outside box"
-        elif token.text.strip() not in ("|", "I", "l"):  # column rules read as characters
+        elif token.text.strip() not in RULE_CHARS:  # column rules read as characters
             unboxed.append(token)
     for r in boxes:
         r.lines = group_lines(words[r.region_id])
@@ -130,7 +149,11 @@ def recover_unboxed(pg: Page, lines: list[Line]) -> list[Line]:
     top = min(r.y1 for r in content)
     bottom = max(r.y2 for r in content)
     leftover, blocks = [], {}
+    text_boxes = [r for r in content if r.role == "text"]
     for line in lines:
+        if WATERMARK.search(line.text):
+            leftover.append(line)
+            continue
         col = column_of(pg, line.bbox[0], line.bbox[2])
         if col is None or not (top - 10 <= line.cy <= bottom + 20):
             leftover.append(line)
@@ -146,9 +169,17 @@ def recover_unboxed(pg: Page, lines: list[Line]) -> list[Line]:
                 groups[-1].append(l)
             else:
                 groups.append([l])
+        width = (pg.text_right - pg.text_left) / max(1, len({r.column for r in content if r.column}))
         for g in groups:
             if len(g) < 2:
-                leftover.extend(g)
+                if g[0].cy < REJOIN_BELOW * pg.height or not rejoin(g, text_boxes):
+                    leftover.extend(g)
+                continue
+            words_per_line = sum(len(l.text.split()) for l in g) / len(g)
+            if words_per_line <= STRIP_WORDS_PER_LINE:
+                narrow = max(l.bbox[2] for l in g) - min(l.bbox[0] for l in g) <= STRIP_MAX_WIDTH * width
+                if not (narrow and g[0].cy >= REJOIN_BELOW * pg.height and rejoin(g, text_boxes)):
+                    leftover.extend(g)  # junk: "10 кат his this rith hat", "Is an"
                 continue
             bbox = (min(l.bbox[0] for l in g), min(l.bbox[1] for l in g),
                     max(l.bbox[2] for l in g), max(l.bbox[3] for l in g))
@@ -183,6 +214,57 @@ def assign_tesseract_text(pg: Page) -> list[Line]:
                                  capture_output=True).stdout.decode("utf-8", "replace")
             r.text = join_lines([l.strip() for l in out.splitlines() if l.strip()])
     return []
+
+
+def rejoin(lines: list[Line], boxes: list[Region]) -> bool:
+    """Put lines YOLO's box missed back into that box (decision 8): a strip
+    of words just past a box's side goes onto the box's lines at the same
+    height (end or start of the line); a line just above or below a box in
+    its column becomes the box's first or last line. False if no box is near."""
+    x1, x2 = min(l.bbox[0] for l in lines), max(l.bbox[2] for l in lines)
+    y1, y2 = min(l.bbox[1] for l in lines), max(l.bbox[3] for l in lines)
+    height = max(l.bbox[3] - l.bbox[1] for l in lines)
+    beside = [r for r in boxes if r.lines and r.y1 - height <= (y1 + y2) / 2 <= r.y2 + height
+              and (r.x2 - SIDE_GAP_PX <= x1 <= r.x2 + SIDE_GAP_PX       # just past its right edge
+                   or r.x1 - SIDE_GAP_PX <= x2 <= r.x1 + SIDE_GAP_PX)]  # or its left edge
+    if beside:
+        box = beside[0]
+        right = x1 >= box.cx
+        for l in lines:
+            target = min(box.lines, key=lambda bl: abs(bl.cy - l.cy))
+            if abs(target.cy - l.cy) > height:
+                return False
+        for l in lines:
+            target = min(box.lines, key=lambda bl: abs(bl.cy - l.cy))
+            target.text = f"{target.text} {l.text}" if right else f"{l.text} {target.text}"
+        box.text = join_lines([bl.text for bl in box.lines])
+        box.note = (box.note + "; " if box.note else "") + "line-end words past the box's side rejoined"
+        return True
+    if len(lines) == 1:
+        l = lines[0]
+        near = [r for r in boxes if r.lines and r.x1 - SIDE_GAP_PX <= l.cx <= r.x2 + SIDE_GAP_PX
+                and min(abs(l.bbox[1] - r.y2), abs(r.y1 - l.bbox[3])) <= 1.5 * height]
+        if near:
+            box = min(near, key=lambda r: min(abs(l.bbox[1] - r.y2), abs(r.y1 - l.bbox[3])))
+            box.lines = sorted(box.lines + [l], key=lambda bl: bl.cy)
+            box.text = join_lines([bl.text for bl in box.lines])
+            box.bbox = (box.x1, min(box.y1, l.bbox[1]), box.x2, max(box.y2, l.bbox[3]))
+            box.note = (box.note + "; " if box.note else "") + "line just outside the box recovered"
+            return True
+    return False
+
+
+def clean_marks(pg: Page) -> None:
+    """Printer's marks and OCR'd quotation marks in text boxes (decision 8)."""
+    for r in pg.regions:
+        if r.role != "text" or not r.text:
+            continue
+        text = TRAILING_MARK.sub("", VOLUME_MARK.sub("", r.text))
+        text = LEADING_MARK.sub("", text)
+        text = QUOTE_DIGITS.sub("\u201c", text)
+        if text != r.text:
+            r.text = text
+            r.note = (r.note + "; " if r.note else "") + "printer's mark / OCR'd quote cleaned"
 
 
 def join_lines(lines: list[str]) -> str:
