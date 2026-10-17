@@ -5,11 +5,15 @@
 > (`v1_evaluation.md`, 2026-10-14 to 2026-10-16). The code is tagged
 > `extraction-v1` in git (`git checkout extraction-v1` to re-run it). Changes
 > decided in the evaluation are in `v2_decisions.md`; the roadmap is in
-> `README.md`.
+> `../README.md`.
 >
 > *Path update (2026-10-16), the only edit since the snapshot:* v1's output
 > now lives in `output/article_extraction/v1/`; the paths below were updated to
 > match.
+>
+> *Moved (2026-10-16)* into `documentation/article_extraction/development/`
+> with the other v1-to-v2 working documents; the build texts' folder was
+> renamed `test_texts/` → `build_texts/`. Content otherwise unchanged.
 
 ## Goal
 
