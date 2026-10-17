@@ -10,3 +10,7 @@ venv_build_test/*-env/
 
 # Page images of the held-out test volumes
 test_texts_extraction/images/
+
+# Python bytecode caches
+__pycache__/
+*.pyc
