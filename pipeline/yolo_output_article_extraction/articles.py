@@ -51,7 +51,7 @@ Walking the content boxes of a magazine in reading order, page after page:
 import re
 from dataclasses import dataclass, field
 
-from magazine_rules_config import MAGAZINES
+from magazine_rules_config import magazine_rules
 from rules import numeric
 from text import SENTENCE_END, join_regions
 
@@ -407,7 +407,7 @@ def segment(pages: list) -> list[Article]:
             issue_seq += 1
             current, last = None, None
         in_imprint = False
-        magazine = MAGAZINES[pg.magazine]
+        magazine = magazine_rules(pg.magazine)
         if issue_end:
             # The imprint often lands in boxes YOLO set aside (abandon) or
             # called a figure (penny's "LONDON:—CHARLES KNIGHT ..."): low on an
@@ -623,8 +623,8 @@ def segment(pages: list) -> list[Article]:
         close_back_matter(a)
     for n, a in enumerate(articles, start=1):  # number without gaps
         a.article_id = f"{a.magazine}_{n:04d}"
-    from series import (apply_corrections, assign_series_leaders, link_continuations,
-                        number_series_parts, series_of_recurring_titles)
+    from series import (assign_series_leaders, link_continuations, number_series_parts,
+                        series_of_recurring_titles)
     assign_series_leaders(articles)
     for a in articles:
         # Untitled article opening with an illustration whose title is printed
@@ -643,13 +643,12 @@ def segment(pages: list) -> list[Article]:
             a.front_parts.insert(0, m.group(1))
         a.title = a.title.strip().rstrip(".,").strip()
     for a in articles:
-        own = MAGAZINES[a.magazine].editorial
+        own = magazine_rules(a.magazine).editorial
         if EDITORIAL.search(a.title) or (own and own.search(a.title)):
             a.article_type = "editorial_notice"
     number_series_parts(articles)
     link_continuations(articles)
     series_of_recurring_titles(articles)
-    apply_corrections(articles)
     return articles
 
 

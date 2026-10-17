@@ -1,22 +1,22 @@
 """
 Batch pipeline: PDF -> 300 DPI page PNGs -> DocLayout-YOLO detection -> results.
 
-For each magazine PDF in test_texts/, rasterizes every page into
-test_texts/images/<mag>_images/ (same rasters the PrimaLayout pipeline uses --
+For each volume (magazine_rules_config.VOLUMES: a magazine PDF and its issue
+pages), rasterizes those pages into <pdf folder>/images/<volume>_images/ (same rasters the PrimaLayout pipeline uses --
 shared, not duplicated, since both pipelines rasterize at the same 300 DPI)
 and runs the DocLayout-YOLO DocStructBench model on each page image, same as
 the one-page check_doclayoutyolo_setup.py check. For every page, writes into
-output/<mag>_yolo/:
+output/<volume>_yolo/:
 
-  - <mag>_page_NNN_doclayoutyolo.png
+  - <volume>_page_NNN_doclayoutyolo.png
       (page image with boxes drawn on it)
-  - json_bounding_<mag>_yolo/<mag>_page_NNN_doclayoutyolo.json
+  - json_bounding_<volume>_yolo/<volume>_page_NNN_doclayoutyolo.json
       (raw boxes: type, score, bbox)
 
 Run from the repo root, with the doclayoutyolo-env venv active:
 
     python pipeline/run_doclayoutyolo_batch.py
-    python pipeline/run_doclayoutyolo_batch.py --magazines penny chambers
+    python pipeline/run_doclayoutyolo_batch.py --volumes penny_1836 saturday_1840
     python pipeline/run_doclayoutyolo_batch.py --conf-thresh 0.2
 """
 
@@ -36,12 +36,8 @@ from check_doclayoutyolo_setup import (  # noqa: E402
     save_annotated_image,
 )
 
-MAGAZINE_PDFS = {
-    "penny": REPO_ROOT / "test_texts" / "penny_first3sample_inu-30000093220105-1779725606.pdf",
-    "chambers": REPO_ROOT / "test_texts" / "chambers_first3sample_hvd-hwrgz7-1779381321.pdf",
-    "saturday": REPO_ROOT / "test_texts" / "saturday_first3sample_osu-32435051594604-1779834449.pdf",
-}
-IMAGES_ROOT = REPO_ROOT / "test_texts" / "images"
+sys.path.insert(0, str(REPO_ROOT / "pipeline" / "yolo_output_article_extraction"))
+from magazine_rules_config import VOLUMES, page_range  # noqa: E402
 
 
 def layout_to_json(result, page_image_path: Path) -> dict:
@@ -63,12 +59,16 @@ def layout_to_json(result, page_image_path: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--magazines",
+        "--volumes", "--magazines",
+        dest="volumes",
         nargs="+",
-        choices=sorted(MAGAZINE_PDFS),
-        default=sorted(MAGAZINE_PDFS),
-        help="Which magazines to process (default: all).",
+        choices=sorted(VOLUMES),
+        default=[k for k, v in VOLUMES.items() if v.split == "build"],
+        help="Which volumes to process (magazine_rules_config.VOLUMES; default: the "
+             "development samples). Only the volume's issue pages are processed.",
     )
+    parser.add_argument("--force", action="store_true",
+                        help="redo pages whose output already exists")
     parser.add_argument("--dpi", type=int, default=300)
     parser.add_argument("--conf-thresh", type=float, default=0.2)
     parser.add_argument("--imgsz", type=int, default=1024)
@@ -80,19 +80,27 @@ def main() -> None:
     print("Loading DocLayout-YOLO model...")
     model = load_doclayoutyolo_model()
 
-    for magazine in args.magazines:
-        pdf_path = MAGAZINE_PDFS[magazine]
-        raster_dir = IMAGES_ROOT / f"{magazine}_images"
+    for magazine in args.volumes:
+        volume = VOLUMES[magazine]
+        pdf_path = REPO_ROOT / volume.pdf
+        raster_dir = REPO_ROOT / volume.images_dir
         out_dir = REPO_ROOT / "output" / f"{magazine}_yolo"
         json_dir = out_dir / f"json_bounding_{magazine}_yolo"
         out_dir.mkdir(parents=True, exist_ok=True)
         json_dir.mkdir(parents=True, exist_ok=True)
 
         print(f"\n=== {magazine}: {pdf_path.name} ===")
-        page_images = pdf_to_images(pdf_path, raster_dir, dpi=args.dpi, stem=magazine)
+        pages = page_range(volume.pages)
+        page_images = pdf_to_images(pdf_path, raster_dir, dpi=args.dpi, stem=magazine, pages=pages)
         print(f"Rasterized {len(page_images)} page(s) into {raster_dir}")
 
-        for page_index, page_image_path in enumerate(page_images, start=1):
+        for page_image_path in page_images:
+            # PDF page number, from the image name (<volume>_page_NNN.png)
+            page_index = int(page_image_path.stem.rsplit("_", 1)[1])
+            done = json_dir / f"{magazine}_page_{page_index:03d}_{'doclayoutyolo'}.json"
+            if done.exists() and not args.force:
+                print(f"{page_image_path.name}: already done, skipped")
+                continue
             det_res = model.predict(
                 str(page_image_path),
                 imgsz=args.imgsz,

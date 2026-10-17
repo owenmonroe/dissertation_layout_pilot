@@ -17,7 +17,7 @@ output: the development log (evaluation/reading_order_error_log.csv) is v1's.
 Usage:
 
     python evaluation/make_reading_order_template.py --version v2 --out evaluation/reading_order_error_log_v2.csv
-    python evaluation/make_reading_order_template.py --version v2 --magazines penny --out evaluation/x.csv
+    python evaluation/make_reading_order_template.py --version v2 --volumes penny_1836 saturday_1840 chambers_1839 --out evaluation/reading_order_test_log_v2.csv
 
 Refuses to overwrite an existing log (it may hold annotations) unless --force.
 """
@@ -74,8 +74,10 @@ def magazine_rows(mag: str, version: str) -> pd.DataFrame:
     # Masthead boxes first on their page (they sit above the reading order).
     boxes["_sort"] = boxes["reading_order"].fillna(0)
     boxes = boxes.sort_values(["page", "_sort", "y1"])
+    if "volume" not in boxes:
+        boxes["volume"] = mag  # v1 output: one volume per magazine
     return boxes[[
-        "magazine", "page", "printed_page", "issue_no", "issue_date", "reading_order",
+        "volume", "magazine", "page", "printed_page", "issue_no", "issue_date", "reading_order",
         "region_id", "yolo_index", "column", "role", "article", "article_id", "article_title",
         "box_start", "box_end", "verdict", "error_type", "notes",
     ]]
@@ -83,7 +85,9 @@ def magazine_rows(mag: str, version: str) -> pd.DataFrame:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--magazines", nargs="+", default=["penny", "saturday", "chambers"])
+    parser.add_argument("--volumes", "--magazines", dest="magazines", nargs="+",
+                        default=["penny", "saturday", "chambers"],
+                        help="volume keys (output folders); default: the 1832 development samples")
     parser.add_argument("--version", required=True,
                         help="pipeline version whose output to read, e.g. v2")
     parser.add_argument("--out", type=Path, required=True,

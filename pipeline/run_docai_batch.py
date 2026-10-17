@@ -1,15 +1,15 @@
 """
 Batch pipeline: PDF -> 300 DPI page PNGs -> Google Document AI OCR -> results.
 
-For each magazine PDF in test_texts/, rasterizes every page into
-test_texts/images/<mag>_images/ (same rasters the PrimaLayout/DocLayout-YOLO
+For each volume (magazine_rules_config.VOLUMES: a magazine PDF and its issue
+pages), rasterizes those pages into <pdf folder>/images/<volume>_images/ (same rasters the PrimaLayout/DocLayout-YOLO
 pipelines use) and calls the Document AI "google-parser-OCR" Document OCR
 processor on each page image, same as the one-page check_docai_setup.py
-check. For every page, writes into output/<mag>_google/:
+check. For every page, writes into output/<volume>_google/:
 
-  - <mag>_page_NNN_docai.png
+  - <volume>_page_NNN_docai.png
       (page image with boxes drawn on it)
-  - json_bounding_<mag>_google/<mag>_page_NNN_docai.json
+  - json_bounding_<volume>_google/<volume>_page_NNN_docai.json
       (full raw Document AI response for that page)
 
 Cost note: Document OCR is free for the first 1,000 pages/month on this
@@ -19,7 +19,7 @@ $0.00 (see documentation/ for the pricing breakdown).
 Run from the repo root, with the docai-env venv active:
 
     python pipeline/run_docai_batch.py
-    python pipeline/run_docai_batch.py --magazines penny chambers
+    python pipeline/run_docai_batch.py --volumes penny_1836 saturday_1840
 """
 
 import argparse
@@ -37,39 +37,47 @@ from check_docai_setup import (  # noqa: E402
     save_raw_response,
 )
 
-MAGAZINE_PDFS = {
-    "penny": REPO_ROOT / "test_texts" / "penny_first3sample_inu-30000093220105-1779725606.pdf",
-    "chambers": REPO_ROOT / "test_texts" / "chambers_first3sample_hvd-hwrgz7-1779381321.pdf",
-    "saturday": REPO_ROOT / "test_texts" / "saturday_first3sample_osu-32435051594604-1779834449.pdf",
-}
-IMAGES_ROOT = REPO_ROOT / "test_texts" / "images"
+sys.path.insert(0, str(REPO_ROOT / "pipeline" / "yolo_output_article_extraction"))
+from magazine_rules_config import VOLUMES, page_range  # noqa: E402
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--magazines",
+        "--volumes", "--magazines",
+        dest="volumes",
         nargs="+",
-        choices=sorted(MAGAZINE_PDFS),
-        default=sorted(MAGAZINE_PDFS),
-        help="Which magazines to process (default: all).",
+        choices=sorted(VOLUMES),
+        default=[k for k, v in VOLUMES.items() if v.split == "build"],
+        help="Which volumes to process (magazine_rules_config.VOLUMES; default: the "
+             "development samples). Only the volume's issue pages are processed.",
     )
+    parser.add_argument("--force", action="store_true",
+                        help="redo pages whose output already exists")
     parser.add_argument("--dpi", type=int, default=300)
     args = parser.parse_args()
 
-    for magazine in args.magazines:
-        pdf_path = MAGAZINE_PDFS[magazine]
-        raster_dir = IMAGES_ROOT / f"{magazine}_images"
+    for magazine in args.volumes:
+        volume = VOLUMES[magazine]
+        pdf_path = REPO_ROOT / volume.pdf
+        raster_dir = REPO_ROOT / volume.images_dir
         out_dir = REPO_ROOT / "output" / f"{magazine}_google"
         json_dir = out_dir / f"json_bounding_{magazine}_google"
         out_dir.mkdir(parents=True, exist_ok=True)
         json_dir.mkdir(parents=True, exist_ok=True)
 
         print(f"\n=== {magazine}: {pdf_path.name} ===")
-        page_images = pdf_to_images(pdf_path, raster_dir, dpi=args.dpi, stem=magazine)
+        pages = page_range(volume.pages)
+        page_images = pdf_to_images(pdf_path, raster_dir, dpi=args.dpi, stem=magazine, pages=pages)
         print(f"Rasterized {len(page_images)} page(s) into {raster_dir}")
 
-        for page_index, page_image_path in enumerate(page_images, start=1):
+        for page_image_path in page_images:
+            # PDF page number, from the image name (<volume>_page_NNN.png)
+            page_index = int(page_image_path.stem.rsplit("_", 1)[1])
+            done = json_dir / f"{magazine}_page_{page_index:03d}_{'docai'}.json"
+            if done.exists() and not args.force:
+                print(f"{page_image_path.name}: already done, skipped")
+                continue
             print(f"\n{page_image_path.name}:")
             document = process_document(page_image_path)
             print_layout("  Document AI Document OCR", document)

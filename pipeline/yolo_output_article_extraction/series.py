@@ -26,9 +26,7 @@ the previous issue's Archery).
 Recurrence is counted within the pages run together (one volume's sample).
 """
 
-import json
 import re
-from pathlib import Path
 
 from articles import SMALL_WORDS, TITLE_SMALL_WORDS, Article
 
@@ -38,8 +36,7 @@ OPENS = re.compile(r"\b(?:continued|concluded)\b", re.I)
 OPENS_TEXT = re.compile(r"\bin our (?:first|last|former|previous|preceding) (?:number|no\b)", re.I)
 OPENS_TEXT_CHARS = 300
 CLOSES = re.compile(r"\bto be (?:continued|concluded)\b", re.I)
-DISTINCTIVE_LEN = 6
-CORRECTIONS = Path(__file__).with_name("series_corrections.json")  # letters in a title word shared by two parts with different titles
+DISTINCTIVE_LEN = 6  # letters in a title word shared by two parts with different titles
 
 
 def key(text: str) -> str:
@@ -203,16 +200,3 @@ def series_of_recurring_titles(articles: list[Article]) -> None:
             a.series = display(a.title)
             a.series_evidence = f"title recurs (issues {', '.join(map(str, sorted(seen)))})"
 
-
-def apply_corrections(articles: list[Article]) -> None:
-    """Series set by hand where no rule can see it (series_corrections.json):
-    e.g. the Swallow, printed under the Dormouse's "BRITISH ANIMALS." heading.
-    A general rule ("the next piece on the page inherits the series") would
-    also put Plague under Biographic Sketches and The British Museum under
-    The Week."""
-    for c in json.loads(CORRECTIONS.read_text())["corrections"]:
-        for a in articles:
-            if a.magazine == c["magazine"] and a.pages and a.pages[0] == c["page"] \
-                    and key(a.title) == key(c["title"]):
-                a.series = c["series"]
-                a.series_evidence = f"manual correction: {c['note']}"

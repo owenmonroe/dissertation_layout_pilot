@@ -182,13 +182,11 @@ Saturday p9 b1; Chambers p5 b13, p12 b6, p15 b1, p21 b10, p23 b1–2.
   "American Musquitoes!" merge (Chambers p20 b24).
 - **Not done:**
   - The Swallow (penny p12) has no heading of its own; it is printed under
-    the Dormouse's "BRITISH ANIMALS." heading. A general rule ("the next piece
-    on the page inherits the series") would wrongly put nine other pieces into
-    series (Plague under Biographic Sketches, The British Museum under The
-    Week). So its series is set by hand in
-    `pipeline/yolo_output_article_extraction/series_corrections.json`.
-    `series_evidence` says "manual correction". The volume index may give
-    this automatically later (decision 4);
+    the Dormouse's "BRITISH ANIMALS." heading. No general rule finds it: "the
+    next piece on the page inherits the series" would wrongly put nine other
+    pieces into series. A hand correction was tried and then removed (Owen:
+    no hand-entered facts; the volume index lists the Swallow under British
+    Animals and is the route for cases like this). Known miss;
   - the Committee notices wait for decision 7;
   - Origin and Progress of Printing and Sketches in Topography have only one
     part in the sample, so nothing to link yet.
@@ -244,7 +242,7 @@ Results:
     it is a run-in head mid-box.
 
 **2. Volume index** (`volume_index.py`; the PDF is in
-`test_texts/volume_index/`, set per magazine as `volume_index` in
+`build_texts/volume_index/`, set per magazine as `volume_index` in
 `magazine_rules_config.py`; penny only so far).
 - Entries are parsed from the PDF text layer (three columns, hanging indent).
 - Each entry is matched by its distinctive words to the articles on the

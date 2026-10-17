@@ -60,17 +60,24 @@ class Entry:
         return {w for w in stems(self.heading) if w not in {g[:STEM] for g in GENERIC}}
 
 
-def parse_index(pdf: Path) -> list[Entry]:
+def parse_index(pdf: Path, pages: list[int] | None = None) -> list[Entry]:
+    """Entries from the index pages of a PDF: the given pages (1-based), or
+    every page headed INDEX."""
     import fitz  # PyMuPDF
 
     entries: list[Entry] = []
     with fitz.open(pdf) as doc:
         for page_no, page in enumerate(doc):
+            if pages and page_no + 1 not in pages:
+                continue
             words = page.get_text("words")
-            head = [w for w in words if w[4].strip(".") == "INDEX"]
-            if not head:
+            head = [w for w in words if w[4].strip(".,") == "INDEX"]
+            if not head and not pages:
                 continue  # HathiTrust's cover sheet
-            words = [w for w in words if w[1] > head[0][3]]
+            top = head[0][3] if head else 0.06 * page.rect.height  # below the heading
+            words = [w for w in words if w[1] > top]
+            if not words:
+                continue
             x0, x1 = min(w[0] for w in words), max(w[2] for w in words)
             width = (x1 - x0) / 3
             for col in range(3):

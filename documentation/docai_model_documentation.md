@@ -84,7 +84,7 @@ rebuild it from the commands above on a fresh machine.
 ## What was run
 
 1. Single-page sanity check (`check_docai_setup.py`) on
-   `test_texts/penny_1page_test.pdf`, first against the Layout Parser
+   `build_texts/penny_1page_test.pdf`, first against the Layout Parser
    processor (dropped after inspecting the raw JSON — see above), then
    against the Document OCR processor (16/16 blocks with bounding boxes,
    6,914 characters of OCR text).
@@ -96,7 +96,7 @@ rebuild it from the commands above on a fresh machine.
 
 ## Output
 
-- `test_texts/images/<mag>_images/<mag>_page_NNN.png` — rasterized 300 DPI
+- `build_texts/images/<mag>_images/<mag>_page_NNN.png` — rasterized 300 DPI
   page images (shared with the other two pipelines' output of the same
   name/location).
 - `output/<mag>_google/<mag>_page_NNN_docai.png` — page image with detected

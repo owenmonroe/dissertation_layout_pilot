@@ -18,7 +18,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from magazine_rules_config import MAGAZINES
+from magazine_rules_config import magazine_rules
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -193,14 +193,14 @@ def assign_columns(pg: Page) -> None:
 
 
 def column_width(pg: Page) -> float:
-    return (pg.text_right - pg.text_left) / MAGAZINES[pg.magazine].columns
+    return (pg.text_right - pg.text_left) / magazine_rules(pg.magazine).columns
 
 
 def column_of(pg: Page, x1: float, x2: float) -> int | None:
     """1-based column a span x1..x2 sits in, or None if it spans columns."""
     col_w = column_width(pg)
     overlaps = []
-    for c in range(MAGAZINES[pg.magazine].columns):
+    for c in range(magazine_rules(pg.magazine).columns):
         left = pg.text_left + c * col_w
         overlaps.append(max(0, min(x2, left + col_w) - max(x1, left)))
     if sum(o >= SPAN_SHARE * col_w for o in overlaps) >= 2:
@@ -224,7 +224,7 @@ def mark_masthead(pg: Page) -> None:
     content = [r for r in pg.regions if r.role in CONTENT_ROLES]
     top = [r for r in content if r.y1 < ISSUE_MARK_TOP * pg.height
            and len(r.text.split()) <= MASTHEAD_MAX_WORDS]
-    magazine = MAGAZINES[pg.magazine]
+    magazine = magazine_rules(pg.magazine)
     pg.issue_start = any(ISSUE_MARKS.search(r.text) for r in top) or any(
         magazine.name.search(r.text) and r.y2 - r.y1 >= NAME_MIN_PX for r in top)
     if not pg.issue_start:
@@ -250,7 +250,7 @@ def order_regions(pg: Page) -> None:
         r.band = sum(s.cy < r.cy for s in spanning) if r.column else spanning.index(r)
     order = 1
     for band in range(len(spanning) + 1):
-        for col in range(1, MAGAZINES[pg.magazine].columns + 1):
+        for col in range(1, magazine_rules(pg.magazine).columns + 1):
             for r in sorted((r for r in content if r.column == col and r.band == band),
                             key=lambda r: r.cy):
                 r.order, order = order, order + 1

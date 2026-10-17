@@ -70,7 +70,7 @@ expect it to be present after a fresh clone.
 ## What was run
 
 1. Single-page sanity check (`check_doclayoutyolo_setup.py`) on
-   `test_texts/images/one_page_load_tests/penny_1page_test_page001.png` to
+   `build_texts/images/one_page_load_tests/penny_1page_test_page001.png` to
    validate the environment and eyeball the confidence threshold.
 2. Full batch run (`pipeline/run_doclayoutyolo_batch.py`, confidence 0.2)
    across all three magazines' full sampled issues:
@@ -80,7 +80,7 @@ expect it to be present after a fresh clone.
 
 ## Output
 
-- `test_texts/images/<mag>_images/<mag>_page_NNN.png` — rasterized 300 DPI
+- `build_texts/images/<mag>_images/<mag>_page_NNN.png` — rasterized 300 DPI
   page images (shared with the PrimaLayout pipeline's output of the same
   name/location).
 - `output/<mag>_yolo/<mag>_page_NNN_doclayoutyolo.png` — page image with

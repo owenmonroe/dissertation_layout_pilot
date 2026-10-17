@@ -2,8 +2,11 @@
 models/
 
 # Generated page images
-test_texts/images/
+build_texts/images/
 
 # Local virtual environments (installed packages, not source -- recreate via
 # the pip install commands documented for each, don't commit them)
 venv_build_test/*-env/
+
+# Page images of the held-out test volumes
+test_texts_extraction/images/

@@ -162,13 +162,13 @@ penny,12,4,penny_p012_r00,ok,,True,text,text,False,False,BRITISH ANIMALS. THE DO
 penny,12,5,penny_p012_r01,ok,,True,text,text,False,False,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,,False,unchanged
 penny,12,6,penny_p012_r02,ok,,True,text,text,False,False,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,,False,unchanged
 penny,12,7,penny_p012_r04,ok,,True,text,text,False,False,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,,False,unchanged
-penny,12,8,penny_p012_r09,ok,,True,title,title,True,True,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
-penny,12,9,penny_p012_r08,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
-penny,12,10,penny_p012_r06,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
-penny,12,11,penny_p012_r03,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
-penny,12,12,penny_p012_r05,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
-penny,13,1,penny_p013_r12,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
-penny,13,2,penny_p013_r06,ok,,True,figure,figure,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
+penny,12,8,penny_p012_r09,ok,,True,title,title,True,True,THE SWALLOW,penny_0028,THE SWALLOW,,,,,False,unchanged
+penny,12,9,penny_p012_r08,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,,,,,False,unchanged
+penny,12,10,penny_p012_r06,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,,,,,False,unchanged
+penny,12,11,penny_p012_r03,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,,,,,False,unchanged
+penny,12,12,penny_p012_r05,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,,,,,False,unchanged
+penny,13,1,penny_p013_r12,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,,,,,False,unchanged
+penny,13,2,penny_p013_r06,ok,,True,figure,figure,False,False,THE SWALLOW,penny_0028,THE SWALLOW,,,,,False,unchanged
 penny,13,3,penny_p013_r16,ok,,True,title,title,True,True,THE WEEK,penny_0029,THE WEEK,The Week,,,"series: recurring feature 'The Week' — should get series = 'The Week' (plan B); not counted, pipeline doesn't assign series yet",False,unchanged
 penny,13,4,penny_p013_r05,ok,,True,text,text,False,False,THE WEEK,penny_0029,THE WEEK,The Week,,,,False,unchanged
 penny,13,5,penny_p013_r00,ok,,True,text,text,False,False,THE WEEK,penny_0029,THE WEEK,The Week,,,,False,unchanged

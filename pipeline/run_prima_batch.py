@@ -1,8 +1,8 @@
 """
 Batch pipeline: PDF -> 300 DPI page PNGs -> PrimaLayout detection -> results.
 
-For each magazine PDF in test_texts/, rasterizes every page into
-test_texts/images/<mag>_images/ and runs the PrimaLayout Detectron2 model on
+For each magazine PDF in build_texts/, rasterizes every page into
+build_texts/images/<mag>_images/ and runs the PrimaLayout Detectron2 model on
 each page image. For every page, writes into output/<mag>_prima/:
 
   - <mag>_page_NNN_primalayout.png
@@ -35,12 +35,12 @@ from check_layoutparser_setup import (  # noqa: E402
 )
 
 MAGAZINE_PDFS = {
-    "penny": REPO_ROOT / "test_texts" / "penny_first3sample_inu-30000093220105-1779725606.pdf",
-    "chambers": REPO_ROOT / "test_texts" / "chambers_first3sample_hvd-hwrgz7-1779381321.pdf",
-    "saturday": REPO_ROOT / "test_texts" / "saturday_first3sample_osu-32435051594604-1779834449.pdf",
+    "penny": REPO_ROOT / "build_texts" / "penny_first3sample_inu-30000093220105-1779725606.pdf",
+    "chambers": REPO_ROOT / "build_texts" / "chambers_first3sample_hvd-hwrgz7-1779381321.pdf",
+    "saturday": REPO_ROOT / "build_texts" / "saturday_first3sample_osu-32435051594604-1779834449.pdf",
 }
 
-IMAGES_ROOT = REPO_ROOT / "test_texts" / "images"
+IMAGES_ROOT = REPO_ROOT / "build_texts" / "images"
 
 
 def layout_to_json(layout, page_image_path: Path) -> dict:

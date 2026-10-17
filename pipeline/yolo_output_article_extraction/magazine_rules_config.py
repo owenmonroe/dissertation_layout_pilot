@@ -36,9 +36,6 @@ class Magazine:
     # wording (notices, errata, addresses to readers): e.g. its publishing
     # body's notices. None: shared wording only.
     editorial: re.Pattern | None = None
-    # The volume's printed index (PDF, path from the repo root), used to check
-    # items (volume_index.py). None: no index yet.
-    volume_index: str | None = None
 
     @property
     def column_names(self) -> list[str]:
@@ -57,8 +54,6 @@ MAGAZINES = {
             name=re.compile(r"penny\s+magazine", re.I),
             masthead_words=re.compile(r"society|knowledge", re.I),
             imprint=re.compile(_IMPRINT + r"|CHARLES KNIGHT|PALL[- ]MALL EAST", re.I),
-            volume_index="test_texts/volume_index/"
-                         "penny_1832_vol_index_inu-30000093220105-442-443-444-1791991769.pdf",
         ),
         Magazine(
             key="saturday",
@@ -82,3 +77,65 @@ MAGAZINES = {
         ),
     ]
 }
+
+
+@dataclass(frozen=True)
+class Volume:
+    """A run of pages to extract: one magazine's PDF (a sample of issues, or a
+    whole volume). Its key names its files: page images, YOLO and Document AI
+    output, extraction output. Rules come from its magazine."""
+    key: str
+    magazine: str
+    split: str  # "build" (rules were developed on it) or "test" (held out)
+    pdf: str  # from the repo root
+    # PDF pages holding the issues ("7-30"); None: every page.
+    pages: str | None = None
+    # The volume's printed index: a PDF (default: this volume's PDF) and its
+    # pages. None: no index.
+    index_pdf: str | None = None
+    index_pages: str | None = None
+
+    @property
+    def images_dir(self):
+        """Page images go next to the PDF: <pdf folder>/images/<key>_images/."""
+        from pathlib import Path
+        return Path(self.pdf).parent / "images" / f"{self.key}_images"
+
+
+VOLUMES = {
+    v.key: v for v in [
+        # Development sample (1832, first three issues; v1 evaluated on these).
+        Volume("penny", "penny", "build",
+               "build_texts/penny_first3sample_inu-30000093220105-1779725606.pdf",
+               index_pdf="build_texts/volume_index/"
+                         "penny_1832_vol_index_inu-30000093220105-442-443-444-1791991769.pdf"),
+        Volume("saturday", "saturday", "build",
+               "build_texts/saturday_first3sample_osu-32435051594604-1779834449.pdf"),
+        Volume("chambers", "chambers", "build",
+               "build_texts/chambers_first3sample_hvd-hwrgz7-1779381321.pdf"),
+        # Held-out test issues (three issues each, from later volumes, with the
+        # volume index; PDF p1 is HathiTrust's cover sheet, then front pieces).
+        Volume("penny_1836", "penny", "test",
+               "test_texts_extraction/penny_test_3issues_v5_1836_inu-30000093219388-1779827694.pdf",
+               pages="6-29", index_pages="4"),
+        Volume("saturday_1840", "saturday", "test",
+               "test_texts_extraction/saturday_test_3issues_v18.19_1841_mdp-39015082315659-1779842682.pdf",
+               pages="6-29", index_pages="4-5"),
+        Volume("chambers_1839", "chambers", "test",
+               "test_texts_extraction/chambers_test_3issues_v8_1839_mdp-39015024480603-1779384859.pdf",
+               pages="7-30", index_pages="4-6"),
+    ]
+}
+
+
+def magazine_rules(key: str) -> Magazine:
+    """The magazine settings for a volume (or magazine) key."""
+    return MAGAZINES[VOLUMES[key].magazine if key in VOLUMES else key]
+
+
+def page_range(spec: str | None) -> list[int] | None:
+    """"7-30" -> [7, ..., 30]; "4" -> [4]; None -> None."""
+    if not spec:
+        return None
+    lo, _, hi = spec.partition("-")
+    return list(range(int(lo), int(hi or lo) + 1))

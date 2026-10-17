@@ -13,7 +13,7 @@ counts are comparable across models.
 
 - `evaluation/groundtruth_texts/` — the hand-made gold standard: the 9
   evaluated page rasters (`<mag>_page_<NNN>_groundtruth.png`, copied from
-  `test_texts/images/<mag>_images/`, originals untouched) with the ideal boxes
+  `build_texts/images/<mag>_images/`, originals untouched) with the ideal boxes
   drawn on by hand, numbered and labelled (masthead image/text, title, text,
   intro/outro byline, header/footer abandon). The boxes exist only as drawings,
   so the analysis notebook uses box counts read off these images.

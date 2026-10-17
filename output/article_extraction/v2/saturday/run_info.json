@@ -1,9 +1,12 @@
 {
   "pipeline_version": "v2",
-  "git_commit": "f773f8b3",
+  "git_commit": "49336ccc",
   "uncommitted_changes": true,
-  "run_date": "2026-10-16T21:26:17",
+  "run_date": "2026-10-16T22:05:20",
+  "volume": "saturday",
   "magazine": "saturday",
+  "split": "build",
+  "pdf": "build_texts/saturday_first3sample_osu-32435051594604-1779834449.pdf",
   "pages": "1-24",
   "ocr": "docai"
 }

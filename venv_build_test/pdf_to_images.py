@@ -18,8 +18,11 @@ import pymupdf
 
 
 def pdf_to_images(
-    pdf_path: Path, output_dir: Path, dpi: int = 300, stem: str | None = None
+    pdf_path: Path, output_dir: Path, dpi: int = 300, stem: str | None = None,
+    pages: list[int] | None = None,
 ) -> list[Path]:
+    """Rasterize the PDF's pages (or only `pages`, 1-based); a page image
+    that already exists is kept, not redrawn."""
     output_dir.mkdir(parents=True, exist_ok=True)
     zoom = dpi / 72  # PDF points are 72 per inch
     matrix = pymupdf.Matrix(zoom, zoom)
@@ -28,10 +31,13 @@ def pdf_to_images(
     written = []
     with pymupdf.open(pdf_path) as doc:
         for page_index, page in enumerate(doc, start=1):
-            pix = page.get_pixmap(matrix=matrix)
-            pix.set_dpi(dpi, dpi)
+            if pages and page_index not in pages:
+                continue
             out_path = output_dir / f"{name_stem}_page_{page_index:03d}.png"
-            pix.save(out_path)
+            if not out_path.exists():
+                pix = page.get_pixmap(matrix=matrix)
+                pix.set_dpi(dpi, dpi)
+                pix.save(out_path)
             written.append(out_path)
     return written
 

@@ -40,7 +40,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from articles import page_metadata, segment
 from layout import REPO_ROOT, load_page, mark_masthead, order_regions
-from magazine_rules_config import MAGAZINES
+from magazine_rules_config import VOLUMES, magazine_rules, page_range
 from duplicates import find_duplicates, set_aside
 from rules import mark_rules
 from volume_index import check_index, parse_index
@@ -61,9 +61,11 @@ PALETTE = ["#d62728", "#1f77b4", "#2ca02c", "#9467bd", "#ff7f0e", "#17becf",
 
 
 def parse_pages(spec: str | None, magazine: str) -> list[int]:
-    if spec:
-        lo, _, hi = spec.partition("-")
-        return list(range(int(lo), int(hi or lo) + 1))
+    """Pages to extract: --pages, else the volume's issue pages, else every
+    page with YOLO output."""
+    pages = page_range(spec) or page_range(VOLUMES[magazine].pages)
+    if pages:
+        return pages
     json_dir = REPO_ROOT / "output" / f"{magazine}_yolo" / f"json_bounding_{magazine}_yolo"
     return sorted(int(p.name.split("_")[2]) for p in json_dir.glob("*.json"))
 
@@ -73,7 +75,7 @@ def column_name(column: int | None, magazine: str) -> str:
     "spanning" for a box across columns."""
     if column is None:
         return "spanning"
-    return MAGAZINES[magazine].column_names[column - 1]
+    return magazine_rules(magazine).column_names[column - 1]
 
 
 def save_check_image(pg, article_of: dict, out_path: Path) -> None:
@@ -168,8 +170,10 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
             if r.role == "furniture":
                 r.order = None
     index_rows = None
-    if MAGAZINES[mag].volume_index:
-        entries = parse_index(REPO_ROOT / MAGAZINES[mag].volume_index)
+    volume = VOLUMES[mag]
+    if volume.index_pdf or volume.index_pages:
+        entries = parse_index(REPO_ROOT / (volume.index_pdf or volume.pdf),
+                              page_range(volume.index_pages))
         index_rows = check_index(entries, articles, page_rows)
     pages_df = pd.DataFrame(page_rows)
     # Issue number / date for each issue, from its pages (masthead first).
@@ -276,6 +280,9 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
                        "regions": ["band", "reading_order"]}.items():
         tables[name][cols] = tables[name][cols].astype("Int64")
     for df in tables.values():
+        # magazine: which magazine's rules; volume: which run of pages (files, ids)
+        df["magazine"] = volume.magazine
+        df.insert(0, "volume", mag)
         df.insert(0, "pipeline_version", PIPELINE_VERSION)
     return {"pages": pages, "articles": articles, "article_of": article_of, "tables": tables}
 
@@ -335,7 +342,10 @@ def write_run_info(mag: str, result: dict, page_spec: str | None, ocr: str) -> N
         "git_commit": commit,
         "uncommitted_changes": dirty,
         "run_date": datetime.datetime.now().isoformat(timespec="seconds"),
-        "magazine": mag,
+        "volume": mag,
+        "magazine": VOLUMES[mag].magazine,
+        "split": VOLUMES[mag].split,
+        "pdf": VOLUMES[mag].pdf,
         "pages": page_spec or f"{min(pages)}-{max(pages)}",
         "ocr": ocr,
     }
@@ -357,12 +367,14 @@ def write_outputs(mag: str, result: dict) -> None:
     with sqlite3.connect(DB_PATH) as db:
         for name, df in result["tables"].items():
             df.to_csv(out_dir / f"{mag}_{name}.csv", index=False)
-            # Keep the other magazines' rows; rewrite the table so its columns
+            # Keep the other volumes' rows; rewrite the table so its columns
             # always match this version of the pipeline.
             exists = db.execute("select 1 from sqlite_master where type='table' and name=?",
                                 (name,)).fetchone()
-            others = pd.read_sql(f"select * from {name} where magazine != ?", db, params=(mag,)) \
-                if exists else pd.DataFrame()
+            others = pd.read_sql(f"select * from {name}", db) if exists else pd.DataFrame()
+            if len(others):
+                key = others["volume"] if "volume" in others else others["magazine"]
+                others = others[key != mag]
             if len(others):
                 with warnings.catch_warnings():  # all-empty columns (e.g. no bylines yet)
                     warnings.simplefilter("ignore", FutureWarning)
@@ -372,15 +384,18 @@ def write_outputs(mag: str, result: dict) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--magazine", required=True, choices=sorted(MAGAZINES))
-    parser.add_argument("--pages", help="page range, e.g. 1-3 (default: every page with YOLO output)")
+    parser.add_argument("--volume", "--magazine", dest="volume", required=True, choices=sorted(VOLUMES),
+                        help="volume key (magazine_rules_config.VOLUMES); the 1832 development "
+                             "samples are penny / saturday / chambers")
+    parser.add_argument("--pages", help="page range, e.g. 1-3 (default: the volume's issue pages, "
+                                        "else every page with YOLO output)")
     parser.add_argument("--ocr", choices=["docai", "tesseract"], default="docai")
     args = parser.parse_args()
 
     if PIPELINE_VERSION in FROZEN_VERSIONS:
         sys.exit(f"{PIPELINE_VERSION} is frozen; its output must not be overwritten. "
                  "Set PIPELINE_VERSION to the version being built.")
-    mag = args.magazine
+    mag = args.volume
     result = extract(mag, args.pages, args.ocr)
     write_outputs(mag, result)
     write_run_info(mag, result, args.pages, args.ocr)

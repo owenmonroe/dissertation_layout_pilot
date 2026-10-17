@@ -66,10 +66,17 @@ or compare its output by hand.
 3. **Re-check v2 on the development pages,** mostly automatically by comparing
    the new output with the error log. The v1 numbers are the "before" for
    showing improvement. *Done 2026-10-16* (`v2_recheck.md`).
-4. **Build the front end for new volumes:** PDF → 300 DPI page images →
-   DocLayout-YOLO (in `doclayoutyolo-env`) → Document AI → extraction, for any
-   volume, with a volume ID. Reuse `pipeline/run_doclayoutyolo_batch.py` and
-   `pipeline/run_docai_batch.py`.
+4. **Build the front end for new volumes.** *Done 2026-10-16.*
+   - `pipeline/run_volume.py --volume <key>` runs PDF → 300 DPI page images →
+     DocLayout-YOLO (`doclayoutyolo-env`) → Document AI (`docai-env`) →
+     extraction, each step in its own environment. Pages already done are
+     skipped.
+   - Volumes are listed in `magazine_rules_config.py` (`VOLUMES`). Each one
+     gives its magazine (which decides the rules), PDF, issue pages, index
+     pages, and split: `build` for the 1832 development samples in
+     `build_texts/`, `test` for the held-out issues in
+     `test_texts_extraction/` (penny_1836, saturday_1840, chambers_1839).
+   - Every output table has `volume` and `magazine` columns.
 5. **Freeze v2 and run the test issues.** Tag `extraction-v2`, run fresh
    later-year issues (one per magazine, e.g. 1836, 1840, 1843) that no rule
    was tuned on, and annotate them once. Those are the baseline numbers for
@@ -91,11 +98,12 @@ or compare its output by hand.
 ## Running the pipeline
 
 ```
-python pipeline/yolo_output_article_extraction/run_extraction.py --magazine penny
+python pipeline/run_volume.py --volume penny_1836          # a new volume, all steps
+python pipeline/yolo_output_article_extraction/run_extraction.py --volume penny   # extraction only
 python pipeline/yolo_output_article_extraction/check_verified.py
 ```
 
-- **Output:** `output/article_extraction/<version>/<mag>/` (CSVs, `figures/`,
+- **Output:** `output/article_extraction/<version>/<volume>/` (CSVs, `figures/`,
   `reading_order/` check images, `run_info.json`) and
   `output/article_extraction/<version>/articles.sqlite` (tables `pages`,
   `articles`, `regions`).

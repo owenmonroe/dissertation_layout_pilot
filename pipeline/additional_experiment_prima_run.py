@@ -10,7 +10,7 @@ output/<mag>_prima/):
   saturday page 021
 
 Reuses the already-rasterized page images from
-test_texts/images/<mag>_images/ (run pipeline/run_prima_batch.py first if
+build_texts/images/<mag>_images/ (run pipeline/run_prima_batch.py first if
 those don't exist yet). Writes into output/<mag>_prima_experimental/:
 
   - <mag>_page_NNN_primalayout.png
@@ -40,7 +40,7 @@ from check_layoutparser_setup import (  # noqa: E402
 )
 from run_prima_batch import layout_to_json  # noqa: E402
 
-IMAGES_ROOT = REPO_ROOT / "test_texts" / "images"
+IMAGES_ROOT = REPO_ROOT / "build_texts" / "images"
 
 # (magazine, page_number) pairs to run this experiment on.
 EXPERIMENT_PAGES = [

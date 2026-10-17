@@ -1,9 +1,12 @@
 {
   "pipeline_version": "v2",
-  "git_commit": "f773f8b3",
+  "git_commit": "49336ccc",
   "uncommitted_changes": true,
-  "run_date": "2026-10-16T21:26:37",
+  "run_date": "2026-10-16T22:03:24",
+  "volume": "chambers",
   "magazine": "chambers",
+  "split": "build",
+  "pdf": "build_texts/chambers_first3sample_hvd-hwrgz7-1779381321.pdf",
   "pages": "1-24",
   "ocr": "docai"
 }

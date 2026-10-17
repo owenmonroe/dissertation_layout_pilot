@@ -79,11 +79,11 @@ not committed to git — rebuild it from the yml file above on a fresh machine.
   page and runs PrimaLayout detection at threshold 0.7, writing results per page.
 - `pipeline/additional_experiment_prima_run.py` — reruns PrimaLayout at threshold 0.5 on
   3 hand-picked pages (one per magazine) for side-by-side comparison against the 0.7 run.
-- `.gitignore` — excludes `models/` (large binaries) and `test_texts/images/` (generated).
+- `.gitignore` — excludes `models/` (large binaries) and `build_texts/images/` (generated).
 
 ## What was run
 
-1. Single-page sanity check on `test_texts/penny_1page_test.pdf` to validate the
+1. Single-page sanity check on `build_texts/penny_1page_test.pdf` to validate the
    environment and compare candidate models/thresholds.
 2. Full batch run (`pipeline/run_prima_batch.py`, threshold 0.7) across all three
    magazines' full sampled issues:
@@ -96,12 +96,12 @@ not committed to git — rebuild it from the yml file above on a fresh machine.
 
 ## Output
 
-- `test_texts/images/<mag>_images/<mag>_page_NNN.png` — rasterized 300 DPI page images.
+- `build_texts/images/<mag>_images/<mag>_page_NNN.png` — rasterized 300 DPI page images.
 - `output/<mag>_prima/<mag>_page_NNN_primalayout.png` — page image with detected boxes
   and `type + confidence score` labels drawn on it.
 - `output/<mag>_prima/json_bounding_<mag>_prima/<mag>_page_NNN_primalayout.json` — raw
   detections per page (`type`, `score`, `bbox`).
 - `output/<mag>_prima_experimental/` and its `json_bounding_<mag>_prima_experimental/`
   subfolder — same PNG/JSON outputs, but for the 3-page, 0.5-threshold experiment.
-- `test_texts/images/one_page_load_tests/` — original single-page sanity-check artifacts,
+- `build_texts/images/one_page_load_tests/` — original single-page sanity-check artifacts,
   kept separate from the real multi-page magazine issues.
