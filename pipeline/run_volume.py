@@ -12,11 +12,11 @@ environment:
   - extraction:     the Python running this script (pandas, Pillow, PyMuPDF)
 
 Pages already rasterized, boxed or OCR'd are skipped, so a failed run can be
-resumed without paying for OCR twice. Output: output/<volume>_yolo/,
-output/<volume>_google/, output/article_extraction/<version>/<volume>/.
+resumed without paying for OCR twice. Output: output/output_images_json_*/<volume>_yolo/,
+output/output_images_json_*/<volume>_google/, output/article_extraction/<version>/<volume>/.
 
 To add a volume: put its PDF in build_texts/ (rules are developed on it) or
-test_texts_extraction/ (held out), add a Volume to VOLUMES, then:
+evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/ (held out), add a Volume to VOLUMES, then:
 
     python pipeline/run_volume.py --volume penny_1836
     python pipeline/run_volume.py --volume penny_1836 --steps extract

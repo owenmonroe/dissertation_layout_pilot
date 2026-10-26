@@ -48,9 +48,9 @@
   column) before grouping everything between one title and the next.
 - Google Document AI's block grouping fails to separate short "filler" items from
   each other or from a preceding long article -- e.g. lower-right corner of
-  `output/penny_google/penny_page_003_docai.png` (the "FAIR PLAY" article merged
+  `output/output_images_json_establishing_layout_AIs/penny_google/penny_page_003_docai.png` (the "FAIR PLAY" article merged
   with the following "Changes of Manners" / "Animal Sagacity" filler items into one
-  box) and `output/saturday_google/saturday_page_011_docai.png` (a long piece merged
+  box) and `output/output_images_json_establishing_layout_AIs/saturday_google/saturday_page_011_docai.png` (a long piece merged
   with the following "HUMMING BIRDS." filler item). Separating short filler/ephemera
   from genuine long-form articles is key to this project, so this is a real
   limitation to account for.
@@ -78,16 +78,16 @@
 
 - Added a `#N` index label to every box in all three models' annotated output
   images, so a box spotted visually can be looked up directly in that page's
-  JSON (see `documentation/box_index_ordering.md`) -- and set up
-  `evaluation/boxing_error_log_template.csv` to log errors against the taxonomy above
+  JSON (see `documentation/establishing_layout_detection_AIs/box_index_ordering.md`) -- and set up
+  `evaluation/evaluating_layout_detection/boxing_error_log_template.csv` to log errors against the taxonomy above
   during the hand-annotation pass.
 
 ## 2026-09-30
 
 - Copied the 9 evaluated page rasters (first 3 pages per magazine) into
-  `evaluation/groundtruth_texts/` as `<mag>_page_NNN_groundtruth.png`, as working
+  `evaluation/evaluating_layout_detection/groundtruth_texts/` as `<mag>_page_NNN_groundtruth.png`, as working
   copies for building the gold-standard chunking.
-- Started filling in `evaluation/boxing_error_log_template.csv` box-by-box, working
+- Started filling in `evaluation/evaluating_layout_detection/boxing_error_log_template.csv` box-by-box, working
   interactively with Claude Code: Claude prompts magazine / page / model / box `#N`,
   I give a verdict, then a note (or `0` for none), and Claude appends the row.
   Order: magazine (chambers -> penny -> saturday), page 1-3, model
@@ -105,7 +105,7 @@
   full column").
 - Found the PrimaLayout / YOLO `#N` labels unreadable in places: masthead boxes at
   the top edge had labels drawn off-image, and stacked labels on duplicate boxes.
-  Wrote `evaluation/draw_eval_boxes.py` to paste larger `#N` tags onto the
+  Wrote `evaluation/evaluating_layout_detection/draw_eval_boxes.py` to paste larger `#N` tags onto the
   untouched model output images (boxes kept exactly as the models output them;
   near-identical boxes share one tag, e.g. `#7 | #12`). Indexes unchanged.
 - Found DocLayout-YOLO emits duplicate boxes: its YOLOv10 post-processing ranks
@@ -125,7 +125,7 @@
 - Finished all 9 chambers page/model combinations (168 boxes, every index checked
   against the JSON). Penny and saturday still to do -- resume at penny p1 Google
   box 0. Documented the process in
-  `documentation/evaluation_error_log_documentation.md`.
+  `documentation/establishing_layout_detection_AIs/evaluation_error_log_documentation.md`.
 
 ## 2026-10-01
 
@@ -138,10 +138,10 @@
 - **Error log:** finished penny and saturday by hand, then checked coverage against
   the JSON: all 27 page/model combinations complete (495 rows, 482 boxes), no
   missing or invalid indexes.
-- **Analysis:** built `evaluation/error_analysis.ipynb` (total errors, errors by
+- **Analysis:** built `evaluation/evaluating_layout_detection/error_analysis.ipynb` (total errors, errors by
   type, errors by magazine, per page, error causes from notes, content vs
   furniture) plus a fragmentation check against my gold-standard boxes in
-  `evaluation/groundtruth_texts/`.
+  `evaluation/evaluating_layout_detection/groundtruth_texts/`.
 
 **Key findings:**
 - % of boxes correct: Document AI 55.6%, YOLO 54.5%, PrimaLayout 41.4%. All three

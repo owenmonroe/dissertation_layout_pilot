@@ -32,7 +32,7 @@
   {
     "magazine": "saturday",
     "page": 3,
-    "checked": "matches Owen's gold standard boxes (evaluation/groundtruth_texts), 2026-10-14",
+    "checked": "matches Owen's gold standard boxes (evaluation/evaluating_layout_detection/groundtruth_texts), 2026-10-14",
     "articles": [
       "ON THE RIGHT USE OF KNOWLEDGE",
       "ON THE STUDY OF NATURAL HISTORY",

@@ -1,0 +1,255 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/images/saturday_1840_images/saturday_1840_page_016.png",
+  "regions": [
+    {
+      "type": "plain text",
+      "score": 0.9813,
+      "bbox": [
+        1122.4,
+        1843.2,
+        2020.8,
+        2406.4
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9807,
+      "bbox": [
+        193.3,
+        1994.8,
+        1090.1,
+        2479.5
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9801,
+      "bbox": [
+        1125.0,
+        2406.9,
+        2026.1,
+        2975.0
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9798,
+      "bbox": [
+        188.6,
+        223.0,
+        1084.1,
+        749.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9774,
+      "bbox": [
+        1122.0,
+        1557.4,
+        2017.5,
+        1840.0
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.977,
+      "bbox": [
+        1118.4,
+        383.6,
+        2014.3,
+        1557.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9769,
+      "bbox": [
+        190.3,
+        1304.5,
+        1088.4,
+        1994.4
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9736,
+      "bbox": [
+        1114.8,
+        138.6,
+        2011.4,
+        381.7
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9592,
+      "bbox": [
+        190.8,
+        988.6,
+        1088.4,
+        1153.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9515,
+      "bbox": [
+        190.4,
+        136.1,
+        1083.9,
+        220.8
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.869,
+      "bbox": [
+        805.5,
+        59.4,
+        1388.3,
+        101.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.8519,
+      "bbox": [
+        1126.7,
+        3003.0,
+        2030.6,
+        3130.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.8103,
+      "bbox": [
+        195.7,
+        2483.6,
+        1091.3,
+        3095.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7845,
+      "bbox": [
+        1964.2,
+        69.8,
+        2007.8,
+        108.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.743,
+      "bbox": [
+        191.3,
+        61.3,
+        303.2,
+        103.2
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.6838,
+      "bbox": [
+        323.0,
+        3287.1,
+        741.3,
+        3377.9
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.6771,
+      "bbox": [
+        326.5,
+        1158.6,
+        896.9,
+        1301.8
+      ]
+    },
+    {
+      "type": "title",
+      "score": 0.6347,
+      "bbox": [
+        431.2,
+        937.1,
+        837.7,
+        980.2
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4687,
+      "bbox": [
+        0.0,
+        1660.3,
+        80.2,
+        3318.3
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4475,
+      "bbox": [
+        1369.5,
+        3297.9,
+        1825.1,
+        3378.6
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4127,
+      "bbox": [
+        0.0,
+        1653.0,
+        79.7,
+        3295.5
+      ]
+    },
+    {
+      "type": "title",
+      "score": 0.3881,
+      "bbox": [
+        345.5,
+        826.2,
+        939.4,
+        876.1
+      ]
+    },
+    {
+      "type": "title",
+      "score": 0.3865,
+      "bbox": [
+        343.8,
+        825.9,
+        942.8,
+        876.0
+      ]
+    },
+    {
+      "type": "title",
+      "score": 0.2357,
+      "bbox": [
+        613.8,
+        884.1,
+        652.4,
+        925.3
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.2224,
+      "bbox": [
+        333.1,
+        1266.7,
+        748.1,
+        1301.1
+      ]
+    }
+  ]
+}

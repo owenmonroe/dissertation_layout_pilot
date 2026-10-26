@@ -5,12 +5,12 @@ For each volume (magazine_rules_config.VOLUMES: a magazine PDF and its issue
 pages), rasterizes those pages into <pdf folder>/images/<volume>_images/ (same rasters the PrimaLayout/DocLayout-YOLO
 pipelines use) and calls the Document AI "google-parser-OCR" Document OCR
 processor on each page image, same as the one-page check_docai_setup.py
-check. For every page, writes into output/<volume>_google/:
+check. For every page, writes into output/output_images_json_*/<volume>_google/:
 
-  - <volume>_page_NNN_docai.png
-      (page image with boxes drawn on it)
+  - <volume>_page_NNN_docai.png  (only with --draw-boxes)
+      (page image with Document AI's boxes drawn on it)
   - json_bounding_<volume>_google/<volume>_page_NNN_docai.json
-      (full raw Document AI response for that page)
+      (Document AI's words and lines with coordinates; slim_docai_json.py)
 
 Cost note: Document OCR is free for the first 1,000 pages/month on this
 processor, then $1.50/1,000 pages -- running this full ~75-page batch costs
@@ -23,6 +23,7 @@ Run from the repo root, with the docai-env venv active:
 """
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -39,6 +40,8 @@ from check_docai_setup import (  # noqa: E402
 
 sys.path.insert(0, str(REPO_ROOT / "pipeline" / "yolo_output_article_extraction"))
 from magazine_rules_config import VOLUMES, page_range  # noqa: E402
+from google.cloud import documentai  # noqa: E402
+from slim_docai_json import slim  # noqa: E402
 
 
 def main() -> None:
@@ -52,6 +55,10 @@ def main() -> None:
         help="Which volumes to process (magazine_rules_config.VOLUMES; default: the "
              "development samples). Only the volume's issue pages are processed.",
     )
+    parser.add_argument("--draw-boxes", action="store_true",
+                        help="also save the page with the model's boxes drawn on it (for comparing "
+                             "models; extraction runs don't need it: their check images are in "
+                             "output/article_extraction/<version>/<volume>/reading_order/)")
     parser.add_argument("--force", action="store_true",
                         help="redo pages whose output already exists")
     parser.add_argument("--dpi", type=int, default=300)
@@ -61,7 +68,7 @@ def main() -> None:
         volume = VOLUMES[magazine]
         pdf_path = REPO_ROOT / volume.pdf
         raster_dir = REPO_ROOT / volume.images_dir
-        out_dir = REPO_ROOT / "output" / f"{magazine}_google"
+        out_dir = REPO_ROOT / volume.model_output_dir / f"{magazine}_google"
         json_dir = out_dir / f"json_bounding_{magazine}_google"
         out_dir.mkdir(parents=True, exist_ok=True)
         json_dir.mkdir(parents=True, exist_ok=True)
@@ -83,10 +90,14 @@ def main() -> None:
             print_layout("  Document AI Document OCR", document)
 
             base = f"{magazine}_page_{page_index:03d}"
-            save_annotated_image(page_image_path, document, out_dir / f"{base}_docai.png")
+            if args.draw_boxes:
+                save_annotated_image(page_image_path, document, out_dir / f"{base}_docai.png")
 
             json_path = json_dir / f"{base}_docai.json"
-            save_raw_response(document, json_path)
+            # only the words and lines the pipeline uses: no embedded page image,
+            # no Document AI layout boxes (slim_docai_json.py)
+            json_path.write_text(json.dumps(slim(json.loads(documentai.Document.to_json(document)))))
+            print(f"  -> wrote {json_path}")
 
     print("\nDone.")
 

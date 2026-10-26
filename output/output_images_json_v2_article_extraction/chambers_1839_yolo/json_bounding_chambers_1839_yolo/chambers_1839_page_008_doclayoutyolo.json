@@ -1,0 +1,155 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/images/chambers_1839_images/chambers_1839_page_008.png",
+  "regions": [
+    {
+      "type": "plain text",
+      "score": 0.9606,
+      "bbox": [
+        1096.2,
+        2834.3,
+        1840.2,
+        3685.1
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9593,
+      "bbox": [
+        322.0,
+        3494.3,
+        1070.7,
+        3685.8
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9587,
+      "bbox": [
+        1866.6,
+        2414.9,
+        2620.8,
+        3587.4
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9544,
+      "bbox": [
+        1088.1,
+        249.5,
+        1834.4,
+        2833.3
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9505,
+      "bbox": [
+        1856.8,
+        750.6,
+        2607.8,
+        2409.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9364,
+      "bbox": [
+        317.8,
+        254.4,
+        1064.6,
+        3673.3
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.8935,
+      "bbox": [
+        1850.1,
+        220.1,
+        2607.7,
+        635.3
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.8898,
+      "bbox": [
+        303.7,
+        227.8,
+        1055.7,
+        304.3
+      ]
+    },
+    {
+      "type": "title",
+      "score": 0.8338,
+      "bbox": [
+        1872.8,
+        675.6,
+        2590.7,
+        749.3
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.6168,
+      "bbox": [
+        930.4,
+        138.2,
+        1947.8,
+        186.2
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.5911,
+      "bbox": [
+        305.4,
+        152.9,
+        384.3,
+        195.4
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.5611,
+      "bbox": [
+        419.6,
+        3999.5,
+        950.9,
+        4115.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4672,
+      "bbox": [
+        1871.8,
+        3613.3,
+        2624.3,
+        3682.9
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.303,
+      "bbox": [
+        4.9,
+        1915.3,
+        105.8,
+        4028.2
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.2557,
+      "bbox": [
+        1871.8,
+        3613.3,
+        2624.3,
+        3682.9
+      ]
+    }
+  ]
+}

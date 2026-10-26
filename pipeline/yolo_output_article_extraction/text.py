@@ -1,7 +1,7 @@
 """Text for each YOLO box.
 
 Default ("docai"): reuse the Document AI OCR already in
-output/<mag>_google/json_bounding_<mag>_google/. Each OCR word (token) is
+output/output_images_json_establishing_layout_AIs/<mag>_google/json_bounding_<mag>_google/. Each OCR word (token) is
 assigned to the YOLO box containing its centre, so YOLO decides the layout and
 Document AI supplies the text. Words keep Document AI's own line grouping and
 word order; a line is only split where it crosses from one box into another
@@ -22,6 +22,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from layout import CONTENT_ROLES, REPO_ROOT, Page, Region, column_of
+from magazine_rules_config import VOLUMES
 
 PAD_PX = 6  # tolerance when testing whether a line centre is inside a box
 NEAR_PX = 30
@@ -62,7 +63,7 @@ class Line:
 
 
 def docai_json_path(magazine: str, page: int) -> Path:
-    return (REPO_ROOT / "output" / f"{magazine}_google" / f"json_bounding_{magazine}_google"
+    return (REPO_ROOT / VOLUMES[magazine].model_output_dir / f"{magazine}_google" / f"json_bounding_{magazine}_google"
             / f"{magazine}_page_{page:03d}_docai.json")
 
 

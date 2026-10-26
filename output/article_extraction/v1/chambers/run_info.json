@@ -7,5 +7,5 @@
   "magazine": "chambers",
   "pages": "1-24",
   "ocr": "docai",
-  "note": "Written retroactively on 2026-10-16 when outputs were moved into version folders; v1 ran before run records existed. These files are unchanged since the evaluation (reading-order log: evaluation/reading_order_error_log.csv). (No figure paths to update: Chambers has no illustrations.)"
+  "note": "Written retroactively on 2026-10-16 when outputs were moved into version folders; v1 ran before run records existed. These files are unchanged since the evaluation (reading-order log: evaluation/evaluating_v1_article_extraction/reading_order_error_log.csv). (No figure paths to update: Chambers has no illustrations.)"
 }

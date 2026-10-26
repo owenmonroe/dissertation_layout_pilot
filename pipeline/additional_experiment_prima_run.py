@@ -4,14 +4,14 @@ main pipeline's 0.7) on a single hand-picked page per magazine, to see what
 extra/marginal detections show up below the main threshold.
 
 Pages (chosen for comparison against their existing 0.7-threshold output in
-output/<mag>_prima/):
+output/output_images_json_establishing_layout_AIs/<mag>_prima/):
   chambers page 014
   penny    page 026
   saturday page 021
 
 Reuses the already-rasterized page images from
 build_texts/images/<mag>_images/ (run pipeline/run_prima_batch.py first if
-those don't exist yet). Writes into output/<mag>_prima_experimental/:
+those don't exist yet). Writes into output/output_images_json_establishing_layout_AIs/<mag>_prima_experimental/:
 
   - <mag>_page_NNN_primalayout.png
   - json_bounding_<mag>_prima_experimental/<mag>_page_NNN_primalayout.json
@@ -64,7 +64,7 @@ def main() -> None:
             print(f"SKIP (raster not found, run run_prima_batch.py first): {page_image_path}")
             continue
 
-        out_dir = REPO_ROOT / "output" / f"{magazine}_prima_experimental"
+        out_dir = REPO_ROOT / "output" / "output_images_json_establishing_layout_AIs" / f"{magazine}_prima_experimental"
         json_dir = out_dir / f"json_bounding_{magazine}_prima_experimental"
         out_dir.mkdir(parents=True, exist_ok=True)
         json_dir.mkdir(parents=True, exist_ok=True)

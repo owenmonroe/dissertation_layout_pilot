@@ -1,0 +1,255 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/images/saturday_1840_images/saturday_1840_page_008.png",
+  "regions": [
+    {
+      "type": "plain text",
+      "score": 0.9799,
+      "bbox": [
+        1063.7,
+        1169.7,
+        1957.0,
+        1567.0
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9796,
+      "bbox": [
+        1058.9,
+        1568.6,
+        1953.1,
+        2410.8
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.979,
+      "bbox": [
+        125.9,
+        2113.6,
+        1025.6,
+        2560.2
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9787,
+      "bbox": [
+        1056.6,
+        2413.9,
+        1951.5,
+        2936.4
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9786,
+      "bbox": [
+        133.0,
+        1582.4,
+        1028.6,
+        1905.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9721,
+      "bbox": [
+        1065.9,
+        683.9,
+        1958.1,
+        1003.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9684,
+      "bbox": [
+        144.0,
+        128.3,
+        1036.3,
+        1580.7
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9638,
+      "bbox": [
+        1065.1,
+        1006.5,
+        1957.3,
+        1166.5
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9523,
+      "bbox": [
+        1058.4,
+        2937.8,
+        1950.0,
+        3062.1
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9517,
+      "bbox": [
+        1067.1,
+        480.1,
+        1960.8,
+        682.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.8577,
+      "bbox": [
+        762.7,
+        49.2,
+        1344.2,
+        95.6
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7397,
+      "bbox": [
+        324.9,
+        3283.3,
+        743.3,
+        3373.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7326,
+      "bbox": [
+        1932.0,
+        53.2,
+        1962.2,
+        89.4
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7105,
+      "bbox": [
+        156.2,
+        56.7,
+        249.6,
+        97.7
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.5004,
+      "bbox": [
+        197.3,
+        2028.3,
+        1024.5,
+        2101.7
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.4891,
+      "bbox": [
+        184.6,
+        2643.4,
+        912.5,
+        2999.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4854,
+      "bbox": [
+        184.6,
+        2643.4,
+        912.5,
+        2999.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4747,
+      "bbox": [
+        1.4,
+        1650.3,
+        84.4,
+        3302.1
+      ]
+    },
+    {
+      "type": "title",
+      "score": 0.4452,
+      "bbox": [
+        1340.2,
+        131.0,
+        1686.6,
+        175.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.4029,
+      "bbox": [
+        200.1,
+        1922.4,
+        888.2,
+        1959.7
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4004,
+      "bbox": [
+        1367.4,
+        3293.4,
+        1824.6,
+        3373.7
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.4003,
+      "bbox": [
+        583.3,
+        3000.1,
+        958.3,
+        3038.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.3702,
+      "bbox": [
+        1161.6,
+        193.7,
+        1933.8,
+        457.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.2871,
+      "bbox": [
+        194.3,
+        1918.9,
+        1023.6,
+        2101.6
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.2262,
+      "bbox": [
+        1.2,
+        1658.4,
+        84.4,
+        3316.3
+      ]
+    }
+  ]
+}

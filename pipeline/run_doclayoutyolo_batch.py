@@ -6,9 +6,9 @@ pages), rasterizes those pages into <pdf folder>/images/<volume>_images/ (same r
 shared, not duplicated, since both pipelines rasterize at the same 300 DPI)
 and runs the DocLayout-YOLO DocStructBench model on each page image, same as
 the one-page check_doclayoutyolo_setup.py check. For every page, writes into
-output/<volume>_yolo/:
+output/output_images_json_*/<volume>_yolo/:
 
-  - <volume>_page_NNN_doclayoutyolo.png
+  - <volume>_page_NNN_doclayoutyolo.png  (only with --draw-boxes)
       (page image with boxes drawn on it)
   - json_bounding_<volume>_yolo/<volume>_page_NNN_doclayoutyolo.json
       (raw boxes: type, score, bbox)
@@ -67,6 +67,10 @@ def main() -> None:
         help="Which volumes to process (magazine_rules_config.VOLUMES; default: the "
              "development samples). Only the volume's issue pages are processed.",
     )
+    parser.add_argument("--draw-boxes", action="store_true",
+                        help="also save the page with the model's boxes drawn on it (for comparing "
+                             "models; extraction runs don't need it: their check images are in "
+                             "output/article_extraction/<version>/<volume>/reading_order/)")
     parser.add_argument("--force", action="store_true",
                         help="redo pages whose output already exists")
     parser.add_argument("--dpi", type=int, default=300)
@@ -84,7 +88,7 @@ def main() -> None:
         volume = VOLUMES[magazine]
         pdf_path = REPO_ROOT / volume.pdf
         raster_dir = REPO_ROOT / volume.images_dir
-        out_dir = REPO_ROOT / "output" / f"{magazine}_yolo"
+        out_dir = REPO_ROOT / volume.model_output_dir / f"{magazine}_yolo"
         json_dir = out_dir / f"json_bounding_{magazine}_yolo"
         out_dir.mkdir(parents=True, exist_ok=True)
         json_dir.mkdir(parents=True, exist_ok=True)
@@ -114,7 +118,8 @@ def main() -> None:
             print_layout("  DocLayout-YOLO", result, args.conf_thresh)
 
             base = f"{magazine}_page_{page_index:03d}"
-            save_annotated_image(result, out_dir / f"{base}_doclayoutyolo.png")
+            if args.draw_boxes:
+                save_annotated_image(result, out_dir / f"{base}_doclayoutyolo.png")
 
             json_path = json_dir / f"{base}_doclayoutyolo.json"
             json_path.write_text(json.dumps(layout_to_json(result, page_image_path), indent=2))

@@ -9,8 +9,15 @@ build_texts/images/
 venv_build_test/*-env/
 
 # Page images of the held-out test volumes
-test_texts_extraction/images/
+evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/images/
 
 # Python bytecode caches
 __pycache__/
 *.pyc
+
+# macOS folder metadata
+.DS_Store
+
+# Boxed page images from model runs: not needed for extraction (check images are in
+# output/article_extraction/<version>/<volume>/reading_order/); made only with --draw-boxes
+output/output_images_json_v2_article_extraction/**/*.png

@@ -10,7 +10,7 @@ text column, and puts the content boxes in reading order:
   - a spanning box is read between the band above it and the band below it.
 
 Box indexes are the YOLO JSON "regions" positions, i.e. the #N on the eval
-images in evaluation/output_eval/<mag>_yolo_eval/.
+images in evaluation/evaluating_layout_detection/boxing_output_for_eval/<mag>_yolo_eval/.
 """
 
 import json
@@ -18,7 +18,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from magazine_rules_config import magazine_rules
+from magazine_rules_config import VOLUMES, magazine_rules
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -139,7 +139,7 @@ def intersection(a: Region, b: Region) -> float:
 
 
 def yolo_json_path(magazine: str, page: int) -> Path:
-    return (REPO_ROOT / "output" / f"{magazine}_yolo" / f"json_bounding_{magazine}_yolo"
+    return (REPO_ROOT / VOLUMES[magazine].model_output_dir / f"{magazine}_yolo" / f"json_bounding_{magazine}_yolo"
             / f"{magazine}_page_{page:03d}_doclayoutyolo.json")
 
 

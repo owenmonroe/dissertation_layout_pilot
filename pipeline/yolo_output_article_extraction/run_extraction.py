@@ -51,8 +51,8 @@ from text import (assign_docai_text, assign_tesseract_text, clean_marks, docai_j
 # v1 is frozen (git tag extraction-v1; output/article_extraction/v1/ is the
 # output the reading-order evaluation describes). Bump this when a version is
 # frozen and work on the next one starts.
-PIPELINE_VERSION = "v2"
-FROZEN_VERSIONS = {"v1"}
+PIPELINE_VERSION = "v3"
+FROZEN_VERSIONS = {"v1", "v2"}  # v2: tag extraction-v2; test volumes run 2026-10-16
 OUT_ROOT = REPO_ROOT / "output" / "article_extraction" / PIPELINE_VERSION
 DB_PATH = OUT_ROOT / "articles.sqlite"
 CHECK_IMAGE_SCALE = 0.4
@@ -66,7 +66,7 @@ def parse_pages(spec: str | None, magazine: str) -> list[int]:
     pages = page_range(spec) or page_range(VOLUMES[magazine].pages)
     if pages:
         return pages
-    json_dir = REPO_ROOT / "output" / f"{magazine}_yolo" / f"json_bounding_{magazine}_yolo"
+    json_dir = REPO_ROOT / VOLUMES[magazine].model_output_dir / f"{magazine}_yolo" / f"json_bounding_{magazine}_yolo"
     return sorted(int(p.name.split("_")[2]) for p in json_dir.glob("*.json"))
 
 
@@ -373,7 +373,10 @@ def write_outputs(mag: str, result: dict) -> None:
                                 (name,)).fetchone()
             others = pd.read_sql(f"select * from {name}", db) if exists else pd.DataFrame()
             if len(others):
-                key = others["volume"] if "volume" in others else others["magazine"]
+                # rows written before the volume column existed have no volume:
+                # their magazine stands in, so they're replaced too
+                key = (others["volume"].fillna(others["magazine"]) if "volume" in others
+                       else others["magazine"])
                 others = others[key != mag]
             if len(others):
                 with warnings.catch_warnings():  # all-empty columns (e.g. no bylines yet)

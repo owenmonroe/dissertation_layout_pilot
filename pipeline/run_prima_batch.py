@@ -3,7 +3,7 @@ Batch pipeline: PDF -> 300 DPI page PNGs -> PrimaLayout detection -> results.
 
 For each magazine PDF in build_texts/, rasterizes every page into
 build_texts/images/<mag>_images/ and runs the PrimaLayout Detectron2 model on
-each page image. For every page, writes into output/<mag>_prima/:
+each page image. For every page, writes into output/output_images_json_establishing_layout_AIs/<mag>_prima/:
 
   - <mag>_page_NNN_primalayout.png
       (page image with boxes drawn on it)
@@ -81,7 +81,7 @@ def main() -> None:
     for magazine in args.magazines:
         pdf_path = MAGAZINE_PDFS[magazine]
         raster_dir = IMAGES_ROOT / f"{magazine}_images"
-        out_dir = REPO_ROOT / "output" / f"{magazine}_prima"
+        out_dir = REPO_ROOT / "output" / "output_images_json_establishing_layout_AIs" / f"{magazine}_prima"
         json_dir = out_dir / f"json_bounding_{magazine}_prima"
         out_dir.mkdir(parents=True, exist_ok=True)
         json_dir.mkdir(parents=True, exist_ok=True)

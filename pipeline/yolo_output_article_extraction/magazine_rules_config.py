@@ -96,11 +96,23 @@ class Volume:
     index_pages: str | None = None
 
     @property
+    def model_output_dir(self) -> str:
+        """Where its DocLayout-YOLO and Document AI output goes (from the repo
+        root): the 1832 build samples with the other model-choice runs, held-out
+        volumes with the v2 article-extraction runs."""
+        return MODEL_OUTPUT_DIRS[self.split]
+
+    @property
     def images_dir(self):
         """Page images go next to the PDF: <pdf folder>/images/<key>_images/."""
         from pathlib import Path
         return Path(self.pdf).parent / "images" / f"{self.key}_images"
 
+
+MODEL_OUTPUT_DIRS = {
+    "build": "output/output_images_json_establishing_layout_AIs",
+    "test": "output/output_images_json_v2_article_extraction",
+}
 
 VOLUMES = {
     v.key: v for v in [
@@ -116,13 +128,13 @@ VOLUMES = {
         # Held-out test issues (three issues each, from later volumes, with the
         # volume index; PDF p1 is HathiTrust's cover sheet, then front pieces).
         Volume("penny_1836", "penny", "test",
-               "test_texts_extraction/penny_test_3issues_v5_1836_inu-30000093219388-1779827694.pdf",
+               "evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/penny_test_3issues_v5_1836_inu-30000093219388-1779827694.pdf",
                pages="6-29", index_pages="4"),
         Volume("saturday_1840", "saturday", "test",
-               "test_texts_extraction/saturday_test_3issues_v18.19_1841_mdp-39015082315659-1779842682.pdf",
+               "evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/saturday_test_3issues_v18.19_1841_mdp-39015082315659-1779842682.pdf",
                pages="6-29", index_pages="4-5"),
         Volume("chambers_1839", "chambers", "test",
-               "test_texts_extraction/chambers_test_3issues_v8_1839_mdp-39015024480603-1779384859.pdf",
+               "evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/chambers_test_3issues_v8_1839_mdp-39015024480603-1779384859.pdf",
                pages="7-30", index_pages="4-6"),
     ]
 }

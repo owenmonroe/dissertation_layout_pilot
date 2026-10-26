@@ -1,0 +1,255 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/images/penny_1836_images/penny_1836_page_017.png",
+  "regions": [
+    {
+      "type": "plain text",
+      "score": 0.9778,
+      "bbox": [
+        116.1,
+        268.4,
+        1018.3,
+        775.2
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9697,
+      "bbox": [
+        117.3,
+        777.5,
+        1016.4,
+        973.7
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.968,
+      "bbox": [
+        1048.1,
+        2572.0,
+        1952.1,
+        2962.7
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9664,
+      "bbox": [
+        1040.1,
+        178.9,
+        1965.5,
+        496.1
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9661,
+      "bbox": [
+        121.4,
+        2570.2,
+        1022.1,
+        3084.2
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9605,
+      "bbox": [
+        1041.1,
+        650.8,
+        1960.2,
+        849.8
+      ]
+    },
+    {
+      "type": "figure",
+      "score": 0.9598,
+      "bbox": [
+        147.6,
+        1155.1,
+        1918.9,
+        2504.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9482,
+      "bbox": [
+        1051.8,
+        2963.6,
+        1956.0,
+        3083.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9406,
+      "bbox": [
+        118.1,
+        186.2,
+        1020.2,
+        269.0
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9155,
+      "bbox": [
+        1238.8,
+        503.3,
+        1754.3,
+        636.9
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.8645,
+      "bbox": [
+        770.3,
+        106.3,
+        1293.6,
+        148.1
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.7881,
+      "bbox": [
+        1039.4,
+        926.3,
+        1439.6,
+        970.9
+      ]
+    },
+    {
+      "type": "figure_caption",
+      "score": 0.765,
+      "bbox": [
+        844.1,
+        2512.7,
+        1225.3,
+        2555.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7635,
+      "bbox": [
+        118.7,
+        115.9,
+        186.8,
+        154.6
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7508,
+      "bbox": [
+        306.7,
+        3254.7,
+        701.5,
+        3338.6
+      ]
+    },
+    {
+      "type": "title",
+      "score": 0.66,
+      "bbox": [
+        452.3,
+        1053.1,
+        1609.8,
+        1143.9
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.6403,
+      "bbox": [
+        1773.6,
+        102.6,
+        1967.2,
+        146.4
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.6104,
+      "bbox": [
+        1.1,
+        1710.9,
+        77.5,
+        3276.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.4824,
+      "bbox": [
+        1207.7,
+        851.2,
+        1766.6,
+        919.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4058,
+      "bbox": [
+        121.1,
+        3092.0,
+        354.7,
+        3185.5
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.3365,
+      "bbox": [
+        1206.8,
+        850.4,
+        1767.0,
+        885.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.324,
+      "bbox": [
+        1337.7,
+        3263.2,
+        1680.8,
+        3340.2
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.2753,
+      "bbox": [
+        1336.9,
+        3263.9,
+        1681.5,
+        3340.7
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.2416,
+      "bbox": [
+        1226.0,
+        885.0,
+        1605.1,
+        918.3
+      ]
+    },
+    {
+      "type": "figure_caption",
+      "score": 0.2192,
+      "bbox": [
+        844.3,
+        2512.9,
+        1225.1,
+        2555.1
+      ]
+    }
+  ]
+}
