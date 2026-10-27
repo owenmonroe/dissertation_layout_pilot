@@ -20,13 +20,29 @@ miss.
 - titles 81%; back matter in place 58%; front matter in place 13%;
 - Chambers issue numbers and dates 0%.
 
-**Open questions (Owen):**
-1. **Decision 0:** do the v2 test volumes become v3 build texts, with v3's
-   real numbers from a new set of held-out issues?
-2. **Decision 8b:** are numbered titles ("On Garden Herbs. I.") series
-   parts?
-3. **Decision 8a:** do the test volumes' indexes group pieces under a series
-   heading? This decides whether the index can supply series.
+**Owen's priorities for v3 (2026-10-26):**
+1. The Chambers masthead must not produce or split articles (decision 2).
+2. Poetry without a title must not be lost (decision 3).
+3. Better front- and back-matter detection (decisions 5, 6, 7).
+4. Issue numbers read from each issue's first-page masthead, whose format
+   differs by magazine and even by issue (decision 2).
+5. **Splitting in Chambers and Saturday** (decisions 1, 10, 11, 5).
+
+**Where v2's 44 false splits come from** (each extra article classified by
+its first box):
+
+| Cause | Chambers | Saturday | Penny | Total | Decision |
+|---|---|---|---|---|---|
+| Printed rule, mid-sentence (the footnote-rule bug) | 14 | 1 | 0 | 15 | 1 |
+| Masthead lines | 8 | 0 | 0 | 8 | 2 |
+| Headings inside an article (a quoted play's "SCENE", "Flaw-Finder.", "(Charge to the Jury.)", "L.466,089", a quoted inscription) | 5 | 0 | 0 | 5 | 10 |
+| Printed rule at a sentence start (section breaks within an article) | 2 | 2 | 0 | 4 | known limit |
+| Front matter splitting title from text (the Calendar's table, the Months poem, Quack Advertisements' quoted note) | 2 | 2 | 0 | 4 | 5 |
+| A figure box opening an article | 0 | 3 | 0 | 3 | 11 |
+| Other (a footnote as title, OCR junk, a capitals opening, a title and its "No. I." split) | 0 | 3 | 2 | 5 | 7, 9 |
+| **Total** | **31** | **11** | **2** | **44** | |
+
+**Open questions:** none (8a and 8b decided 2026-10-26).
 
 ---
 
@@ -43,7 +59,9 @@ for v3 they become build texts.
 - **v3's honest numbers** come from a **new** set of held-out issues with
   their indexes, annotated the same way before the output is seen.
 
-**Status:** proposed.
+**Status:** decided (2026-10-26). Owen has added the new held-out test texts
+and their gold list in `evaluation/evaluating_v3_article_extraction/`. They
+stay unopened until v3 is frozen.
 
 ## 1. Printed rules must not start an item mid-sentence
 
@@ -56,6 +74,12 @@ for v3 they become build texts.
 - **(b) A general safeguard.** A printed rule never starts a new item when
   the box above ends mid-sentence, or the box below starts in lowercase. A
   new item starts a new sentence.
+- **(c) A final check, whatever the cause.** After the articles are built,
+  an untitled article whose text starts mid-sentence is joined back onto the
+  article before it. Mid-sentence means a lowercase first word, or the
+  previous article ends on a hyphen or without finishing its sentence. This
+  catches splits from any cause (rules, page turns, figures, OCR), not only
+  the footnote rule.
 
 **Evidence.**
 - 19 of the 44 extra articles were started by a printed rule; 16 of those
@@ -69,16 +93,25 @@ for v3 they become build texts.
 
 **Status:** proposed.
 
-## 2. Chambers 1840 masthead
+## 2. Mastheads and issue numbers (all three magazines)
 
 **Decision.**
-- **Issue number:** "NUMBER 414" counts like "No. 414", for reading the
-  number and recognising the masthead.
+- **Issue-number formats per magazine, in the config.** The number is
+  printed differently by magazine and even by issue: "No. 270", "Nº 482",
+  "NUMBER 414", "272.]". Each magazine lists its formats in
+  `magazine_rules_config.py`, and "NUMBER 414" counts like "No. 414", both
+  for reading the number and for recognising the masthead.
+- **Sequence check:** fill from neighbours. When consecutive issues are
+  confirmed by continuous printed page numbers, an issue whose number can't
+  be read, or reads out of sequence, gets its neighbour's number ±1, marked
+  as inferred in `issue_check`. A Penny issue read as "10" between 270 and 272
+  becomes 271 (inferred).
 - **The masthead band:** on an issue's first page, the row of short boxes
   across the top above the first title (number, date, price, printer, the
   editors' line) is all masthead, read across the columns, not column by
   column.
 - **Chambers config:** add "editors of" to Chambers' masthead wording.
+- **Issue date:** read from the masthead band's date line.
 
 **Evidence.**
 - `chambers_1839` PDF pp. 7, 15, 23: "NUMBER 414.", "SATURDAY, JANUARY 4,
@@ -87,7 +120,8 @@ for v3 they become build texts.
   and articles.
 - These account for about 10 extra articles and 3 wrong titles, and split
   each issue's first article (Living in Paris into four).
-- Chambers issue number and date: 0% (39 items).
+- Chambers issue number and date: 0% (39 items). Penny 271 read as "10";
+  Penny 270 and Saturday 484 not read.
 
 **Status:** proposed.
 
@@ -120,13 +154,29 @@ The v1 rule was made for "THE MOLE.", which has no title of its own.
 
 **Status:** proposed.
 
-## 5. Generic headings taken as titles
+## 5. Front matter between title and text
 
-**Decision.** A heading that only says "Introduction", "(First / Second / …)
-Article", "Continued" or "Concluded" is front matter (a continuation note
-where it says so), not the title.
+**Decision.** What sits between a title and the first prose paragraph is
+front matter, and **front matter never starts a new article**:
+- **Generic headings:** a heading that only says "Introduction", "(First /
+  Second / …) Article", "Continued" or "Concluded" is front matter (a
+  continuation note where it says so), not the title.
+- **Verse or a quotation under the title** (an epigraph) is front matter:
+  short lines narrower than the column, or smaller type than the body (from
+  the OCR line heights), or a quotation ending with its author's name.
+- **"By …" lines and subtitles** ("A Spanish Tale, By W. …", "Story from the
+  Causes Celebres") are front matter. v2 already does this when YOLO boxes
+  them separately; v3 also does it when they open the first paragraph box.
+- **The article continues afterwards:** the first full prose paragraph after
+  the front matter stays in the same article, never a new one.
 
 **Evidence.**
+- Front matter splitting title from text: the Calendar (Saturday gold 21,
+  front-matter table); the Natural History of the Months (gold 27, Spenser
+  epigraph); Quack Advertisements (Chambers gold 57, quoted note).
+- Front matter left in the text or lost: Saturday gold 27, 33 (Nineveh
+  epigraph), 48; Chambers 56, 65, 70; Penny 5, 15 (bracketed sources opening
+  the text).
 - "INTRODUCTION" for On Garden Herbs. I. (Saturday gold 48).
 - "SECOND ARTICLE" for Speculation on Words (Chambers gold 87; also front
   matter of M. Turgot, gold 80).
@@ -201,6 +251,8 @@ particular pages:
   body text, is a footnote, even when OCR lost the mark. Type size comes
   from the OCR line heights.
 - **(c)** The rule above a footnote never starts a new item (decision 1).
+- **(d)** A YOLO *title* box starting with a footnote mark ("* Belzoni") is a
+  footnote too, not a title (Penny gold 5).
 
 These should be low-risk. The signals (foot of the column, a rule above,
 small type) are how footnotes are printed in all three magazines.
@@ -215,13 +267,68 @@ check whether (b) catches them.
 ## 8. Series over several pieces; numbered titles
 
 **Decision.**
-- **(a) One heading over several pieces:** use the volume index, if the
-  test indexes list the pieces under the series heading (as Penny 1832's did
-  for British Animals). No page-layout rule (see v2 decision 3: it would
-  misfire).
-- **(b) Numbered titles:** decide whether "On Garden Herbs. I." is a series
-  part (v2) or not (the gold list). Then align the pipeline or the gold
-  convention.
+- **(a) One heading over several pieces: the volume index as evidence.**
+  Owen (2026-10-26): the indexes do group pieces under headings, but not
+  always as our series. Some groups match a printed series heading (Penny:
+  *Old English Ballads* and *Romantic Ballads*, each over several poems,
+  which Owen reads as two series). Others are the compiler's own categories,
+  printed nowhere (*Poetry*). So:
+  - **Parsing:** the index parser splits a heading and its sub-entries into
+    (group → sub-entry → page) triples. v2 runs them together as one entry.
+  - **`series`** stays defined by what is printed. An index group becomes a
+    piece's series only when the group's name is also printed as a heading
+    in that issue. The index then extends the printed heading to the pieces
+    under it that carry no heading of their own (the Swallow, the five
+    *Remarkable Cases of Circumstantial Evidence*).
+  - **`index_group`** (new article column) records the index's grouping for
+    every matched piece, printed or not (*Poetry*). It is subject metadata
+    for classification and topic work, never a series by itself.
+  - No page-layout rule for this (see v2 decision 3: "the next piece on the
+    page inherits the series" would misfire).
+- **(b) Numbered titles: series or continuation?** Owen (2026-10-26):
+  - **Continuation:** one piece carried on in parts. The title stays the
+    same apart from a part number ("I.", "II.", "No. 3") or a note
+    ("Continued", "Second Article"). "On Garden Herbs. I." and "II." are one
+    piece in parts, not a series.
+  - **Series:** a recurring heading (the leader) over pieces with
+    **different** subject titles, which often don't continue each other.
+    "Biographical Sketches: Washington", then "Biographical Sketches:
+    Napoleon".
+  - **Both:** inside a series, a subject carried on is a continuation within
+    it. "Biographical Sketches: Napoleon" and "Biographical Sketches:
+    Napoleon (continued)" are in series *Biographical Sketches*, and the
+    second continues the first. This is the same as Archery inside Column
+    for the Boys in v2, and Owen expects the pattern often.
+
+  **In the pipeline:**
+  - **Numbered titles:** a numbered title no longer makes a series (v2's
+    rule is dropped). The number becomes the piece's **part** (new column
+    `part`), and parts with the same base title are linked as one
+    continuation (`continues_article_id`). Part 2 or later counts as
+    continued from an earlier part.
+  - **Series numbers:** a number on the series heading itself
+    ("Biographical Sketches. No. III.") stays the series' own numbering
+    (`series_part`).
+  - **Series** still need a leader recurring over different subject titles
+    (v2 decision 3); subjects repeated under the same leader are
+    continuations within it.
+
+  **Follow-ups agreed (Owen, 2026-10-26):**
+  1. **Part I implies "to be continued"**, even if nothing is printed. A
+     later part ("No. III", "Second Article") is continued from an earlier
+     part. It is to be continued only if the page says so.
+  2. **A title recurring alone is a series** ("The Week"): its name and
+     format recur, not its content. Its pieces may or may not carry their
+     own subheading (the week's dates, a month's name).
+  3. **A number on the series heading is the series' numbering:** "The
+     Natural History of the Months. I. January" is series *The Natural
+     History of the Months*, series number I, title "January". "I. January"
+     as the full title is also acceptable.
+  4. **Inferred continuation** from "I.", "Part II", "Second Article" is
+     recorded without proof of the other parts, and without a link when the
+     earlier part wasn't processed (`continues_article_id` empty). This is an
+     inference from the printed wording, which Owen accepts; links come once
+     whole volumes are run.
 
 **Evidence.**
 - "Remarkable Cases of Circumstantial Evidence" over 5 Chambers pieces (gold
@@ -229,23 +336,61 @@ check whether (b) catches them.
 - "National Galleries for the Fine Arts at Munich" (Penny gold 4, 13).
 - "Last Century Anecdotes" (Chambers gold 67–68).
 - Numbered titles flagged "extra series": Saturday gold 31, 42, 43, 48;
-  Penny 14; Chambers 87.
+  Penny 14; Chambers 87. Under (b) these are continuations, which agrees
+  with the gold list.
+- Series with continuation in the gold list: M. Turgot (Chambers gold 69, 80:
+  series Biographical Sketches, continued).
 
-**Status:** (a) proposed; (b) to decide (Owen).
+**Status:** (a) decided in principle (Owen, 2026-10-26); the index parsing
+is checked on the v2 test indexes when built. (b) decided (Owen,
+2026-10-26).
 
 ## 9. Smaller items (known limits unless cheap)
 
-- **Issue numbers misread:** Penny 271 read as "10", 270 not read; Saturday
-  484 not read. Check whether the masthead fix (2) and the issue sequence
-  check cover these.
-- **Running head inside a figure box:** a Saturday figure box that includes
-  the running head ("THE SATURDAY MAGAZINE. 1840.]") starts an extra
-  article (3 cases).
+- **Printed rules at a sentence start inside an article** (section breaks:
+  Saturday On Garden Herbs, Chambers 2 cases). Indistinguishable from a
+  rule between items without reading the content. Known limit; the index
+  check may flag them.
+- **A title split from its own "No. I."** (Penny gold 17, "THE TOWER OF
+  LONDON.—No. I." boxed as text after the title). Check after decision 5.
 - **Front matter written as prose or verse** (epigraphs, editor's
   introductions: Saturday gold 27, 33, 48; Chambers 57) stays in the text.
   Known limit without italics.
 
 **Status:** noted.
+
+## 10. Headings inside an article
+
+**Decision.** A YOLO title box doesn't start a new article when it is part
+of quoted or tabular matter inside one. That is, when it:
+- follows a paragraph ending with a colon (introducing what follows, as v2
+  already does for run-in heads);
+- is in quotation marks or parentheses ("(Charge to the Jury.)",
+  ""Flat Stones are Better and Cheaper—"");
+- is mostly figures or a sum ("L.466,089").
+
+It stays in the article as text (or a subsection). Character and scene
+headings in a quoted play ("SCENE.—An Inn.", "Flaw-Finder.") follow the
+same rule when introduced by a colon.
+
+**Evidence.** Chambers gold 53 (Fugitive Writings of James Boswell, a quoted
+play split into four articles), 54 ("L.466,089"), 71 (Grave Literature,
+quoted inscription).
+
+**Status:** proposed.
+
+## 11. Figure boxes don't open articles
+
+**Decision.** An illustration never opens an article by itself:
+- **Where it goes:** it goes to the titled article that follows it on the
+  page (v2's "heads the page" rule), or else to the article being read.
+- **Running heads:** running-head text caught inside a figure box ("THE
+  SATURDAY MAGAZINE. 1840.]") is removed from the figure's text.
+
+**Evidence.** Saturday: 3 extra articles opened by figure boxes (running head
+inside the box, or OCR junk from the engraving).
+
+**Status:** proposed.
 
 ---
 
@@ -255,12 +400,13 @@ check whether (b) catches them.
 
 | Step | Decisions | Expected effect (v2 test volumes) |
 |---|---|---|
-| 1 | 1 (rules mid-sentence) + 7 (footnotes) | about 16 fewer extra articles; Chambers footnotes on the right article |
-| 2 | 2 (Chambers masthead) | about 10 fewer extra articles; 3 titles right; Chambers issue numbers and dates read |
+| 1 | 1 (rules mid-sentence, final continuation check) + 7 (footnotes) | about 16 fewer extra articles; Chambers footnotes on the right article |
+| 2 | 2 (mastheads, issue numbers) | about 8 fewer extra articles; Chambers issue numbers and dates read; Penny/Saturday numbers filled |
 | 3 | 3 (`abandon` content) | 3 lost poems recovered |
-| 4 | 4, 5 (captions, generic headings) | about 4 titles right |
-| 5 | 6 (sign-offs) | up to 14 sources moved from the text to back matter |
-| 6 | 8 (series), once the questions are answered | series on multi-piece features |
+| 4 | 10, 11 (headings inside articles, figures) | about 8 fewer extra articles |
+| 5 | 4, 5 (captions, front matter) | about 4 fewer splits; titles and front matter better |
+| 6 | 6 (sign-offs) | up to 14 sources moved from the text to back matter |
+| 7 | 8 (series), once the questions are answered | series on multi-piece features |
 
 **After each step, re-run and check with the scripts** (numbers from
 scripts only):
