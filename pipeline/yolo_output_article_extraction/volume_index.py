@@ -144,6 +144,31 @@ def stems(text: str) -> set[str]:
     return {w.lower()[:STEM] for w in re.findall(r"[A-Za-z]{4,}", text)}
 
 
+def extend_series(entries: list[Entry], articles: list, printed: dict[int, int]) -> None:
+    """The index as evidence for series (v3, decision 8): an entry headed by a
+    printed series heading ("British animals, the Dormouse, 12; the Swallow,
+    ib.") puts the pieces it names, on the pages it cites, in that series,
+    though they have no heading of their own (the Swallow). The series itself
+    stays defined by what is printed: a group nothing prints as a heading
+    ("Poetry") makes no series."""
+    from series import key  # (series.py imports articles.py)
+    printed_series = {key(a.series): a.series for a in articles if a.series}
+    for e in entries:
+        group = e.text.split(",")[0]
+        series = printed_series.get(key(group))
+        if not series:
+            continue
+        scans = {s for s, n in printed.items() if n in e.pages}
+        words = stems(e.text) - stems(group) - {g[:STEM] for g in GENERIC}
+        for a in articles:
+            if not any(r.page in scans for r in a.all_regions) or not stems(a.title) & words:
+                continue
+            a.index_group = group.strip()
+            if not a.series:
+                a.series = series
+                a.series_evidence = f"volume index groups it under the printed heading ({e.text[:60]})"
+
+
 def check_index(entries: list[Entry], articles: list, page_rows: list[dict]) -> list[dict]:
     """Match entries to articles on the printed pages they cite; returns the
     index check rows and fills each article's index_entries."""
@@ -179,4 +204,5 @@ def check_index(entries: list[Entry], articles: list, page_rows: list[dict]) -> 
     for shared in (rs for rs in matched_by.values() if len(rs) > 1):
         for row in shared:
             row["status"] = "shared"
+    extend_series(entries, articles, printed)
     return rows

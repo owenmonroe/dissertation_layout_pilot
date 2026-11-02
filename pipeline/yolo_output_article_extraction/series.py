@@ -11,9 +11,13 @@ the previous issue's Archery).
         so) until it recurs;
       - a title that recurs on its own in different issues, with no
         continuation language between them, is a series ("THE WEEK");
-      - a numbered title is a series part ("FAMILIAR REMARKS ON
-        ARCHITECTURE. I.").
-  - continuation (continues_article_id): one piece carried across issues.
+      - a number on the series heading is the series' own numbering ("THE
+        NATURAL HISTORY OF THE MONTHS. I. JANUARY.": series_part I).
+  - continuation (continues_article_id): one piece carried across issues,
+    with the same title apart from a part number or a note (Owen, v3 decision
+    8). A numbered title is a part of one piece, not a series: "ON GARDEN
+    HERBS. I." (part, new in v3). Part 1 implies more to come, even if nothing
+    is printed; a later part implies an earlier one, even if it wasn't run.
     A part is closed by "To be continued" / "To be concluded" (back matter)
     and opened by "Continued.", "Concluded from No. I.", "[Concluded from
     our last.]" (front matter) or "in our first number" near the start of
@@ -31,7 +35,15 @@ import re
 from articles import SMALL_WORDS, TITLE_SMALL_WORDS, Article
 
 FIGURE_LEADER = re.compile(r"^\s*([A-Z][A-Z'’&-]+(?: [A-Z][A-Z'’&-]+){1,5})\b")  # "BRITISH ANIMALS."
-NUMBERED = re.compile(r"^(.*?\S)\.\s+([IVXLC]{1,6})\.?$")  # "FAMILIAR REMARKS ON ARCHITECTURE. I."
+# A title with a part number: "ON GARDEN HERBS. I.", "KNIGHTS OF MALTA.—No. III.",
+# not "BY FRANCIS I." (no stop or dash before the number).
+PART = re.compile(r"^(.*?\S)\s*[.:]\s*[—–-]{0,2}\s*(?:No\.?\s*|Part\s+)?([IVXLC]{1,6}|\d{1,3})\.?$", re.I)
+PART_DASH = re.compile(r"^(.*?\S)\s*[—–-]{1,2}\s*(?:No\.?\s*|Part\s+)([IVXLC]{1,6}|\d{1,3})\.?$", re.I)
+# A number on a series heading: "THE NATURAL HISTORY OF THE MONTHS. I. JANUARY."
+SERIES_NUMBER = re.compile(r"^(.+?)\.\s+([IVXLC]{1,6})\.\s+(\S.*)$")
+ORDINAL_NOTE = re.compile(r"\b(second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\s+(?:article|paper|part)\b", re.I)
+ORDINALS = {"second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6, "seventh": 7,
+            "eighth": 8, "ninth": 9, "tenth": 10}
 OPENS = re.compile(r"\b(?:continued|concluded)\b", re.I)
 OPENS_TEXT = re.compile(r"\bin our (?:first|last|former|previous|preceding) (?:number|no\b)", re.I)
 OPENS_TEXT_CHARS = 300
@@ -74,7 +86,11 @@ def figure_leader(a: Article) -> str | None:
 def leader_of(a: Article):
     """(leader, rest of the title, where the leader was printed)."""
     parts = [r.text for r in a.title_regions]
-    if len(parts) >= 2:
+    # A heading line with no YOLO box, under one with no full stop, is the
+    # title running on ("ENGLISH INGENUITY AND ENTERPRISE" / "IN A NEW POINT OF VIEW."):
+    wraps = a.title_regions and a.title_regions[-1].yolo_type == "unboxed_ocr" \
+        and not parts[0].rstrip().endswith(".")
+    if len(parts) >= 2 and not wraps:
         return clean(parts[0]), clean(" ".join(parts[1:])), "stacked headings"
     leader = figure_leader(a)
     if leader:
@@ -82,12 +98,30 @@ def leader_of(a: Article):
     return None
 
 
+def roman(text: str) -> int:
+    if text.isdigit():
+        return int(text)
+    values = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100}
+    total, prev = 0, 0
+    for c in reversed(text.upper()):
+        v = values[c]
+        total, prev = total - v if v < prev else total + v, max(prev, v)
+    return total
+
+
+def base_title(a: Article) -> str:
+    """The title without its part number: parts of one piece share it."""
+    m = PART_DASH.match(a.title) or PART.match(a.title)
+    return m.group(1) if m and a.part else a.title
+
+
 def opens_part(a: Article) -> bool:
-    return bool(OPENS.search(a.front_matter) or OPENS_TEXT.search(a.text[:OPENS_TEXT_CHARS]))
+    return bool(OPENS.search(a.front_matter) or OPENS_TEXT.search(a.text[:OPENS_TEXT_CHARS])) \
+        or (bool(a.part) and roman(a.part) >= 2)
 
 
 def closes_part(a: Article) -> bool:
-    return bool(CLOSES.search(a.back_matter))
+    return bool(CLOSES.search(a.back_matter)) or (bool(a.part) and roman(a.part) == 1)
 
 
 def assign_series_leaders(articles: list[Article]) -> None:
@@ -122,6 +156,7 @@ def assign_series_leaders(articles: list[Article]) -> None:
             a.series_evidence = f"leader recurs (issues {', '.join(map(str, seen))}); printed alone"
             for r in a.title_regions:
                 r.role = "series_heading"
+            caption_title(a)
         else:
             # A known leader run into one title box: "BIOGRAPHIC SKETCHES. DR. ADAM."
             head, dot, rest = a.title.partition(". ")
@@ -130,12 +165,36 @@ def assign_series_leaders(articles: list[Article]) -> None:
                 a.series_evidence = "leader recurs; run into the title box"
 
 
-def number_series_parts(articles: list[Article]) -> None:
+def caption_title(a: Article) -> None:
+    """Under a recurring leader, an all-capitals caption below the heading is
+    the piece's title ("BRITISH ANIMALS." / cut / "THE DORMOUSE.")."""
+    r = a.caption_heading
+    if r is not None:
+        a.title = clean(r.text)
+        r.role, r.note = "title", "caption under a recurring series heading: the title"
+        if r in a.captions:
+            a.captions.remove(r)
+        a.title_regions.append(r)
+
+
+def read_parts(articles: list[Article]) -> None:
+    """Part numbers: from the title ("ON GARDEN HERBS. I."), or a note in the
+    front matter ("Second Article."); a number on a series heading is the
+    series' own."""
     for a in articles:
-        m = NUMBERED.match(a.title)
+        m = SERIES_NUMBER.match(a.title)
         if m and not a.series and len(m.group(1).split()) >= 2:
-            a.series, a.series_part = display(m.group(1)), m.group(2)
-            a.series_evidence = "numbered title"
+            a.series, a.series_part, a.title = display(m.group(1)), m.group(2), m.group(3)
+            a.title = clean(a.title)
+            a.series_evidence = "numbered series heading run into the title box"
+            continue
+        m = PART_DASH.match(a.title) or PART.match(a.title)
+        if m and len(m.group(1).split()) >= 2:
+            a.part = m.group(2).upper()
+            continue
+        m = ORDINAL_NOTE.search(a.front_matter)
+        if m:
+            a.part = str(ORDINALS[m.group(1).lower()])
 
 
 def link_continuations(articles: list[Article]) -> None:
@@ -148,11 +207,11 @@ def link_continuations(articles: list[Article]) -> None:
         if earlier.series or later.series:
             if key(earlier.series) != key(later.series):
                 return None
-            if key(earlier.title) == key(later.title) or key(earlier.title) == key(earlier.series):
-                return "same series and title" if key(earlier.title) == key(later.title) \
+            if key(base_title(earlier)) == key(base_title(later)) or key(earlier.title) == key(earlier.series):
+                return "same series and title" if key(base_title(earlier)) == key(base_title(later)) \
                     else "same series; earlier part printed under the leader alone"
             return None
-        if key(earlier.title) and key(earlier.title) == key(later.title):
+        if key(base_title(earlier)) and key(base_title(earlier)) == key(base_title(later)):
             return "same title"
         return None
 
@@ -174,6 +233,14 @@ def link_continuations(articles: list[Article]) -> None:
                         break
 
 
+def mark_continuations(articles: list[Article]) -> None:
+    """Record what the page says or implies, whether or not the other part
+    was run: "continued from" needs no link (Owen, v3 decision 8)."""
+    for a in articles:
+        a.continued_from = bool(a.continues_article_id) or opens_part(a)
+        a.to_be_continued = bool(a.continued_by_article_id) or closes_part(a)
+
+
 def link(earlier: Article, later: Article, how: str) -> None:
     later.continues_article_id = earlier.article_id
     earlier.continued_by_article_id = later.article_id
@@ -189,7 +256,8 @@ def link(earlier: Article, later: Article, how: str) -> None:
 def series_of_recurring_titles(articles: list[Article]) -> None:
     """A title printed on its own in several issues, not linked as one piece
     carried on, is a recurring feature: "THE WEEK"."""
-    linked = {a.article_id for a in articles if a.continues_article_id or a.continued_by_article_id}
+    linked = {a.article_id for a in articles
+              if a.continues_article_id or a.continued_by_article_id or a.part}
     issues = {}
     for a in articles:
         if a.title and not a.series and a.article_id not in linked:

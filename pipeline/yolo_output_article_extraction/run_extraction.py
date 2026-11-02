@@ -33,6 +33,7 @@ import sqlite3
 import subprocess
 import sys
 import warnings
+from collections import Counter
 from pathlib import Path
 
 import pandas as pd
@@ -43,9 +44,9 @@ from layout import REPO_ROOT, load_page, mark_masthead, order_regions
 from magazine_rules_config import VOLUMES, magazine_rules, page_range
 from duplicates import find_duplicates, set_aside
 from rules import mark_rules
-from volume_index import check_index, parse_index
+from volume_index import check_index, parse_index, printed_pages
 from text import (assign_docai_text, assign_tesseract_text, clean_marks, docai_json_path,
-                  drop_empty, recover_unboxed)
+                  drop_empty, promote_content, recover_unboxed, split_headings)
 
 # The rules version this code implements; output goes to its own folder.
 # v1 is frozen (git tag extraction-v1; output/article_extraction/v1/ is the
@@ -129,8 +130,10 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         use_docai = ocr == "docai" and docai_json_path(mag, n).exists()
         unboxed = assign_docai_text(pg) if use_docai else assign_tesseract_text(pg)
         unboxed = recover_unboxed(pg, unboxed)
+        split_headings(pg)
         clean_marks(pg)
         drop_empty(pg)
+        promote_content(pg)
         mark_rules(pg)
         mark_masthead(pg)
         order_regions(pg)
@@ -198,7 +201,14 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         elif isinstance(date, str) and year:
             issue_meta.loc[seq, "issue_date"] = f"{date}, {year}"
 
-    issue_meta["issue_check"] = check_issue_numbers(issue_meta)
+    # Issues that follow on: the printed pages run straight on from the issue before.
+    printed = printed_pages(page_rows)
+    pages_df["_printed"] = pages_df["page"].map(printed)
+    span = pages_df[pages_df["duplicate_of"].isna()].groupby("issue_seq")["_printed"].agg(["min", "max"])
+    runs_on = {seq: seq - 1 in span.index and span.loc[seq, "min"] == span.loc[seq - 1, "max"] + 1
+               for seq in span.index}
+    pages_df = pages_df.drop(columns="_printed")
+    issue_meta["issue_check"] = check_issue_numbers(issue_meta, runs_on)
     pages_df["issue_check"] = pages_df["issue_seq"].map(issue_meta["issue_check"])
     # Every page carries its issue's number and full date.
     pages_df["issue_no"] = pages_df["issue_seq"].map(issue_meta["issue_no"])
@@ -217,10 +227,13 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
             "title": a.title, "title_source": a.title_source, "article_type": a.article_type,
             "series": a.series or None, "series_part": a.series_part or None,
             "series_evidence": a.series_evidence or None,
+            "part": a.part or None,
+            "continued_from": a.continued_from, "to_be_continued": a.to_be_continued,
             "continues_article_id": a.continues_article_id or None,
             "continued_by_article_id": a.continued_by_article_id or None,
             "continuation_evidence": a.continuation_evidence or None,
             "index_entries": " | ".join(a.index_entries) or None,
+            "index_group": a.index_group or None,
             "front_matter": a.front_matter or None, "back_matter": a.back_matter or None,
             "subsections": "; ".join(a.subsections) or None,
             "start_page": a.pages[0] if a.pages else None,
@@ -291,11 +304,48 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
 CONFUSABLE = {frozenset(p) for p in ["38", "68", "08", "17", "56", "09"]}
 
 
-def check_issue_numbers(issue_meta: pd.DataFrame) -> pd.Series:
-    """Issue numbers should go up by one. Where the number read is one OCR-
+def infer_from_neighbours(issue_meta: pd.DataFrame, runs_on: dict) -> dict:
+    """Where issues follow on (their printed pages run straight on), the
+    numbers read must go up by one: fill an unread number, or replace one out
+    of sequence, from the rest of the run (v3, decision 2). Numbers one
+    OCR-confusable digit off are left to check_issue_numbers. Returns the
+    check text of each issue changed."""
+    notes, runs = {}, []
+    for seq in issue_meta.index:
+        if runs and runs_on.get(seq):
+            runs[-1].append(seq)
+        else:
+            runs.append([seq])
+    for run in runs:
+        votes = Counter(int(issue_meta.loc[seq, "issue_no"]) - i for i, seq in enumerate(run)
+                        if not pd.isna(issue_meta.loc[seq, "issue_no"]))
+        ranked = votes.most_common(2)
+        if not ranked or (len(ranked) == 2 and ranked[0][1] == ranked[1][1]):
+            continue  # nothing read, or no agreement
+        base = ranked[0][0]
+        for i, seq in enumerate(run):
+            no, want = issue_meta.loc[seq, "issue_no"], base + i
+            if pd.isna(no):
+                issue_meta.loc[seq, "issue_no"] = want
+                notes[seq] = f"inferred: not read, neighbours give {want}"
+            elif no != want and not confusable(str(int(no)), str(want)):
+                issue_meta.loc[seq, "issue_no"] = want
+                notes[seq] = f"inferred: read {int(no)}, neighbours give {want}"
+    return notes
+
+
+def confusable(read: str, want: str) -> bool:
+    diff = [(a, b) for a, b in zip(read, want) if a != b]
+    return len(read) == len(want) and len(diff) == 1 and frozenset(diff[0]) in CONFUSABLE
+
+
+def check_issue_numbers(issue_meta: pd.DataFrame, runs_on: dict | None = None) -> pd.Series:
+    """Issue numbers should go up by one. Fill or replace numbers from their
+    neighbours where issues follow on; where the number read is one OCR-
     confusable digit away from the expected one, correct it (in place) and say
     so; otherwise flag gaps, restarts (a new series: read with the dates) and
     missing numbers. Returns the check text per issue ("" when in sequence)."""
+    notes = infer_from_neighbours(issue_meta, runs_on or {})
     checks, prev = {}, None
     for seq in issue_meta.index:
         no = issue_meta.loc[seq, "issue_no"]
@@ -305,8 +355,7 @@ def check_issue_numbers(issue_meta: pd.DataFrame) -> pd.Series:
             check = "issue number not found" + (f" (expected {expected})" if expected else "")
         elif expected is not None and no != expected:
             read, want = str(int(no)), str(expected)
-            diff = [(a, b) for a, b in zip(read, want) if a != b]
-            if len(read) == len(want) and len(diff) == 1 and frozenset(diff[0]) in CONFUSABLE:
+            if confusable(read, want):
                 issue_meta.loc[seq, "issue_no"] = expected
                 check = f"corrected: read {read}, expected {want} (OCR confusion)"
             elif no < prev:
@@ -317,7 +366,7 @@ def check_issue_numbers(issue_meta: pd.DataFrame) -> pd.Series:
             prev = int(issue_meta.loc[seq, "issue_no"])
         elif prev is not None:
             prev += 1  # carry the expected sequence past a missing number
-        checks[seq] = check
+        checks[seq] = notes.get(seq, check)
     return pd.Series(checks)
 
 

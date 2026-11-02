@@ -97,10 +97,10 @@ Docs: `article_extraction_pipeline_iterative_build/` (`v1_rules.md`,
 (`pipeline/run_volume.py`), then the code was frozen as `extraction-v2`.
 
 **Tested on held-out issues** from Penny 1836, Saturday 1840 and Chambers 1840
-(three issues each), scored against Owen's gold article list of 94 items:
+(three issues each), scored against Owen's gold article list of 96 rows:
 - **72%** of items extracted exactly;
 - boundary recall **93%** (v2 rarely misses where an article starts);
-- boundary precision **64%** (it over-splits);
+- boundary precision **66%** (it over-splits);
 - titles 81%;
 - all imprints captured.
 
@@ -174,5 +174,5 @@ dissertation_layout_pilot/
 | `v1_evaluation.md` | the v1 evaluation: method, conventions, results |
 | `v2_decisions.md` | the 10 decisions behind v2, with evidence and status |
 | `v2_recheck.md` | v2 re-checked against the v1 log |
-| `v3_decisions.md` | proposed changes for v3, from the v2 test results |
+| `v3_decisions.md` | the v3 decisions, with evidence and v2-vs-v3 results |
 | `gold_article_list_annotation_guide.md` | how the test texts were annotated, and how they are scored |

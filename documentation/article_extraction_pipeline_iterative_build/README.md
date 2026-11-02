@@ -18,7 +18,7 @@ juxtaposition analysis and publishing history. Pipeline code:
 | `v1_evaluation.md` | the v1 evaluation: method, conventions, results, findings |
 | `v2_decisions.md` | decisions 0–10 with evidence and build status |
 | `v2_recheck.md` | v2 re-checked against the v1 log (script numbers) |
-| `v3_decisions.md` | proposed changes for v3, from scoring v2 against the gold list, with evidence and status |
+| `v3_decisions.md` | the v3 decisions, built 2026-11-02, with evidence, status and v2-vs-v3 results (v3 not frozen yet) |
 
 **Before this:** choosing and checking the layout and OCR models (Document AI,
 DocLayout-YOLO, LayoutParser), the box study that chose DocLayout-YOLO, and the

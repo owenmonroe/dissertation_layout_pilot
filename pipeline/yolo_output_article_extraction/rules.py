@@ -22,8 +22,9 @@ import numpy as np
 from PIL import Image
 
 from layout import Page, Region, column_of, column_width
-from text import join_lines
+from text import FOOTNOTE, join_lines
 
+FOOT_REACH_PX = 80  # a set-aside box this close below a rule sits under it
 DARK = 60  # grey levels below the page's median that count as ink
 MIN_LEN_PX = 60
 MAX_SHARE = 0.6  # longer than this share of the content width: not an item rule
@@ -117,10 +118,18 @@ def split_at(pg: Page, r: Region, y: float, n: int) -> Region | None:
     return new
 
 
+def footnote_below(box: Region | None) -> bool:
+    """A footnote: its mark opens the box, or OCR scrambled it into the first
+    few words ("and * P.S have since observed")."""
+    return box is not None and bool(
+        FOOTNOTE.match(box.text) or "*" in " ".join(box.text.split()[:3]))
+
+
 def mark_rules(pg: Page) -> None:
     """Find item rules and mark the boxes they separate (rule_above /
-    rule_below); split a text box a rule runs through. Runs before reading
-    order is numbered."""
+    rule_below); split a text box a rule runs through. The rule above a
+    footnote separates nothing: it only marks the footnote (under_rule) (v3,
+    decision 1). Runs before reading order is numbered."""
     n_split = 0
     for rule in find_rules(pg):
         y, a, b = rule
@@ -141,7 +150,9 @@ def mark_rules(pg: Page) -> None:
             new = split_at(pg, box, y, n_split)
             if new:
                 n_split += 1
-                new.rule_above, box.rule_below = True, True
+                new.under_rule = True
+                if not footnote_below(new):
+                    new.rule_above, box.rule_below = True, True
                 continue
             if any(l.cy > y for l in box.lines):
                 continue  # a heading's underline inside the box
@@ -150,8 +161,18 @@ def mark_rules(pg: Page) -> None:
                     key=lambda r: r.y2, default=None)
         below = min((r for r in in_column if r.y1 >= y - EDGE_PX and r not in inside),
                     key=lambda r: r.y1, default=None)
+        # A box YOLO set aside (abandon) just below the rule: usually a footnote.
+        set_aside = [r for r in pg.regions if r.role == "furniture" and r.text
+                     and r.x1 < cx < r.x2 and -EDGE_PX <= r.y1 - y <= FOOT_REACH_PX]
+        for r in set_aside:
+            r.under_rule = True
+        if below is not None:
+            below.under_rule = True
         if above is None or above.role != "text" or numeric(above):
             continue  # under a title (Chambers' title rules), caption, figure or table
+        if any(footnote_below(r) for r in set_aside) or (
+                below is not None and below.role == "text" and footnote_below(below)):
+            continue  # a footnote's rule
         above.rule_below = True
         if below is not None and below.role == "text":
             below.rule_above = True

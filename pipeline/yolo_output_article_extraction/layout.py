@@ -31,7 +31,8 @@ SPAN_SHARE = 0.2
 # (Chambers' masthead image alone fills the top fifth) ...
 ISSUE_MARK_TOP = 0.35
 ISSUE_MARKS = re.compile(
-    r"published every|(?-i:PRICE\W*(?:ON\s+)?(?:ONE|TWO|THREE|A)\b)|^\W*n[º°o]\.?\s*\d|under the direction"
+    r"published every|(?-i:PRICE\W*(?:ON\s+)?(?:ONE|TWO|THREE|A)\b)|^\W*(?:n[º°o]|№|number)\W{0,2}\d"
+    r"|under the direction"
     r"|society for the diffusion", re.I)
 # ... or the magazine's name (magazine_rules_config.py) in large type, taller than this;
 # the running header with the same name is small and is YOLO furniture anyway.
@@ -44,8 +45,17 @@ MASTHEAD_WORDS = re.compile(
     ISSUE_MARKS.pattern + r"|\bprice\b|magazine|journal"
     r"|january|february|march|april|may|june|july|august|september|october|november"
     r"|december|\b1[78]\d\d\b", re.I)
-# A figure this near the top of an issue-start page is part of the masthead.
+# The masthead's row of short lines (number, date, price) sits side by side
+# across the columns, so one line can be lower than the first article's title:
+# these keep counting as masthead past the end of the walk down the page.
+MASTHEAD_ROW = re.compile(r"^\W*(?:n[º°o]\.?|№|number)\s*\d|^\W*(?:(?:mon|tues|wednes|thurs|fri|satur|sun)day,"
+                          r"|price\b)", re.I)
+MASTHEAD_ROW_WORDS = 12
+# A figure this near the top of an issue-start page is part of the masthead,
+# unless it is taller than this share of the page: a full-page illustration
+# whose box has swallowed the masthead lines.
 MASTHEAD_FIGURE_TOP = 0.12
+MASTHEAD_FIGURE_MAX_HEIGHT = 0.3
 # Masthead ends at the first full paragraph (taller than this).
 MIN_PARAGRAPH_PX = 120
 
@@ -85,6 +95,7 @@ class Region:
     back_text: str = ""
     rule_above: bool = False  # a printed item rule just above (rules.py)
     rule_below: bool = False
+    under_rule: bool = False  # a printed rule just above: what a footnote sits under
 
     @property
     def body(self) -> str:
@@ -231,7 +242,8 @@ def mark_masthead(pg: Page) -> None:
         return
     for r in sorted(content, key=lambda r: r.y1):
         if r.role == "figure":
-            if r.y1 < MASTHEAD_FIGURE_TOP * pg.height:
+            if r.y1 < MASTHEAD_FIGURE_TOP * pg.height \
+                    and r.y2 - r.y1 < MASTHEAD_FIGURE_MAX_HEIGHT * pg.height:
                 r.role = "masthead"
             continue
         no_real_word = not re.search(r"[A-Za-z]{4,}", r.text)
@@ -241,6 +253,10 @@ def mark_masthead(pg: Page) -> None:
         if not is_masthead:
             break
         r.role = "masthead"
+    for r in content:
+        if r.role != "masthead" and r.role != "figure" and r.y1 < ISSUE_MARK_TOP * pg.height \
+                and len(r.text.split()) <= MASTHEAD_ROW_WORDS and MASTHEAD_ROW.search(r.text):
+            r.role = "masthead"
 
 
 def order_regions(pg: Page) -> None:

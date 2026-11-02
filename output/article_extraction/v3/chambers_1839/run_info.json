@@ -1,0 +1,12 @@
+{
+  "pipeline_version": "v3",
+  "git_commit": "6d9cf0a",
+  "uncommitted_changes": true,
+  "run_date": "2026-11-02T17:34:13",
+  "volume": "chambers_1839",
+  "magazine": "chambers",
+  "split": "v2_test",
+  "pdf": "evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/chambers_test_3issues_v8_1839_mdp-39015024480603-1779384859.pdf",
+  "pages": "7-30",
+  "ocr": "docai"
+}

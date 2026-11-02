@@ -14,7 +14,7 @@ and its status, in the same format as `v2_decisions.md`.
 generalise (Owen, 2026-10-16); a miss that only one page shows stays a known
 miss.
 
-**v2 baseline** (85 gold items):
+**v2 baseline, as first scored** (85 gold items; corrected figures are in the table below):
 - 72% exact; boundary recall 93%; boundary precision 64% (44 extra pipeline
   articles);
 - titles 81%; back matter in place 58%; front matter in place 13%;
@@ -43,6 +43,49 @@ its first box):
 | **Total** | **31** | **11** | **2** | **44** | |
 
 **Open questions:** none (8a and 8b decided 2026-10-26).
+
+## v3 results so far (2026-11-02)
+
+All decisions below are built. v3 is **not frozen yet**. Scores are on the v2
+test volumes, which are now build texts, so they show the fixes worked, not
+how v3 does on unseen text. That comes from the new held-out issues.
+
+| Against the corrected gold list (87 items) | v2 | v3 |
+|---|---|---|
+| Exact items | 63 (72%) | 82 (94%) |
+| Merged | 4 | 2 |
+| Split | 16 | 2 |
+| Lost | 4 | 1 |
+| Boundary recall | 93% | 98% |
+| Boundary precision | 66% | 97% |
+| Extra pipeline articles | 42 | 3 |
+| Pipeline articles | 123 | 88 |
+| Titles | 81% | 99% |
+| Front matter in place | 20% (3/15) | 87% (13/15) |
+| Back matter in place | 64% | 83% |
+| Footnotes in place | 25/36 | 30/36 |
+| Series (where either has one) | 24% | 47% |
+| Issue number | 26% | 100% |
+| Issue date | 51% | 100% |
+
+Numbers from `evaluation/evaluating_v2_article_extraction/v3_gold_comp_eval_*`.
+
+- **1832 pages:** the 5 verified pages pass. Of the 971 rows logged ok, 957
+  are unchanged, 13 renamed, and 1 changed (the intended Saturday p12 fix).
+  Logged-error outcomes are unchanged from v2
+  (`evaluation/evaluating_v1_article_extraction/reading_order_v1_vs_v3.csv`).
+- **Gold list corrected by Owen (2026-11-02):** issue 416's date; two rows
+  added ("The brave only know…", Sterne; "Do not suffer your mind…", Mrs.
+  Child); Tillotson put on the row that had Sterne. Now 96 rows. **Gold IDs
+  after those rows moved up by 1–2, so gold numbers in the decisions below
+  use the earlier numbering** (Saturday 26–49 +1, 50 +2; Chambers
+  +2).
+- **Gold list corrected again by Owen (2026-11-02):** front-matter slips
+  (last words entered as front matter) corrected and the Coal Miners'
+  "[From a Correspondent.]" added. 96 rows, 15 front-matter pieces.
+- **Locke and Helvetius were found.** OCR reads "LOCKR." and "HELVvetius.";
+  the pipeline cut both into back matter. The scorer now tolerates a letter or
+  two of OCR noise in one-word sources.
 
 ---
 
@@ -91,7 +134,7 @@ stay unopened until v3 is frozen.
     a footnote rule and "* The French pound is…".
   - p8 continues "are bound together in London…", but as article 4.
 
-**Status:** proposed.
+**Status:** built and checked 2026-11-02. The rule above a footnote no longer marks a new item; a rule needs the box above to finish its sentence; `rejoin_fragments` is the final check. Refined by the 1832 check: a box under a real rule stays a new item even if OCR makes it start in lowercase (Chambers 1832 p16), and an article closed by a sign-off or "To be continued" takes no fragment (p20).
 
 ## 2. Mastheads and issue numbers (all three magazines)
 
@@ -123,7 +166,7 @@ stay unopened until v3 is frozen.
 - Chambers issue number and date: 0% (39 items). Penny 271 read as "10";
   Penny 270 and Saturday 484 not read.
 
-**Status:** proposed.
+**Status:** built and checked 2026-11-02. Issue number and date 100% on the test volumes (were 26% and 51%). All three magazines' formats are in the config, including Saturday's `№` and Penny's `270.]` read as `270.3`. Dates now come only from the masthead and running head, with ordinals ("18TH") and ranges ("May 31 to June 30, 1836"). A tall illustration near the top is no longer masthead. Saturday 484 is `inferred` from its neighbours.
 
 ## 3. Content that YOLO calls page furniture
 
@@ -139,7 +182,7 @@ text. Short `abandon` boxes stay furniture.
 - Known miss: "END OF THE EIGHTH VOLUME." (Chambers gold 93), which has 5
   words.
 
-**Status:** proposed.
+**Status:** built and checked 2026-11-02 (`promote_content` in `text.py`). The three poems are recovered. A box is promoted only in body-size type (0.85 of the body's line height or more): the poems measured 0.88–0.96, lost-mark footnotes 0.74. A recovered box starts its own item. Known miss as stated ("END OF THE EIGHTH VOLUME."; also Chambers gold 92, a notice in small type).
 
 ## 4. Captions taken as titles
 
@@ -152,7 +195,7 @@ The v1 rule was made for "THE MOLE.", which has no title of its own.
   (Saturday gold 30).
 - "RUINS OF THE ABBEY OF ST. BERTIN…" for St. Omer's, in France (gold 42).
 
-**Status:** proposed.
+**Status:** built and checked 2026-11-02 (`caption_opens_article`). Wider than proposed: a capitals caption mid-article ("GOTHA.", "RICHMOND CASTLE") is also a caption, when the next text starts mid-sentence. Under a *recurring* leader the caption is the title ("BRITISH ANIMALS." / "THE DORMOUSE.", caught by the 1832 check).
 
 ## 5. Front matter between title and text
 
@@ -181,7 +224,9 @@ front matter, and **front matter never starts a new article**:
 - "SECOND ARTICLE" for Speculation on Words (Chambers gold 87; also front
   matter of M. Turgot, gold 80).
 
-**Status:** proposed.
+**One category (Owen, 2026-11-02):** headers, subtitles, bylines and source lines are all `front_matter`, with no separate fields. They read on the page as a byline or header, and they matter because they indicate an article's source.
+
+**Status:** built and checked 2026-11-02 (`is_epigraph`, `GENERIC_HEADING`). Front matter in place 20% → 87%. Owen (2026-11-02): headers, subtitles, epigraphs and bylines that a reader sees set apart from the text matter most, even when YOLO boxed them into a paragraph. "London, May —, 1835.—" (Chambers gold 78) and the Calendar (Saturday gold 21) are the accepted misses. The signal used: the next box opens in capitals, as a first paragraph does, or the box signs itself off as a quotation and runs on. A heading after a byline is a subtitle. Three later rules, all from Owen's reading of the page: a short line centred under the title is front matter (`centred_under_title`: "(From Sharon Turner's…", "Second Article."); an all-capitals line with no YOLO box is a heading, and one centred at the top of a paragraph box is split off (`recover_unboxed`, `split_headings`, tables excepted); such a split line under a title ending in a full stop is a subtitle, and under a title with no stop it continues the title. This also recovered "THE HEIR OF THE ST GERANS.", which was lost, and the whole of "English Ingenuity and Enterprise in a New Point of View". Boxed headings don't take the full-stop test because series leaders end in stops too.
 
 ## 6. Sign-offs
 
@@ -203,7 +248,7 @@ front matter, and **front matter never starts a new article**:
   America, by the Hon. C. A. Murray. 1839.", 91 "Ayr paper.";
 - Penny gold 2 "Dr F. Lieber, Plan of Education…".
 
-**Status:** proposed.
+**Status:** built and checked 2026-11-02 (`attribution`, `last_line_source`). Back matter in place 64% → 83%. A dash phrase may have up to two lowercase words, not in verse, and not with a word broken across lines. A last-line source must be set to the right.
 
 ## 7. Footnotes (Chambers especially)
 
@@ -262,7 +307,7 @@ mark); p7 (both corners handled, but see decision 1). Also 5 footnotes left
 in the text in Penny and Saturday (Penny gold 5, 17; Saturday 31, 33):
 check whether (b) catches them.
 
-**Status:** proposed.
+**Status:** built and checked 2026-11-02 (`footnote_owner`, `lost_mark_footnote`). Footnotes in place 25/36 → 30/36. Remaining: 3 footnotes left in the text and 3 attached to another article.
 
 ## 8. Series over several pieces; numbered titles
 
@@ -341,9 +386,20 @@ check whether (b) catches them.
 - Series with continuation in the gold list: M. Turgot (Chambers gold 69, 80:
   series Biographical Sketches, continued).
 
-**Status:** (a) decided in principle (Owen, 2026-10-26); the index parsing
-is checked on the v2 test indexes when built. (b) decided (Owen,
-2026-10-26).
+**Status:**
+- **(b) built and checked 2026-11-02.** New columns `part`, `continued_from`,
+  `to_be_continued`. "Extra series" from numbered titles are gone; continued
+  from 99%, to be continued 98%.
+- **(a) partly built.** An index entry headed by a printed series heading
+  extends that series to the pieces it names (`extend_series`): the Swallow is
+  in British Animals with no hand correction, and `index_group` records the
+  group.
+- **Not built:** the compiler's own categories (*Poetry*). On the later
+  volumes the index's OCR text layer is too scrambled to parse groups
+  reliably, and Chambers' index is arranged differently. Re-running OCR on
+  the index pages would be the route.
+- **Known miss:** "Remarkable Cases…" (4 pieces), "National Galleries…" (2),
+  "Last Century Anecdotes" (1): the indexes didn't yield them.
 
 ## 9. Smaller items (known limits unless cheap)
 
@@ -377,7 +433,7 @@ same rule when introduced by a colon.
 play split into four articles), 54 ("L.466,089"), 71 (Grave Literature,
 quoted inscription).
 
-**Status:** proposed.
+**Status:** built and checked 2026-11-02 (`inside_article`). "L.466,089", "(Charge to the Jury.)" and the quoted inscription now stay in their articles. Boswell's quoted play is still split at "Flaw-Finder.", because a verse line reads as a sign-off just before it.
 
 ## 11. Figure boxes don't open articles
 
@@ -390,7 +446,7 @@ quoted inscription).
 **Evidence.** Saturday: 3 extra articles opened by figure boxes (running head
 inside the box, or OCR junk from the engraving).
 
-**Status:** proposed.
+**Status:** built and checked 2026-11-02 (`move_lone_figures`, `figure_title`). Also: a heading in a figure box can give the title ("ST. OMER'S, IN FRANCE. I.", "THE GIRAFFES AT THE ZOOLOGICAL GARDENS").
 
 ---
 

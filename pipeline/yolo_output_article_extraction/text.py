@@ -9,6 +9,8 @@ word order; a line is only split where it crosses from one box into another
 them if within NEAR_PX (YOLO boxes that stop a line short), otherwise reported
 as "unboxed". Unboxed lines that form a block in a column (text YOLO drew no
 box for at all) become new text regions; see recover_unboxed.
+A line of capitals YOLO boxed with nothing, or swallowed at the top of a paragraph
+box, becomes a heading of its own (recover_unboxed, split_headings).
 
 Fallback ("tesseract"): OCR each box crop locally with the tesseract CLI.
 """
@@ -22,7 +24,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from layout import CONTENT_ROLES, REPO_ROOT, Page, Region, column_of
-from magazine_rules_config import VOLUMES
+from magazine_rules_config import VOLUMES, magazine_rules
 
 PAD_PX = 6  # tolerance when testing whether a line centre is inside a box
 NEAR_PX = 30
@@ -30,6 +32,12 @@ SENTENCE_END = re.compile(r"[.!?:;\"”’)\]]$")
 # The scan's own stamps (HathiTrust / Google): never text.
 WATERMARK = re.compile(r"hdl\.handle\.net|google-digitized|public domain|digitized by|"
                        r"generated at|original from|\b\d\d:\d\d GMT\b", re.I)
+FOOTNOTE = re.compile(r"^\s*[*†‡§]")  # a footnote's opening mark
+# A box YOLO set aside (abandon) that is really content (v3, decision 3):
+# enough words, inside the text area, in the page's body type.
+CONTENT_MIN_WORDS = 12
+CONTENT_TOP, CONTENT_BOTTOM = 0.08, 0.95  # share of page height
+SMALL_TYPE = 0.85  # line height against the body's: footnotes and imprints are smaller
 # Column rules OCR'd as characters.
 RULE_CHARS = {"|", "I", "l", "❘", "/", "¦"}
 # A recovered block with about one word per line is a strip of line-end (or
@@ -40,6 +48,11 @@ STRIP_MAX_WIDTH = 0.15  # share of the column width
 SIDE_GAP_PX = 30  # a strip or line this close to a box's side belongs to that box
 REJOIN_MIN_LINES = 3  # only paragraph boxes take rejoined words ("12" + "EDINBURGHSHIRE." isn't one)
 REJOIN_BELOW = 0.15  # share of page height: above it (masthead, running head) nothing is rejoined
+# A heading YOLO drew no box for (v3, decision 5): an all-capitals line alone
+# between boxes, or centred at the top of a paragraph box.
+HEADING_MIN_WORDS = 2
+HEADING_INSET = 0.08  # share of the box's width left free on each side: centred
+TABLE_DIGITS = 0.15  # share of a box's characters
 # Printer's marks caught in a text box: a signature or volume mark after the
 # last sentence ("... perfection. VOL. I.", "... crime. 3-2", "... sea. C").
 TRAILING_MARK = re.compile(r"(?<=[.!?\"”’:;])\s+(?:VOL\.?\s*[IVX]+\.?|[A-Z]|\d{1,2}(?:-\d{1,2})?|[A-Z]\s?\d)\s*$")
@@ -137,6 +150,31 @@ def assign_docai_text(pg: Page) -> list[Line]:
     return group_lines(unboxed)
 
 
+def capitals_line(line: Line) -> bool:
+    return line.text.isupper() and len(line.text.split()) >= HEADING_MIN_WORDS
+
+
+def heading_region(pg: Page, line: Line, column, index: int, note: str) -> Region:
+    return Region(pg.magazine, pg.page, index, "unboxed_ocr", 0.0, line.bbox, role="title",
+                  column=column, lines=[line], text=line.text, note=note)
+
+
+def split_headings(pg: Page) -> None:
+    """A centred line of capitals opening a paragraph box is a heading the box
+    swallowed ("STORY FROM THE CAUSES CELEBRES."): it becomes its own box."""
+    for n, r in enumerate([r for r in pg.regions if r.role == "text"]):
+        digits = sum(c.isdigit() for c in r.text) / max(len(r.text), 1)
+        if len(r.lines) < REJOIN_MIN_LINES or r.lines[0].cy < REJOIN_BELOW * pg.height \
+                or digits > TABLE_DIGITS:
+            continue  # a table's heading stays with its table
+        line, inset = r.lines[0], HEADING_INSET * (r.x2 - r.x1)
+        if capitals_line(line) and line.bbox[0] >= r.x1 + inset and line.bbox[2] <= r.x2 - inset:
+            pg.regions.append(heading_region(pg, line, r.column, 200 + n, "heading split from a text box"))
+            r.lines = r.lines[1:]
+            r.text = join_lines([l.text for l in r.lines])
+            r.bbox = (r.x1, max(r.y1, line.bbox[3]), r.x2, r.y2)
+
+
 def recover_unboxed(pg: Page, lines: list[Line]) -> list[Line]:
     """Turn blocks of unboxed lines into text regions; return lines still unboxed.
 
@@ -164,6 +202,13 @@ def recover_unboxed(pg: Page, lines: list[Line]) -> list[Line]:
     new = 0
     for col, col_lines in blocks.items():
         col_lines.sort(key=lambda l: l.cy)
+        for l in [l for l in col_lines if capitals_line(l) and l.cy >= REJOIN_BELOW * pg.height]:
+            # before grouping: stray line-end words nearby would swallow it
+            pg.regions.append(heading_region(pg, l, col, 100 + new, "heading line with no YOLO box"))
+            new += 1
+            col_lines.remove(l)
+        if not col_lines:
+            continue
         height = sorted(l.bbox[3] - l.bbox[1] for l in col_lines)[len(col_lines) // 2]
         groups = [[col_lines[0]]]
         for l in col_lines[1:]:
@@ -191,6 +236,30 @@ def recover_unboxed(pg: Page, lines: list[Line]) -> list[Line]:
             pg.regions.append(r)
             new += 1
     return leftover
+
+
+def type_size(pg: Page, r: Region) -> float:
+    """Box r's line height against the page's body text (1.0 = body type)."""
+    body = sorted(l.bbox[3] - l.bbox[1] for b in pg.regions if b.role == "text"
+                  and len(b.lines) >= 5 for l in b.lines)
+    mine = sorted(l.bbox[3] - l.bbox[1] for l in r.lines)
+    return mine[len(mine) // 2] / body[len(body) // 2] if body and mine else 1.0
+
+
+def promote_content(pg: Page) -> None:
+    """Content YOLO labelled abandon, such as a poem with no title, comes back
+    as text. Footnotes (a mark, or small type) and imprints stay set aside."""
+    imprint = magazine_rules(pg.magazine).imprint
+    for r in pg.regions:
+        if r.role != "furniture" or len(r.text.split()) < CONTENT_MIN_WORDS:
+            continue
+        if not (CONTENT_TOP * pg.height <= r.y1 and r.y2 <= CONTENT_BOTTOM * pg.height) \
+                or column_of(pg, r.x1, r.x2) is None or WATERMARK.search(r.text) \
+                or FOOTNOTE.match(r.text) or imprint.search(r.text):
+            continue
+        if type_size(pg, r) >= SMALL_TYPE:
+            r.role, r.column = "text", column_of(pg, r.x1, r.x2)
+            r.note = "content YOLO set aside (abandon): read as text"
 
 
 def drop_empty(pg: Page) -> None:

@@ -78,6 +78,15 @@ def find(needle: list[str], hay: list[str]) -> tuple[int, float]:
         return -1, 0.0
     n, anchors = len(needle), set(needle[:3])
     best = (-1, 0.0)
+    if n <= 2:  # a short source has no exact word to anchor on if OCR slipped ("LOCKR.")
+        word = "".join(needle)
+        for i in range(len(hay)):
+            for size in (1, 2):
+                joined = "".join(hay[i:i + size])
+                score = SequenceMatcher(None, word, joined, autojunk=False).ratio()
+                if score > best[1]:
+                    best = (i, score)
+        return best
     for i, t in enumerate(hay):
         if t not in anchors:
             continue
@@ -114,9 +123,11 @@ def is_footnote(piece: str) -> bool:
 
 
 def parse_date(text) -> tuple | None:
-    """(month, day, year) from "6.18.1836" or "June 18, 1836"."""
+    """(month, day, year) from "6.18.1836", "June 18, 1836", or the end of a
+    range: "5.31-6.30.1836"."""
     if not isinstance(text, str):
         return None
+    text = text.split("-")[-1]
     m = re.match(r"^\s*(\d{1,2})\.(\d{1,2})\.(\d{4})", text)
     if m:
         return int(m.group(1)), int(m.group(2)), int(m.group(3))
@@ -331,11 +342,12 @@ def score_fields(row, art, piece_rows: list) -> dict:
     out["pipeline_series"] = pipe_series
 
     gold_cf = bool(row.continued_from.strip())
-    pipe_cf = isinstance(art.continues_article_id, str) or bool(
-        CONTINUED.search(str(art.front_matter) if isinstance(art.front_matter, str) else ""))
+    pipe_cf = bool(art.get("continued_from", False)) or isinstance(art.continues_article_id, str) \
+        or bool(CONTINUED.search(str(art.front_matter) if isinstance(art.front_matter, str) else ""))
     out["continued_from_result"] = agreement(gold_cf, pipe_cf)
     gold_tbc = bool(row.to_be_continued.strip())
-    pipe_tbc = bool(TO_BE_CONTINUED.search(str(art.back_matter) if isinstance(art.back_matter, str) else ""))
+    pipe_tbc = bool(art.get("to_be_continued", False)) or bool(
+        TO_BE_CONTINUED.search(str(art.back_matter) if isinstance(art.back_matter, str) else ""))
     out["to_be_continued_result"] = agreement(gold_tbc, pipe_tbc)
     out["type_result"] = agreement(row.article_type == "editorial_notice",
                                    art.article_type == "editorial_notice")

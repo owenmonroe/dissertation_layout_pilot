@@ -1,0 +1,89 @@
+volume,article_id,pipeline_title,pages,word_count,gold_starts,n_gold_starts,gold_ends,status,text_start
+penny_1836,penny_1836_0001,THE GIRAFFES AT THE ZOOLOGICAL GARDENS,6;7;8,2321,1,1,1,matched,The arrival of four giraffes together in Europe forms an | era
+penny_1836,penny_1836_0002,Working Men,8,297,2,1,2,matched,"Working Men. -The expression working class, or working men, must mean either"
+penny_1836,penny_1836_0003,Threshing Machines,8,171,3,1,3,matched,"Threshing Machines. Threshing by the flail can only be done by robust,"
+penny_1836,penny_1836_0004,NATIONAL GALLERIES FOR THE FINE ARTS AT MUNICH. THE GLYPTOTHEK,9;10,858,4,1,4,matched,In no country of Europe is there so much encouragement for the
+penny_1836,penny_1836_0005,ARTS OF ANCIENT EGYPT-GLASS AND PORCELAIN,10;11,1178,5,1,5,matched,THE art of fabricating glass is of high antiquity; and it was
+penny_1836,penny_1836_0006,War,11,201,6,1,6,matched,War.-War undoubtedly occasions at first an immediate demand for men; it takes
+penny_1836,penny_1836_0007,IMPORTANCE OF THE CULTIVATION OF THE VINE IN FRANCE,11;12;13,2372,7,1,7,matched,WHENEVER the commercial intercourse between France and England shall be regulated by
+penny_1836,penny_1836_0008,State of the Fine Arts in Geneva,13,267,8,1,8,matched,"State of the Fine Arts in Geneva.-M. de Candolle, Professor of botany"
+penny_1836,penny_1836_0009,Division of Employments,13,331,9,1,9,matched,"Division of Employments. The same complete division of employments, which makes the"
+penny_1836,penny_1836_0010,RIEVAULX ABBEY,14;15,1497,11,1,11,matched,"THIS fine monastic ruin is in the parish of Helmsley, North Riding"
+penny_1836,penny_1836_0011,MANNERS OF THE NORTHERN COAL MINERS,15;16;17,1658,12,1,12,matched,"In the supplemental numbers of the 'Penny Magazine' for March and April,"
+penny_1836,penny_1836_0012,NATIONAL GALLERIES FOR THE FINE ARTS AT MUNICH. THE PINACOTHEK,17;18,941,13,1,13,matched,ALTHOUGH the private collection of sculpture of the King of Bavaria is
+penny_1836,penny_1836_0013,KNIGHTS OF MALTA.-No. III,18;19;20;21,2940,14,1,14,matched,THE Knights found Rhodes in possession of a set of Mohammedan pirates
+penny_1836,penny_1836_0014,"ORIGINAL COLONIZATION OF CANADA, BY FRANCIS I",21,1292,15,1,15,matched,As Canada is now become the most important relic of our North
+penny_1836,penny_1836_0015,THE TOWER OF LONDON.—No. I,22;23;24;25;26;27;28;29,8600,17,1,17,matched,THE series of buildings termed the Tower of London occupies an extensive
+saturday_1840,saturday_1840_0001,SIR JOSHUA REYNOLDS AND HIS WORKS,6;7;8,1732,19,1,,matched,"AMONG the distinguished characters of the last century, who exercised great influence"
+saturday_1840,saturday_1840_0002,,8,78,20,1,20,matched,"THE wise man, says the Bible, walks with God; Surveys, far on,"
+saturday_1840,saturday_1840_0003,THE CALENDAR,8;9,1134,21,1,21,matched,"THE following article is supplementary to an article entitled, ""WHAT IS AN"
+saturday_1840,saturday_1840_0004,,9,64,22,1,22,matched,"BLEST Solitude! when life's gay hours are past, Howe'er we range, in"
+saturday_1840,saturday_1840_0005,THE DUCHY OF SAXE-COBURG-GOTHA,9;10;11,1823,23,1,23,matched,COBURG is a country which has been as yet little visited by
+saturday_1840,saturday_1840_0006,THE LAND OF CONTRADICTIONS,11,273,24,1,24,matched,THERE is a land in distant seas Full of all contrarieties. There
+saturday_1840,saturday_1840_0007,,11,88,25,1,25,matched,For men to judge of their condition by the decrees of God
+saturday_1840,saturday_1840_0008,,11,83,26,1,26,matched,THE brave only know how to forgive; it is the most refined
+saturday_1840,saturday_1840_0009,,11,211,27,1,27,matched,THE knowledge we acquire in this world I am apt to think
+saturday_1840,saturday_1840_0010,JANUARY,12;13,1992,28,1,28,matched,"THIS month derives its name from JANUS, a deity represented by the"
+saturday_1840,saturday_1840_0011,MIGRATION OF HERRINGS,13,471,29,1,29,matched,"THE great winter rendezvous of the herring is within the arctic circle,"
+saturday_1840,saturday_1840_0012,THE TIMBER-FLOATS OF GERMANY AND ITALY,14;15;16,1813,31,1,31,matched,PROBABLY but few of our readers think of the means by which
+saturday_1840,saturday_1840_0013,I. NATURE OF GEOLOGY,16;17,2174,32,1,32,matched,"""CURIOSITY,"" it has been well observed, ""is one of the most distinctive"
+saturday_1840,saturday_1840_0014,,17,36,33,1,,matched,"The moral of that poetical fiction, that the uppermost link of all"
+saturday_1840,saturday_1840_0015,NINEVEН,18;19,1062,34,1,34,matched,"THUS did the prophet foretell the future desolation of NINEVEH, when that"
+saturday_1840,saturday_1840_0016,,19,69,35,1,35,matched,"How sweet a thing is Death, to all who know That all"
+saturday_1840,saturday_1840_0017,,19,144,36,1,36,matched,THE Japanese are extremely singular in some of their religious opinions. They
+saturday_1840,saturday_1840_0018,,19,161,37,1,37,matched,"HAPPINESS, though necessarily involving present pleasure, is the direct or indirect, and"
+saturday_1840,saturday_1840_0019,THE VARIED POWERS OF MAN,19,676,38,1,38,matched,"ONE considerable distinction between men and animals is that the latter, for"
+saturday_1840,saturday_1840_0020,,19,106,39,1,39,matched,"LIKE some vast flood, unbounded, fierce, and strong, His nature leads ungoverned"
+saturday_1840,saturday_1840_0021,ON NEW YEAR'S GIFTS,20;21,1923,40,1,40,matched,"It is always pleasant to contemplate those little acts of kindness, which"
+saturday_1840,saturday_1840_0022,THE PROGRESS OF IMPROVEMENT,21,537,41,1,41,matched,IMPROVEMENT in every possible direction of our external conditions appears to be
+saturday_1840,saturday_1840_0023,"ST. OMER'S, IN FRANCE. I",22;23,1229,43,1,43,matched,golf feddons Lendoval nest to dadifod sistibim tumpai os fro egauit seed
+saturday_1840,saturday_1840_0024,ON MILITARY DRILLING. I,23;24,1498,44,1,44,matched,"It has been said, with much truth, that the best mode by"
+saturday_1840,saturday_1840_0025,,24,130,45,1,45,matched,"Он, Charity! our helpless nature's pride, Thou friend to him, who knows"
+saturday_1840,saturday_1840_0026,"RICHMOND CASTLE, YORKSHIRE",25;26,2018,46,1,46,matched,"RICHMOND CASTLE, YORKSHIRE. A PORTION of the North Riding of Yorkshire is"
+saturday_1840,saturday_1840_0027,,26,89,47,1,47,matched,we are what we are made by the objects that surround us;
+saturday_1840,saturday_1840_0028,,26,49,48,1,48,matched,"No radiant pearl which crested fortune wears, No gem that sparkling hangs"
+saturday_1840,saturday_1840_0029,ON GARDEN HERBS. I,27;28,1959,49,1,49,matched,". THE subject of the present and some following papers, may appear"
+saturday_1840,saturday_1840_0030,ON WAX FIGURES,28;29,1786,50,1,50,matched,AMONG the substances which have been employed as materials for forming imitations
+saturday_1840,saturday_1840_0031,,29,77,51,1,51,matched,Do not suffer your mind to brood over the external distinetions of
+chambers_1839,chambers_1839_0001,LIVING IN PARIS,7;8,3921,53,1,53,matched,My observations on this subject are intended to be comparative; but a
+chambers_1839,chambers_1839_0002,HYBERNATION OR WINTER SLEEP OF ANIMALS,8;9,2527,54,1,54,matched,"Many animals are so constituted, that during the winter season the activity"
+chambers_1839,chambers_1839_0003,FUGITIVE WRITINGS OF JAMES BOSWELL,9;10,1516,55,1,,matched,"Or James Boswell as the biographer of Johnson, the merits and demerits"
+chambers_1839,chambers_1839_0004,,10,82,,0,,extra,"Bamboozle. Fye on the laws that hang a man for stealing, Sure"
+chambers_1839,chambers_1839_0005,Flaw-Finder,10,628,,0,55,extra,"Gentlemen, now 'tis my turn to address you, And with much speaking"
+chambers_1839,chambers_1839_0006,THE MONT DE PIETE OF LIMERICK,10;11,2149,56,1,,matched,"IT is perhaps not generally known that the sick in public hospitals,"
+chambers_1839,chambers_1839_0007,THE GOOD OF GRUMBLING,11;12,3032,57,1,57,matched,"""GRUMBLE and get on,"" is the favourite maxim with John Bull; and,"
+chambers_1839,chambers_1839_0008,THE HEIR OF THE ST GERANS,12;13;14,3913,58,1,58,matched,"THE Marshal de St Geran, a French noble of ancient family and"
+chambers_1839,chambers_1839_0009,QUACK ADVERTISEMENTS,14,687,59,1,,matched,"We are happy to acknowledge that there are other parties in Glasgow,"
+chambers_1839,chambers_1839_0010,,14,295,,0,59,extra,"These observations on the subject of admitting advertisements of quack medicines pills,"
+chambers_1839,chambers_1839_0011,MONUMENTS OF THE PACIFIC ISLES,14,751,60,1,60,matched,"THE general impression respecting the numerous isles of the Pacific is, that"
+chambers_1839,chambers_1839_0012,DRAWING THE LINE,14,214,61,1,61,matched,"Just as this change had been effected, there presented himself for shaving"
+chambers_1839,chambers_1839_0013,,14,83,62,1,62,matched,"WASHINGTON One of the most striking things ever said of him is,"
+chambers_1839,chambers_1839_0014,PHYSICAL AND MORAL PURITY COMPARED,14,144,63,1,63,matched,"Between physical and moral delicacy a connection has been observed, which, though"
+chambers_1839,chambers_1839_0015,A TALE OF ROMANCE,14,429,64,1,64,matched,"After Elbœuf, which is about twelve English miles from Rouen by land,"
+chambers_1839,chambers_1839_0016,OPPOSITE GOOD QUALITIES NOT TO BE EXPECTED,15;16,2108,66,1,66,matched,"SIR WILLIAM TEMPLE, in his Treatise on Ancient and Modern Learning, has"
+chambers_1839,chambers_1839_0017,RECOLLECTIONS OF AN AUTHORESS,16;17,3929,67,1,,matched,"How pleasant it is, as one advances in life, to recal to"
+chambers_1839,chambers_1839_0018,ALCHEMY,17;18,3352,68,1,68,matched,"ALCHEMY, like many other chimeras and superstitions, imaginations of the ancient had"
+chambers_1839,chambers_1839_0019,FOOTE THE COMEDIAN,18;19,1461,69,1,69,matched,"In the 341st number of the Journal, appeared a notice of Samuel"
+chambers_1839,chambers_1839_0020,ROBERT BURNS,19,824,70,1,70,matched,"The following is an original anecdote of Burns, related, like the above,"
+chambers_1839,chambers_1839_0021,M. TURGOт,19;20,2943,71,1,71,matched,"WHEN Mr Canning, in 1827, spoke in the House of Commons of"
+chambers_1839,chambers_1839_0022,THE ABENCERRAGE,20;21,4136,72,1,72,matched,"On the summit of a craggy hill, a spur of the mountains"
+chambers_1839,chambers_1839_0023,GRAVE LITERATURE,21;22,1168,73,1,73,matched,"LONDON, as is perhaps known to some of our readers, is now"
+chambers_1839,chambers_1839_0024,TRUE WISDOM,22,52,74,1,74,matched,"Though sometimes small evils, like invisible insects, inflict pain, and a single"
+chambers_1839,chambers_1839_0025,LABOUR NOT HOSTILE TO MENTAL IMPROVEMENT,22,280,75,1,75,matched,LABOUR NOT HOSTILE TO MENTAL IMPROVEMENT. Are labour and self-culture irreconcileable to
+chambers_1839,chambers_1839_0026,LIEUTENANT LUFF,22,365,76,1,76,matched,"All you that are too fond of wine, Or any other stuff,"
+chambers_1839,chambers_1839_0027,PRIVATE FORTUNES OF SOME OF THE GREAT PERSONAGES OF ANCIENT TIMES,22,314,77,1,77,matched,"Crœsus possessed in landed property a fortune equal to L.1,700,000, besides a"
+chambers_1839,chambers_1839_0028,AN INFORMER'S LETTER TO A FRIEND,22,766,78,1,78,matched,"London, May, 1835. - DEER TOM, This kums opin you are Well"
+chambers_1839,chambers_1839_0029,GRAHAM OF CLAVERHOUSE,22,260,79,1,79,matched,"This singular person united the seemingly inconsistent qualities of courage and cruelty,"
+chambers_1839,chambers_1839_0030,ENGLISH INGENUITY AND ENTERPRISE IN A NEW POINT OF VIEW,23;24,3473,81,1,81,matched,We have often thought that British ingenuity and British enterprise are in
+chambers_1839,chambers_1839_0031,M. TURGOT,24;25;26,3966,82,1,82,matched,We are now to behold our philosophical statesman in a field truly
+chambers_1839,chambers_1839_0032,THE SHOP BOY,26,779,83,1,83,matched,"CASES exhibiting the precarious nature circumstanence, independently of the deep interest which"
+chambers_1839,chambers_1839_0033,THE JEWS,26,259,84,1,84,matched,"In a hotel or lodging-house at Milan, a Frenchman and two Jews"
+chambers_1839,chambers_1839_0034,THE FLEMISH CURATE,26,639,85,1,85,matched,"Another victim of a plot of this nature was a Flemish curate,"
+chambers_1839,chambers_1839_0035,HAWKINS AND SIMPSON,26,847,86,1,86,matched,"Cases have occurred, both where accusations have been established, and where they"
+chambers_1839,chambers_1839_0036,THE BARBER'S APPRENTICE,26;27,285,87,1,87,matched,"In an earlier number of the present periodical, a sketch of a"
+chambers_1839,chambers_1839_0037,POINTS OF ETIQUETTE,27,2268,88,1,88,matched,"A SMALL volume entitled ""The Laws of Etiquette,"" of American authorship (Philadelphia,"
+chambers_1839,chambers_1839_0038,SPECULATIONS ON WORDS,27;28,1769,89,1,89,matched,"To drive at, To treat of. There is one peculiarity in the"
+chambers_1839,chambers_1839_0039,SCANDINAVIAN MYTHOLOGY,28;29,3346,90,1,90,matched,"THE superstitions of the European Northmen, or Scandinavians, under which term are"
+chambers_1839,chambers_1839_0040,SHIPWRECK OF THE MENTOR,29;30,2566,91,1,91,matched,"In the year 1831, the whale-ship Mentor, of New Bedford, in New"
+chambers_1839,chambers_1839_0041,TOILET OF A PAWNEE INDIAN DANDY,30,674,92,1,92,matched,"He began his toilet, about eight in the morning, by greasing and"
+chambers_1839,chambers_1839_0042,NATURAL CURIOSITY,30,165,93;94,2,93,merged,We were favoured the other day with a sight of a beautiful

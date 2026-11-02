@@ -1,0 +1,1091 @@
+magazine,page,reading_order,region_id,verdict,error_type,in_new,old_role,new_role,old_start,new_start,old_title,new_article_id,new_title,new_series,front_text,back_text,notes,missed_found,outcome
+penny,1,,penny_p001_r11,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,1,,penny_p001_r19,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,1,,penny_p001_r14,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,1,,penny_p001_r16,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,1,1,penny_p001_r10,ok,,True,title,title,True,True,READING FOR ALL,penny_0001,READING FOR ALL,,,,,False,unchanged
+penny,1,2,penny_p001_r00,ok,,True,text,text,False,False,READING FOR ALL,penny_0001,READING FOR ALL,,,,text: page tilt - last word 'We' belongs to the next paragraph (box 3); article order unaffected,False,unchanged
+penny,1,3,penny_p001_r02,ok,,True,text,text,False,False,READING FOR ALL,penny_0001,READING FOR ALL,,,,"text: page tilt - misses 'We' at its start, ends with 'What' from the next paragraph (box 4); article order unaffected",False,unchanged
+penny,1,4,penny_p001_r03,ok,,True,text,text,False,False,READING FOR ALL,penny_0001,READING FOR ALL,,,,text: misses 'What' at its start (tilt); furniture 'VOL. I.' pulled in as 'OL.I.',True,unchanged
+penny,1,5,penny_p001_r04,ok,,True,text,text,False,False,READING FOR ALL,penny_0001,READING FOR ALL,,,,,False,unchanged
+penny,1,6,penny_p001_r08,ok,,True,title,title,True,True,CHARING CROSS,penny_0002,CHARING CROSS,,,,,False,unchanged
+penny,1,7,penny_p001_r05,ok,,True,text,text,False,False,CHARING CROSS,penny_0002,CHARING CROSS,,,,,False,unchanged
+penny,1,8,penny_p001_r12,ok,,True,figure,figure,False,False,CHARING CROSS,penny_0002,CHARING CROSS,,,,,False,unchanged
+penny,1,9,penny_p001_r07,ok,,True,text,text,False,False,CHARING CROSS,penny_0002,CHARING CROSS,,,,,False,unchanged
+penny,1,10,penny_p001_r06,ok,,True,text,text,False,False,CHARING CROSS,penny_0002,CHARING CROSS,,,,,False,unchanged
+penny,1,11,penny_p001_r01,ok,,True,text,text,False,False,CHARING CROSS,penny_0002,CHARING CROSS,,,,text: tilted line - 'in the above engraving.' placed after the next line ('It was of an octagonal...'),True,unchanged
+penny,2,1,penny_p002_r06,ok,,True,text,text,False,False,CHARING CROSS,penny_0002,CHARING CROSS,,,,,False,unchanged
+penny,2,2,penny_p002_r02,ok,,True,text,text,False,False,CHARING CROSS,penny_0002,CHARING CROSS,,,,,False,unchanged
+penny,2,3,penny_p002_r08,ok,,True,title,title,True,True,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,2,4,penny_p002_r00,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,2,5,penny_p002_r01,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,2,6,penny_p002_r04,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,2,7,penny_p002_r03,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,2,8,penny_p002_r10,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,2,9,penny_p002_r07,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,2,10,penny_p002_r05,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,3,1,penny_p003_r09,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,text: stray '|' from the column rule,False,unchanged
+penny,3,2,penny_p003_r05,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,3,3,penny_p003_r00,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,3,4,penny_p003_r04,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,3,5,penny_p003_r08,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0003,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,3,6,penny_p003_r13,ok,,True,title,title,True,True,ANTIQUITY OF BEER,penny_0004,ANTIQUITY OF BEER,,,,,False,unchanged
+penny,3,7,penny_p003_r10,ok,,True,text,text,False,False,ANTIQUITY OF BEER,penny_0004,ANTIQUITY OF BEER,,,,,False,unchanged
+penny,3,8,penny_p003_r03,ok,,True,text,text,False,False,ANTIQUITY OF BEER,penny_0004,ANTIQUITY OF BEER,,,,,False,unchanged
+penny,3,9,penny_p003_r14,ok,,True,text,text,False,False,ANTIQUITY OF BEER,penny_0004,ANTIQUITY OF BEER,,,,,False,unchanged
+penny,3,10,penny_p003_r15,ok,,True,text,text,False,False,ANTIQUITY OF BEER,penny_0004,ANTIQUITY OF BEER,,,,,False,unchanged
+penny,3,11,penny_p003_r11,ok,,True,text,text,False,False,ANTIQUITY OF BEER,penny_0004,ANTIQUITY OF BEER,,,,,False,unchanged
+penny,3,12,penny_p003_r02,ok,,True,text,text,False,False,ANTIQUITY OF BEER,penny_0004,ANTIQUITY OF BEER,,,Vegetable Substances used for Food.,"text: ends with the article's source '— Vegetable Substances used for Food.' (a byline-like attribution, not a title or new article); not recorded in the attribution column because 'used' isn't capitalised. Box is in the right article.",False,unchanged
+penny,3,13,penny_p003_r12,ok,,True,title,title,True,True,FAIR PLAY,penny_0005,FAIR PLAY,,,,,False,unchanged
+penny,3,14,penny_p003_r01,ok,,True,text,text,False,False,FAIR PLAY,penny_0005,FAIR PLAY,,,,,False,unchanged
+penny,3,15,penny_p003_r07,ok,,True,text,text,True,True,Changes of Manners,penny_0006,Changes of Manners,,,,,False,unchanged
+penny,3,16,penny_p003_r06,ok,,True,text,text,True,True,Animal Sagacity,penny_0007,Animal Sagacity,,,,,False,unchanged
+penny,4,1,penny_p004_r08,ok,,True,title,title,True,True,THE ZOOLOGICAL GARDENS,penny_0008,THE ZOOLOGICAL GARDENS,,,,,False,unchanged
+penny,4,2,penny_p004_r01,ok,,True,text,text,False,False,THE ZOOLOGICAL GARDENS,penny_0008,THE ZOOLOGICAL GARDENS,,,,,False,unchanged
+penny,4,3,penny_p004_r00,ok,,True,text,text,False,False,THE ZOOLOGICAL GARDENS,penny_0008,THE ZOOLOGICAL GARDENS,,,,,False,unchanged
+penny,4,4,penny_p004_r10,ok,,True,figure,figure,False,False,THE ZOOLOGICAL GARDENS,penny_0008,THE ZOOLOGICAL GARDENS,,,,,False,unchanged
+penny,4,5,penny_p004_r12,ok,,True,caption,caption,False,False,THE ZOOLOGICAL GARDENS,penny_0008,THE ZOOLOGICAL GARDENS,,,,,False,unchanged
+penny,4,6,penny_p004_r02,ok,,True,text,text,False,False,THE ZOOLOGICAL GARDENS,penny_0008,THE ZOOLOGICAL GARDENS,,,,,False,unchanged
+penny,4,7,penny_p004_r03,ok,,True,text,text,False,False,THE ZOOLOGICAL GARDENS,penny_0008,THE ZOOLOGICAL GARDENS,,,,,False,unchanged
+penny,4,8,penny_p004_r04,ok,,True,text,text,False,False,THE ZOOLOGICAL GARDENS,penny_0008,THE ZOOLOGICAL GARDENS,,,,,False,unchanged
+penny,4,9,penny_p004_r06,ok,,True,figure,figure,False,False,THE ZOOLOGICAL GARDENS,penny_0008,THE ZOOLOGICAL GARDENS,,,,,False,unchanged
+penny,4,10,penny_p004_r15,ok,,True,title,title,True,True,THE WEEK,penny_0009,THE WEEK,The Week,,,"series: recurring feature 'The Week' — should get series = 'The Week' (plan B); not counted, pipeline doesn't assign series yet",False,unchanged
+penny,4,11,penny_p004_r05,ok,,True,text,text,False,False,THE WEEK,penny_0009,THE WEEK,The Week,,,,False,unchanged
+penny,5,1,penny_p005_r03,ok,,True,text,text,False,False,THE WEEK,penny_0009,THE WEEK,The Week,,,,False,unchanged
+penny,5,2,penny_p005_r01,ok,,True,text,text,False,False,THE WEEK,penny_0009,THE WEEK,The Week,,,,False,unchanged
+penny,5,3,penny_p005_r00,ok,,True,text,text,False,False,THE WEEK,penny_0009,THE WEEK,The Week,,,,False,unchanged
+penny,5,4,penny_p005_r07,ok,,True,text,text,False,False,THE WEEK,penny_0009,THE WEEK,The Week,,,,False,unchanged
+penny,5,5,penny_p005_r05,ok,,True,text,text,False,False,THE WEEK,penny_0009,THE WEEK,The Week,,,,False,unchanged
+penny,5,6,penny_p005_r04,ok,,True,text,text,False,False,THE WEEK,penny_0009,THE WEEK,The Week,,,,False,unchanged
+penny,5,7,penny_p005_r09,ok,,True,title,title,True,True,EXCELLENCE NOT LIMITED BY STATION,penny_0010,EXCELLENCE NOT LIMITED BY STATION,,,,,False,unchanged
+penny,5,8,penny_p005_r06,ok,,True,text,text,False,False,EXCELLENCE NOT LIMITED BY STATION,penny_0010,EXCELLENCE NOT LIMITED BY STATION,,,,,False,unchanged
+penny,5,9,penny_p005_r02,ok,,True,text,text,False,False,EXCELLENCE NOT LIMITED BY STATION,penny_0010,EXCELLENCE NOT LIMITED BY STATION,,,,,False,unchanged
+penny,6,1,penny_p006_r02,ok,,True,text,text,False,False,EXCELLENCE NOT LIMITED BY STATION,penny_0010,EXCELLENCE NOT LIMITED BY STATION,,,,,False,unchanged
+penny,6,2,penny_p006_r13,ok,,True,title,title,True,True,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,3,penny_p006_r17,error,role,True,title,front_matter,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,role: front matter (source line '[From Crabbe's Parish Register.]') boxed as a title and joined to it,True,changed
+penny,6,4,penny_p006_r01,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,5,penny_p006_r00,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,6,penny_p006_r06,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,7,penny_p006_r09,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,8,penny_p006_r03,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,9,penny_p006_r07,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,10,penny_p006_r05,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,11,penny_p006_r08,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,12,penny_p006_r12,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,13,penny_p006_r10,ok,,True,text,text,False,False,ISAAC ASHFORD,penny_0011,ISAAC ASHFORD,,,,,False,unchanged
+penny,6,14,penny_p006_r11,ok,,True,title,title,True,True,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,6,15,penny_p006_r04,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,1,penny_p007_r11,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,2,penny_p007_r28,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,3,penny_p007_r26,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,4,penny_p007_r23,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,5,penny_p007_r20,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,6,penny_p007_r10,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,7,penny_p007_r09,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,8,penny_p007_r13,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,9,penny_p007_r12,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,10,penny_p007_r04,ok,,True,text,text,False,False,A QUAINT SERMON,penny_0012,A QUAINT SERMON,,,,,False,unchanged
+penny,7,11,penny_p007_r15,ok,,True,title,title,True,True,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,12,penny_p007_r06,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,13,penny_p007_r19,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,14,penny_p007_r17,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,15,penny_p007_r18,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,16,penny_p007_r14,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,17,penny_p007_r08,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,18,penny_p007_r27,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,text: table (population by occupation) - OCR text may have problems with the table layout and the order of the numbers,False,unchanged
+penny,7,19,penny_p007_r05,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,20,penny_p007_r01,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,21,penny_p007_r07,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,22,penny_p007_r02,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,23,penny_p007_r32,ok,,True,text,table,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,renamed
+penny,7,24,penny_p007_r03,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,7,25,penny_p007_r00,ok,,True,text,text,False,False,DESCRIPTION OF POLAND,penny_0013,DESCRIPTION OF POLAND,,,,,False,unchanged
+penny,8,1,penny_p008_r03,ok,,True,text,text,True,True,Power of Steam,penny_0014,Power of Steam,,,From Webster's Lectures.,"text: ends with attribution 'From Webster's Lectures.' not stored as attribution. (No printed page number on this page, so none found is correct.)",True,unchanged
+penny,8,2,penny_p008_r01,ok,,True,text,text,True,True,A Popular Error,penny_0015,A Popular Error,,,,,False,unchanged
+penny,8,3,penny_p008_r02,error,merge,True,text,text,False,False,A Popular Error,penny_0015,A Popular Error,,,,merge: separate one-paragraph item 'Instruction and Amusement' (no head punctuation: heading words run straight into the sentence),True,unchanged
+penny,8,4,penny_p008_r15,error,merge,True,text,text,False,True,A Popular Error,penny_0016,The Secret of great Workers,,,,merge: separate item 'The Secret of great Workers.—' (run-in head with a lowercase word),False,fixed
+penny,8,5,penny_p008_r00,error,merge,True,text,text,False,False,A Popular Error,penny_0016,The Secret of great Workers,,,,merge: separate item 'Devotion of a great Mind to its Duties.' (run-in head with lowercase words),True,unchanged
+penny,8,6,penny_p008_r08,error,merge,True,text,text,False,True,A Popular Error,penny_0017,,,,,"merge: separate item on intellectual condensation, no head; ends with attribution 'Colton.' (no dash)",True,fixed
+penny,8,7,penny_p008_r07,error,merge,True,text,text,False,True,A Popular Error,penny_0018,,,,,"merge: separate one-paragraph item (Hannibal portrait anecdote), no head",False,fixed
+penny,8,8,penny_p008_r11,error,merge,True,text,text,False,True,A Popular Error,penny_0019,,,,,"merge: separate one-paragraph item (petty sovereign), no head",False,fixed
+penny,8,9,penny_p008_r10,error,merge,True,text,text,False,True,A Popular Error,penny_0020,,,,,"merge: separate one-paragraph item (air-balloon), no head",False,fixed
+penny,8,10,penny_p008_r12,error,merge,True,text,text,False,True,A Popular Error,penny_0021,,,,,"merge: separate one-paragraph item (Chinese ingenuity), no head",False,fixed
+penny,8,11,penny_p008_r09,error,merge,True,text,text,False,False,A Popular Error,penny_0021,,,,,"merge: separate one-paragraph item (Michael Angelo anecdote), no head or rule at all; first box of the right column",False,unchanged
+penny,8,12,penny_p008_r14,ok,,True,title,title,True,True,A POSTSCRIPT TO OUR FIRST READERS,penny_0022,A POSTSCRIPT TO OUR FIRST READERS,,,,,False,unchanged
+penny,8,13,penny_p008_r04,ok,,True,text,text,False,False,A POSTSCRIPT TO OUR FIRST READERS,penny_0022,A POSTSCRIPT TO OUR FIRST READERS,,,,,False,unchanged
+penny,8,14,penny_p008_r06,ok,,True,text,text,False,False,A POSTSCRIPT TO OUR FIRST READERS,penny_0022,A POSTSCRIPT TO OUR FIRST READERS,,,,,False,unchanged
+penny,8,15,penny_p008_r05,ok,,True,text,text,False,False,A POSTSCRIPT TO OUR FIRST READERS,penny_0022,A POSTSCRIPT TO OUR FIRST READERS,,,,,False,unchanged
+penny,8,16,penny_p008_r13,ok,,True,text,text,False,False,A POSTSCRIPT TO OUR FIRST READERS,penny_0022,A POSTSCRIPT TO OUR FIRST READERS,,,,,False,unchanged
+penny,9,,penny_p009_r08,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,9,,penny_p009_r18,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,9,,penny_p009_r11,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,9,,penny_p009_r20,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,9,,penny_p009_r12,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,9,1,penny_p009_r14,error,role,True,figure,figure,True,True,POMPEII,penny_0023,POMPEII,,,,"role: caption '[Restored View of Pompeii.]' is included in YOLO's figure box (with the title 'POMPEII.'), so it isn't recorded as a caption, unlike boxes 8-9; the article title is taken from it correctly",True,unchanged
+penny,9,2,penny_p009_r10,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,9,3,penny_p009_r03,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,9,4,penny_p009_r00,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,9,5,penny_p009_r04,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,9,6,penny_p009_r05,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,9,7,penny_p009_r02,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,9,8,penny_p009_r07,ok,,True,figure,figure,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,9,9,penny_p009_r09,ok,,True,caption,caption,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,9,10,penny_p009_r01,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,9,11,penny_p009_r06,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,text: stray 'C' at the end (printer's signature at the foot of the page),False,unchanged
+penny,10,1,penny_p010_r10,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,10,2,penny_p010_r06,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,,False,unchanged
+penny,10,3,penny_p010_r05,ok,,True,text,text,False,False,POMPEII,penny_0023,POMPEII,,,,text: author's initials 'C. M.' (signing off the Pompeii article) mixed into the last line: 'not im- C. M. probable'; attribution not stored,False,unchanged
+penny,10,4,penny_p010_r12,ok,,True,title,title,True,True,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,10,5,penny_p010_r16,error,role,True,text,front_matter,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,role: '[Concluded from our last.]' read as article text; should be part of the title / a subtitle (title_note). Article continues issue 1's Van Diemen's Land (not linked yet),True,changed
+penny,10,6,penny_p010_r04,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,10,7,penny_p010_r00,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,10,8,penny_p010_r02,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,10,9,penny_p010_r08,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,10,10,penny_p010_r01,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,10,11,penny_p010_r03,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,10,12,penny_p010_r09,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,10,13,penny_p010_r100,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,"text: paragraph YOLO missed, recovered from Document AI's text (unboxed_ocr); visible gaps between 12/13 and 13/14 on the image but the boundary words ('iron-stone is', 'extremely venomous') are captured",True,unchanged
+penny,10,14,penny_p010_r07,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,11,1,penny_p011_r02,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,11,2,penny_p011_r03,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,11,3,penny_p011_r06,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,11,4,penny_p011_r00,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,11,5,penny_p011_r01,ok,,True,text,text,False,False,VAN DIEMEN'S LAND,penny_0024,VAN DIEMEN'S LAND,,,,,False,unchanged
+penny,11,6,penny_p011_r08,ok,,True,title,title,True,True,LOST CAMEL,penny_0025,LOST CAMEL,,,,,False,unchanged
+penny,11,7,penny_p011_r05,ok,,True,text,text,False,False,LOST CAMEL,penny_0025,LOST CAMEL,,,,,False,unchanged
+penny,11,8,penny_p011_r04,error,merge,True,text,text,False,True,LOST CAMEL,penny_0026,Science preceding Art,,,,merge: separate article 'Science preceding Art' (boxes 8-9) starts here; run-in head missed because 'preceding' is lowercase. Box 7 alone is 'Lost Camel',True,fixed
+penny,11,9,penny_p011_r07,ok,,True,text,text,False,False,LOST CAMEL,penny_0026,Science preceding Art,,,,,False,unchanged
+penny,12,1,penny_p012_r14,error,role,True,title,series_heading,True,True,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,"role: 'BRITISH ANIMALS.' is a series heading (recurring feature: Dormouse, Swallow, later the Mole), not part of the Dormouse title. Convention (plan B): separate rows per animal, each with series = 'British Animals'; the Swallow (box 8) is correctly its own row but isn't linked to the series",True,changed
+penny,12,2,penny_p012_r07,ok,,True,figure,figure,False,False,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,,False,unchanged
+penny,12,3,penny_p012_r11,ok,,True,title,title,False,False,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,,False,unchanged
+penny,12,4,penny_p012_r00,ok,,True,text,text,False,False,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,,False,unchanged
+penny,12,5,penny_p012_r01,ok,,True,text,text,False,False,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,,False,unchanged
+penny,12,6,penny_p012_r02,ok,,True,text,text,False,False,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,,False,unchanged
+penny,12,7,penny_p012_r04,ok,,True,text,text,False,False,BRITISH ANIMALS. THE DORMOUSE,penny_0027,THE DORMOUSE,British Animals,,,,False,unchanged
+penny,12,8,penny_p012_r09,ok,,True,title,title,True,True,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
+penny,12,9,penny_p012_r08,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
+penny,12,10,penny_p012_r06,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
+penny,12,11,penny_p012_r03,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
+penny,12,12,penny_p012_r05,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
+penny,13,1,penny_p013_r12,ok,,True,text,text,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
+penny,13,2,penny_p013_r06,ok,,True,figure,figure,False,False,THE SWALLOW,penny_0028,THE SWALLOW,British Animals,,,,False,unchanged
+penny,13,3,penny_p013_r16,ok,,True,title,title,True,True,THE WEEK,penny_0029,THE WEEK,The Week,,,"series: recurring feature 'The Week' — should get series = 'The Week' (plan B); not counted, pipeline doesn't assign series yet",False,unchanged
+penny,13,4,penny_p013_r05,ok,,True,text,text,False,False,THE WEEK,penny_0029,THE WEEK,The Week,,,,False,unchanged
+penny,13,5,penny_p013_r00,ok,,True,text,text,False,False,THE WEEK,penny_0029,THE WEEK,The Week,,,,False,unchanged
+penny,13,6,penny_p013_r04,ok,,True,text,text,False,False,THE WEEK,penny_0029,THE WEEK,The Week,,,,False,unchanged
+penny,13,7,penny_p013_r02,ok,,True,text,text,False,False,THE WEEK,penny_0029,THE WEEK,The Week,,,,False,unchanged
+penny,13,8,penny_p013_r07,ok,,True,title,title,True,True,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,13,9,penny_p013_r03,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,13,10,penny_p013_r01,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,14,1,penny_p014_r04,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,14,2,penny_p014_r05,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,14,3,penny_p014_r00,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,14,4,penny_p014_r03,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,14,5,penny_p014_r06,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,14,6,penny_p014_r01,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,14,7,penny_p014_r02,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,14,8,penny_p014_r07,ok,,True,text,text,False,False,THE BRITISH MUSEUM,penny_0030,THE BRITISH MUSEUM,,,,,False,unchanged
+penny,15,1,penny_p015_r12,ok,,True,title,title,True,True,POESIE,penny_0031,POESIE,,,,,False,unchanged
+penny,15,2,penny_p015_r05,error,role,True,text,text,False,False,POESIE,penny_0031,POESIE,,"[GEORGE WITHER, BORN 1588, DIED 1677.]",,"role: front matter '[GEORGE WITHER, BORN 1588, DIED 1677.]' read as article text (box also holds the poem)",True,changed
+penny,15,3,penny_p015_r00,ok,,True,text,text,False,False,POESIE,penny_0031,POESIE,,,,,False,unchanged
+penny,15,4,penny_p015_r03,ok,,True,text,text,False,False,POESIE,penny_0031,POESIE,,,,,False,unchanged
+penny,15,5,penny_p015_r10,error,split,True,text,text,True,False,TO A DAISY,penny_0031,POESIE,,,,"split: 'TO A DAISY' (Wordsworth) is a poem quoted inside 'Poesie' (introduced by box 4 '...by a writer of our own day:—'), not a separate article. Useful later: the article holds two poems (Wither's, Wordsworth's) — could be recorded as an embedded piece / subsection. text: 'WORDSWORTH.' attribution mixed into the last lines",True,fixed
+penny,15,6,penny_p015_r07,ok,,True,title,title,True,True,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,15,7,penny_p015_r02,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,15,8,penny_p015_r06,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,15,9,penny_p015_r01,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,15,10,penny_p015_r08,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,16,1,penny_p016_r06,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,16,2,penny_p016_r01,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,16,3,penny_p016_r00,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,16,4,penny_p016_r02,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,16,5,penny_p016_r05,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,16,6,penny_p016_r08,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,16,7,penny_p016_r04,ok,,True,text,text,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,False,unchanged
+penny,16,8,penny_p016_r03,error,merge,True,text,text,False,True,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0033,,,,,"merge: separate one-paragraph article ('However small may be a man's income...'), no head. Boxes 1-7 are 'On the Choice of a Labouring Man's Dwelling'",True,fixed
+penny,16,9,penny_p016_r13,error,merge,True,text,text,False,True,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0034,,,,,"merge: separate one-paragraph article (the pope / calendar anecdote), no head",False,fixed
+penny,16,10,penny_p016_r07,error,merge,True,text,text,False,True,ON THE CHOICE OF A LABOURING MAN'S DWELLING,penny_0035,,,,,"merge: separate one-paragraph article (Sir George Staunton in India), no head",False,fixed
+penny,16,11,penny_p016_r14,error,role,True,figure,imprint,False,False,ON THE CHOICE OF A LABOURING MAN'S DWELLING,,,,,,"role: end-of-issue publisher's imprint ('LONDON:—CHARLES KNIGHT, PALL-MALL EAST... Printed by WILLIAM CLOWES') labelled figure by YOLO and attached to the article; should be imprint (set aside, like abandon)",False,changed
+penny,17,,penny_p017_r06,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,17,,penny_p017_r13,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,17,,penny_p017_r17,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,17,,penny_p017_r18,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+penny,17,1,penny_p017_r14,ok,,True,title,title,True,True,SOMERS ET-HOUSE,penny_0036,SOMERS ET-HOUSE,,,,"text: title OCR 'SOMERS ET-HOUSE'. Issue number 3 recorded correctly, but from unboxed text: YOLO drew no box around the masthead '3.]'",True,unchanged
+penny,17,2,penny_p017_r05,ok,,True,figure,figure,False,False,SOMERS ET-HOUSE,penny_0036,SOMERS ET-HOUSE,,,,,False,unchanged
+penny,17,3,penny_p017_r07,ok,,True,caption,caption,False,False,SOMERS ET-HOUSE,penny_0036,SOMERS ET-HOUSE,,,,,False,unchanged
+penny,17,4,penny_p017_r03,ok,,True,text,text,False,False,SOMERS ET-HOUSE,penny_0036,SOMERS ET-HOUSE,,,,,False,unchanged
+penny,17,5,penny_p017_r00,ok,,True,text,text,False,False,SOMERS ET-HOUSE,penny_0036,SOMERS ET-HOUSE,,,,,False,unchanged
+penny,17,6,penny_p017_r01,ok,,True,text,text,False,False,SOMERS ET-HOUSE,penny_0036,SOMERS ET-HOUSE,,,,,False,unchanged
+penny,17,7,penny_p017_r09,ok,,True,text,text,False,False,SOMERS ET-HOUSE,penny_0036,SOMERS ET-HOUSE,,,,text: printer's mark 'VOL. I.' at the end,False,unchanged
+penny,17,8,penny_p017_r04,ok,,True,text,text,False,False,SOMERS ET-HOUSE,penny_0036,SOMERS ET-HOUSE,,,,,False,unchanged
+penny,17,9,penny_p017_r08,ok,,True,title,title,True,True,EMIGRATION TO THE NORTH AMERICAN COLONIES,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,17,10,penny_p017_r02,ok,,True,text,text,False,False,EMIGRATION TO THE NORTH AMERICAN COLONIES,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,17,,penny_p017_r10,error,role,True,furniture,back_matter,False,False,,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,"role: asterisked footnote giving the source of 'Emigration to the North American Colonies' (box 9-10), valuable source/byline information; YOLO labelled it abandon so it is excluded as furniture. Should be a footnote attached to that article (new role: footnote). Row added during evaluation (furniture boxes aren't in the template).",False,changed
+penny,18,1,penny_p018_r02,ok,,True,text,text,False,False,EMIGRATION TO THE NORTH AMERICAN COLONIES,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,18,2,penny_p018_r01,ok,,True,text,text,False,False,EMIGRATION TO THE NORTH AMERICAN COLONIES,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,18,3,penny_p018_r08,ok,,True,text,text,False,False,EMIGRATION TO THE NORTH AMERICAN COLONIES,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,18,4,penny_p018_r11,ok,,True,text,text,False,False,EMIGRATION TO THE NORTH AMERICAN COLONIES,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,18,5,penny_p018_r20,error,split,True,text,text,True,False,Under Seven,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,split: false run-in head 'Under Seven.' is the header row of the passage-price table introduced by box 4 ('...stated to be as under:—'); boxes 5-11 (table and following text) are still 'Emigration to the North American Colonies' (article 28). text: table numbers jumbled,True,fixed
+penny,18,6,penny_p018_r18,ok,,True,text,table,False,False,Under Seven,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,renamed
+penny,18,7,penny_p018_r04,ok,,True,text,text,False,False,Under Seven,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,18,8,penny_p018_r03,ok,,True,text,text,False,False,Under Seven,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,18,9,penny_p018_r07,ok,,True,text,text,False,False,Under Seven,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,18,10,penny_p018_r05,ok,,True,text,text,False,False,Under Seven,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,18,11,penny_p018_r00,ok,,True,text,text,False,False,Under Seven,penny_0037,EMIGRATION TO THE NORTH AMERICAN COLONIES,,,,,False,unchanged
+penny,18,12,penny_p018_r09,ok,,True,title,title,True,True,THE SEASONS OF THE ANTIPODES,penny_0038,THE SEASONS OF THE ANTIPODES,,,,,False,unchanged
+penny,18,13,penny_p018_r06,ok,,True,text,text,False,False,THE SEASONS OF THE ANTIPODES,penny_0038,THE SEASONS OF THE ANTIPODES,,,,,False,unchanged
+penny,19,1,penny_p019_r07,ok,,True,text,text,False,False,THE SEASONS OF THE ANTIPODES,penny_0038,THE SEASONS OF THE ANTIPODES,,,,,False,unchanged
+penny,19,2,penny_p019_r15,ok,,True,title,title,True,True,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,penny_0039,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,,,,,False,unchanged
+penny,19,3,penny_p019_r01,ok,,True,text,text,False,False,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,penny_0039,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,,,,,False,unchanged
+penny,19,4,penny_p019_r04,ok,,True,text,text,False,False,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,penny_0039,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,,,,,False,unchanged
+penny,19,5,penny_p019_r25,ok,,True,text,text,False,False,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,penny_0039,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,,,,,False,unchanged
+penny,19,6,penny_p019_r03,ok,,True,text,text,False,False,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,penny_0039,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,,,,,False,unchanged
+penny,19,7,penny_p019_r05,ok,,True,text,text,False,False,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,penny_0039,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,,,,,False,unchanged
+penny,19,8,penny_p019_r17,ok,,True,title,title,True,True,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,9,penny_p019_r21,error,role,True,text,front_matter,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,"role: front matter (source line '[From Locke's Miscellaneous Papers, published in his Life by Lord King.]') read as article text",True,changed
+penny,19,10,penny_p019_r16,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,11,penny_p019_r10,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,12,penny_p019_r08,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,13,penny_p019_r09,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,14,penny_p019_r13,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,15,penny_p019_r14,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,16,penny_p019_r11,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,17,penny_p019_r06,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,18,penny_p019_r12,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,19,penny_p019_r00,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,19,20,penny_p019_r02,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,text: footnote '* As opposed to intellectual.' (for 'sensual*' in box 14) at the end of the box,True,unchanged
+penny,20,1,penny_p020_r02,ok,,True,text,text,False,False,THUS I THINK,penny_0040,THUS I THINK,,,,,False,unchanged
+penny,20,2,penny_p020_r01,error,merge,True,text,text,False,True,THUS I THINK,penny_0041,,,,,"merge: separate one-paragraph article ('A regulated habit of looking beyond our immediate...'), no title or rule; not part of 'Thus I Think'",False,fixed
+penny,20,3,penny_p020_r04,ok,,True,text,text,True,True,Advantages of the Diffusion of Knowledge,penny_0042,Advantages of the Diffusion of Knowledge,,,Everett's Essay.,text: ends with source 'Everett's Essay.' not stored as attribution,True,unchanged
+penny,20,4,penny_p020_r07,error,role,True,figure,figure,True,True,THE MOLE,penny_0043,THE MOLE,British Animals,,,"role: series heading 'BRITISH ANIMALS.' is inside YOLO's figure box; the Mole should get series = 'British Animals' (plan B), as with the Dormouse and Swallow on p12",True,changed
+penny,20,5,penny_p020_r12,ok,,True,title,title,False,False,THE MOLE,penny_0043,THE MOLE,British Animals,,,,False,unchanged
+penny,20,6,penny_p020_r03,ok,,True,text,text,False,False,THE MOLE,penny_0043,THE MOLE,British Animals,,,,False,unchanged
+penny,20,7,penny_p020_r05,ok,,True,text,text,False,False,THE MOLE,penny_0043,THE MOLE,British Animals,,,,False,unchanged
+penny,20,8,penny_p020_r10,ok,,True,title,title,True,True,THE WEEK,penny_0044,THE WEEK,The Week,,,"series: recurring feature 'The Week' — should get series = 'The Week' (plan B); not counted, pipeline doesn't assign series yet",False,unchanged
+penny,20,9,penny_p020_r00,ok,,True,text,text,False,False,THE WEEK,penny_0044,THE WEEK,The Week,,,,False,unchanged
+penny,20,10,penny_p020_r09,ok,,True,figure,figure,False,False,THE WEEK,penny_0044,THE WEEK,The Week,,,,False,unchanged
+penny,20,11,penny_p020_r17,ok,,True,caption,caption,False,False,THE WEEK,penny_0044,THE WEEK,The Week,,,,False,unchanged
+penny,20,12,penny_p020_r06,ok,,True,text,text,False,False,THE WEEK,penny_0044,THE WEEK,The Week,,,,False,unchanged
+penny,20,13,penny_p020_r08,ok,,True,text,text,False,False,THE WEEK,penny_0044,THE WEEK,The Week,,,,False,unchanged
+penny,21,1,penny_p021_r05,ok,,True,text,text,False,False,THE WEEK,penny_0044,THE WEEK,The Week,,,,False,unchanged
+penny,21,2,penny_p021_r02,ok,,True,text,text,False,False,THE WEEK,penny_0044,THE WEEK,The Week,,,,False,unchanged
+penny,21,3,penny_p021_r08,ok,,True,title,title,True,True,"THE LIBRARY. ""My Library",penny_0045,THE LIBRARY,,,,,False,unchanged
+penny,21,4,penny_p021_r16,error,role,True,title,front_matter,False,False,"THE LIBRARY. ""My Library",penny_0045,THE LIBRARY,,,,"role: first line of the Shakespeare epigraph ('""My Library / Was Dukedom large enough."" —Prospero, in the Tempest') boxed by YOLO as a title and joined to 'THE LIBRARY.'; the epigraph is split across boxes 4 and 5. Article text unaffected, but wrong if the title's extra part is used as a subtitle",False,changed
+penny,21,5,penny_p021_r07,ok,,True,text,text,False,False,"THE LIBRARY. ""My Library",penny_0045,THE LIBRARY,,,,,False,unchanged
+penny,21,6,penny_p021_r01,ok,,True,text,text,False,False,"THE LIBRARY. ""My Library",penny_0045,THE LIBRARY,,,,,False,unchanged
+penny,21,7,penny_p021_r04,ok,,True,text,text,False,False,"THE LIBRARY. ""My Library",penny_0045,THE LIBRARY,,,,,False,unchanged
+penny,21,8,penny_p021_r03,ok,,True,text,text,False,False,"THE LIBRARY. ""My Library",penny_0045,THE LIBRARY,,,,,False,unchanged
+penny,21,9,penny_p021_r06,ok,,True,text,text,False,False,"THE LIBRARY. ""My Library",penny_0045,THE LIBRARY,,,,,False,unchanged
+penny,21,10,penny_p021_r00,ok,,True,text,text,False,False,"THE LIBRARY. ""My Library",penny_0045,THE LIBRARY,,,,,False,unchanged
+penny,22,1,penny_p022_r05,excluded,,True,text,duplicate_page,False,False,"THE LIBRARY. ""My Library",,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,2,penny_p022_r01,excluded,,True,text,duplicate_page,False,False,"THE LIBRARY. ""My Library",,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,3,penny_p022_r02,excluded,,True,text,duplicate_page,True,False,Advantages of the Diffusion of Knowledge,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,4,penny_p022_r06,excluded,,True,figure,duplicate_page,True,False,THE MOLE,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,5,penny_p022_r13,excluded,,True,title,duplicate_page,False,False,THE MOLE,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,6,penny_p022_r04,excluded,,True,text,duplicate_page,False,False,THE MOLE,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,7,penny_p022_r03,excluded,,True,text,duplicate_page,False,False,THE MOLE,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,8,penny_p022_r09,excluded,,True,title,duplicate_page,True,False,THE WEEK,,,,,,"duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of) | series: recurring feature 'The Week' — should get series = 'The Week' (plan B); not counted, pipeline doesn't assign series yet",False,excluded
+penny,22,9,penny_p022_r00,excluded,,True,text,duplicate_page,False,False,THE WEEK,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,10,penny_p022_r08,excluded,,True,figure,duplicate_page,False,False,THE WEEK,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,11,penny_p022_r17,excluded,,True,caption,duplicate_page,False,False,THE WEEK,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,12,penny_p022_r14,excluded,,True,text,duplicate_page,False,False,THE WEEK,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,22,13,penny_p022_r07,excluded,,True,text,duplicate_page,False,False,THE WEEK,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,23,1,penny_p023_r05,excluded,,True,text,duplicate_page,False,False,THE WEEK,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,23,2,penny_p023_r01,excluded,,True,text,duplicate_page,False,False,THE WEEK,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,23,3,penny_p023_r08,excluded,,True,title,duplicate_page,True,False,THE LIBRARY,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,23,4,penny_p023_r07,excluded,,True,text,duplicate_page,False,False,THE LIBRARY,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,23,5,penny_p023_r02,excluded,,True,text,duplicate_page,False,False,THE LIBRARY,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,23,6,penny_p023_r04,excluded,,True,text,duplicate_page,False,False,THE LIBRARY,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,23,7,penny_p023_r03,excluded,,True,text,duplicate_page,False,False,THE LIBRARY,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,23,8,penny_p023_r06,excluded,,True,text,duplicate_page,False,False,THE LIBRARY,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,23,9,penny_p023_r00,excluded,,True,text,duplicate_page,False,False,THE LIBRARY,,,,,,duplicate scan page: PDF pages 22-23 repeat printed pages 20-21 (also in the HathiTrust PDF); not evaluated. Pipeline fix planned: detect duplicate pages and skip them (duplicate_of),False,excluded
+penny,24,1,penny_p024_r05,ok,,True,text,text,False,False,THE LIBRARY,penny_0045,THE LIBRARY,,,,"duplicates: continues 'The Library' from printed p21 (article 36), but joined to article 40 (the duplicate pages' copy) because PDF pp. 22-23 sit in between; correct once duplicate pages are skipped. Article numbers after the duplicates will shift when they're removed. Not counted",False,unchanged
+penny,24,2,penny_p024_r00,ok,,True,text,text,False,False,THE LIBRARY,penny_0045,THE LIBRARY,,,,,False,unchanged
+penny,24,3,penny_p024_r08,ok,,True,title,title,True,True,THE WOODMAN'S MEMORIAL,penny_0046,THE WOODMAN'S MEMORIAL,,,,,False,unchanged
+penny,24,4,penny_p024_r06,error,role,True,text,text,False,False,THE WOODMAN'S MEMORIAL,penny_0046,THE WOODMAN'S MEMORIAL,,[From the 'Plain Englishman; published in 1821-2-3.],,role: front matter (source line '[From the 'Plain Englishman; published in 1821-2-3.]') read as article text. text: footnote '* Tired.' mixed into the box,True,changed
+penny,24,5,penny_p024_r07,ok,,True,text,text,False,False,THE WOODMAN'S MEMORIAL,penny_0046,THE WOODMAN'S MEMORIAL,,,,,False,unchanged
+penny,24,6,penny_p024_r02,ok,,True,text,text,False,False,THE WOODMAN'S MEMORIAL,penny_0046,THE WOODMAN'S MEMORIAL,,,,,False,unchanged
+penny,24,7,penny_p024_r04,ok,,True,text,text,False,False,THE WOODMAN'S MEMORIAL,penny_0046,THE WOODMAN'S MEMORIAL,,,,,False,unchanged
+penny,24,8,penny_p024_r01,ok,,True,text,text,False,False,THE WOODMAN'S MEMORIAL,penny_0046,THE WOODMAN'S MEMORIAL,,,,,False,unchanged
+penny,24,9,penny_p024_r03,ok,,True,text,text,False,False,THE WOODMAN'S MEMORIAL,penny_0046,THE WOODMAN'S MEMORIAL,,,,,False,unchanged
+penny,25,1,penny_p025_r04,ok,,True,text,text,False,False,THE WOODMAN'S MEMORIAL,penny_0046,THE WOODMAN'S MEMORIAL,,,,,False,unchanged
+penny,25,2,penny_p025_r06,error,role,True,text,back_matter,False,False,THE WOODMAN'S MEMORIAL,penny_0046,THE WOODMAN'S MEMORIAL,,,,role: back matter (editor's footnote '*We have the Author's permission...' for The Woodman's Memorial) read as article text,False,changed
+penny,25,3,penny_p025_r08,ok,,True,title,title,True,True,PROTECTION OF TRADE,penny_0047,PROTECTION OF TRADE,,,,,False,unchanged
+penny,25,4,penny_p025_r17,error,role,True,title,front_matter,False,False,PROTECTION OF TRADE,penny_0047,PROTECTION OF TRADE,,,,role: front matter (source line '[From a Correspondent.]') boxed as a title and joined to it,True,changed
+penny,25,5,penny_p025_r02,ok,,True,text,text,False,False,PROTECTION OF TRADE,penny_0047,PROTECTION OF TRADE,,,,,False,unchanged
+penny,25,6,penny_p025_r05,ok,,True,text,text,False,False,PROTECTION OF TRADE,penny_0047,PROTECTION OF TRADE,,,,,False,unchanged
+penny,25,7,penny_p025_r07,ok,,True,title,title,True,True,A MAN OVERBOARD,penny_0048,A MAN OVERBOARD,,,,,False,unchanged
+penny,25,8,penny_p025_r13,error,role,True,title,front_matter,False,False,A MAN OVERBOARD,penny_0048,A MAN OVERBOARD,,,,role: front matter (source line '[From Capt. B. Hall's Fragments of Voyages and Travels. Second Series.]') boxed as a title and joined to it,True,changed
+penny,25,9,penny_p025_r01,ok,,True,text,text,False,False,A MAN OVERBOARD,penny_0048,A MAN OVERBOARD,,,,,False,unchanged
+penny,25,10,penny_p025_r00,ok,,True,text,text,False,False,A MAN OVERBOARD,penny_0048,A MAN OVERBOARD,,,,,False,unchanged
+penny,25,11,penny_p025_r03,ok,,True,text,text,False,False,A MAN OVERBOARD,penny_0048,A MAN OVERBOARD,,,,,False,unchanged
+penny,26,1,penny_p026_r02,ok,,True,text,text,False,False,A MAN OVERBOARD,penny_0048,A MAN OVERBOARD,,,,,False,unchanged
+penny,26,2,penny_p026_r00,ok,,True,text,text,False,False,A MAN OVERBOARD,penny_0048,A MAN OVERBOARD,,,,,False,unchanged
+penny,26,3,penny_p026_r21,ok,,True,title,title,True,True,THE FIRMAMENT,penny_0049,THE FIRMAMENT,,,,,False,unchanged
+penny,26,4,penny_p026_r11,error,role,True,text,text,False,False,THE FIRMAMENT,penny_0049,THE FIRMAMENT,,"[WILLIAM HABINGTON, born 1605, died 1654.]",,"role: front matter '[WILLIAM HABINGTON, born 1605, died 1654.]' read as article text (box also holds the poem)",True,changed
+penny,26,5,penny_p026_r12,error,merge,True,text,text,False,True,THE FIRMAMENT,penny_0050,,,,,"merge: separate article (Mr. Scott of Exeter anecdote, boxes 5-6); boxes 3-4 'The Firmament' are a standalone poem",False,fixed
+penny,26,6,penny_p026_r06,ok,,True,text,text,False,False,THE FIRMAMENT,penny_0050,,,,,,False,unchanged
+penny,26,7,penny_p026_r03,ok,,True,text,text,True,True,,penny_0051,,,,,,False,unchanged
+penny,26,8,penny_p026_r07,error,merge,True,text,text,False,True,,penny_0052,,,,,"merge: separate article (Dr. Fowler / Judge Powell ghost story, boxes 8-14; index 'Ghost Story, by Judge Powell, 24'); box 7 alone is the standalone Lord Nelson article",False,fixed
+penny,26,9,penny_p026_r10,ok,,True,text,text,False,False,,penny_0052,,,,,,False,unchanged
+penny,26,10,penny_p026_r09,ok,,True,text,text,False,False,,penny_0052,,,,,,False,unchanged
+penny,26,11,penny_p026_r05,ok,,True,text,text,False,False,,penny_0052,,,,,,False,unchanged
+penny,26,12,penny_p026_r17,ok,,True,text,text,False,False,,penny_0052,,,,,,False,unchanged
+penny,26,13,penny_p026_r01,ok,,True,text,text,False,False,,penny_0052,,,,,,False,unchanged
+penny,26,14,penny_p026_r08,ok,,True,text,text,False,False,,penny_0052,,,,,,False,unchanged
+penny,26,15,penny_p026_r04,ok,,True,text,text,True,True,,penny_0053,,,,Tour of a German Prince.,,False,unchanged
+saturday,1,,saturday_p001_r06,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,1,,saturday_p001_r11,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,1,,saturday_p001_r09,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,1,1,saturday_p001_r05,ok,,True,title,title,True,True,INTRODUCTION,saturday_0001,INTRODUCTION,,,,,False,unchanged
+saturday,1,2,saturday_p001_r02,ok,,True,text,text,False,False,INTRODUCTION,saturday_0001,INTRODUCTION,,,,,False,unchanged
+saturday,1,3,saturday_p001_r00,ok,,True,text,text,False,False,INTRODUCTION,saturday_0001,INTRODUCTION,,,,,False,unchanged
+saturday,1,4,saturday_p001_r01,ok,,True,text,text,False,False,INTRODUCTION,saturday_0001,INTRODUCTION,,,,,False,unchanged
+saturday,1,5,saturday_p001_r08,ok,,True,text,text,False,False,INTRODUCTION,saturday_0001,INTRODUCTION,,,,"text: printer's mark 'VOL. I.' pulled into the end of the box, though YOLO also drew a grey furniture box around it (the words went to the text box)",False,unchanged
+saturday,1,6,saturday_p001_r04,ok,,True,text,text,False,False,INTRODUCTION,saturday_0001,INTRODUCTION,,,,,False,unchanged
+saturday,1,7,saturday_p001_r03,ok,,True,text,text,False,False,INTRODUCTION,saturday_0001,INTRODUCTION,,,,,False,unchanged
+saturday,2,1,saturday_p002_r06,ok,,True,text,text,False,False,INTRODUCTION,saturday_0001,INTRODUCTION,,,,,False,unchanged
+saturday,2,2,saturday_p002_r04,ok,,True,text,text,False,False,INTRODUCTION,saturday_0001,INTRODUCTION,,,,,False,unchanged
+saturday,2,3,saturday_p002_r15,ok,,True,title,title,True,True,ON THE RIGHT USE OF KNOWLEDGE,saturday_0002,ON THE RIGHT USE OF KNOWLEDGE,,,,,False,unchanged
+saturday,2,4,saturday_p002_r07,ok,,True,text,text,False,False,ON THE RIGHT USE OF KNOWLEDGE,saturday_0002,ON THE RIGHT USE OF KNOWLEDGE,,,,,False,unchanged
+saturday,2,5,saturday_p002_r01,ok,,True,text,text,False,False,ON THE RIGHT USE OF KNOWLEDGE,saturday_0002,ON THE RIGHT USE OF KNOWLEDGE,,,,,False,unchanged
+saturday,2,6,saturday_p002_r02,ok,,True,text,text,False,False,ON THE RIGHT USE OF KNOWLEDGE,saturday_0002,ON THE RIGHT USE OF KNOWLEDGE,,,,,False,unchanged
+saturday,2,7,saturday_p002_r03,ok,,True,text,text,False,False,ON THE RIGHT USE OF KNOWLEDGE,saturday_0002,ON THE RIGHT USE OF KNOWLEDGE,,,,,False,unchanged
+saturday,2,8,saturday_p002_r00,ok,,True,text,text,False,False,ON THE RIGHT USE OF KNOWLEDGE,saturday_0002,ON THE RIGHT USE OF KNOWLEDGE,,,,,False,unchanged
+saturday,2,9,saturday_p002_r05,ok,,True,text,text,False,False,ON THE RIGHT USE OF KNOWLEDGE,saturday_0002,ON THE RIGHT USE OF KNOWLEDGE,,,,,False,unchanged
+saturday,2,10,saturday_p002_r08,ok,,True,text,text,False,False,ON THE RIGHT USE OF KNOWLEDGE,saturday_0002,ON THE RIGHT USE OF KNOWLEDGE,,,,,False,unchanged
+saturday,3,1,saturday_p003_r00,ok,,True,text,text,False,False,ON THE RIGHT USE OF KNOWLEDGE,saturday_0002,ON THE RIGHT USE OF KNOWLEDGE,,,,"text: grey junk box over the first line (OCR '1 ❘', set aside as no words); first-line words are all in this box",False,unchanged
+saturday,3,2,saturday_p003_r09,ok,,True,title,title,True,True,ON THE STUDY OF NATURAL HISTORY,saturday_0003,ON THE STUDY OF NATURAL HISTORY,,,,,False,unchanged
+saturday,3,3,saturday_p003_r02,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL HISTORY,saturday_0003,ON THE STUDY OF NATURAL HISTORY,,,,,False,unchanged
+saturday,3,4,saturday_p003_r05,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL HISTORY,saturday_0003,ON THE STUDY OF NATURAL HISTORY,,,,,False,unchanged
+saturday,3,5,saturday_p003_r03,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL HISTORY,saturday_0003,ON THE STUDY OF NATURAL HISTORY,,,,,False,unchanged
+saturday,3,6,saturday_p003_r19,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL HISTORY,saturday_0003,ON THE STUDY OF NATURAL HISTORY,,,,,False,unchanged
+saturday,3,7,saturday_p003_r04,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL HISTORY,saturday_0003,ON THE STUDY OF NATURAL HISTORY,,,Journal of a Naturalist.,back matter inline: ends '—Journal of a Naturalist.' (detected as attribution; to move into back_matter and out of the body text),False,unchanged
+saturday,3,8,saturday_p003_r10,ok,,True,title,title,True,True,TO SOLITUDE,saturday_0004,TO SOLITUDE,,,,"juxtaposition: 'To Solitude' (8-10) and 'Answer' (11-13) are poems in conversation, linked only by the rules above and below; kept as separate rows (fine)",False,unchanged
+saturday,3,9,saturday_p003_r14,ok,,True,byline,front_matter,False,False,TO SOLITUDE,saturday_0004,TO SOLITUDE,,,,front matter: byline correctly separate (front_matter under the new design),False,renamed
+saturday,3,10,saturday_p003_r07,ok,,True,text,text,False,False,TO SOLITUDE,saturday_0004,TO SOLITUDE,,,,,False,unchanged
+saturday,3,11,saturday_p003_r18,ok,,True,title,title,True,True,ANSWER,saturday_0005,ANSWER,,,,,False,unchanged
+saturday,3,12,saturday_p003_r17,ok,,True,byline,front_matter,False,False,ANSWER,saturday_0005,ANSWER,,,,front matter: byline correctly separate (front_matter under the new design),False,renamed
+saturday,3,13,saturday_p003_r06,ok,,True,text,text,False,False,ANSWER,saturday_0005,ANSWER,,,,,False,unchanged
+saturday,3,14,saturday_p003_r01,ok,,True,text,text,True,True,,saturday_0006,,,,MONTAGU'S Dedication.,back matter inline: ends '—MONTAGU'S Dedication.' (detected; to move into back_matter),False,unchanged
+saturday,3,15,saturday_p003_r16,ok,,True,text,text,True,True,,saturday_0007,,,,SOUTHEY,back matter inline: ends '—SOUTHEY' (detected; to move into back_matter),False,unchanged
+saturday,4,1,saturday_p004_r08,error,role,True,figure,figure,True,True,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,"role: article title 'HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA (or Juggernaut.)' is inside YOLO's figure box; should be a title box (the pipeline recovers it from the figure text, so the article title itself is right)",False,unchanged
+saturday,4,2,saturday_p004_r12,ok,,True,caption,caption,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,4,3,saturday_p004_r04,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,4,4,saturday_p004_r00,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,4,5,saturday_p004_r01,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,4,6,saturday_p004_r05,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,4,7,saturday_p004_r02,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,4,8,saturday_p004_r03,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,4,9,saturday_p004_r06,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,5,1,saturday_p005_r03,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,5,2,saturday_p005_r01,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,5,3,saturday_p005_r04,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,5,4,saturday_p005_r02,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,5,5,saturday_p005_r00,ok,,True,text,text,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,,False,unchanged
+saturday,5,6,saturday_p005_r15,ok,,True,end_note,back_matter,False,False,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,saturday_0008,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,,,,back matter: '[To be continued.]' correctly separated (end_note now; back_matter under the new design). Article continues in issue 3 (p17),True,renamed
+saturday,5,7,saturday_p005_r08,ok,,True,title,title,True,True,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,,False,unchanged
+saturday,5,8,saturday_p005_r05,ok,,True,text,text,False,False,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,,False,unchanged
+saturday,5,9,saturday_p005_r06,ok,,True,figure,figure,False,False,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,,False,unchanged
+saturday,5,10,saturday_p005_r10,ok,,True,caption,caption,False,False,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,,False,unchanged
+saturday,5,11,saturday_p005_r07,ok,,True,text,text,False,False,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,,False,unchanged
+saturday,6,1,saturday_p006_r00,ok,,True,text,text,False,False,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,,False,unchanged
+saturday,6,2,saturday_p006_r03,ok,,True,text,text,False,False,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,,False,unchanged
+saturday,6,3,saturday_p006_r02,ok,,True,text,text,False,False,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,"back matter inline, mid-article: '—BURNETT'S Introductory Lecture.' signs off the quoted passage (boxes 1-3); boxes 4-5 continue the same article. Not detected as attribution (OCR 'BUR- NETT'S'), which here correctly kept the article together",False,unchanged
+saturday,6,4,saturday_p006_r04,ok,,True,text,text,False,False,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,,False,unchanged
+saturday,6,5,saturday_p006_r07,ok,,True,text,text,False,False,THE ROCK SAMPHIRE,saturday_0009,THE ROCK SAMPHIRE,,,,,False,unchanged
+saturday,6,6,saturday_p006_r15,ok,,True,title,title,True,True,SINGULAR PROPERTIES OF THE FIGURE 9,saturday_0010,SINGULAR PROPERTIES OF THE FIGURE 9,,,,,False,unchanged
+saturday,6,7,saturday_p006_r05,ok,,True,text,text,False,False,SINGULAR PROPERTIES OF THE FIGURE 9,saturday_0010,SINGULAR PROPERTIES OF THE FIGURE 9,,,,,False,unchanged
+saturday,6,8,saturday_p006_r10,ok,,True,text,text,False,False,SINGULAR PROPERTIES OF THE FIGURE 9,saturday_0010,SINGULAR PROPERTIES OF THE FIGURE 9,,,,,False,unchanged
+saturday,6,9,saturday_p006_r09,ok,,True,text,text,False,False,SINGULAR PROPERTIES OF THE FIGURE 9,saturday_0010,SINGULAR PROPERTIES OF THE FIGURE 9,,,,,False,unchanged
+saturday,6,10,saturday_p006_r06,ok,,True,text,text,False,False,SINGULAR PROPERTIES OF THE FIGURE 9,saturday_0010,SINGULAR PROPERTIES OF THE FIGURE 9,,,,,False,unchanged
+saturday,6,11,saturday_p006_r01,ok,,True,text,text,False,False,SINGULAR PROPERTIES OF THE FIGURE 9,saturday_0010,SINGULAR PROPERTIES OF THE FIGURE 9,,,,,False,unchanged
+saturday,6,12,saturday_p006_r08,ok,,True,text,text,True,True,,saturday_0011,,,,SENECA.,back matter inline: '—SENECA.' (detected; to move into back_matter),True,unchanged
+saturday,6,13,saturday_p006_r14,ok,,True,text,table,True,True,,saturday_0012,,,,,"minor: statistics table (to get the table role); its title 'POPULATION OF ENGLAND AND WALES, GENERAL SUMMARY, 1831.' is inside the text box and could be the item's title; Owen: ok, not counted",True,renamed
+saturday,7,1,saturday_p007_r03,ok,,True,text,text,True,True,,saturday_0013,,,,,,False,unchanged
+saturday,7,2,saturday_p007_r05,ok,,True,text,text,True,True,,saturday_0014,,,,A. M.,back matter inline: '—A. M.' (detected; to move into back_matter),False,unchanged
+saturday,7,3,saturday_p007_r16,ok,,True,title,title,True,True,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,"series: numbered series 'Familiar Remarks on Architecture' (part I) — should get series = 'Familiar Remarks on Architecture' with the part number; not counted, pipeline doesn't assign series yet",False,unchanged
+saturday,7,4,saturday_p007_r04,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,7,5,saturday_p007_r02,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,7,6,saturday_p007_r06,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,7,7,saturday_p007_r01,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,7,8,saturday_p007_r08,ok,,True,figure,figure,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,7,9,saturday_p007_r10,ok,,True,caption,caption,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,7,10,saturday_p007_r00,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,7,11,saturday_p007_r07,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,1,saturday_p008_r05,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,2,saturday_p008_r04,ok,,True,figure,figure,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,3,saturday_p008_r17,ok,,True,caption,caption,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,4,saturday_p008_r08,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,5,saturday_p008_r06,ok,,True,figure,figure,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,6,saturday_p008_r12,ok,,True,caption,caption,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,7,saturday_p008_r01,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,8,saturday_p008_r02,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,9,saturday_p008_r07,ok,,True,figure,figure,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,10,saturday_p008_r10,ok,,True,caption,caption,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,11,saturday_p008_r00,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,12,saturday_p008_r03,ok,,True,text,text,False,False,FAMILIAR REMARKS ON ARCHITECTURE. I,saturday_0015,FAMILIAR REMARKS ON ARCHITECTURE. I,,,,,False,unchanged
+saturday,8,13,saturday_p008_r11,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,8,14,saturday_p008_r19,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,8,15,saturday_p008_r20,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,8,16,saturday_p008_r18,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,8,17,saturday_p008_r23,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,8,18,saturday_p008_r28,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,8,19,saturday_p008_r25,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,8,20,saturday_p008_r27,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,8,21,saturday_p008_r100,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,9,,saturday_p009_r16,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,9,,saturday_p009_r22,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,9,,saturday_p009_r08,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,9,,saturday_p009_r13,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,9,,saturday_p009_r17,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,9,,saturday_p009_r20,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,9,,saturday_p009_r07,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,9,1,saturday_p009_r04,error,role,True,figure,figure,True,True,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,"role: 'BOTANICAL DIVERSIONS' appears to be a series heading (recurring feature, tentative — Owen to confirm with more reading), caught inside YOLO's figure box; the Great Salcey Oak should get series = 'Botanical Diversions'",True,changed
+saturday,9,2,saturday_p009_r11,ok,,True,title,title,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,'THE GREAT SALCEY OAK.' is title-and-caption for the illustration; title is correct,True,unchanged
+saturday,9,3,saturday_p009_r10,ok,,True,caption,caption,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,"uncertain: measurements line ('Circumference at the ground, 46 feet 10 inches...') under the illustration may be better as front matter than caption; not counted",False,unchanged
+saturday,9,4,saturday_p009_r02,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,9,5,saturday_p009_r01,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,9,6,saturday_p009_r00,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,9,7,saturday_p009_r03,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,10,1,saturday_p010_r04,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,10,2,saturday_p010_r00,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,10,3,saturday_p010_r01,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,10,4,saturday_p010_r02,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,10,5,saturday_p010_r08,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,10,6,saturday_p010_r07,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,,,False,unchanged
+saturday,10,7,saturday_p010_r06,ok,,True,text,text,False,False,THE GREAT SALCEY OAK,saturday_0016,THE GREAT SALCEY OAK,Botanical Diversions,,Amanitates Quernéæ.,back matter inline: '—Amanitates Quernéæ.' sources the closing poem (not the whole article) but should still be back matter so it's indexable; not detected as attribution,False,unchanged
+saturday,10,8,saturday_p010_r11,ok,,True,title,title,True,True,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,,,,False,unchanged
+saturday,10,9,saturday_p010_r03,error,role,True,text,text,False,False,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,"[From The Alhambra, by WASHINGTON IRVING.]",,"role: front matter '[From The Alhambra, by WASHINGTON IRVING.]' merged into the first paragraph's box; should be separate front matter",True,changed
+saturday,10,10,saturday_p010_r05,ok,,True,text,text,False,False,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,,,,False,unchanged
+saturday,10,11,saturday_p010_r09,ok,,True,text,text,False,False,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,,,,False,unchanged
+saturday,11,1,saturday_p011_r100,error,role,False,text,,False,False,TRAVELLING IN SPAIN,,,,,,role: junk box with garbled OCR ('10 кат his this rith hat') read as article text; should be set aside (abandon),False,changed
+saturday,11,2,saturday_p011_r02,ok,,True,text,text,False,False,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,,,,False,unchanged
+saturday,11,3,saturday_p011_r01,ok,,True,text,text,False,False,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,,,,False,unchanged
+saturday,11,4,saturday_p011_r00,ok,,True,text,text,False,False,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,,,,False,unchanged
+saturday,11,5,saturday_p011_r07,ok,,True,text,text,False,False,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,,,,False,unchanged
+saturday,11,6,saturday_p011_r04,ok,,True,text,text,False,False,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,,,,False,unchanged
+saturday,11,7,saturday_p011_r03,ok,,True,text,text,False,False,TRAVELLING IN SPAIN,saturday_0017,TRAVELLING IN SPAIN,,,,,False,unchanged
+saturday,11,8,saturday_p011_r09,error,role,True,text,text,True,True,,saturday_0018,,,,,"role: in-line title 'WHAT is true knowledge?' (heading run into the poem's text) not recognised, so the article is untitled; should be its title",True,unchanged
+saturday,11,9,saturday_p011_r13,ok,,True,attribution,back_matter,False,False,,saturday_0018,,,,,back matter: 'D. C.' correctly separate (attribution now; back_matter under the new design),True,renamed
+saturday,11,10,saturday_p011_r06,ok,,True,text,text,True,True,,saturday_0019,,,,JAMES MONTGOMERY.,back matter inline: '—JAMES MONTGOMERY.' (detected; to move into back_matter),False,unchanged
+saturday,11,11,saturday_p011_r05,ok,,True,text,text,True,True,HUMMING BIRDS,saturday_0020,HUMMING BIRDS,,,,,False,unchanged
+saturday,12,1,saturday_p012_r07,error,misattached,True,figure,figure,False,True,HUMMING BIRDS,saturday_0021,WILD SPORTS OF THE EAST,,,,"misattached: full-width illustration (tiger hunt, engraver 'Lee R.S.') at the top of the page belongs to 'Wild Sports of the East' (box 2), but was attached to 'Humming Birds' (previous item) because it precedes the title in reading order",True,changed
+saturday,12,2,saturday_p012_r13,ok,,True,title,title,True,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,changed
+saturday,12,3,saturday_p012_r05,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,12,4,saturday_p012_r00,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,12,5,saturday_p012_r06,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,12,6,saturday_p012_r01,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,12,7,saturday_p012_r02,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,12,8,saturday_p012_r03,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,12,9,saturday_p012_r04,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,12,10,saturday_p012_r09,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,13,1,saturday_p013_r01,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,13,2,saturday_p013_r09,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,13,3,saturday_p013_r06,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,13,4,saturday_p013_r13,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,13,5,saturday_p013_r15,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,13,6,saturday_p013_r08,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,13,7,saturday_p013_r02,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,13,8,saturday_p013_r03,ok,,True,text,text,False,False,WILD SPORTS OF THE EAST,saturday_0021,WILD SPORTS OF THE EAST,,,,,False,unchanged
+saturday,13,9,saturday_p013_r10,ok,,True,title,title,True,True,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,13,10,saturday_p013_r04,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,13,11,saturday_p013_r07,ok,,True,figure,figure,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,13,12,saturday_p013_r12,ok,,True,caption,caption,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,13,13,saturday_p013_r00,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,13,14,saturday_p013_r05,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,1,saturday_p014_r11,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,2,saturday_p014_r17,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,3,saturday_p014_r14,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,4,saturday_p014_r13,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,5,saturday_p014_r19,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,6,saturday_p014_r21,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,7,saturday_p014_r22,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,8,saturday_p014_r25,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,9,saturday_p014_r28,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,10,saturday_p014_r26,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,11,saturday_p014_r32,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,12,saturday_p014_r30,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,13,saturday_p014_r04,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,14,saturday_p014_r03,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,15,saturday_p014_r08,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,16,saturday_p014_r01,ok,,True,text,text,False,False,"SIR ISAAC NEWTON,",saturday_0022,SIR ISAAC NEWTON,,,,,False,unchanged
+saturday,14,17,saturday_p014_r15,ok,,True,title,title,True,True,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,14,18,saturday_p014_r20,error,role,True,text,front_matter,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,role: front matter '[July 15th.]' (feast date under the title) read as article text,True,changed
+saturday,14,19,saturday_p014_r07,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,14,20,saturday_p014_r06,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,14,21,saturday_p014_r09,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,14,22,saturday_p014_r02,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,14,23,saturday_p014_r00,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,14,24,saturday_p014_r05,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,14,25,saturday_p014_r10,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,14,,saturday_p014_r23,error,role,True,furniture,back_matter,False,False,,saturday_0023,SAINT SWITHUN'S DAY,,,,role: asterisked footnote for 'Saint Swithun's Day' (asterisk at the end of box 20) labelled abandon by YOLO and set aside as furniture; should be preserved as the article's back matter. Row added during evaluation.,False,changed
+saturday,15,1,saturday_p015_r03,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,15,2,saturday_p015_r05,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,15,3,saturday_p015_r00,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,15,4,saturday_p015_r09,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,15,5,saturday_p015_r06,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,15,6,saturday_p015_r07,ok,,True,text,text,False,False,SAINT SWITHUN'S DAY,saturday_0023,SAINT SWITHUN'S DAY,,,,,False,unchanged
+saturday,15,7,saturday_p015_r12,ok,,True,title,title,True,True,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,15,8,saturday_p015_r17,error,role,True,title,front_matter,False,False,ON BREAD,saturday_0024,ON BREAD,,,,role: front matter (source line '[Abridged from M'CULLOCH'S Dictionary of Commerce.]') boxed as a title and joined to it,True,changed
+saturday,15,9,saturday_p015_r10,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,15,10,saturday_p015_r08,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,15,11,saturday_p015_r04,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,15,12,saturday_p015_r02,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,15,13,saturday_p015_r01,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,16,1,saturday_p016_r04,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,16,2,saturday_p016_r22,ok,,True,text,table,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,renamed
+saturday,16,3,saturday_p016_r03,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,16,4,saturday_p016_r01,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,16,5,saturday_p016_r07,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,16,6,saturday_p016_r00,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,16,7,saturday_p016_r12,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,16,8,saturday_p016_r06,ok,,True,text,text,False,False,ON BREAD,saturday_0024,ON BREAD,,,,,False,unchanged
+saturday,16,9,saturday_p016_r19,ok,,True,title,title,True,True,WICKLIFFE'S CHAIR,saturday_0025,WICKLIFFE'S CHAIR,,,,,False,unchanged
+saturday,16,10,saturday_p016_r05,ok,,True,text,text,False,False,WICKLIFFE'S CHAIR,saturday_0025,WICKLIFFE'S CHAIR,,,,,False,unchanged
+saturday,16,11,saturday_p016_r08,ok,,True,figure,figure,False,False,WICKLIFFE'S CHAIR,saturday_0025,WICKLIFFE'S CHAIR,,,,,False,unchanged
+saturday,16,12,saturday_p016_r02,ok,,True,text,text,False,False,WICKLIFFE'S CHAIR,saturday_0025,WICKLIFFE'S CHAIR,,,,,False,unchanged
+saturday,16,13,saturday_p016_r10,error,role,True,text,back_matter,False,False,WICKLIFFE'S CHAIR,saturday_0025,WICKLIFFE'S CHAIR,,,,"role: back matter (footnote '* ""Admirable,"" says Fuller...') read as article text",False,changed
+saturday,16,14,saturday_p016_r16,ok,,True,text,text,True,True,ERRATUM,saturday_0026,ERRATUM,,,,"Erratum correctly its own article (keep). Editorial paratext (errata, notices) could later get an article-type label",False,unchanged
+saturday,16,15,saturday_p016_r15,error,role,True,imprint,title,False,True,,saturday_0027,THE COMMITTEE OF GENERAL LITERATURE AND EDUCATION,The Committee of General Literature and Education,,,"role: 'THE COMMITTEE OF GENERAL LITERATURE AND EDUCATION,' is the title of an editorial notice (with box 16), not imprint; the imprint rule's 'THE COMMITTEE OF GENERAL LITERATURE' pattern caught it. Series: the Committee of General Literature and Education's notices (recurs p24)",True,changed
+saturday,16,16,saturday_p016_r11,error,role,True,imprint,text,False,False,,saturday_0027,THE COMMITTEE OF GENERAL LITERATURE AND EDUCATION,The Committee of General Literature and Education,,,"role: editorial notice text ('In compliance with the recommendation...') under box 15's title, taken as imprint; should be its own article (title 15 + text 16)",False,changed
+saturday,16,17,saturday_p016_r18,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,16,18,saturday_p016_r25,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,16,19,saturday_p016_r28,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,17,,saturday_p017_r10,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,17,,saturday_p017_r12,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,17,,saturday_p017_r100,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,17,,saturday_p017_r07,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,17,,saturday_p017_r08,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,17,,saturday_p017_r09,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,17,,saturday_p017_r15,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,17,,saturday_p017_r05,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+saturday,17,1,saturday_p017_r06,ok,,True,title,title,True,True,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,"title kept (Owen): 'PROCESSION OF THE IDOL CARS...' is this part's title though it reads like the illustration's. continuation: continues issue 1's 'History of the Indian Superstition of Jagganatha' (ended '[To be continued.]'; text opens 'in our first number') — link with continues_article_id, not series",False,unchanged
+saturday,17,2,saturday_p017_r18,ok,,True,figure,figure,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,"box: YOLO's figure box stretches up into the SPCK masthead area (box geometry, not counted here; masthead text still captured)",False,unchanged
+saturday,17,3,saturday_p017_r19,ok,,True,caption,caption,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,"text: the single caption 'Copied, by permission, from an Original Drawing, by a Native Artist, in the Museum of the Royal Asiatic Society.' is split across boxes 3 and 4, and the words come out scrambled ('Royal Asiatic Society' read first)",True,unchanged
+saturday,17,4,saturday_p017_r13,ok,,True,caption,caption,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,text: second half of the split caption (see box 3),False,unchanged
+saturday,17,5,saturday_p017_r00,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,17,6,saturday_p017_r01,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,17,7,saturday_p017_r02,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,17,8,saturday_p017_r03,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,text: stray '3' at the end (printer's signature),False,unchanged
+saturday,18,1,saturday_p018_r06,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,18,2,saturday_p018_r03,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,18,3,saturday_p018_r02,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,18,4,saturday_p018_r00,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,18,5,saturday_p018_r01,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,18,6,saturday_p018_r04,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,18,7,saturday_p018_r05,ok,,True,text,text,False,False,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,,False,unchanged
+saturday,18,,saturday_p018_r11,error,role,True,furniture,back_matter,False,False,,saturday_0028,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),,,,role: '[To be continued.]' at the foot of the page labelled abandon by YOLO and set aside as furniture; should be back matter of the Jagganatha article (continues in a later issue). Row added during evaluation.,True,changed
+saturday,19,1,saturday_p019_r08,ok,,True,title,title,True,True,INFANT EDUCATION,saturday_0029,INFANT EDUCATION,,,,,False,unchanged
+saturday,19,2,saturday_p019_r100,error,role,False,text,,False,False,INFANT EDUCATION,,,,,,role: junk box ('Is an') read as article text; should be set aside (abandon),False,changed
+saturday,19,3,saturday_p019_r00,ok,,True,text,text,False,False,INFANT EDUCATION,saturday_0029,INFANT EDUCATION,,,,,False,unchanged
+saturday,19,4,saturday_p019_r03,ok,,True,text,text,False,False,INFANT EDUCATION,saturday_0029,INFANT EDUCATION,,,,,False,unchanged
+saturday,19,5,saturday_p019_r04,ok,,True,text,text,False,False,INFANT EDUCATION,saturday_0029,INFANT EDUCATION,,,,,False,unchanged
+saturday,19,6,saturday_p019_r06,error,role,True,text,back_matter,False,False,INFANT EDUCATION,saturday_0029,INFANT EDUCATION,,,,role: asterisked footnote naming the reviewed book ('* Early Discipline Illustrated by Samuel Wilderspin. Westley and Davis...') read as article text; should be back matter (important as a source),False,changed
+saturday,19,7,saturday_p019_r01,ok,,True,text,text,False,False,INFANT EDUCATION,saturday_0029,INFANT EDUCATION,,,,,False,unchanged
+saturday,19,8,saturday_p019_r02,ok,,True,text,text,False,False,INFANT EDUCATION,saturday_0029,INFANT EDUCATION,,,,,False,unchanged
+saturday,19,9,saturday_p019_r05,ok,,True,text,text,False,False,INFANT EDUCATION,saturday_0029,INFANT EDUCATION,,,,text: printer's signature '3-2' at the end of the paragraph box should be set aside (abandon),False,unchanged
+saturday,20,1,saturday_p020_r00,ok,,True,text,text,False,False,INFANT EDUCATION,saturday_0029,INFANT EDUCATION,,,,,False,unchanged
+saturday,20,2,saturday_p020_r13,ok,,True,title,title,True,True,THE CHURCH BELLS,saturday_0030,THE CHURCH BELLS,,,,juxtaposition: poem 'The Church Bells' next to prose 'History of Bells' on the same subject,False,unchanged
+saturday,20,3,saturday_p020_r10,ok,,True,text,text,False,False,THE CHURCH BELLS,saturday_0030,THE CHURCH BELLS,,,,box: grey box over the last line ('And musings mindful of the final doom.') is a duplicate YOLO box (#29) dropped as covered; the line's words are in this box,True,unchanged
+saturday,20,4,saturday_p020_r21,error,role,True,text,back_matter,False,False,THE CHURCH BELLS,saturday_0030,THE CHURCH BELLS,,,,"role: back matter (sign-off 'D. C. July, 1832.' for the poem) read as article text",True,changed
+saturday,20,5,saturday_p020_r17,ok,,True,title,title,True,True,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,text: title OCR 'HISTORY OF LELLS' for 'HISTORY OF BELLS' (page degradation),True,unchanged
+saturday,20,6,saturday_p020_r24,ok,,True,byline,front_matter,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,front matter: '[Abridged from FAULKNER'S History of Kensington.]' correctly separate (byline now; front_matter under the new design),True,renamed
+saturday,20,7,saturday_p020_r18,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,8,saturday_p020_r01,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,9,saturday_p020_r05,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,10,saturday_p020_r07,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,11,saturday_p020_r06,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,12,saturday_p020_r09,ok,,True,figure,figure,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,13,saturday_p020_r11,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,14,saturday_p020_r03,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,15,saturday_p020_r04,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,16,saturday_p020_r02,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,17,saturday_p020_r08,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,18,saturday_p020_r20,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,20,19,saturday_p020_r22,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,21,1,saturday_p021_r05,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,21,2,saturday_p021_r00,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,21,3,saturday_p021_r01,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,21,4,saturday_p021_r06,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,21,5,saturday_p021_r19,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,box: extra grey box over this verse is a duplicate YOLO box (#28) dropped as covered; the words are in this box,False,unchanged
+saturday,21,6,saturday_p021_r07,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,21,7,saturday_p021_r04,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,21,8,saturday_p021_r08,ok,,True,text,text,False,False,HISTORY OF LELLS,saturday_0031,HISTORY OF LELLS,,,,,False,unchanged
+saturday,21,9,saturday_p021_r18,error,role,True,caption,text,False,True,,saturday_0032,,,,,"role: 'The following are the weights of the principal bells in Europe:—' introduces the table (box 10) and is article text in History of Bells; YOLO called it a caption and, with no figure to attach to, it ended up in no article",False,changed
+saturday,21,10,saturday_p021_r21,ok,,True,text,table,False,False,HISTORY OF LELLS,saturday_0032,,,,,,False,renamed
+saturday,21,11,saturday_p021_r13,ok,,True,title,title,True,True,A CHILD'S EVENING PRAYER BY SAMUEL TAYLOR COLERIDGE,saturday_0033,A CHILD'S EVENING PRAYER,,,,,False,unchanged
+saturday,21,12,saturday_p021_r20,error,role,True,title,front_matter,False,False,A CHILD'S EVENING PRAYER BY SAMUEL TAYLOR COLERIDGE,saturday_0033,A CHILD'S EVENING PRAYER,,,,role: front matter (byline 'BY SAMUEL TAYLOR COLERIDGE.') boxed as a title and joined to it,True,changed
+saturday,21,13,saturday_p021_r09,error,role,True,text,front_matter,False,False,A CHILD'S EVENING PRAYER BY SAMUEL TAYLOR COLERIDGE,saturday_0033,A CHILD'S EVENING PRAYER,,,,"role: front matter (bracketed editorial headnote '[The following simple and beautiful lines were composed...]') read as article text; edge case, front matter by convention",False,changed
+saturday,21,14,saturday_p021_r11,ok,,True,text,text,False,False,A CHILD'S EVENING PRAYER BY SAMUEL TAYLOR COLERIDGE,saturday_0033,A CHILD'S EVENING PRAYER,,,,,False,unchanged
+saturday,21,15,saturday_p021_r10,ok,,True,title,title,True,True,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,21,16,saturday_p021_r02,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,21,17,saturday_p021_r03,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,21,18,saturday_p021_r17,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,1,saturday_p022_r05,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,2,saturday_p022_r01,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,3,saturday_p022_r02,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,4,saturday_p022_r09,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,5,saturday_p022_r12,ok,,True,text,table,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,"text: mortality table (Florence lost 60,000 ...) - numbers jumbled; to get the table role",False,renamed
+saturday,22,6,saturday_p022_r07,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,7,saturday_p022_r06,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,8,saturday_p022_r10,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,9,saturday_p022_r04,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,10,saturday_p022_r00,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,11,saturday_p022_r03,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,12,saturday_p022_r08,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,22,,saturday_p022_r13,error,role,True,furniture,back_matter,False,False,,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,"role: asterisked footnote ('* This city, which at that time was one of the most commercial places in Germany, never recovered this blow.') for On the Black Pestilence, labelled abandon and set aside; should be back matter. Row added during evaluation.",False,changed
+saturday,23,1,saturday_p023_r04,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0034,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,,,,,False,unchanged
+saturday,23,2,saturday_p023_r09,error,merge,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0035,WHICH WAS THE GREATER FOOL?,,,,merge: separate article 'Which Was the Greater Fool?' (boxes 2-4) starts here; in-line title in capitals ending with '?' missed by the run-in rule. Box 1 is the end of On the Black Pestilence,False,unchanged
+saturday,23,3,saturday_p023_r06,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0035,WHICH WAS THE GREATER FOOL?,,,,,False,unchanged
+saturday,23,4,saturday_p023_r01,ok,,True,text,text,False,False,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,saturday_0035,WHICH WAS THE GREATER FOOL?,,,,,False,unchanged
+saturday,23,5,saturday_p023_r10,ok,,True,title,title,True,True,THE MYSTERIES OF CREATION,saturday_0036,THE MYSTERIES OF CREATION,,,,,False,unchanged
+saturday,23,6,saturday_p023_r03,ok,,True,text,text,False,False,THE MYSTERIES OF CREATION,saturday_0036,THE MYSTERIES OF CREATION,,,,,False,unchanged
+saturday,23,7,saturday_p023_r00,ok,,True,text,text,False,False,THE MYSTERIES OF CREATION,saturday_0036,THE MYSTERIES OF CREATION,,,Journal of a Naturalist.,back matter inline: '—Journal of a Naturalist.' (detected; to move into back_matter),False,unchanged
+saturday,23,8,saturday_p023_r11,ok,,True,title,title,True,True,CAUSE AND EFFECT,saturday_0037,CAUSE AND EFFECT,,,,,False,unchanged
+saturday,23,9,saturday_p023_r07,ok,,True,text,text,False,False,CAUSE AND EFFECT,saturday_0037,CAUSE AND EFFECT,,,,,False,unchanged
+saturday,23,10,saturday_p023_r02,ok,,True,text,text,False,False,CAUSE AND EFFECT,saturday_0037,CAUSE AND EFFECT,,,,,False,unchanged
+saturday,23,11,saturday_p023_r05,ok,,True,text,text,False,False,CAUSE AND EFFECT,saturday_0037,CAUSE AND EFFECT,,,,,False,unchanged
+saturday,23,12,saturday_p023_r15,ok,,True,text,text,False,False,CAUSE AND EFFECT,saturday_0037,CAUSE AND EFFECT,,,,,False,unchanged
+saturday,24,1,saturday_p024_r02,ok,,True,text,text,False,False,CAUSE AND EFFECT,saturday_0037,CAUSE AND EFFECT,,,,,False,unchanged
+saturday,24,2,saturday_p024_r17,error,role,True,text,back_matter,False,False,CAUSE AND EFFECT,saturday_0037,CAUSE AND EFFECT,,,,role: back matter (source line 'B. MONTAGU'S Selections.' for Cause and Effect) read as article text,True,changed
+saturday,24,3,saturday_p024_r14,ok,,True,title,title,True,True,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,4,saturday_p024_r03,ok,,True,text,text,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,5,saturday_p024_r10,ok,,True,figure,figure,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,6,saturday_p024_r19,ok,,True,caption,caption,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,7,saturday_p024_r01,ok,,True,text,text,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,8,saturday_p024_r00,ok,,True,text,text,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,9,saturday_p024_r04,ok,,True,text,text,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,10,saturday_p024_r06,ok,,True,text,text,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,11,saturday_p024_r08,ok,,True,text,text,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,12,saturday_p024_r07,ok,,True,text,text,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,13,saturday_p024_r05,ok,,True,text,text,False,False,BLACK LEAD MINE,saturday_0038,BLACK LEAD MINE,,,,,False,unchanged
+saturday,24,14,saturday_p024_r27,ok,,True,title,title,True,True,EGGS,saturday_0039,EGGS,,,,,False,unchanged
+saturday,24,15,saturday_p024_r09,ok,,True,text,text,False,False,EGGS,saturday_0039,EGGS,,,,,False,unchanged
+saturday,24,16,saturday_p024_r11,ok,,True,text,text,False,False,EGGS,saturday_0039,EGGS,,,"The duty, in 1829, amounted to 22,1891.",,False,unchanged
+saturday,24,17,saturday_p024_r15,error,role,True,text,text,False,True,EGGS,saturday_0040,,,,,role: back matter (source line 'M'CULLOCH'S Commercial Dictionary.' for Eggs) read as article text,True,changed
+saturday,24,18,saturday_p024_r16,error,role,True,imprint,title,False,True,,saturday_0041,THE COMMITTEE OF GENERAL LITERATURE AND EDUCATION,The Committee of General Literature and Education,,,"role: title of the Committee of General Literature and Education's notice to readers, taken as imprint; keep as an article, with series = the Committee's notices (as on p16)",False,changed
+saturday,24,19,saturday_p024_r12,error,role,True,imprint,text,False,False,,saturday_0041,THE COMMITTEE OF GENERAL LITERATURE AND EDUCATION,The Committee of General Literature and Education,,,"role: text of the Committee's notice (with box 18), taken as imprint; keep as an article",False,changed
+saturday,24,20,saturday_p024_r29,ok,,True,imprint,imprint,False,False,,,,,,,"ok as imprint (Owen): announcement of the first supplementary number / monthly parts, publisher's advertising",False,unchanged
+saturday,24,21,saturday_p024_r25,ok,,True,imprint,imprint,False,False,,,,,,,"ok as imprint (Owen): announcement of the first supplementary number / monthly parts, publisher's advertising",False,unchanged
+saturday,24,22,saturday_p024_r34,ok,,True,imprint,imprint,False,False,,,,,,,"ok as imprint (Owen): announcement of the first supplementary number / monthly parts, publisher's advertising",False,unchanged
+saturday,24,23,saturday_p024_r28,ok,,True,imprint,imprint,False,False,,,,,,,"ok as imprint (Owen): announcement of the first supplementary number / monthly parts, publisher's advertising",False,unchanged
+saturday,24,24,saturday_p024_r21,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,24,25,saturday_p024_r30,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+saturday,24,26,saturday_p024_r22,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+chambers,1,,chambers_p001_r16,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,1,,chambers_p001_r09,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,1,,chambers_p001_r10,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,1,,chambers_p001_r14,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,1,,chambers_p001_r11,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,1,,chambers_p001_r06,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,1,1,chambers_p001_r07,ok,,True,title,title,True,True,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,1,2,chambers_p001_r00,ok,,True,text,text,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,1,3,chambers_p001_r05,ok,,True,text,text,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,1,4,chambers_p001_r01,ok,,True,text,text,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,1,5,chambers_p001_r03,ok,,True,text,text,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,1,6,chambers_p001_r02,ok,,True,text,text,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,1,7,chambers_p001_r04,ok,,True,text,text,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,2,1,chambers_p002_r03,ok,,True,text,text,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,2,2,chambers_p002_r07,ok,,True,text,text,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,2,3,chambers_p002_r02,ok,,True,text,text,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,,False,unchanged
+chambers,2,4,chambers_p002_r08,error,role,True,title,back_matter,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,role: back matter (editor's sign-off 'WILLIAM CHAMBERS.') labelled title; correctly in article 1 (joined to its attribution) but not marked as back matter,False,changed
+chambers,2,5,chambers_p002_r09,error,role,True,text,back_matter,False,False,THE EDITOR'S ADDRESS TO HIS READERS,chambers_0001,THE EDITOR'S ADDRESS TO HIS READERS,,,,"role: back matter (sign-off 'EDINBURGH, 1st February, 1832.') labelled text; correctly in article 1 but not marked as back matter",True,changed
+chambers,2,6,chambers_p002_r14,ok,,True,title,title,True,True,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,2,7,chambers_p002_r01,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,2,8,chambers_p002_r06,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,2,9,chambers_p002_r13,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,YOLO title 'system of human society.' correctly read as text (end of a sentence from the middle column),True,unchanged
+chambers,2,10,chambers_p002_r04,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,2,11,chambers_p002_r00,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,2,12,chambers_p002_r05,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,3,1,chambers_p003_r10,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,3,2,chambers_p003_r11,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,3,3,chambers_p003_r19,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,3,4,chambers_p003_r18,ok,,True,text,text,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,3,5,chambers_p003_r14,error,role,True,text,back_matter,False,False,ON THE FORMATION OF SCOTTISH SOCIETY,chambers_0002,ON THE FORMATION OF SCOTTISH SOCIETY,,,,role: back matter (asterisked footnote '* How the English language now used in the Lowlands...') read as article text in Formation of Scottish Society,False,changed
+chambers,3,6,chambers_p003_r17,ok,,True,title,title,True,True,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,7,chambers_p003_r12,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,8,chambers_p003_r02,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,9,chambers_p003_r00,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,10,chambers_p003_r04,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,11,chambers_p003_r08,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,12,chambers_p003_r05,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,13,chambers_p003_r09,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,14,chambers_p003_r07,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,15,chambers_p003_r01,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,16,chambers_p003_r06,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,17,chambers_p003_r03,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,3,18,chambers_p003_r13,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,4,1,chambers_p004_r13,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,4,2,chambers_p004_r08,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,4,3,chambers_p004_r03,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,,,False,unchanged
+chambers,4,4,chambers_p004_r01,ok,,True,text,text,False,False,EMIGRATION,chambers_0003,EMIGRATION,,,Agricultural Journal. -To be continued.,back matter inline: 'Agricultural Journal.—To be continued.' at the end of the paragraph box should be picked up as back matter (source + continuation note); not detected,False,unchanged
+chambers,4,5,chambers_p004_r14,ok,,True,title,title,True,True,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,4,6,chambers_p004_r19,error,role,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,"role: front matter (verse epigraph from an old ballad, 'The Yerl o' Wigton had three dauchters...') read as article text",True,unchanged
+chambers,4,7,chambers_p004_r11,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,"text/box: the epigraph's source 'Old Ballad.' is cut across boxes 6 and 7 ('Old' / 'Ballad.'); it should be in box 6 or its own box (as the epigraph's source), not at the start of the story text",False,unchanged
+chambers,4,8,chambers_p004_r02,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,4,9,chambers_p004_r04,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,4,10,chambers_p004_r05,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,4,11,chambers_p004_r06,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,4,12,chambers_p004_r09,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,4,13,chambers_p004_r00,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,4,14,chambers_p004_r12,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,4,15,chambers_p004_r07,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,4,16,chambers_p004_r10,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,1,chambers_p005_r09,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,2,chambers_p005_r02,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,3,chambers_p005_r01,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,4,chambers_p005_r18,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,5,chambers_p005_r07,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,6,chambers_p005_r05,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,7,chambers_p005_r00,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,8,chambers_p005_r06,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,9,chambers_p005_r11,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,10,chambers_p005_r08,ok,,True,text,text,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,,False,unchanged
+chambers,5,11,chambers_p005_r17,ok,,True,end_note,back_matter,False,False,LADY JEAN,chambers_0004,LADY JEAN,,,,back matter: 'To be concluded in our next.' correctly separate (end_note now; back_matter under the new design),True,renamed
+chambers,5,12,chambers_p005_r10,error,split; role,True,text,text,True,True,,chambers_0005,,,,W. C.,"split; role: the editor's note ('I regret exceedingly that the Tale of Lady Jean has been under the necessity of being halved... —W. C.') is back matter of Lady Jean (article 4), not a new article. Owen: fascinating and important — keep it with the tale as back matter",False,changed
+chambers,5,13,chambers_p005_r12,error,role,True,title,series_heading,True,True,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,,role: series heading 'BIOGRAPHIC SKETCHES.' joined into the title; the title should be 'DR. ADAM' with series = 'Biographic Sketches',True,changed
+chambers,5,14,chambers_p005_r15,ok,,True,title,title,False,False,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,,,False,unchanged
+chambers,5,15,chambers_p005_r03,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,,,False,unchanged
+chambers,5,16,chambers_p005_r04,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,,,False,unchanged
+chambers,6,1,chambers_p006_r16,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,,,False,unchanged
+chambers,6,2,chambers_p006_r04,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,,,False,unchanged
+chambers,6,3,chambers_p006_r03,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,,,False,unchanged
+chambers,6,4,chambers_p006_r02,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,,,False,unchanged
+chambers,6,5,chambers_p006_r12,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,,,False,unchanged
+chambers,6,6,chambers_p006_r01,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ADAM,chambers_0006,DR. ADAM,Biographic Sketches,,"Scottish Blackie and Son, Glasgow.","back matter inline: source '—Scottish Biographical Dictionary, Blackie and Son, Glasgow.' at the end of the box (OCR scrambles it: 'Scottish Blackie and Son'); not detected",False,unchanged
+chambers,6,7,chambers_p006_r23,ok,,True,title,title,True,True,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,8,chambers_p006_r09,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,9,chambers_p006_r06,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,10,chambers_p006_r05,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,11,chambers_p006_r17,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,12,chambers_p006_r19,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,13,chambers_p006_r15,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,"text: page tilt - words swapped between lines/boxes throughout the Plague text on this page ('disthemselves', 'perwith worse feelings', 'were dead. into the disease...'); box order and article assignment correct",True,unchanged
+chambers,6,14,chambers_p006_r10,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,15,chambers_p006_r14,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,16,chambers_p006_r13,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,17,chambers_p006_r18,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,18,chambers_p006_r22,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,19,chambers_p006_r07,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,20,chambers_p006_r08,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,21,chambers_p006_r11,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,22,chambers_p006_r21,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,23,chambers_p006_r25,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,24,chambers_p006_r00,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,6,25,chambers_p006_r20,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,7,1,chambers_p007_r06,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,7,2,chambers_p007_r00,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,7,3,chambers_p007_r05,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,7,4,chambers_p007_r07,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,"text: YOLO's right edge stops a few px short, so line-end words/commas ('of', 'is', 'or', commas after 'value' and 'became') fell outside and were moved to the end of the column as boxes 5-6; ~5 words displaced, nothing lost",False,unchanged
+chambers,7,5,chambers_p007_r100,error,misplacement,False,text,,False,False,PLAGUE. CHOLERA,,,,,,"misplacement: vertical strip of line-end words cut from box 4's right edge (YOLO's box stops a few px short; the pipeline's unboxed-text recovery made the strip a box). Real text, but unreadable in any order; read after the column instead of at the ends of its lines. Possibly page tilt made YOLO's column box hard.",False,fixed
+chambers,7,6,chambers_p007_r101,error,misplacement,False,text,,False,False,PLAGUE. CHOLERA,,,,,,"misplacement: vertical strip of line-end words cut from box 4's right edge (YOLO's box stops a few px short; the pipeline's unboxed-text recovery made the strip a box). Real text, but unreadable in any order; read after the column instead of at the ends of its lines. Possibly page tilt made YOLO's column box hard.",False,fixed
+chambers,7,7,chambers_p007_r04,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,7,8,chambers_p007_r03,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,7,9,chambers_p007_r02,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,7,10,chambers_p007_r01,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,8,1,chambers_p008_r11,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,8,2,chambers_p008_r04,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,8,3,chambers_p008_r09,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,8,4,chambers_p008_r18,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,8,5,chambers_p008_r12,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,8,6,chambers_p008_r03,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,8,7,chambers_p008_r00,ok,,True,text,text,False,False,PLAGUE. CHOLERA,chambers_0007,PLAGUE. CHOLERA,,,,,False,unchanged
+chambers,8,8,chambers_p008_r07,ok,,True,text,text,True,True,HAARLEM,chambers_0008,HAARLEM,,,Elliot's Letters from the North of Europe.,in-line title correct; back matter inline: source 'Elliot's Letters from the North of Europe.' — dash printed but dropped by OCR; NOT detected ('from' fails the Title Case check),True,unchanged
+chambers,8,9,chambers_p008_r16,ok,,True,text,text,True,True,FOWLS,chambers_0009,FOWLS,,,,in-line title correct (run-in head in capitals),False,unchanged
+chambers,8,10,chambers_p008_r05,ok,,True,text,text,False,False,FOWLS,chambers_0009,FOWLS,,,Cobbett's Cottage Economy.,in-line title correct; back matter inline: source 'Cobbett's Cottage Economy.' (detected),True,unchanged
+chambers,8,11,chambers_p008_r02,ok,,True,text,text,True,True,SMOKING,chambers_0010,SMOKING,,,Lardner's Cabinet Cyclopedia.,in-line title correct; back matter inline: source 'Lardner's Cabinet Cyclopedia.' (detected),True,unchanged
+chambers,8,12,chambers_p008_r08,ok,,True,text,text,True,True,ANECDOTE OF MR. JEFFREY,chambers_0011,ANECDOTE OF MR. JEFFREY,,,,in-line title correct (run-in head in capitals),False,unchanged
+chambers,8,13,chambers_p008_r14,ok,,True,text,text,True,True,THE MUSSULMAUN'S SABBATH,chambers_0012,THE MUSSULMAUN'S SABBATH,,,Mrs. Meer Hassan Ali's Hindoostaun.,in-line title correct; back matter inline: source 'Mrs. Meer Hassan Ali's Hindoostaun.' (detected),True,unchanged
+chambers,8,14,chambers_p008_r06,ok,,True,text,text,True,True,THE WASP,chambers_0013,THE WASP,,,,in-line title correct (run-in head in capitals),False,unchanged
+chambers,8,15,chambers_p008_r17,ok,,True,text,text,False,False,THE WASP,chambers_0013,THE WASP,,,,,False,unchanged
+chambers,8,16,chambers_p008_r19,ok,,True,text,text,False,False,THE WASP,chambers_0013,THE WASP,,,,,False,unchanged
+chambers,8,17,chambers_p008_r01,ok,,True,text,text,True,True,A JUDGMENT OF GOD,chambers_0014,A JUDGMENT OF GOD,,,History of the Bible.,in-line title correct; back matter inline: source 'History of the Bible.' — dash printed but dropped by OCR; NOT detected (no possessive; source word not last),True,unchanged
+chambers,8,18,chambers_p008_r10,ok,,True,text,text,True,True,UNNATURAL CHARACTERS IN FICTION,chambers_0015,UNNATURAL CHARACTERS IN FICTION,,,,in-line title correct (run-in head in capitals),False,unchanged
+chambers,8,19,chambers_p008_r13,ok,,True,text,text,True,True,CATS,chambers_0016,CATS,,,Brown's Anecdotes of Quadrupeds.,in-line title correct; back matter inline: source 'Brown's Anecdotes of Quadrupeds.' (detected),True,unchanged
+chambers,8,20,chambers_p008_r15,error,role,True,text,back_matter,False,False,CATS,chambers_0016,CATS,,,,"role: bracketed editorial comment ('[The people of Palermo have a right...]') is back matter of 'Cats', read as article text; correctly in the Cats article. Owen: interesting editorial comment",False,changed
+chambers,9,,chambers_p009_r16,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,9,,chambers_p009_r14,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,9,,chambers_p009_r13,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,9,,chambers_p009_r08,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,9,,chambers_p009_r10,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,9,,chambers_p009_r12,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,9,1,chambers_p009_r07,ok,,True,title,title,True,True,RETROSPECTIVE REVIEW,chambers_0017,RETROSPECTIVE REVIEW,,,,,False,unchanged
+chambers,9,2,chambers_p009_r05,ok,,True,text,text,False,False,RETROSPECTIVE REVIEW,chambers_0017,RETROSPECTIVE REVIEW,,,,,False,unchanged
+chambers,9,3,chambers_p009_r01,ok,,True,text,text,False,False,RETROSPECTIVE REVIEW,chambers_0017,RETROSPECTIVE REVIEW,,,,,False,unchanged
+chambers,9,4,chambers_p009_r09,ok,,True,text,text,False,False,RETROSPECTIVE REVIEW,chambers_0017,RETROSPECTIVE REVIEW,,,,,False,unchanged
+chambers,9,5,chambers_p009_r04,ok,,True,text,text,False,False,RETROSPECTIVE REVIEW,chambers_0017,RETROSPECTIVE REVIEW,,,,,False,unchanged
+chambers,9,6,chambers_p009_r03,ok,,True,text,text,False,False,RETROSPECTIVE REVIEW,chambers_0017,RETROSPECTIVE REVIEW,,,,,False,unchanged
+chambers,9,7,chambers_p009_r06,ok,,True,title,title,True,True,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,9,8,chambers_p009_r00,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,9,9,chambers_p009_r02,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,1,chambers_p010_r10,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,2,chambers_p010_r02,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,3,chambers_p010_r05,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,4,chambers_p010_r01,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,5,chambers_p010_r00,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,6,chambers_p010_r15,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,"YOLO title 'however, to do our best.' correctly read as text (continues box 5's sentence)",True,unchanged
+chambers,10,7,chambers_p010_r07,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,8,chambers_p010_r08,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,9,chambers_p010_r06,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,10,chambers_p010_r03,ok,,True,text,text,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,,False,unchanged
+chambers,10,11,chambers_p010_r09,error,role,True,text,back_matter,False,False,"BURNS'S ""JOLLY BEGGARS.""",chambers_0018,"BURNS'S ""JOLLY BEGGARS.""",,,,role: back matter (asterisked footnote '* Kilbagie was the greatest distillery...') read as article text in Jolly Beggars,False,changed
+chambers,10,12,chambers_p010_r11,ok,,True,title,title,True,True,OLD SCOTTISH MODE OF DISCOVERING MURDER,chambers_0019,OLD SCOTTISH MODE OF DISCOVERING MURDER,,,,,False,unchanged
+chambers,10,13,chambers_p010_r04,ok,,True,text,text,False,False,OLD SCOTTISH MODE OF DISCOVERING MURDER,chambers_0019,OLD SCOTTISH MODE OF DISCOVERING MURDER,,,,,False,unchanged
+chambers,11,1,chambers_p011_r09,ok,,True,text,text,False,False,OLD SCOTTISH MODE OF DISCOVERING MURDER,chambers_0019,OLD SCOTTISH MODE OF DISCOVERING MURDER,,,,,False,unchanged
+chambers,11,2,chambers_p011_r07,ok,,True,title,title,True,True,ORIGIN AND PROGRESS OF THE ART OF PRINTING,chambers_0020,ORIGIN AND PROGRESS OF THE ART OF PRINTING,,,,"continuation: 'Origin and Progress of the Art of Printing' looks set to continue in later numbers (editor's note, box 4: 'the first of...'); link later parts with continues_article_id",False,unchanged
+chambers,11,3,chambers_p011_r03,ok,,True,text,text,False,False,ORIGIN AND PROGRESS OF THE ART OF PRINTING,chambers_0020,ORIGIN AND PROGRESS OF THE ART OF PRINTING,,,,,False,unchanged
+chambers,11,4,chambers_p011_r02,error,role,True,text,back_matter,False,False,ORIGIN AND PROGRESS OF THE ART OF PRINTING,chambers_0020,ORIGIN AND PROGRESS OF THE ART OF PRINTING,,,,role: back matter (bracketed editor's note '[The foregoing is offered as the first of... assisted by an intelligent practical printer.]') read as article text. Owen: extremely important back matter,False,changed
+chambers,11,5,chambers_p011_r11,ok,,True,title,title,True,True,LADY JEAN,chambers_0021,LADY JEAN,,,,,False,unchanged
+chambers,11,6,chambers_p011_r14,error,role,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,Concluded from No. I.,,role: front matter 'Concluded from No. I.' (important continuation note) merged into the same box as the start of the story text ('When the ceremony was...'); the front matter should be separate. Continues issue 1's Lady Jean (article 4),True,changed
+chambers,11,7,chambers_p011_r05,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,,False,unchanged
+chambers,11,8,chambers_p011_r08,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,,False,unchanged
+chambers,11,9,chambers_p011_r00,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,,False,unchanged
+chambers,11,10,chambers_p011_r01,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,,False,unchanged
+chambers,11,11,chambers_p011_r06,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,,False,unchanged
+chambers,11,12,chambers_p011_r04,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,,False,unchanged
+chambers,12,1,chambers_p012_r09,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,"continuation: Lady Jean part 2 (from issue 1, 'Concluded from No. I.') — must be included in the continuation links (continues_article_id to issue 1's Lady Jean)",False,unchanged
+chambers,12,2,chambers_p012_r06,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,,False,unchanged
+chambers,12,3,chambers_p012_r04,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,,False,unchanged
+chambers,12,4,chambers_p012_r03,ok,,True,text,text,False,False,LADY JEAN,chambers_0021,LADY JEAN,,,,text: stray '02' at the start (printer's mark),False,unchanged
+chambers,12,5,chambers_p012_r02,ok,,True,text,text,True,True,A DERBYSHIRE TALE,chambers_0022,A DERBYSHIRE TALE,,,,in-line title 'A DERBYSHIRE TALE' correct (run-in head),True,unchanged
+chambers,12,6,chambers_p012_r05,error,role,True,title,series_heading,True,True,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,"role: series heading 'BIOGRAPHIC SKETCHES.' joined into the title; title should be 'JAMES FERGUSON' with series = 'Biographic Sketches'. Owen confirms: series 'Biographic Sketches', title 'James Ferguson'",True,changed
+chambers,12,7,chambers_p012_r10,ok,,True,title,title,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,12,8,chambers_p012_r01,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,12,9,chambers_p012_r00,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,1,chambers_p013_r13,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,2,chambers_p013_r14,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,text: stray '44' at the start (OCR of an opening quotation mark),False,unchanged
+chambers,13,3,chambers_p013_r12,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,4,chambers_p013_r10,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,5,chambers_p013_r03,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,6,chambers_p013_r09,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,7,chambers_p013_r02,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,8,chambers_p013_r01,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,9,chambers_p013_r07,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,10,chambers_p013_r05,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,11,chambers_p013_r06,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,12,chambers_p013_r04,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,,False,unchanged
+chambers,13,13,chambers_p013_r17,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,Library of Entertaining Knowledge.,"back matter inline: source '—Library of Entertaining Knowledge.' at the end of the box (detected as attribution). Owen: extremely important source for the research — the SDUK's own series, reprinted in Chambers; an example of a source the pipeline must not miss",False,unchanged
+chambers,13,14,chambers_p013_r11,error,role,True,text,back_matter,False,False,BIOGRAPHIC SKETCHES. JAMES FERGUSON,chambers_0023,JAMES FERGUSON,Biographic Sketches,,,role: back matter (bracketed editor's note '[Such is the history of Ferguson's struggles...]') read as article text; correctly kept with the Ferguson sketch,False,changed
+chambers,13,15,chambers_p013_r16,ok,,True,title,title,True,True,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,13,16,chambers_p013_r00,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,13,17,chambers_p013_r08,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,13,18,chambers_p013_r15,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,14,1,chambers_p014_r10,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,14,2,chambers_p014_r06,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,14,3,chambers_p014_r00,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,14,4,chambers_p014_r08,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,14,5,chambers_p014_r02,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,14,6,chambers_p014_r04,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,,,False,unchanged
+chambers,14,7,chambers_p014_r03,ok,,True,text,text,False,False,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,chambers_0024,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,,,James' Naval History.,back matter inline: source '—James' Naval History.' at the end of the box,False,unchanged
+chambers,14,8,chambers_p014_r16,ok,,True,title,title,True,True,EMIGRATION,chambers_0025,EMIGRATION,,,,continuation: 'Emigration' continues issue 1's Emigration (opens 'continues Mr. Fergusson') and is itself continued (box 15 '(To be continued.)'); link both ways with continues_article_id,False,unchanged
+chambers,14,9,chambers_p014_r12,ok,,True,text,text,False,False,EMIGRATION,chambers_0025,EMIGRATION,,,,,False,unchanged
+chambers,14,10,chambers_p014_r09,ok,,True,text,text,False,False,EMIGRATION,chambers_0025,EMIGRATION,,,,,False,unchanged
+chambers,14,11,chambers_p014_r01,ok,,True,text,text,False,False,EMIGRATION,chambers_0025,EMIGRATION,,,,,False,unchanged
+chambers,14,12,chambers_p014_r07,ok,,True,text,text,False,False,EMIGRATION,chambers_0025,EMIGRATION,,,,,False,unchanged
+chambers,14,13,chambers_p014_r13,ok,,True,text,text,False,False,EMIGRATION,chambers_0025,EMIGRATION,,,,,False,unchanged
+chambers,14,14,chambers_p014_r05,ok,,True,text,text,False,False,EMIGRATION,chambers_0025,EMIGRATION,,,,,False,unchanged
+chambers,14,15,chambers_p014_r15,ok,,True,text,text,False,False,EMIGRATION,chambers_0025,EMIGRATION,,,Agricultural Journal. (To be continued.),"back matter inline: '—Agricultural Journal. (To be continued.)' — source and continuation note, important to keep",False,unchanged
+chambers,14,16,chambers_p014_r14,ok,,True,title,title,True,True,NEW SOUTH WALES,chambers_0026,NEW SOUTH WALES,,,,,False,unchanged
+chambers,14,17,chambers_p014_r19,ok,,True,text,text,False,False,NEW SOUTH WALES,chambers_0026,NEW SOUTH WALES,,,,,False,unchanged
+chambers,14,18,chambers_p014_r23,ok,,True,text,text,False,False,NEW SOUTH WALES,chambers_0026,NEW SOUTH WALES,,,,,False,unchanged
+chambers,14,19,chambers_p014_r28,ok,,True,text,text,False,False,NEW SOUTH WALES,chambers_0026,NEW SOUTH WALES,,,,,False,unchanged
+chambers,14,20,chambers_p014_r27,ok,,True,text,text,False,False,NEW SOUTH WALES,chambers_0026,NEW SOUTH WALES,,,,"text: stray '2000' and a small cost table, numbers jumbled",True,unchanged
+chambers,14,21,chambers_p014_r18,ok,,True,text,text,False,False,NEW SOUTH WALES,chambers_0026,NEW SOUTH WALES,,,,,False,unchanged
+chambers,14,22,chambers_p014_r11,error,merge,True,text,text,False,True,NEW SOUTH WALES,chambers_0027,NEGRO DOCTOR,,,Edinburgh Cabinet Library,merge: separate article with in-line title 'NEGRO DOCTOR.' and inline back matter '—Edinburgh Cabinet Library'; the pipeline made it a subsection of 'New South Wales' (the Chambers subsection rule: capitals run-in head inside a titled article with no gap),True,fixed
+chambers,15,1,chambers_p015_r12,error,role,True,title,series_heading,True,True,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,"role: series heading 'COLUMN FOR THE BOYS.' taken as the title; title should be 'Archery' (Owen, revised), series = 'Column for the Boys'. Explicitly written for children. Continued on p23 ('ARCHERY. Concluded.')",True,changed
+chambers,15,2,chambers_p015_r14,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,3,chambers_p015_r10,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,4,chambers_p015_r00,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,5,chambers_p015_r03,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,6,chambers_p015_r23,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,7,chambers_p015_r21,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,8,chambers_p015_r16,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,9,chambers_p015_r19,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,10,chambers_p015_r02,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,"subsections: already recorded as subsections — The Bow; The Tassel; The Glove; The Brace (OCR 'The Brave'). 'Arrows.' was missed (OCR 'Arrows.Arrows', no space after the full stop)",True,unchanged
+chambers,15,11,chambers_p015_r04,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,12,chambers_p015_r06,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,15,13,chambers_p015_r08,ok,,True,text,text,False,False,COLUMN FOR THE BOYS,chambers_0028,ARCHERY,Column for the Boys,,- To be continued.,back matter inline: '—To be continued.' (continuation note) at the end of the box,False,unchanged
+chambers,15,14,chambers_p015_r13,ok,,True,title,title,True,True,ON THE STUDY OF NATURAL PHI- LOSOPHY,chambers_0029,ON THE STUDY OF NATURAL PHI- LOSOPHY,,,,,False,unchanged
+chambers,15,15,chambers_p015_r11,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL PHI- LOSOPHY,chambers_0029,ON THE STUDY OF NATURAL PHI- LOSOPHY,,,,,False,unchanged
+chambers,15,16,chambers_p015_r09,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL PHI- LOSOPHY,chambers_0029,ON THE STUDY OF NATURAL PHI- LOSOPHY,,,,,False,unchanged
+chambers,15,17,chambers_p015_r05,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL PHI- LOSOPHY,chambers_0029,ON THE STUDY OF NATURAL PHI- LOSOPHY,,,,,False,unchanged
+chambers,15,18,chambers_p015_r01,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL PHI- LOSOPHY,chambers_0029,ON THE STUDY OF NATURAL PHI- LOSOPHY,,,,,False,unchanged
+chambers,15,19,chambers_p015_r07,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL PHI- LOSOPHY,chambers_0029,ON THE STUDY OF NATURAL PHI- LOSOPHY,,,,,False,unchanged
+chambers,16,1,chambers_p016_r09,ok,,True,text,text,False,False,ON THE STUDY OF NATURAL PHI- LOSOPHY,chambers_0029,ON THE STUDY OF NATURAL PHI- LOSOPHY,,,HERSCHEL. Lardner's Cyclopædia. To be continued.,"back matter inline: '—HERSCHEL. Lardner's Cyclopædia. To be continued.' — important sources plus continuation note, all at the end of the paragraph box",False,unchanged
+chambers,16,2,chambers_p016_r10,ok,,True,title,title,True,True,ODE TO POVERTY,chambers_0030,ODE TO POVERTY,,,,,False,unchanged
+chambers,16,3,chambers_p016_r01,ok,,True,text,text,False,False,ODE TO POVERTY,chambers_0030,ODE TO POVERTY,,,,,False,unchanged
+chambers,16,4,chambers_p016_r11,ok,,True,text,text,False,False,ODE TO POVERTY,chambers_0030,ODE TO POVERTY,,,,,False,unchanged
+chambers,16,5,chambers_p016_r15,ok,,True,text,text,False,False,ODE TO POVERTY,chambers_0030,ODE TO POVERTY,,,,,False,unchanged
+chambers,16,6,chambers_p016_r13,ok,,True,text,text,False,False,ODE TO POVERTY,chambers_0030,ODE TO POVERTY,,,,,False,unchanged
+chambers,16,7,chambers_p016_r04,error,merge,True,text,text,False,True,ODE TO POVERTY,chambers_0031,,,,Thomson's Travels in Africa.,"merge: separate article (hunting in Africa, starts 'armed with their large guns...') merged into 'Ode to Poverty'; back matter inline '—Thomson's Travels in Africa.'",False,fixed
+chambers,16,8,chambers_p016_r00,ok,,True,text,text,True,True,THE HUMMING BIRD,chambers_0032,THE HUMMING BIRD,,,Edinburgh Cabinet Library.,in-line title 'THE HUMMING BIRD' correct; back matter inline '—Edinburgh Cabinet Library.',True,unchanged
+chambers,16,9,chambers_p016_r03,ok,,True,text,text,True,True,THE NATURE AND PROPERTIES OF MILK,chambers_0033,THE NATURE AND PROPERTIES OF MILK,,,Library of Agricultural and Horticultural Knowledge.,in-line title 'THE NATURE AND PROPERTIES OF MILK' correct; back matter inline '—Library of Agricultural and Horticultural Knowledge.',True,unchanged
+chambers,16,10,chambers_p016_r02,ok,,True,text,text,True,True,WILLIE COSSAR PINS,chambers_0034,WILLIE COSSAR PINS,,,,in-line title 'WILLIE COSSAR PINS' correct,True,unchanged
+chambers,16,11,chambers_p016_r05,ok,,True,text,text,True,True,NIGHT-FALL IN ITALY,chambers_0035,NIGHT-FALL IN ITALY,,,,in-line title 'NIGHT-FALL IN ITALY' correct,True,unchanged
+chambers,16,12,chambers_p016_r08,ok,,True,text,text,False,False,NIGHT-FALL IN ITALY,chambers_0035,NIGHT-FALL IN ITALY,,,,,False,unchanged
+chambers,16,13,chambers_p016_r07,ok,,True,text,text,True,True,ACCOUNT OF THE PHENIX,chambers_0036,ACCOUNT OF THE PHENIX,,,,in-line title 'ACCOUNT OF THE PHENIX' correct,True,unchanged
+chambers,16,14,chambers_p016_r06,ok,,True,text,text,True,True,PUBLIC LIBRARIES OF EUROPF,chambers_0037,PUBLIC LIBRARIES OF EUROPF,,,,,False,unchanged
+chambers,16,15,chambers_p016_r25,ok,,True,text,table,False,False,PUBLIC LIBRARIES OF EUROPF,chambers_0037,PUBLIC LIBRARIES OF EUROPF,,,,,False,renamed
+chambers,16,16,chambers_p016_r17,ok,,True,text,text,False,False,PUBLIC LIBRARIES OF EUROPF,chambers_0037,PUBLIC LIBRARIES OF EUROPF,,,,,False,unchanged
+chambers,16,17,chambers_p016_r21,error,role,True,text,back_matter,False,False,PUBLIC LIBRARIES OF EUROPF,chambers_0037,PUBLIC LIBRARIES OF EUROPF,,,,"role: back matter (source 'Literary Gazette' for Public Libraries of Europe, in its own box) read as article text; good capture, correct article",False,changed
+chambers,16,18,chambers_p016_r12,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged
+chambers,17,,chambers_p017_r17,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,17,,chambers_p017_r15,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,17,,chambers_p017_r14,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,17,,chambers_p017_r08,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,17,,chambers_p017_r09,ok,,True,masthead,masthead,False,False,,,,,,,,False,unchanged
+chambers,17,1,chambers_p017_r10,ok,,True,title,title,True,True,"FALLACIES OF THE YOUNG. ""FATHERS HAVE FLINTY HEARTS.""",chambers_0038,FALLACIES OF THE YOUNG,,,,title 'FALLACIES OF THE YOUNG' correct (not treated as a series — Owen unsure it recurs). Article explicitly addressed to children ('my young friends'),True,unchanged
+chambers,17,2,chambers_p017_r11,error,role,True,title,front_matter,False,False,"FALLACIES OF THE YOUNG. ""FATHERS HAVE FLINTY HEARTS.""",chambers_0038,FALLACIES OF THE YOUNG,,,,"role: front matter — the quoted saying '""FATHERS HAVE FLINTY HEARTS.""' that the article expounds on, boxed as a title and joined to it",True,changed
+chambers,17,3,chambers_p017_r03,ok,,True,text,text,False,False,"FALLACIES OF THE YOUNG. ""FATHERS HAVE FLINTY HEARTS.""",chambers_0038,FALLACIES OF THE YOUNG,,,,,False,unchanged
+chambers,17,4,chambers_p017_r04,ok,,True,text,text,False,False,"FALLACIES OF THE YOUNG. ""FATHERS HAVE FLINTY HEARTS.""",chambers_0038,FALLACIES OF THE YOUNG,,,,,False,unchanged
+chambers,17,5,chambers_p017_r01,ok,,True,text,text,False,False,"FALLACIES OF THE YOUNG. ""FATHERS HAVE FLINTY HEARTS.""",chambers_0038,FALLACIES OF THE YOUNG,,,,,False,unchanged
+chambers,17,6,chambers_p017_r05,ok,,True,text,text,False,False,"FALLACIES OF THE YOUNG. ""FATHERS HAVE FLINTY HEARTS.""",chambers_0038,FALLACIES OF THE YOUNG,,,,,False,unchanged
+chambers,17,7,chambers_p017_r07,ok,,True,text,text,False,False,"FALLACIES OF THE YOUNG. ""FATHERS HAVE FLINTY HEARTS.""",chambers_0038,FALLACIES OF THE YOUNG,,,,,False,unchanged
+chambers,17,8,chambers_p017_r00,ok,,True,text,text,False,False,"FALLACIES OF THE YOUNG. ""FATHERS HAVE FLINTY HEARTS.""",chambers_0038,FALLACIES OF THE YOUNG,,,,,False,unchanged
+chambers,17,9,chambers_p017_r02,ok,,True,text,text,False,False,"FALLACIES OF THE YOUNG. ""FATHERS HAVE FLINTY HEARTS.""",chambers_0038,FALLACIES OF THE YOUNG,,,,,False,unchanged
+chambers,17,10,chambers_p017_r12,ok,,True,title,title,True,True,FORMATION OF SCOTTISH SOCIETY. Continued,chambers_0039,FORMATION OF SCOTTISH SOCIETY,,,,continuation: 'Formation of Scottish Society' continues issue 1's article (link with continues_article_id),False,unchanged
+chambers,17,11,chambers_p017_r16,error,role,True,title,front_matter,False,False,FORMATION OF SCOTTISH SOCIETY. Continued,chambers_0039,FORMATION OF SCOTTISH SOCIETY,,,,role: front matter (continuation note 'Continued.') boxed as a title and joined to it,True,changed
+chambers,17,12,chambers_p017_r06,ok,,True,text,text,False,False,FORMATION OF SCOTTISH SOCIETY. Continued,chambers_0039,FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,18,1,chambers_p018_r100,error,misplacement,True,text,back_matter,False,False,FORMATION OF SCOTTISH SOCIETY. Continued,chambers_0041,THE RUSSIAN COURT,,,,"misplacement: vertical strip of line-end words cut from the left column's edge (page tilt), made into a box by the unboxed-text recovery; read before the column's main box (4). Same issue as p7",False,fixed
+chambers,18,2,chambers_p018_r101,error,misplacement,False,text,,False,False,FORMATION OF SCOTTISH SOCIETY. Continued,,,,,,"misplacement: vertical strip of line-end words cut from the left column's edge (page tilt), made into a box by the unboxed-text recovery; read before the column's main box (4). Same issue as p7",False,fixed
+chambers,18,3,chambers_p018_r102,error,misplacement,False,text,,False,False,FORMATION OF SCOTTISH SOCIETY. Continued,,,,,,"misplacement: vertical strip of line-end words cut from the left column's edge (page tilt), made into a box by the unboxed-text recovery; read before the column's main box (4). Same issue as p7",False,fixed
+chambers,18,4,chambers_p018_r13,ok,,True,text,text,False,False,FORMATION OF SCOTTISH SOCIETY. Continued,chambers_0039,FORMATION OF SCOTTISH SOCIETY,,,,,False,unchanged
+chambers,18,5,chambers_p018_r09,ok,,True,title,title,True,True,SKRYME,chambers_0040,SKRYME,,,,,False,unchanged
+chambers,18,6,chambers_p018_r04,ok,,True,text,text,False,False,SKRYME,chambers_0040,SKRYME,,,,,False,unchanged
+chambers,18,7,chambers_p018_r00,ok,,True,text,text,False,False,SKRYME,chambers_0040,SKRYME,,,,,False,unchanged
+chambers,18,8,chambers_p018_r02,ok,,True,text,text,False,False,SKRYME,chambers_0040,SKRYME,,,,,False,unchanged
+chambers,18,9,chambers_p018_r10,ok,,True,title,title,True,True,THE RUSSIAN COURT,chambers_0041,THE RUSSIAN COURT,,,,,False,unchanged
+chambers,18,10,chambers_p018_r11,ok,,True,text,text,False,False,THE RUSSIAN COURT,chambers_0041,THE RUSSIAN COURT,,,,correctly text (not front matter); opening of The Russian Court,False,unchanged
+chambers,18,11,chambers_p018_r104,error,misattached; role,False,text,,False,False,THE RUSSIAN COURT,,,,,,"misattached; role: footnote ('* I have since observed...') is back matter of 'Skryme' (article 38), but put in 'The Russian Court' as text; page tilt makes this a difficult page",False,changed
+chambers,18,12,chambers_p018_r05,ok,,True,text,text,False,False,THE RUSSIAN COURT,chambers_0041,THE RUSSIAN COURT,,,Frankland's Russia.,back matter inline: source '—Frankland's Russia.' at the end of the box,False,unchanged
+chambers,18,13,chambers_p018_r08,ok,,True,title,title,True,True,MAJOR WEIR,chambers_0042,MAJOR WEIR,,,,,False,unchanged
+chambers,18,14,chambers_p018_r03,ok,,True,text,text,False,False,MAJOR WEIR,chambers_0042,MAJOR WEIR,,,,,False,unchanged
+chambers,18,15,chambers_p018_r01,ok,,True,text,text,False,False,MAJOR WEIR,chambers_0042,MAJOR WEIR,,,,,False,unchanged
+chambers,18,16,chambers_p018_r07,ok,,True,text,text,False,False,MAJOR WEIR,chambers_0042,MAJOR WEIR,,,,,False,unchanged
+chambers,18,17,chambers_p018_r06,ok,,True,text,text,False,False,MAJOR WEIR,chambers_0042,MAJOR WEIR,,,,,False,unchanged
+chambers,19,1,chambers_p019_r13,ok,,True,text,text,False,False,MAJOR WEIR,chambers_0042,MAJOR WEIR,,,,,False,unchanged
+chambers,19,2,chambers_p019_r25,ok,,True,text,text,False,False,MAJOR WEIR,chambers_0042,MAJOR WEIR,,,,,False,unchanged
+chambers,19,3,chambers_p019_r15,ok,,True,text,text,False,False,MAJOR WEIR,chambers_0042,MAJOR WEIR,,,,,False,unchanged
+chambers,19,4,chambers_p019_r19,ok,,True,title,title,True,True,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,5,chambers_p019_r33,error,role,True,title,front_matter,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,"role: front matter (subtitle and byline 'AN ENGLISH TALE, BY MISS MITFORD.') boxed as a title and joined to it; title should be 'THE RUNAWAY'. Fiction (Mary Russell Mitford)",True,changed
+chambers,19,6,chambers_p019_r06,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,7,chambers_p019_r04,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,8,chambers_p019_r08,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,9,chambers_p019_r01,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,10,chambers_p019_r07,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,11,chambers_p019_r05,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,12,chambers_p019_r11,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,13,chambers_p019_r34,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,YOLO title 'prove unprosperous.' correctly read as text (continues box 12's sentence),True,unchanged
+chambers,19,14,chambers_p019_r03,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,15,chambers_p019_r10,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,16,chambers_p019_r09,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,17,chambers_p019_r17,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,18,chambers_p019_r16,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,19,chambers_p019_r14,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,20,chambers_p019_r30,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,21,chambers_p019_r31,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,22,chambers_p019_r21,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,23,chambers_p019_r23,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,24,chambers_p019_r22,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,25,chambers_p019_r12,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,26,chambers_p019_r00,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,27,chambers_p019_r02,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,19,28,chambers_p019_r20,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,1,chambers_p020_r07,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,2,chambers_p020_r04,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,3,chambers_p020_r10,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,4,chambers_p020_r18,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,5,chambers_p020_r09,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,6,chambers_p020_r06,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,7,chambers_p020_r05,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,8,chambers_p020_r24,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,9,chambers_p020_r13,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,10,chambers_p020_r19,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,11,chambers_p020_r23,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,12,chambers_p020_r30,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,,,False,unchanged
+chambers,20,13,chambers_p020_r11,ok,,True,text,text,False,False,"THE RUNAWAY. AN ENGLISH TALE, BY MISS MITFORD",chambers_0043,THE RUNAWAY,,,"Literary Souveir, 1832.","back matter inline: source '—Literary Souvenir, 1832.' (the Runaway's source, an annual)",False,unchanged
+chambers,20,14,chambers_p020_r20,ok,,True,title,title,True,True,SKETCHES IN TOPOGRAPHY,chambers_0044,SKETCHES IN TOPOGRAPHY,,,,,False,unchanged
+chambers,20,15,chambers_p020_r29,error,role,True,text,front_matter,False,False,SKETCHES IN TOPOGRAPHY,chambers_0044,SKETCHES IN TOPOGRAPHY,,,,role: front matter 'EDINBURGHSHIRE.' (this piece's subtitle under 'Sketches in Topography') read as article text,True,changed
+chambers,20,16,chambers_p020_r08,ok,,True,text,text,False,False,SKETCHES IN TOPOGRAPHY,chambers_0044,SKETCHES IN TOPOGRAPHY,,,,,False,unchanged
+chambers,20,17,chambers_p020_r100,error,role,False,text,,False,False,SKETCHES IN TOPOGRAPHY,,,,,,"role: HathiTrust scan watermark ('https://hdl.handle.net/... Public Domain, Google-digitized') read as article text; should be furniture (abandon)",False,changed
+chambers,20,18,chambers_p020_r101,error,misplacement,False,text,,False,False,SKETCHES IN TOPOGRAPHY,,,,,,"misplacement: tilt strip ('1.2 tel'), junk fragment cut from the column edge and made into a box; same issue as pp. 7 and 18",False,fixed
+chambers,20,19,chambers_p020_r12,ok,,True,text,text,False,False,SKETCHES IN TOPOGRAPHY,chambers_0044,SKETCHES IN TOPOGRAPHY,,,,,False,unchanged
+chambers,20,20,chambers_p020_r01,ok,,True,text,text,False,False,SKETCHES IN TOPOGRAPHY,chambers_0044,SKETCHES IN TOPOGRAPHY,,,,,False,unchanged
+chambers,20,21,chambers_p020_r00,ok,,True,text,text,False,False,SKETCHES IN TOPOGRAPHY,chambers_0044,SKETCHES IN TOPOGRAPHY,,,,,False,unchanged
+chambers,20,22,chambers_p020_r26,ok,,True,text,text,False,False,SKETCHES IN TOPOGRAPHY,chambers_0044,SKETCHES IN TOPOGRAPHY,,,,,False,unchanged
+chambers,20,23,chambers_p020_r21,ok,,True,text,text,False,False,SKETCHES IN TOPOGRAPHY,chambers_0044,SKETCHES IN TOPOGRAPHY,,,To be continued as an of,"back matter inline: long source block 'Gazetteer of Scotland, Thomas Ireland, Jun., Edinburgh, 1832. To be continued' at the end of the box (print degraded, OCR garbled); its length may challenge the sign-off length rule. Continuation note: Sketches in Topography continues",False,unchanged
+chambers,20,24,chambers_p020_r14,error,merge,True,text,text,False,True,SKETCHES IN TOPOGRAPHY,chambers_0045,,,,Cox's Columbia River.,"merge: separate article with in-line title 'AMERICAN MUSQUITOES!' and back matter '—Cox's Columbia River.', merged into Sketches in Topography (box also starts with garbled text)",True,fixed
+chambers,20,25,chambers_p020_r15,ok,,True,title,title,True,True,EMIGRATION,chambers_0046,EMIGRATION,,,,,False,unchanged
+chambers,20,26,chambers_p020_r02,error,role,True,text,text,False,False,EMIGRATION,chambers_0046,EMIGRATION,,,,role: long front matter (editor's introduction to the letter: 'The editor has been favoured with the perusal...') read as article text; could be one front-matter block with box 27. Continuation note: Emigration continues across issues,False,unchanged
+chambers,20,27,chambers_p020_r22,error,role,True,text,text,False,False,EMIGRATION,chambers_0046,EMIGRATION,,,,"role: front matter (the letter's dateline 'Rochester, Monroe County, N. Y.') read as article text; could be combined with box 26",False,unchanged
+chambers,20,28,chambers_p020_r03,ok,,True,text,text,False,False,EMIGRATION,chambers_0046,EMIGRATION,,,,,False,unchanged
+chambers,21,1,chambers_p021_r12,ok,,True,text,text,False,False,EMIGRATION,chambers_0046,EMIGRATION,,,,,False,unchanged
+chambers,21,2,chambers_p021_r11,ok,,True,text,text,False,False,EMIGRATION,chambers_0046,EMIGRATION,,,,"text: ends with an asterisk ('...generally."" *'); its footnote not identified on this page",False,unchanged
+chambers,21,3,chambers_p021_r15,ok,,True,title,title,True,True,IRON BRIDGES,chambers_0047,IRON BRIDGES,,,,,False,unchanged
+chambers,21,4,chambers_p021_r06,ok,,True,text,text,False,False,IRON BRIDGES,chambers_0047,IRON BRIDGES,,,,,False,unchanged
+chambers,21,5,chambers_p021_r01,ok,,True,text,text,False,False,IRON BRIDGES,chambers_0047,IRON BRIDGES,,,,,False,unchanged
+chambers,21,6,chambers_p021_r00,ok,,True,text,text,False,False,IRON BRIDGES,chambers_0047,IRON BRIDGES,,,,,False,unchanged
+chambers,21,7,chambers_p021_r14,ok,,True,text,text,False,False,IRON BRIDGES,chambers_0047,IRON BRIDGES,,,,,False,unchanged
+chambers,21,8,chambers_p021_r20,error,missed,True,text,text,False,False,IRON BRIDGES,chambers_0047,IRON BRIDGES,,,,"missed: '4585 tons.' from the bridge-dimensions table is left out — Document AI read it, but it fell outside every YOLO box and, as a single line, wasn't recovered (it's in the page's unboxed text). text: table numbers jumbled",True,fixed
+chambers,21,9,chambers_p021_r09,ok,,True,text,text,False,False,IRON BRIDGES,chambers_0047,IRON BRIDGES,,,Lardner's Cyclopædia.,back matter inline: source '—Lardner's Cyclopædia.' at the end of the box,False,unchanged
+chambers,21,10,chambers_p021_r13,error,role,True,title,series_heading,True,True,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,role: series heading 'BIOGRAPHIC SKETCHES.' joined into the title; title should be 'DR. ALEXANDER MURRAY' with series = 'Biographic Sketches',True,changed
+chambers,21,11,chambers_p021_r18,ok,,True,title,title,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,21,12,chambers_p021_r03,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,21,13,chambers_p021_r08,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,21,14,chambers_p021_r02,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,21,15,chambers_p021_r10,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,21,16,chambers_p021_r04,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,21,17,chambers_p021_r05,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,21,18,chambers_p021_r07,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,22,1,chambers_p022_r11,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,22,2,chambers_p022_r10,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,22,3,chambers_p022_r02,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,22,4,chambers_p022_r00,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,22,5,chambers_p022_r01,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,,,False,unchanged
+chambers,22,6,chambers_p022_r09,ok,,True,text,text,False,False,BIOGRAPHIC SKETCHES. DR. ALEXANDER MURRAY,chambers_0048,DR. ALEXANDER MURRAY,Biographic Sketches,,Murray's Literary History of Galloway. Second Edition. (To be continued.),back matter inline: long source block 'Murray's Literary History of Galloway. Second Edition. (To be continued.)' (Owen's correction of the title) — source plus continuation note,True,unchanged
+chambers,22,7,chambers_p022_r12,ok,,True,title,title,True,True,WOURALI POISON,chambers_0049,WOURALI POISON,,,,,False,unchanged
+chambers,22,8,chambers_p022_r06,ok,,True,text,text,False,False,WOURALI POISON,chambers_0049,WOURALI POISON,,,,,False,unchanged
+chambers,22,9,chambers_p022_r07,ok,,True,text,text,False,False,WOURALI POISON,chambers_0049,WOURALI POISON,,,,,False,unchanged
+chambers,22,10,chambers_p022_r08,ok,,True,text,text,True,True,NUMBER OF STARS,chambers_0050,NUMBER OF STARS,,,,in-line title 'NUMBER OF STARS' correct; its own article,True,unchanged
+chambers,22,11,chambers_p022_r04,error,merge,True,text,text,False,True,NUMBER OF STARS,chambers_0051,VATICAN,,,Belt's Italy.,"merge: separate article with in-line title 'VATICAN' and back matter '—Bell's Italy.', merged into 'Number of Stars'",True,fixed
+chambers,22,12,chambers_p022_r13,ok,,True,title,title,True,True,TWO USEFUL RECEIPTS,chambers_0052,TWO USEFUL RECEIPTS,,,,,False,unchanged
+chambers,22,13,chambers_p022_r05,ok,,True,text,text,False,False,TWO USEFUL RECEIPTS,chambers_0052,TWO USEFUL RECEIPTS,,,,subsections: 'FUMIGATING MIXTURE' and 'CHEAP STEW' already recorded as subsections of Two Useful Receipts (as with Cholera),True,unchanged
+chambers,22,14,chambers_p022_r03,ok,,True,text,text,False,False,TWO USEFUL RECEIPTS,chambers_0052,TWO USEFUL RECEIPTS,,,,back matter inline: source 'Mrs. Hannah More.' at the end of the receipt,True,unchanged
+chambers,23,1,chambers_p023_r25,error,role,True,title,series_heading,True,True,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,role: series heading 'Column for the Boys' joined into the title; series = 'Column for the Boys' (written for children),True,changed
+chambers,23,2,chambers_p023_r27,error,role,True,title,title,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,"role: 'ARCHERY. Concluded.' — 'Archery' is this instalment's title, 'Concluded.' is front matter (continuation note) merged into the same box. Series AND continuation: series 'Column for the Boys', and this part continues p15's Archery instalment (continues_article_id). Subsections recorded",True,changed
+chambers,23,3,chambers_p023_r03,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,4,chambers_p023_r17,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,5,chambers_p023_r15,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,6,chambers_p023_r12,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,7,chambers_p023_r00,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,8,chambers_p023_r04,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,9,chambers_p023_r11,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,10,chambers_p023_r13,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,11,chambers_p023_r05,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,12,chambers_p023_r06,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,13,chambers_p023_r09,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,14,chambers_p023_r07,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,15,chambers_p023_r02,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,16,chambers_p023_r01,ok,,True,text,text,False,False,Column for the Boys ARCHERY. Concluded,chambers_0053,ARCHERY,Column for the Boys,,,,False,unchanged
+chambers,23,17,chambers_p023_r22,ok,,True,title,title,True,True,HYMN OF THE BRITISH PEASANT,chambers_0054,HYMN OF THE BRITISH PEASANT,,,,,False,unchanged
+chambers,23,18,chambers_p023_r18,ok,,True,text,text,False,False,HYMN OF THE BRITISH PEASANT,chambers_0054,HYMN OF THE BRITISH PEASANT,,,,,False,unchanged
+chambers,23,19,chambers_p023_r16,ok,,True,text,text,False,False,HYMN OF THE BRITISH PEASANT,chambers_0054,HYMN OF THE BRITISH PEASANT,,,,,False,unchanged
+chambers,23,20,chambers_p023_r14,ok,,True,text,text,False,False,HYMN OF THE BRITISH PEASANT,chambers_0054,HYMN OF THE BRITISH PEASANT,,,,,False,unchanged
+chambers,23,21,chambers_p023_r21,ok,,True,text,text,False,False,HYMN OF THE BRITISH PEASANT,chambers_0054,HYMN OF THE BRITISH PEASANT,,,,,False,unchanged
+chambers,23,22,chambers_p023_r26,ok,,True,text,text,False,False,HYMN OF THE BRITISH PEASANT,chambers_0054,HYMN OF THE BRITISH PEASANT,,,,,False,unchanged
+chambers,23,23,chambers_p023_r20,ok,,True,text,text,False,False,HYMN OF THE BRITISH PEASANT,chambers_0054,HYMN OF THE BRITISH PEASANT,,,,,False,unchanged
+chambers,23,24,chambers_p023_r19,ok,,True,text,text,False,False,HYMN OF THE BRITISH PEASANT,chambers_0054,HYMN OF THE BRITISH PEASANT,,,,,False,unchanged
+chambers,23,25,chambers_p023_r10,ok,,True,text,text,True,True,TURKEY,chambers_0055,TURKEY,,,Carne's Letters from the East.,in-line title 'TURKEY' correct; back matter inline: 'Carne's Letters from the East.',True,unchanged
+chambers,23,26,chambers_p023_r08,ok,,True,text,text,True,True,USE OF CAT'S WHISKERS,chambers_0056,USE OF CAT'S WHISKERS,,,Library of Useful Knowledge.,in-line title 'USE OF CAT'S WHISKERS' correct; back matter inline: '—Library of Useful Knowledge.' — extremely important source (the SDUK's Library of Useful Knowledge),True,unchanged
+chambers,24,1,chambers_p024_r06,ok,,True,text,text,True,True,BEAR HUNTING,chambers_0057,BEAR HUNTING,,,,"in-line title 'BEAR HUNTING' correct. back matter inline: ""Lloyd's Field Sports of the North of Europe."" — no words missing, but page tilt scrambles it: 'Sports of the North of Europe' is slotted two lines early and 'Lloyd's Field' ends the article",True,unchanged
+chambers,24,2,chambers_p024_r08,ok,,True,text,text,True,True,CHEISE HOPPERS,chambers_0058,CHEISE HOPPERS,,,,in-line title 'CHEESE HOPPERS' correct (OCR 'CHEISE'),False,unchanged
+chambers,24,3,chambers_p024_r05,ok,,True,text,text,False,False,CHEISE HOPPERS,chambers_0058,CHEISE HOPPERS,,,,back matter inline: 'Library of Entertaining Knowledge.' — important source (the SDUK's series); scrambled by tilt and split across boxes 3 and 4,False,unchanged
+chambers,24,4,chambers_p024_r02,error,merge,True,text,text,False,False,CHEISE HOPPERS,chambers_0058,CHEISE HOPPERS,,,,"merge: separate article with in-line title 'VEGETABLES' merged into Cheese Hoppers (tilt scrambled the box's opening, so the run-in head wasn't found); back matter inline 'Working Man's Companion, No. XIII.' — important source",True,unchanged
+chambers,24,5,chambers_p024_r101,error,misplacement,False,text,,False,False,CHEISE HOPPERS,,,,,,"misplacement: tilt strip (', a') cut from the column edge and made into a box",True,fixed
+chambers,24,6,chambers_p024_r03,ok,,True,text,text,True,True,EFFECT OF LIGHT ON PLANTS,chambers_0059,EFFECT OF LIGHT ON PLANTS,,,,in-line title 'EFFECT OF LIGHT ON PLANTS' correct,True,unchanged
+chambers,24,7,chambers_p024_r12,ok,,True,text,text,True,True,ASTRONOMY AND CELESTIA MECHANICS,chambers_0060,ASTRONOMY AND CELESTIA MECHANICS,,,,in-line title 'ASTRONOMY AND CELESTIAL MECHANICS' correct (OCR 'CELESTIA'),False,unchanged
+chambers,24,8,chambers_p024_r04,ok,,True,text,text,False,False,ASTRONOMY AND CELESTIA MECHANICS,chambers_0060,ASTRONOMY AND CELESTIA MECHANICS,,,HERSCHEL.,back matter inline: '—HERSCHEL.',False,unchanged
+chambers,24,9,chambers_p024_r01,ok,,True,text,text,True,True,WOLVES,chambers_0061,WOLVES,,,,"in-line title 'WOLVES' correct; back matter inline: ""Lloyd's Field Sports of the North of Europe.""",True,unchanged
+chambers,24,10,chambers_p024_r00,ok,,True,text,text,True,True,AMSTERDAM,chambers_0062,AMSTERDAM,,,,"in-line title 'AMSTERDAM' correct; back matter inline: ""—Elliot's North of Europe."" — no words missing but scrambled by tilt: 'Elliot's North' sits mid-sentence, 'of' is in the strip (box 11), 'Europe.' ends the text",True,unchanged
+chambers,24,11,chambers_p024_r100,error,misplacement,False,text,,False,False,AMSTERDAM,,,,,,misplacement: tilt strip ('. of') cut from the column edge and made into a box; holds 'of' from the Amsterdam source,True,fixed
+chambers,24,12,chambers_p024_r07,ok,,True,imprint,imprint,False,False,,,,,,,,False,unchanged

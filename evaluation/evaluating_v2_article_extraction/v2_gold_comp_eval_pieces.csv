@@ -7,9 +7,9 @@ penny_1836,5,back_matter,True,"† Appendix to Minutoli, p. 352 - Mr E. W. Lane 
 penny_1836,6,back_matter,False,M. Simond’s Switzerland.,in place
 penny_1836,8,back_matter,False,M. Simond’s Switzerland.,in place
 penny_1836,9,back_matter,False,England and America.,in place
+penny_1836,12,front_matter,False,[From a Correspondent.],in place
 penny_1836,14,back_matter,True,"* Knolles’s ‘History of the Turk.’ This old writer’s version of the sultan’s letter does not differ materially from that given by Vertot, but he has fourscore thousand prophets, in lieu of six-and-twenty thousand.",in place
 penny_1836,15,front_matter,False,(From Sharon Turner’s ‘History of Henry VIII.’),in text
-penny_1836,17,front_matter,False,our taste or generosity.,in text
 penny_1836,17,back_matter,True,* Paul Hentzner’s ‘Journey into England in the year 1598,in text
 penny_1836,17,back_matter,True,"* Britton and Brayley’s ‘Memoirs of the Tower,’ p. 243.",in place
 penny_1836,17,back_matter,True,"* ‘Memoirs of the Tower,’ p. 253.",in place
@@ -17,62 +17,64 @@ penny_1836,17,back_matter,True,"* Meyrick, Critical Inquiry into Ancient Armour,
 saturday_1840,20,back_matter,False,Pollok’s Course of Time.,in place
 saturday_1840,21,front_matter,False,180. 1. The Golden Number . . . 17 2. Epact . . . . . 26 3. Solar Cycle  . . . . 1 4. Sunday Letters . . . . E & D 5. Roman Indiction . . . 13 6. Number of Direction . . . 29 7. Julian Period . . . 6553,missing
 saturday_1840,23,back_matter,False,"From Germany; the Spirit of her History, Literature, Social Conditional, and National Economy, &c. By Dr. Bisset Hawkins.",in text
-saturday_1840,25,back_matter,False,Sterne.,missing
-saturday_1840,26,back_matter,False,Locke.,missing
-saturday_1840,27,front_matter,False,"Then came old January, wrapped all In many weeds to keep the cold away; Yet did he quake and quiver like to quell; And blow his nails, to warm them if he may: For they were numbed with holding all day An hatchet keene, with which he felled wood, And from the trees did lop the needlesse spray.-Spenser.",missing
-saturday_1840,31,back_matter,True,"* The author has, not infrequently, met with well preserved fossils among the pebbles of a garden gravel walk",in place
-saturday_1840,31,back_matter,True,"† Lyell, Address to the Geological Society.",in place
-saturday_1840,31,back_matter,True,"* Lyell’s Anniversary Address, 1837",in text
-saturday_1840,31,back_matter,False,[Abridged from Zornlin’s Recreations in Geology.],in place
-saturday_1840,33,front_matter,False,"The Lord will stretch out his hand against the north, and destroy Assyria; and will make Nineveh a desolation, and dry like a wilderness. And flocks shall lie down in the mister of her, and all the beasts of the nations: both the cormorant and the bittern shall lodge in the upper lintels of it; their voice shall sing in the windows; desolation in the rejoicing city that dwelt carelessly, that said in hereat, I am, and there is none beside me: how is she become a desolation, a place for beasts to lie down in! every on that passeth by her shall hiss, and wag his hand.-Zephaniah, ch. ii. v. 13, 14, 15.",missing
-saturday_1840,33,back_matter,True,"* Nahum, ch. i. v. 8.",in text
-saturday_1840,35,back_matter,False,Lord Kames.,in place
-saturday_1840,36,back_matter,False,Brown,in text
-saturday_1840,38,back_matter,False,Crabbe.,in text
-saturday_1840,46,back_matter,False,Helvetius.,missing
-saturday_1840,48,front_matter,False,"Introduction. Herbs too she knew, and well of each could speak, That in her garden sipped the silvery dew. Where no vain flower disclosed a gaudy streak; But Herbs for use, and physic, not a few of grey renown, within those border grew; The tufted Basil, pun-provoking Thyme, Fresh Balm, and Marigold of cheerful hue; The lowly Gill, that never dares to climb; And more I fain wound sing, disdaining here to rhyme. Shenstone’s Schoolmistress.",in text
-chambers_1840,51,front_matter,False,By Gibbons Merle.,in place
-chambers_1840,51,back_matter,True,"* The entresol is little known in London; it is a set or rooms of low ceilings, between the shops and the first floor. Where there are shops - and very few houses in public situations are without them - they are either let out to the occupants of the shops, or are taken by merchants of counting-houses, or by professional men as offices. This part of the house is but rarely occupied by persons out of trade, except by the proprietors of the houses themselves.",in place
-chambers_1840,51,back_matter,True,"† Although the taxes on houses which are paid by the tenant are not so high as in England, the taxation in large towns is generally high, for every person in business pays for a license or patente, which varies, according to the occupation of the houses from 5 to 500 francs per annum. All public establishments, such as hotels and coffee-houses, have to pay according to their rent. The patente alone, in some cases, costs from 2000 to 3000 francs a-year. The owners of property, also, have to pay the text fonciere. There is another tax in France which is very productive of to the state. Every lease or other agreement, every contract or sale, is liable to the droit d’enrigistrement, which varies from two percent upwards. The average amount of taxation per head in france is indeed little more than 10 francs, which much less than in England, but in some towns this tax amounts to a much grater sum. The principle of taxation in France it to make the rich pay for the poor, and, the trading towns for those in which little business is done.",in place
-chambers_1840,51,back_matter,True,* The French pound is equal to about seventeen and a half English ounces.,in place
-chambers_1840,52,back_matter,True,"* Hybernation is from the Latin hibernare, to go into winter quarters.",in place
-chambers_1840,52,back_matter,True,"* Irritability is a term used by anatomists to indicate that property peculiar to the muscles of the animal frame, by which they contract when touches, or when stimuli are applied. The power may be seen in the tremulous contraction of muscles when cut, or when separated from the body. Even after a body is dead, the power remains until the organisation yields to decay.",missing
-chambers_1840,53,back_matter,True,"* The late Mr William Macfarlane, long the judge of the Small-debt-court in Edinburgh.",in place
-chambers_1840,53,back_matter,True,"* The Court of Session Garland. Stevenson, Edinburgh.",in place
-chambers_1840,53,back_matter,True,† The songs marked by an asterisk are by Sir Alexander Boswell.,in place
-chambers_1840,54,back_matter,True,"* This hospital was built, and presented to the city, by the family of Sir Joseph Barrington; and as some evidence of the extensive benefit conferred on the city by this institution, I may mention, that no fewer than 14,000 persons were relieved at the dispensary attached to the hospital, during the last six months. Important additions to the hospital are at present contemplated by Mr M. Barrington, who seems resolved not to stint his beneficence, but is willing rather that the capabilities of the institution shall keep pace with the wants of the city. Hospitals are so frequently endowed with the wealth which the rich cannot carry into the grave with them; but to found an hospital during a man’s lifetime, is an act that deserves to be recorded, and remembered. - Inglis’s Journey in Ireland, in 1834.",in place
-chambers_1840,54,back_matter,True,* For December 1839.,missing
-chambers_1840,56,front_matter,False,Story from the Causes Celebres.,in text
-chambers_1840,56,back_matter,True,"* The original narrative admits the difficulty which arises here on account of the milk, which it would be necessary to conceal. There are two ways of explaining this point. It is possible that the case of the countess, happily for the plotters, was one in which the lacteal supply was naturally deficient; and it is also possible, as is suggested in the text, that the nurse may have been skillful enough to check it by the use of drugs, locally applied as well as internally. Had the countess called in a medical man, the trick must have been discovered. To account for her not doing so, we must remember that the poor lady believed all around her to be loving friends; and that their unanimous counsels, with the fear of ridicule, and perhaps some undefined dread of a monstrous birth, had all a tendency to force her into silence.",in place
-chambers_1840,57,front_matter,False,"We perceive that the Glasgow Constitutional has announced its intention of refusing the insertion of advertisements of quack medicines. This is a piece of good taste and self-denial on the part of a newspaper proprietary, which deserves to be made widely known. - Chambers’s Edinburgh Journal for October.",missing
-chambers_1840,59,back_matter,False,Nickleby.,in place
-chambers_1840,60,back_matter,False,Daniel Webster’s Speeches.,in place
-chambers_1840,61,back_matter,False,Bentham’s Panopticon.,in place
-chambers_1840,62,back_matter,False,The Hand-Book to Paris.,in text
-chambers_1840,65,front_matter,False,By A. Opie. The Countess De Genlis,missing
-chambers_1840,65,back_matter,True,"* Felicite Stephanie Ducrest de St Aubyn was born January 25, 1746, at the estate of her family in Burgundy. At an early age she married the Count de Genlis; and a few years afterwards she became an intimate of the family of the Duke de Chartres, and took charge of the education of his children, one of whom is the present Louis Philip, king of the French. At the outbreak of the revolution she took refuge in England, and her husband, who had become Marquis de Sillery, perished by the guillotine. After this period, the Countess de Genlis experienced many vicissitudes, for an account of which I beg to refer to her Memoirs.",in place
-chambers_1840,65,back_matter,True,"* Dec. 31, 1830",in place
-chambers_1840,65,back_matter,True,* Her eulogy is on the throne of France.,missing
-chambers_1840,66,back_matter,True,"* Retrospective Review, vol. xiv, article Alchemy.",in place
-chambers_1840,66,back_matter,True,"* A New Light of Alchymie taken out of the Fontaine of Nature, and Manual of Experience, by Michael Sandovigius; translated from the Latin; London, 1650.",in place
-chambers_1840,66,back_matter,True,* Thaumaturgia.,in place
-chambers_1840,66,back_matter,True,† Penny Cyclopædia.,in place
-chambers_1840,66,back_matter,True,‡ History of Chemistry.,in place
-chambers_1840,67,back_matter,True,* Sir Walter’s brother Thomas was married to a sister of Mr M’Culloch. - Ed.,missing
-chambers_1840,70,front_matter,False,"A Spanish Tale, By Washington Irving. [From the Knickerbocker for June 1839.]",in place
-chambers_1840,72,back_matter,False,Newspaper paragraph.,in text
-chambers_1840,73,back_matter,False,Dr Channing’s Pamphlet on Self-Culture.,in text
-chambers_1840,74,back_matter,False,"Hood’s Comic Annual, 1830.",in text
-chambers_1840,75,back_matter,False,Newspaper paragraph.,in text
-chambers_1840,76,front_matter,False,This must be seed into.,in text
-chambers_1840,76,back_matter,False,Heads of the People.,in place
-chambers_1840,77,back_matter,False,"Waverly Novels, new edition.",in text
-chambers_1840,80,front_matter,False,Second Article.,in text
-chambers_1840,80,back_matter,True,* Finance minister of Louis XLV.,in place
-chambers_1840,80,back_matter,True,"* Persons who at that period managed departments of revenue, on an agreement to pay a certain fixed annual amount, beyond which all profit to themselves or remuneration for management. Farm is property a thing taken on lease, though now with us exclusively applied to a leased piece of ground.",in place
-chambers_1840,84,back_matter,True,* The robbery was committed about two o’clock on the morning of the 16th.,missing
-chambers_1840,86,back_matter,True,"* Captain Maryat, alleges that the Americas who visit England apply at the heralds’ college for coats of arms; but this wants confirmation.",missing
-chambers_1840,87,front_matter,False,Second Article.,in title
-chambers_1840,87,back_matter,True,"* Nish is the word in the island of Skye and other parts of the Western Islands and West Highlands. Thus Trotternish, Rossinish, &c.-Ed.",missing
-chambers_1840,90,back_matter,False,"Travels in North America, by the Hon. C. A. Murray. 1839.",in text
-chambers_1840,91,back_matter,False,Ayr paper.,in text
+saturday_1840,25,back_matter,False,Tillotson.,in place
+saturday_1840,26,back_matter,False,Sterne.,in place
+saturday_1840,27,back_matter,False,Locke.,in place
+saturday_1840,28,front_matter,False,"Then came old January, wrapped all In many weeds to keep the cold away; Yet did he quake and quiver like to quell; And blow his nails, to warm them if he may: For they were numbed with holding all day An hatchet keene, with which he felled wood, And from the trees did lop the needlesse spray.-Spenser.",missing
+saturday_1840,32,back_matter,True,"* The author has, not infrequently, met with well preserved fossils among the pebbles of a garden gravel walk",in place
+saturday_1840,32,back_matter,True,"† Lyell, Address to the Geological Society.",in place
+saturday_1840,32,back_matter,True,"* Lyell’s Anniversary Address, 1837",in text
+saturday_1840,32,back_matter,False,[Abridged from Zornlin’s Recreations in Geology.],in place
+saturday_1840,34,front_matter,False,"The Lord will stretch out his hand against the north, and destroy Assyria; and will make Nineveh a desolation, and dry like a wilderness. And flocks shall lie down in the mister of her, and all the beasts of the nations: both the cormorant and the bittern shall lodge in the upper lintels of it; their voice shall sing in the windows; desolation in the rejoicing city that dwelt carelessly, that said in hereat, I am, and there is none beside me: how is she become a desolation, a place for beasts to lie down in! every on that passeth by her shall hiss, and wag his hand.-Zephaniah, ch. ii. v. 13, 14, 15.",missing
+saturday_1840,34,back_matter,True,"* Nahum, ch. i. v. 8.",in text
+saturday_1840,36,back_matter,False,Lord Kames.,in place
+saturday_1840,37,back_matter,False,Brown,in text
+saturday_1840,39,back_matter,False,Crabbe.,in text
+saturday_1840,47,back_matter,False,Helvetius.,in place
+saturday_1840,49,front_matter,False,"Introduction. Herbs too she knew, and well of each could speak, That in her garden sipped the silvery dew. Where no vain flower disclosed a gaudy streak; But Herbs for use, and physic, not a few of grey renown, within those border grew; The tufted Basil, pun-provoking Thyme, Fresh Balm, and Marigold of cheerful hue; The lowly Gill, that never dares to climb; And more I fain wound sing, disdaining here to rhyme. Shenstone’s Schoolmistress.",in text
+saturday_1840,51,back_matter,False,Mrs. Child.,in place
+chambers_1840,53,front_matter,False,By Gibbons Merle.,in place
+chambers_1840,53,back_matter,True,"* The entresol is little known in London; it is a set or rooms of low ceilings, between the shops and the first floor. Where there are shops - and very few houses in public situations are without them - they are either let out to the occupants of the shops, or are taken by merchants of counting-houses, or by professional men as offices. This part of the house is but rarely occupied by persons out of trade, except by the proprietors of the houses themselves.",in place
+chambers_1840,53,back_matter,True,"† Although the taxes on houses which are paid by the tenant are not so high as in England, the taxation in large towns is generally high, for every person in business pays for a license or patente, which varies, according to the occupation of the houses from 5 to 500 francs per annum. All public establishments, such as hotels and coffee-houses, have to pay according to their rent. The patente alone, in some cases, costs from 2000 to 3000 francs a-year. The owners of property, also, have to pay the text fonciere. There is another tax in France which is very productive of to the state. Every lease or other agreement, every contract or sale, is liable to the droit d’enrigistrement, which varies from two percent upwards. The average amount of taxation per head in france is indeed little more than 10 francs, which much less than in England, but in some towns this tax amounts to a much grater sum. The principle of taxation in France it to make the rich pay for the poor, and, the trading towns for those in which little business is done.",in place
+chambers_1840,53,back_matter,True,* The French pound is equal to about seventeen and a half English ounces.,in place
+chambers_1840,54,back_matter,True,"* Hybernation is from the Latin hibernare, to go into winter quarters.",in place
+chambers_1840,54,back_matter,True,"* Irritability is a term used by anatomists to indicate that property peculiar to the muscles of the animal frame, by which they contract when touches, or when stimuli are applied. The power may be seen in the tremulous contraction of muscles when cut, or when separated from the body. Even after a body is dead, the power remains until the organisation yields to decay.",missing
+chambers_1840,55,back_matter,True,"* The late Mr William Macfarlane, long the judge of the Small-debt-court in Edinburgh.",in place
+chambers_1840,55,back_matter,True,"* The Court of Session Garland. Stevenson, Edinburgh.",in place
+chambers_1840,55,back_matter,True,† The songs marked by an asterisk are by Sir Alexander Boswell.,in place
+chambers_1840,56,back_matter,True,"* This hospital was built, and presented to the city, by the family of Sir Joseph Barrington; and as some evidence of the extensive benefit conferred on the city by this institution, I may mention, that no fewer than 14,000 persons were relieved at the dispensary attached to the hospital, during the last six months. Important additions to the hospital are at present contemplated by Mr M. Barrington, who seems resolved not to stint his beneficence, but is willing rather that the capabilities of the institution shall keep pace with the wants of the city. Hospitals are so frequently endowed with the wealth which the rich cannot carry into the grave with them; but to found an hospital during a man’s lifetime, is an act that deserves to be recorded, and remembered. - Inglis’s Journey in Ireland, in 1834.",in place
+chambers_1840,56,back_matter,True,* For December 1839.,missing
+chambers_1840,58,front_matter,False,Story from the Causes Celebres.,in text
+chambers_1840,58,back_matter,True,"* The original narrative admits the difficulty which arises here on account of the milk, which it would be necessary to conceal. There are two ways of explaining this point. It is possible that the case of the countess, happily for the plotters, was one in which the lacteal supply was naturally deficient; and it is also possible, as is suggested in the text, that the nurse may have been skillful enough to check it by the use of drugs, locally applied as well as internally. Had the countess called in a medical man, the trick must have been discovered. To account for her not doing so, we must remember that the poor lady believed all around her to be loving friends; and that their unanimous counsels, with the fear of ridicule, and perhaps some undefined dread of a monstrous birth, had all a tendency to force her into silence.",in place
+chambers_1840,59,front_matter,False,"We perceive that the Glasgow Constitutional has announced its intention of refusing the insertion of advertisements of quack medicines. This is a piece of good taste and self-denial on the part of a newspaper proprietary, which deserves to be made widely known. - Chambers’s Edinburgh Journal for October.",missing
+chambers_1840,61,back_matter,False,Nickleby.,in place
+chambers_1840,62,back_matter,False,Daniel Webster’s Speeches.,in place
+chambers_1840,63,back_matter,False,Bentham’s Panopticon.,in place
+chambers_1840,64,back_matter,False,The Hand-Book to Paris.,in text
+chambers_1840,67,front_matter,False,By A. Opie. The Countess De Genlis,missing
+chambers_1840,67,back_matter,True,"* Felicite Stephanie Ducrest de St Aubyn was born January 25, 1746, at the estate of her family in Burgundy. At an early age she married the Count de Genlis; and a few years afterwards she became an intimate of the family of the Duke de Chartres, and took charge of the education of his children, one of whom is the present Louis Philip, king of the French. At the outbreak of the revolution she took refuge in England, and her husband, who had become Marquis de Sillery, perished by the guillotine. After this period, the Countess de Genlis experienced many vicissitudes, for an account of which I beg to refer to her Memoirs.",in place
+chambers_1840,67,back_matter,True,"* Dec. 31, 1830",in place
+chambers_1840,67,back_matter,True,* Her eulogy is on the throne of France.,missing
+chambers_1840,68,back_matter,True,"* Retrospective Review, vol. xiv, article Alchemy.",in place
+chambers_1840,68,back_matter,True,"* A New Light of Alchymie taken out of the Fontaine of Nature, and Manual of Experience, by Michael Sandovigius; translated from the Latin; London, 1650.",in place
+chambers_1840,68,back_matter,True,* Thaumaturgia.,in place
+chambers_1840,68,back_matter,True,† Penny Cyclopædia.,in place
+chambers_1840,68,back_matter,True,‡ History of Chemistry.,in place
+chambers_1840,69,back_matter,True,* Sir Walter’s brother Thomas was married to a sister of Mr M’Culloch. - Ed.,missing
+chambers_1840,72,front_matter,False,"A Spanish Tale, By Washington Irving. [From the Knickerbocker for June 1839.]",in place
+chambers_1840,74,back_matter,False,Newspaper paragraph.,in text
+chambers_1840,75,back_matter,False,Dr Channing’s Pamphlet on Self-Culture.,in text
+chambers_1840,76,back_matter,False,"Hood’s Comic Annual, 1830.",in text
+chambers_1840,77,back_matter,False,Newspaper paragraph.,in text
+chambers_1840,78,front_matter,False,"London, May —, 1835.—",in text
+chambers_1840,78,back_matter,False,Heads of the People.,in place
+chambers_1840,79,back_matter,False,"Waverly Novels, new edition.",in text
+chambers_1840,82,front_matter,False,Second Article.,in text
+chambers_1840,82,back_matter,True,* Finance minister of Louis XLV.,in place
+chambers_1840,82,back_matter,True,"* Persons who at that period managed departments of revenue, on an agreement to pay a certain fixed annual amount, beyond which all profit to themselves or remuneration for management. Farm is property a thing taken on lease, though now with us exclusively applied to a leased piece of ground.",in place
+chambers_1840,86,back_matter,True,* The robbery was committed about two o’clock on the morning of the 16th.,missing
+chambers_1840,88,back_matter,True,"* Captain Maryat, alleges that the Americas who visit England apply at the heralds’ college for coats of arms; but this wants confirmation.",missing
+chambers_1840,89,front_matter,False,Second Article.,in text
+chambers_1840,89,back_matter,True,"* Nish is the word in the island of Skye and other parts of the Western Islands and West Highlands. Thus Trotternish, Rossinish, &c.-Ed.",missing
+chambers_1840,92,back_matter,False,"Travels in North America, by the Hon. C. A. Murray. 1839.",in text
+chambers_1840,93,back_matter,False,Ayr paper.,in text

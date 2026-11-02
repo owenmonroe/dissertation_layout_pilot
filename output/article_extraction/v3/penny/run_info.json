@@ -1,0 +1,12 @@
+{
+  "pipeline_version": "v3",
+  "git_commit": "6d9cf0a",
+  "uncommitted_changes": true,
+  "run_date": "2026-11-02T17:31:20",
+  "volume": "penny",
+  "magazine": "penny",
+  "split": "build",
+  "pdf": "build_texts/penny_first3sample_inu-30000093220105-1779725606.pdf",
+  "pages": "1-26",
+  "ocr": "docai"
+}

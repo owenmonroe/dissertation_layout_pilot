@@ -93,7 +93,7 @@ These are the same as the v1 evaluation (`v1_evaluation.md`).
 
 ## Scoring (built 2026-10-22)
 
-The list is complete: 94 rows, annotated without seeing the output. It is
+The list is complete: 96 rows (corrected 2026-11-02), annotated without seeing the output. It is
 scored by `evaluation/evaluating_v2_article_extraction/score_gold.py`, run from `evaluation/evaluating_v2_article_extraction/evaluate_v2_with_gold.ipynb`.
 Set `VERSION` in the notebook to score another version against the same list.
 
