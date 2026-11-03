@@ -148,7 +148,9 @@ def load_gold(path: Path = GOLD_PATH) -> pd.DataFrame:
     gold = pd.read_csv(path, dtype=str, keep_default_na=False)
     gold["pipeline_volume"] = gold.volume.map(lambda v: VOLUME_ALIASES.get(v, v))
     gold["gold_id"] = gold.gold_id.astype(int)
-    gold["start_pdf_page"] = gold.start_pdf_page.astype(int)
+    gold["article_type"] = gold.article_type.str.strip().str.replace(" ", "_")
+    # An imprint may have no page: it is found by its words.
+    gold["start_pdf_page"] = [int(p) if p.strip() else 0 for p in gold.start_pdf_page]
     gold["end_page"] = [int(e) if e.strip().isdigit() else s
                         for e, s in zip(gold.end_pdf_page, gold.start_pdf_page)]
     return gold
@@ -378,6 +380,7 @@ def score_imprints(g: pd.DataFrame, pipe: dict, volume: str) -> list[dict]:
     for row in g[g.article_type == "imprint"].sort_values("gold_id").itertuples():
         seq = issues.index(row.issue_no) + 1
         text = imprints.imprint_text.get(seq) if seq in imprints.index else None
+        text = text if isinstance(text, str) else None
         hay = tokens(text)
         first = find(tokens(row.first_words), hay)[1] >= MATCH
         last = find(tokens(row.last_words), hay)[1] >= MATCH if row.last_words.strip() else True
@@ -454,14 +457,14 @@ def summary_tables(res: dict) -> dict:
     return t
 
 
-def write(res: dict, version: str, out_dir: Path) -> Path:
+def write(res: dict, version: str, out_dir: Path, gold_path: Path = GOLD_PATH) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     for name, df in res.items():
         df.to_csv(out_dir / f"{version}_gold_comp_eval_{name}.csv", index=False)
     t = summary_tables(res)
     lines = [f"# {version} scored against the gold article list", "",
              "Written by `evaluation/evaluating_v2_article_extraction/score_gold.py`; definitions in its docstring. Gold list:",
-             "`evaluation/evaluating_v2_article_extraction/gold_article_list_test.csv` (annotated from the printed pages only).", ""]
+             f"`{gold_path.resolve().relative_to(REPO_ROOT)}` (annotated from the printed pages only).", ""]
     titles = {"items": "Items and boundaries", "fields": "Fields (items that open their own article)",
               "pieces": "Front / back matter pieces", "imprints": "Imprints"}
     for key, df in t.items():
@@ -478,7 +481,7 @@ def main() -> None:
     parser.add_argument("--gold", type=Path, default=GOLD_PATH)
     args = parser.parse_args()
     res = score(args.version, load_gold(args.gold))
-    path = write(res, args.version, args.out)
+    path = write(res, args.version, args.out, args.gold)
     print(path.read_text())
 
 

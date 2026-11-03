@@ -53,7 +53,8 @@ from text import (assign_docai_text, assign_tesseract_text, clean_marks, docai_j
 # output the reading-order evaluation describes). Bump this when a version is
 # frozen and work on the next one starts.
 PIPELINE_VERSION = "v3"
-FROZEN_VERSIONS = {"v1", "v2"}  # v2: tag extraction-v2; test volumes run 2026-10-16
+FROZEN_VERSIONS = {"v1", "v2", "v3"}  # v2: tag extraction-v2; test volumes run 2026-10-16
+# v3: tag extraction-v3; test volumes run 2026-11-02
 OUT_ROOT = REPO_ROOT / "output" / "article_extraction" / PIPELINE_VERSION
 DB_PATH = OUT_ROOT / "articles.sqlite"
 CHECK_IMAGE_SCALE = 0.4

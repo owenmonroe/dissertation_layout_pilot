@@ -1,0 +1,115 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/images/penny_1838_images/penny_1838_page_024.png",
+  "regions": [
+    {
+      "type": "plain text",
+      "score": 0.9689,
+      "bbox": [
+        1086.1,
+        205.5,
+        1980.5,
+        481.0
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9384,
+      "bbox": [
+        1089.0,
+        267.2,
+        1981.6,
+        3141.8
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9351,
+      "bbox": [
+        161.0,
+        222.2,
+        1061.1,
+        3176.4
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9304,
+      "bbox": [
+        152.4,
+        204.6,
+        1061.7,
+        285.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.8486,
+      "bbox": [
+        826.7,
+        124.0,
+        1327.7,
+        167.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7941,
+      "bbox": [
+        1912.2,
+        128.6,
+        1977.5,
+        163.3
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.6122,
+      "bbox": [
+        152.2,
+        125.2,
+        276.4,
+        167.4
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.6025,
+      "bbox": [
+        320.2,
+        3320.6,
+        731.8,
+        3411.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.5396,
+      "bbox": [
+        2.6,
+        1881.2,
+        76.3,
+        3361.4
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4128,
+      "bbox": [
+        0.0,
+        1717.7,
+        79.7,
+        3343.3
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.3798,
+      "bbox": [
+        1088.8,
+        462.0,
+        1984.7,
+        3096.1
+      ]
+    }
+  ]
+}

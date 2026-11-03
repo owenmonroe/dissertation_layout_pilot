@@ -1,0 +1,99 @@
+volume,article_id,pipeline_title,pages,word_count,gold_starts,n_gold_starts,gold_ends,status,text_start
+chambers_1843,chambers_1843_0001,,7;8,2858,1,1,1,matched,It was after some twenty years' separation that I met my schoolfellow
+chambers_1843,chambers_1843_0002,"IN GERMANY.""*",8,124,,0,,extra,THE husbandry of the Germans differs from ours in an important particular.
+chambers_1843,chambers_1843_0003,GERMAN ECONOMY,8,603,,0,,extra,"""Nothing that can possibly be made use of is lost. The children"
+chambers_1843,chambers_1843_0004,THE GERMAN PEASANT'S HOME,8,388,,0,,extra,"""The English of the working-class can indeed form no conception of the"
+chambers_1843,chambers_1843_0005,GERMAN DOMESTIC LIFE,8;9,1336,,0,2,extra,"""Early hours and simple living distinguish the Germans. Three meals a day"
+chambers_1843,chambers_1843_0006,A WEDDING IN GARRISON.*,9,287,3,1,,matched,"LIVES there the man, moderately enriched with the blessings of social and"
+chambers_1843,chambers_1843_0007,SERVANTS,9,149,,0,,extra,Sometimes it is-and I have had a Benjamin's portion of such blessings-a
+chambers_1843,chambers_1843_0008,,9,25,,0,,extra,"was of both at G-, both during and after tsiege; yet my"
+chambers_1843,chambers_1843_0009,,9;10,3644,,0,3,extra,perhaps because we had not then 'supped with horrors; perhaps because we
+chambers_1843,chambers_1843_0010,SCOTCH BANKS,10;11,1305,4,1,4,matched,THE following piece of nonsense appeared a short time ago in a
+chambers_1843,chambers_1843_0011,A WORD ON MECHANICS' GENERALLY,11;12,2507,5,1,5,matched,"INSTITUTIONS 1835, the Society the Diffusion of Useful Knowledge adopted means In"
+chambers_1843,chambers_1843_0012,NURSERY RHYMES OF ENGLAND,12;13,2340,6,1,,matched,"A LARGE collection of these versicles has been published by Mr Halliwell,"
+chambers_1843,chambers_1843_0013,,13,482,,0,6,extra,"The king sent his lady on the thirteenth Yule day, Three stalks"
+chambers_1843,chambers_1843_0014,A PEEVISH OLD SCOTSWOMAN,13,606,7,1,7,matched,"THE following lively representative of a peevish old Scotswoman in humble life,"
+chambers_1843,chambers_1843_0015,GENEALOGY OF THE QUEEN,13,91,8,1,,matched,"THE following tables exhibit the genealogy of Queen Victoria, through the Anglo-Saxon,"
+chambers_1843,chambers_1843_0016,1. ANGLO-SAXON DESCENT OF HER MAJESTY,13,360,,0,,extra,"A.D. 800. Egbert, founder of the Anglo-Saxon monarchy. (1.) 836. Ethelwulf. (His"
+chambers_1843,chambers_1843_0017,2. SCOTTISH DESCENT OF HER MAJESTY,13;14,2489,,0,8,extra,"A. D. 843. Kenneth MacAlpin, styled Kenneth II. (1.) 863. Constantine II."
+chambers_1843,chambers_1843_0018,PREJUDICE AS TO FOOD,14,600,9,1,9,matched,"An amusing instance of local prejudice as to food, among an English"
+chambers_1843,chambers_1843_0019,BLEEDING AT THE NOSE,14,279,10,1,10,matched,"Dr Negrier, of Angiers, France, has published a new method of stopping"
+chambers_1843,chambers_1843_0020,THE FRENCH PRESS,14,214,11,1,11,matched,La Presse publishes the following statistics relative to the Paris press: -
+chambers_1843,chambers_1843_0021,AN INDIAN'S INGENUITY,14,168,12,1,12,matched,"A Spaniard having stolen a horse from an Indian, the latter convicted"
+chambers_1843,chambers_1843_0022,"HEAR, HEAR!",14,110,13,1,13,matched,"Sheridan once succeeded admirably in entrapping a noisy member, who was in"
+chambers_1843,chambers_1843_0023,DINNERS,15;16,3664,15,1,15,matched,"It has somehow become a kind of reproach to the English, that"
+chambers_1843,chambers_1843_0024,FAIRY RINGS IN PASTURE,16;17,3075,16,1,16,matched,"IN old meadow pasture-land, there often occur circlets of grass of a"
+chambers_1843,chambers_1843_0025,"""KOHL'S RUSSIA."" ST PETERSBURG.*",17;18,3094,17,1,17,matched,"OF all kinds of facts, there are none so difficult to be"
+chambers_1843,chambers_1843_0026,THE FIRST PIANO-FORTE.*,18;19,2613,18,1,18,matched,THE two heroes of this little history present a complete contrast. They
+chambers_1843,chambers_1843_0027,HOW TO LEARN LANGUAGES,19;20,2498,19,1,19,matched,WHEN a particular mode of doing anything has been persevered in for
+chambers_1843,chambers_1843_0028,VISIT TO THE MAMMOTH CAVE OF KENTUCKY,20;21,3211,20,1,20,matched,"THE following interesting account of a visit to this celebrated cavern, is"
+chambers_1843,chambers_1843_0029,A HINT TO BENEVOLENT IMPROVERS,21;22,2381,21,1,21,matched,"In the little tale, ""The Helpful and Helpless,"" which we lately presented,"
+chambers_1843,chambers_1843_0030,A CHINESE INVENTION,22,284,22,1,22,matched,"There is a device of the Chinese which is worthy of imitation,"
+chambers_1843,chambers_1843_0031,THE BELEAGUERED WIDOW,22,479,23,1,23,matched,Oh! who is it stands in widow'd guise On yon rugged Highland
+chambers_1843,chambers_1843_0032,WHAT TO DO WITH A WATCH WHICH HAS FALLEN INTO WATER,22,62,24,1,24,matched,We are assured that the best procedure in this case is to
+chambers_1843,chambers_1843_0033,NOT A BAD HIT,22,83,25,1,25,matched,A gentleman expatiated on the justice and propriety of an hereditary nobility.
+chambers_1843,chambers_1843_0034,ENSIGN MARTYN'S FIRST SCRAPE,23,715,27,1,,matched,I was just nineteen when I saw myself gazetted to an ensigncy
+chambers_1843,chambers_1843_0035,WILLIAM MARTYN,23;24;25,4221,,0,27,extra,"Mrs William Martin, Stockwell Street, Glasgow."" This rhapsody I carefully consigned to"
+chambers_1843,chambers_1843_0036,"""KOHL'S RUSSIA."" - MOSCOW.*",25;26,3142,28,1,28,matched,"Moscow, the grand old capital of Russia, differs entirely from its modern"
+chambers_1843,chambers_1843_0037,BOURBONNAIS,26,2231,29,1,29,matched,THE division of France into departments has in one respect failed in
+chambers_1843,chambers_1843_0038,ISLE OF SKYE,26;27,326,30,1,30,matched,"Of Skye, a rugged island on the west coast of the Scottish"
+chambers_1843,chambers_1843_0039,ON A MYSTERIOUS CIRCUMSTANCE CONNECTED WITH SCOTTISH GASTRONOMY,27,1175,31,1,31,matched,"PORRIDGE of oatmeal is the universal breakfast of the humbler classes, and"
+chambers_1843,chambers_1843_0040,A NIGHT AT A GERMAN VILLAGE,27,1021,32,1,32,matched,THE following graphic account of a night's lodging at a small inn
+chambers_1843,chambers_1843_0041,THE NIMBUS,27;28,828,33,1,33,matched,"THE Nimbus is a Latin term signifying literally a storm-cloud, but metaphorically"
+chambers_1843,chambers_1843_0042,AGRICULTURE IN ENGLAND,28;29;30,5605,34;35,2,34;35,merged,MR GREG has addressed a second letter to the editor of the
+chambers_1843,chambers_1843_0043,AN EDUCATIONAL TREAD-MILL,30,760,36,1,36,matched,"THE Subject of prison discipline having of late excited throughout the country,"
+chambers_1843,chambers_1843_0044,CASE OF PREMATURE INTERMENT,30,476,37,1,37,matched,"A case of premature interment is recorded in Life of Mrs Bellamy,"
+chambers_1843,chambers_1843_0045,THE FRIENDS OF MY YOUTH,30,311,38,1,,matched,Friends of my youth! Where are ye? On the stream together; Of
+chambers_1843,chambers_1843_0046,A FIGHT BETWEEN A MUNGOOZE AND COBRA CAPELLO,30,675,39,1,39,matched,A FIGHT BETWEEN A MUNGOOZE AND COBRA CAPELLO Being desirous of seeing
+chambers_1843,chambers_1843_0047,MAKER OF WEALTH AND HIS HEIR,30,487,40,1,40,matched,"Consider, further, the difference between the first and Every species of property"
+chambers_1843,chambers_1843_0048,HEIGHT OF SOLDIERS,30,148,41,1,,matched,"In consequence of arguments respecting the height have taken some pains, at"
+saturday_1834,saturday_1834_0001,HEREFORD CATHEDRAL,5,0,,0,,extra,
+saturday_1834,saturday_1834_0002,HEREFORD CATHEDRAL,6;7,2070,43,1,43,matched,"THE Cathedral Church of St. ETHELBERT, at Hereford, is peculiarly interesting, both"
+saturday_1834,saturday_1834_0003,,7,14,44,1,44,matched,"SUNDAY is not a day to feast our bodies, but to feed"
+saturday_1834,saturday_1834_0004,,7,104,45,1,45,matched,THERE is something remarkable in the composition of the Jewish and Christian
+saturday_1834,saturday_1834_0005,,7,16,46,1,46,matched,"In the time of Henry the Eighth, to be in possession of"
+saturday_1834,saturday_1834_0006,,7,39,47,1,47,matched,THERE is many a wounded heart without a contrite spirit. The ice
+saturday_1834,saturday_1834_0007,THE MINES OF GREAT BRITAIN,8;9,1961,48,1,48,matched,"No. III. ON THE DISCOVERY OF MINERAL VEINS, AND THE MODE OF"
+saturday_1834,saturday_1834_0008,,9,28,49,1,49,matched,IT was not till the time of Elizabeth that the English learnt
+saturday_1834,saturday_1834_0009,,9,17,50,1,50,matched,"He that makes light of small faults, is in a ready way"
+saturday_1834,saturday_1834_0010,,9,52,51,1,51,matched,SIR HENRY SIDNEY was the brave and virtuous father of the more
+saturday_1834,saturday_1834_0011,WILLS OF PERSONAL PROPERTY CONTINUED,10,726,,0,,extra,"HAVING shown, in former papers, who may make a Will, and with"
+saturday_1834,saturday_1834_0012,,10;11,586,,0,52,extra,"ANY gift by Will is properly a Legacy, but the word is"
+saturday_1834,saturday_1834_0013,ADDRESS TO A GODCHILD,11,169,53,1,,matched,"WE this week present to our readers an original paper, written by"
+saturday_1834,saturday_1834_0014,MY DEAR GODCHILD,11,528,,0,,extra,"I offer up the same fervent prayer for you now, as I"
+saturday_1834,saturday_1834_0015,"Grove, Highgate, S. T. COLERIDGE",11,18,,0,53,extra,"Grove, Highgate, S. T. COLERIDGE. July 13, 1834. He died on the"
+saturday_1834,saturday_1834_0016,"THE TORTOISE, THE FROG, AND THE DUCK",11,339,54,1,54,matched,"THE TORTOISE, THE FROG, AND THE DUCK. ALONG the fields one rainy"
+saturday_1834,saturday_1834_0017,ON THE STRUCTURE OF ANIMALS. II,12,615,55,1,55,matched,"THE changes which we see in the forms of different animals, are"
+saturday_1834,saturday_1834_0018,,12,59,56,1,56,matched,RARE qualities may sometimes be prerogatives without being advantages; and though a
+saturday_1834,saturday_1834_0019,,12,12,57,1,57,matched,"AMBITION breaks the ties of blood, and forgets the obligations of gratitude."
+saturday_1834,saturday_1834_0020,,12,31,58,1,58,matched,MRS. CHAPONE was asked how it was she was always so early
+saturday_1834,saturday_1834_0021,,12,54,59,1,59,matched,"SIR WILLIAM GOOCH, governor of Williamsburg, walking along the street with a"
+saturday_1834,saturday_1834_0022,PART THE SECOND. IONA; INSULAR CHURCHES,13;14;15,1607,,0,,extra,"EARLY on the 25th, (A.D. 1827,) we started for Staffa and Iona."
+saturday_1834,saturday_1834_0023,STAFFA,15,448,,0,,extra,"On returning from Iona, we landed at a small cave on the"
+saturday_1834,saturday_1834_0024,MULL,15;16,1396,,0,,extra,"On our return from Staffa, a boat pushed out. from the Bay"
+saturday_1834,saturday_1834_0025,ARISAIG.–HOSPITALITY.-KELP.-ROMAN CATHOLICS.-EDUCATION,16;17;18;19,4032,,0,,extra,"ON the 30th, we made an excursion in a yacht; an excellent"
+saturday_1834,saturday_1834_0026,SMALL ISLES. EGG,19;20,1626,,0,61,extra,"On leaving Arisaig, we were driven by a contrary wind into Egg."
+saturday_1834,saturday_1834_0027,"OR, EVE'S APPLE TREE OF CEYLON",21;22,1017,63,1,63,matched,THE island of Ceylon is situated between the sixth and tenth parallels
+saturday_1834,saturday_1834_0028,,22,22,64,1,64,matched,No one in his heart derides religion long. What are weany of
+saturday_1834,saturday_1834_0029,,22,125,65,1,65,matched,No sound should be heard in the church but the healing voice
+saturday_1834,saturday_1834_0030,ON HABITS,23,979,66,1,66,matched,"CONSIDERING how deeply the principle of imitation is implanted in human nature,"
+saturday_1834,saturday_1834_0031,THE COMMON BEE,23;24,1547,67,1,67,matched,"THE COMMON BEE, or HONEY-FLY, is an insect of the species of"
+saturday_1834,saturday_1834_0032,HENRY PRINCE OF WALES; ELDEST SON OF KING JAMES THE FIRST,25;26,938,68,1,,matched,"THERE are few events recorded in the history of England, which the"
+saturday_1834,saturday_1834_0033,FROM KING JAMES TO PRINCE HENRY,26,533,,0,68,extra,"God gives not kings the style of Gods in vain, For on"
+saturday_1834,saturday_1834_0034,,26,49,69,1,69,matched,"As rivers, when they overflow, drown those grounds, and ruin those husbandmen,"
+saturday_1834,saturday_1834_0035,,26,116,70,1,70,matched,"IT is useful to observe, in our progress through life, the chain"
+saturday_1834,saturday_1834_0036,,26,153,71,1,71,matched,In this world we are children standing on the bank of a
+saturday_1834,saturday_1834_0037,THE DAISY IN INDIA,27,284,72,1,72,matched,"THRICE welcome, little English Flower! My mother-country's white and red, In rose"
+saturday_1834,saturday_1834_0038,FAMILIAR ILLUSTRATIONS OF EXPERI- MENTAL SCIENCE,27;28,1441,73,1,73,matched,No. IV. HEAT. TEMPERATURE. RADIATION. CONDUCTION. In the present state of our
+saturday_1834,saturday_1834_0039,,28,248,74,1,74,matched,THE energy of every function is regulated in a great measure by
+penny_1838,penny_1838_0001,ENGLISH ROMANTIC BALLADS,6;7;8,2635,76,1,76,matched,"No. V. LITTLE MUSGRAVE. - THE FRIAR OF ORDERS GRAY. ""Listene these"
+penny_1838,penny_1838_0002,CHRISTMAS GAMES IN THE OLDEN TIME,9;10;11,2621,77,1,,matched,FEW relics of the olden time are recurred to with more zest
+penny_1838,penny_1838_0003,"""A CAROL:- BRYNGING IN THE BOAR'S HEAD",11;12,375,,0,,extra,"""Caput Apri defero Reddens laudes Domino."" ""The Bore's head in hande bring"
+penny_1838,penny_1838_0004,"""CEREMONIES FOR CHRISTMASSE",12,292,,0,77,extra,"""Come, bring with a noise, My merrie, merrie boys, The Christmasse log"
+penny_1838,penny_1838_0005,QUACKS AND QUACK MEDICINES,12;13,1987,78,1,78,matched,"ABOUT the time that St. John Long and his liniment disappeared, another"
+penny_1838,penny_1838_0006,PUBLISHED EVERY SATURDAY,14;15,1102,80,1,80,matched,We have lately given some engravings from a very beautiful work now
+penny_1838,penny_1838_0007,QUACKS AND QUACK MEDICINES,15;16;17,1828,81,1,81,matched,"In August, 1836, a woman, named Mary Rebecca Russell, died at Hull,"
+penny_1838,penny_1838_0008,THE PENNY MAGAZINE OF THE,18,7,,0,,extra,Society for the Diffusion of Useful Knowledge.
+penny_1838,penny_1838_0009,PUBLIC IMPROVEMENTS,18,2,,0,,extra,PUBLIC IMPROVEMENTS.
+penny_1838,penny_1838_0010,,18;19,1143,83,1,,matched,If we take the increase of the population at successive periods as
+penny_1838,penny_1838_0011,HPictorial History of England,19;20;21;22;23;24;25,6452,,0,83,extra,"HPictorial History of England.' vol. ii., book v., chap. vii.; "" History"

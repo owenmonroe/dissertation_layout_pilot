@@ -485,3 +485,9 @@ scripts only):
 - run it on the new held-out issues;
 - annotate their gold list from the pages;
 - score v3 on them.
+
+## Held-out test (2026-11-02)
+
+v3 froze as `extraction-v3` and ran on Penny 1838, Saturday 1834 and Chambers 1843. Scores are in `evaluation/evaluating_v3_article_extraction/v3_gold_comp_eval_summary.md`: 62/76 exact (82%), boundary recall 93%, precision 72%, 27 extra articles. No rule changed after the test texts were opened; the first score is kept as committed. Any gold correction is made from the printed page and listed here, with the corrected score reported beside the first.
+
+Saturday's PDF holds the index to Vol. IV but its issues are Vol. V, so no index was used for it.

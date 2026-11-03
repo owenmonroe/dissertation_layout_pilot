@@ -1,0 +1,10 @@
+volume,gold_id,issue_no,issue_seq,result,first_found,last_found,missing_part_found_in,pipeline_imprint
+chambers_1843,14,573,1,complete,True,True,,"LONDON: Published, with permission of the proprietors, by W. S. ORR, Paternoster Row. Printed by Bradbury and Evans, Whitefriars."
+chambers_1843,26,574,2,complete,True,True,,"LONDON: Published, with permission of the proprietors, by W. S. ORR, Paternoster Row. Printed by Bradbury and Evans, Whitefriars."
+chambers_1843,42,575,3,complete,True,True,,"LONDON: Published, with permission of the proprietors, by W. S. ORR, Paternoster Row. Printed by Bradbury and Evans, Whitefriars."
+saturday_1834,60,138,1,complete,True,True,,"LONDON: JOHN WILLIAM PARKER, WEST STRAND. PUBLISHED IN WEEKLY NUMBERS, PRICE ONE PENNY, AND IN MONTHLY PARTS PRICE SIXPENCE, AND Sold by all Booksellers and New"
+saturday_1834,62,139,2,complete,True,True,,"LONDON: Published by JOHN WILLIAM PARKER, WEST STRAND; and sold by all Bookvellers,"
+saturday_1834,75,140,3,missing,False,False,not found,
+penny_1838,79,431,1,complete,True,True,,"The Office of the Society for the Diffusion of Useful Knowledge is at 59. Lincoln's Inn Fields. LONDON:-CHARLES KNIGHT & CO., 22, LUDGATE STREET, Printed by WIL"
+penny_1838,82,432,2,complete,True,True,,"The Office of the Society for the Diffusion of Useful Knowledge is at 59, Lincoln's Iun Fields., LONDON: CHARLES KNIGHT & CO., 22, LUDGATE STREET. Printed by WI"
+penny_1838,85,433,3,complete,True,True,,"The Office of the Society for the Diffusion of Useful Knowledge is at 59, Lincoln's Inn Fields. LONDON:-CHARLES KNIGHT & CO., 22, LUDGATE STREET. Printed by WIL"

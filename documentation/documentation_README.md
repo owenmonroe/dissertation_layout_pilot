@@ -113,11 +113,26 @@ Docs: `article_extraction_pipeline_iterative_build/` (`v1_rules.md`,
 Docs: `article_extraction_pipeline_iterative_build/` (`v2_pipeline.md`,
 `v1_to_v2_process.md`, `gold_article_list_annotation_guide.md`).
 
+### 4. Article extraction v3: Document AI + YOLO + rule scripts (done)
+
+**Built** from the v2 test findings, with the v2 test issues as build texts
+(`v3_decisions.md`), and frozen as `extraction-v3`.
+
+**Tested on held-out issues** from Penny 1838, Saturday 1834 and Chambers 1843
+(three issues each, 85 gold rows, 76 scored items). First score, before any
+gold corrections:
+- **82%** of items extracted exactly;
+- boundary recall **93%**, boundary precision **72%** (it over-splits);
+- titles 90%, front matter 78%, back matter 68%, series 29%;
+- issue numbers and dates 100%; 8 of 9 imprints.
+
+The score on the v2 test issues (94% exact) is not a held-out result, because
+v3 was built on them.
+
 ## To do
 
-- **Article extraction v3** (Document AI, YOLO, rule scripts): fix the v2
-  test findings, then evaluate on a **new** set of held-out test texts. The
-  v2 test texts have now been seen.
+- **Article extraction v4:** fix the v3 test findings, chiefly inner headings
+  read as new articles. The v3 test texts have now been seen.
 - **OCR evaluation:** WER/CER on sampled passages against a literal
   transcription of what is printed, plus a check for words lost or
   duplicated between boxes.
@@ -135,11 +150,13 @@ dissertation_layout_pilot/
 ├── evaluation/
 │   ├── evaluating_layout_detection/      stage 1: box error log, analysis notebook, gold boxes, eval images
 │   ├── evaluating_v1_article_extraction/  stage 2: reading-order error log, v1-vs-v2 comparison
-│   └── evaluating_v2_article_extraction/  stage 3: gold article list, scoring script + notebook, results,
-│                                         test_texts_extraction_v2/ (held-out test PDFs)
+│   ├── evaluating_v2_article_extraction/  stage 3: gold article list, scoring script + notebook, results,
+│   │                                     test_texts_extraction_v2/ (held-out test PDFs)
+│   └── evaluating_v3_article_extraction/  stage 4: v3 gold list, results, test_texts_extraction_v3/ (held-out test PDFs)
 ├── output/
 │   ├── output_images_json_establishing_layout_AIs/  model output on the build texts (Document AI, YOLO, PrimaLayout)
 │   ├── output_images_json_v2_article_extraction/    model output on the v2 test texts (Document AI, YOLO)
+│   ├── output_images_json_v3_article_extraction/    model output on the v3 test texts (Document AI, YOLO)
 │   └── article_extraction/<version>/<volume>/       extracted articles: CSVs, SQLite, check images, figures
 ├── pipeline/
 │   ├── run_volume.py, run_doclayoutyolo_batch.py, run_docai_batch.py, run_prima_batch.py, …
