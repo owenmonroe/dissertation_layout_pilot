@@ -10,6 +10,7 @@ venv_build_test/*-env/
 
 # Page images of the held-out test volumes
 evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/images/
+evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/images/
 
 # Python bytecode caches
 __pycache__/
@@ -21,3 +22,4 @@ __pycache__/
 # Boxed page images from model runs: not needed for extraction (check images are in
 # output/article_extraction/<version>/<volume>/reading_order/); made only with --draw-boxes
 output/output_images_json_v2_article_extraction/**/*.png
+output/output_images_json_v3_article_extraction/**/*.png

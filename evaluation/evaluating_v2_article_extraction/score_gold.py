@@ -475,8 +475,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--version", default="v2")
     parser.add_argument("--out", type=Path, default=HERE)
+    parser.add_argument("--gold", type=Path, default=GOLD_PATH)
     args = parser.parse_args()
-    res = score(args.version)
+    res = score(args.version, load_gold(args.gold))
     path = write(res, args.version, args.out)
     print(path.read_text())
 
