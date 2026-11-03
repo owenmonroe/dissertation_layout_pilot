@@ -64,7 +64,7 @@ how v3 does on unseen text. That comes from the new held-out issues.
 | Front matter in place | 20% (3/15) | 87% (13/15) |
 | Back matter in place | 64% | 83% |
 | Footnotes in place | 25/36 | 30/36 |
-| Series (where either has one) | 24% | 47% |
+| Series (where either has one) | 28% (7/25) | 67% (10/15) |
 | Issue number | 26% | 100% |
 | Issue date | 51% | 100% |
 
@@ -223,6 +223,8 @@ front matter, and **front matter never starts a new article**:
 - "INTRODUCTION" for On Garden Herbs. I. (Saturday gold 48).
 - "SECOND ARTICLE" for Speculation on Words (Chambers gold 87; also front
   matter of M. Turgot, gold 80).
+
+**Series after the run-in rule (Owen, 2026-11-02):** all 6 gold series are now found (10/15 items). A run-in opening printed in two issues over different subjects is a series ("National Galleries… at Munich. The Glyptothek"). "A Discourse on Geology" is a series, added to the gold list: a main title over a number and a subject expected to change, so the number is `series_part`, not a continuation part. It stays a candidate until it recurs. The 5 misses are later items under one leader (Remarkable Cases, Last Century Anecdotes), left for now because the end of such a group can't be found reliably.
 
 **One category (Owen, 2026-11-02):** headers, subtitles, bylines and source lines are all `front_matter`, with no separate fields. They read on the page as a byline or header, and they matter because they indicate an article's source.
 

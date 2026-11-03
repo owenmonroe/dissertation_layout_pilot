@@ -6,13 +6,17 @@ the previous issue's Archery).
       - two stacked headings where the first (the leader) recurs across
         issues: leader = series, second = title ("BIOGRAPHIC SKETCHES." +
         "DR. ALEXANDER MURRAY."). A leader can also be printed inside an
-        illustration box above the title ("BRITISH ANIMALS." over the Mole);
+        illustration box above the title ("BRITISH ANIMALS." over the Mole),
+        or run into one title box, seen in two issues over different subjects
+        ("NATIONAL GALLERIES FOR THE FINE ARTS AT MUNICH. THE GLYPTOTHEK.");
       - a leader seen in one issue only is a candidate (series_evidence says
         so) until it recurs;
       - a title that recurs on its own in different issues, with no
         continuation language between them, is a series ("THE WEEK");
       - a number on the series heading is the series' own numbering ("THE
-        NATURAL HISTORY OF THE MONTHS. I. JANUARY.": series_part I).
+        NATURAL HISTORY OF THE MONTHS. I. JANUARY.": series_part I), and so is
+        one opening the title under a leader ("A DISCOURSE ON GEOLOGY." / "I.
+        NATURE OF GEOLOGY."): number and subject change from piece to piece.
   - continuation (continues_article_id): one piece carried across issues,
     with the same title apart from a part number or a note (Owen, v3 decision
     8). A numbered title is a part of one piece, not a series: "ON GARDEN
@@ -41,6 +45,8 @@ PART = re.compile(r"^(.*?\S)\s*[.:]\s*[—–-]{0,2}\s*(?:No\.?\s*|Part\s+)?([IV
 PART_DASH = re.compile(r"^(.*?\S)\s*[—–-]{1,2}\s*(?:No\.?\s*|Part\s+)([IVXLC]{1,6}|\d{1,3})\.?$", re.I)
 # A number on a series heading: "THE NATURAL HISTORY OF THE MONTHS. I. JANUARY."
 SERIES_NUMBER = re.compile(r"^(.+?)\.\s+([IVXLC]{1,6})\.\s+(\S.*)$")
+# Under a leader: "I. NATURE OF GEOLOGY." Only I, V, X: "M. TURGOT." is a name.
+LEADING_NUMBER = re.compile(r"^([IVX]{1,5})\.\s+(\S.*)$")
 ORDINAL_NOTE = re.compile(r"\b(second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\s+(?:article|paper|part)\b", re.I)
 ORDINALS = {"second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6, "seventh": 7,
             "eighth": 8, "ninth": 9, "tenth": 10}
@@ -48,6 +54,7 @@ OPENS = re.compile(r"\b(?:continued|concluded)\b", re.I)
 OPENS_TEXT = re.compile(r"\bin our (?:first|last|former|previous|preceding) (?:number|no\b)", re.I)
 OPENS_TEXT_CHARS = 300
 CLOSES = re.compile(r"\bto be (?:continued|concluded)\b", re.I)
+RUN_IN_LEADER_WORDS = 2  # at least: "DR. ADAM." and "M. TURGOT." are names
 DISTINCTIVE_LEN = 6  # letters in a title word shared by two parts with different titles
 
 
@@ -124,6 +131,21 @@ def closes_part(a: Article) -> bool:
     return bool(CLOSES.search(a.back_matter)) or (bool(a.part) and roman(a.part) == 1)
 
 
+def run_in_leaders(articles: list[Article], leaders: dict) -> set:
+    """Openings of one-box titles printed in two issues over different
+    subjects. A numbered title stays a part of one piece ("ON GARDEN HERBS. I.")."""
+    seen = {}  # opening -> (issues, subjects)
+    for a in articles:
+        head, dot, rest = a.title.partition(". ")
+        if leaders[a.article_id] or not dot or not rest.strip() \
+                or len(head.split()) < RUN_IN_LEADER_WORDS or PART.match(clean(a.title)):
+            continue
+        issues, subjects = seen.setdefault(key(head), (set(), set()))
+        issues.add(a.issue_seq)
+        subjects.add(key(rest))
+    return {k for k, (issues, subjects) in seen.items() if len(issues) >= 2 and len(subjects) >= 2}
+
+
 def assign_series_leaders(articles: list[Article]) -> None:
     """Split leaders off titles, before the titles are tidied."""
     leaders = {a.article_id: leader_of(a) for a in articles}
@@ -135,6 +157,7 @@ def assign_series_leaders(articles: list[Article]) -> None:
             issues.setdefault(key(heading), set()).add(a.issue_seq)
     recurring = {k for k, seen in issues.items() if len(seen) >= 2}
     leader_keys = {key(f[0]) for f in leaders.values() if f}
+    run_in = run_in_leaders(articles, leaders)
 
     for a in articles:
         found = leaders[a.article_id]
@@ -143,6 +166,9 @@ def assign_series_leaders(articles: list[Article]) -> None:
             seen = sorted(issues[key(leader)])
             a.series = display(leader)
             a.title = rest
+            number = LEADING_NUMBER.match(rest)
+            if number:
+                a.series_part, a.title = number.group(1), number.group(2)
             a.series_evidence = (f"leader recurs (issues {', '.join(map(str, seen))}); {where}"
                                  if key(leader) in recurring
                                  else f"candidate: leader in one issue so far; {where}")
@@ -160,7 +186,7 @@ def assign_series_leaders(articles: list[Article]) -> None:
         else:
             # A known leader run into one title box: "BIOGRAPHIC SKETCHES. DR. ADAM."
             head, dot, rest = a.title.partition(". ")
-            if dot and rest and key(head) in recurring and key(head) in leader_keys:
+            if dot and rest and (key(head) in run_in or (key(head) in recurring and key(head) in leader_keys)):
                 a.series, a.title = display(head), rest
                 a.series_evidence = "leader recurs; run into the title box"
 

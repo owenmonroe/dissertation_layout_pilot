@@ -25,7 +25,7 @@ Written by `evaluation/evaluating_v2_article_extraction/score_gold.py`; definiti
 | title                                 | 12/15 (80%)  | 21/27 (78%)     | 33/39 (85%)     | 66/81 (81%)  |
 | front matter pieces in place          | 1/3 (33%)    | 0/4 (0%)        | 2/8 (25%)       | 3/15 (20%)   |
 | back matter pieces in place           | 9/12 (75%)   | 10/15 (67%)     | 22/37 (59%)     | 41/64 (64%)  |
-| series (where either has one)         | 0/3 (0%)     | 0/6 (0%)        | 6/16 (38%)      | 6/25 (24%)   |
+| series (where either has one)         | 0/3 (0%)     | 1/6 (17%)       | 6/16 (38%)      | 7/25 (28%)   |
 | continued from                        | 14/15 (93%)  | 27/27 (100%)    | 37/39 (95%)     | 78/81 (96%)  |
 | to be continued                       | 14/15 (93%)  | 23/27 (85%)     | 38/39 (97%)     | 75/81 (93%)  |
 | editorial notice / article            | 15/15 (100%) | 27/27 (100%)    | 39/39 (100%)    | 81/81 (100%) |
