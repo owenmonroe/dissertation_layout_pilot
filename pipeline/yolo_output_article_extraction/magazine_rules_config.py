@@ -150,14 +150,14 @@ VOLUMES = {
         Volume("chambers_1839", "chambers", "v2_test",
                "evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/chambers_test_3issues_v8_1839_mdp-39015024480603-1779384859.pdf",
                pages="7-30", index_pages="4-6"),
-        # v3's held-out test issues. Saturday's PDF has the index to Vol. IV but
-        # the issues are Vol. V, so no index is used for it.
+        # v3's held-out test issues. Saturday's PDF was replaced after the v3 run
+        # to hold the right index (Vol. V); pages 5-28 are unchanged.
         Volume("penny_1838", "penny", "test",
                "evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/penny_v7_1838_v3_test_3issues.pdf",
                pages="6-25", index_pages="4"),
         Volume("saturday_1834", "saturday", "test",
                "evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/saturday_v4.5_1834_v3_test_3issues.pdf",
-               pages="5-28"),
+               pages="5-28", index_pages="3-4"),
         Volume("chambers_1843", "chambers", "test",
                "evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/chambers_v12_1843_v3_test_3issues.pdf",
                pages="7-30", index_pages="4-6"),

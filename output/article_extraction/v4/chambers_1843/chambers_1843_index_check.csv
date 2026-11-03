@@ -1,0 +1,11 @@
+pipeline_version,volume,index_entry,heading,printed_page,scan_pages,article_id,article_title,matched_words,status,magazine
+v4,chambers_1843,"Dining Experiences 113, 9",Dining Experiences,9,15,chambers_1843_0023,DINNERS,dinin,matched,chambers
+v4,chambers_1843,"Be Kind to Each Other - 112 Story of Sandy, - 16","Be Kind to Each Other - 112 Story of Sandy, -",16,22,chambers_1843_0029,A HINT TO BENEVOLENT IMPROVERS,other,shared,chambers
+v4,chambers_1843,"Felon the 200,, Friends of my Youth 24",Felon the,24,30,,,,unmatched,chambers
+v4,chambers_1843,"Germany, Domestic Life in, 2 Mexico, Life - 3","Germany, Domestic Life in, 2 Mexico, Life -",3,9,chambers_1843_0005,GERMAN DOMESTIC LIFE,"domes, germa, life",matched,chambers
+v4,chambers_1843,"Hint to Improvers, 15.Music of the",Hint to Improvers,15,21,chambers_1843_0029,A HINT TO BENEVOLENT IMPROVERS,"hint, impro",shared,chambers
+v4,chambers_1843,"Kohl in Austria, 215 Oropholithe,"" 11,","Kohl in Austria, 215 Oropholithe,""",11,17,chambers_1843_0025,"""KOHL'S RUSSIA."" ST PETERSBURG.*",kohl,matched,chambers
+v4,chambers_1843,", 66 Wild Fruit, 47 267 Wilson's Voyage on the Coasts of 53 Scotland, 50 199 Women of the Ban de la Roche, 387 - 1","66 Wild Fruit, 47 267 Wilson's Voyage on the Coasts of 53 Scotland, 50 199 Women of the Ban de la Roche, 387 -",1,7,,,,unmatched,chambers
+v4,chambers_1843,"at, 55, - 16",at,16,22,,,,unmatched,chambers
+v4,chambers_1843,"296 Skye, Isle of, 20","296 Skye, Isle of",20,26,chambers_1843_0038,ISLE OF SKYE,"isle, skye",matched,chambers
+v4,chambers_1843,"168 Soldiers, Height of, 24","168 Soldiers, Height of",24,30,chambers_1843_0048,HEIGHT OF SOLDIERS,"heigh, soldi",matched,chambers

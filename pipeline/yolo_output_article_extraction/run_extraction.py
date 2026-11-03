@@ -52,7 +52,7 @@ from text import (assign_docai_text, assign_tesseract_text, clean_marks, docai_j
 # v1 is frozen (git tag extraction-v1; output/article_extraction/v1/ is the
 # output the reading-order evaluation describes). Bump this when a version is
 # frozen and work on the next one starts.
-PIPELINE_VERSION = "v3"
+PIPELINE_VERSION = "v4"
 FROZEN_VERSIONS = {"v1", "v2", "v3"}  # v2: tag extraction-v2; test volumes run 2026-10-16
 # v3: tag extraction-v3; test volumes run 2026-11-02
 OUT_ROOT = REPO_ROOT / "output" / "article_extraction" / PIPELINE_VERSION

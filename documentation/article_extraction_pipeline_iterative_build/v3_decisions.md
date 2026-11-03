@@ -488,6 +488,10 @@ scripts only):
 
 ## Held-out test (2026-11-02)
 
-v3 froze as `extraction-v3` and ran on Penny 1838, Saturday 1834 and Chambers 1843. Scores are in `evaluation/evaluating_v3_article_extraction/v3_gold_comp_eval_summary.md`: 62/76 exact (82%), boundary recall 93%, precision 72%, 27 extra articles. No rule changed after the test texts were opened; the first score is kept as committed. Any gold correction is made from the printed page and listed here, with the corrected score reported beside the first.
+v3 froze as `extraction-v3` and ran on Penny 1838, Saturday 1834 and Chambers 1843. Scores are in `evaluation/evaluating_v3_article_extraction/v3_gold_comp_eval_summary.md`: 62/76 exact (82%), boundary recall 97%, precision 74%, 25 extra articles. No rule changed after the test texts were opened. These scores use the gold list as corrected from the printed page (rows 2, 42, 52, 61, 84); the first score, before corrections, is in commit `3fc1815` (62/76 exact, recall 93%, precision 72%).
 
-Saturday's PDF holds the index to Vol. IV but its issues are Vol. V, so no index was used for it.
+The frozen v3 run used no index for Saturday: the PDF then held the Vol. IV index, and its issues are Vol. V. Owen replaced the PDF with the Vol. V index (pages 5-28 identical). The test volumes were rerun as the v4 working version with v3's rules, and every score, title and series stayed the same.
+
+Findings carried to v4 (Owen, 2026-11-02): a printed line above a heading is strong proof of a new article, and lines rarely occur inside articles, but many real articles have no line, so its absence proves nothing (`heading_signal_check.py`: 53 real, 0 false with a line; 44 real, 17 false without). No general subsection rule. Chambers 1843 p9 is a badly distorted scan and shouldn't drive rules.
+
+Lines vary in length and may be missed by `rules.py`, which needs a solid line of 60 px or more, centred in its column; so some of the 44 may have a line it didn't detect. Footnotes: a line usually sits above them in Chambers (17/18 in place on the test), but in Penny and Saturday a footnote often has only a mark and smaller type at the end of a column (11/19 in place).

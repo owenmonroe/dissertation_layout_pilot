@@ -1,6 +1,6 @@
 volume,article_id,pipeline_title,pages,word_count,gold_starts,n_gold_starts,gold_ends,status,text_start
 chambers_1843,chambers_1843_0001,,7;8,2858,1,1,1,matched,It was after some twenty years' separation that I met my schoolfellow
-chambers_1843,chambers_1843_0002,"IN GERMANY.""*",8,124,,0,,extra,THE husbandry of the Germans differs from ours in an important particular.
+chambers_1843,chambers_1843_0002,"IN GERMANY.""*",8,124,2,1,,matched,THE husbandry of the Germans differs from ours in an important particular.
 chambers_1843,chambers_1843_0003,GERMAN ECONOMY,8,603,,0,,extra,"""Nothing that can possibly be made use of is lost. The children"
 chambers_1843,chambers_1843_0004,THE GERMAN PEASANT'S HOME,8,388,,0,,extra,"""The English of the working-class can indeed form no conception of the"
 chambers_1843,chambers_1843_0005,GERMAN DOMESTIC LIFE,8;9,1336,,0,2,extra,"""Early hours and simple living distinguish the Germans. Three meals a day"
@@ -53,7 +53,7 @@ saturday_1834,saturday_1834_0003,,7,14,44,1,44,matched,"SUNDAY is not a day to f
 saturday_1834,saturday_1834_0004,,7,104,45,1,45,matched,THERE is something remarkable in the composition of the Jewish and Christian
 saturday_1834,saturday_1834_0005,,7,16,46,1,46,matched,"In the time of Henry the Eighth, to be in possession of"
 saturday_1834,saturday_1834_0006,,7,39,47,1,47,matched,THERE is many a wounded heart without a contrite spirit. The ice
-saturday_1834,saturday_1834_0007,THE MINES OF GREAT BRITAIN,8;9,1961,48,1,48,matched,"No. III. ON THE DISCOVERY OF MINERAL VEINS, AND THE MODE OF"
+saturday_1834,saturday_1834_0007,THE MINES OF GREAT BRITAIN,8;9,1961,48;52,2,48,merged,"No. III. ON THE DISCOVERY OF MINERAL VEINS, AND THE MODE OF"
 saturday_1834,saturday_1834_0008,,9,28,49,1,49,matched,IT was not till the time of Elizabeth that the English learnt
 saturday_1834,saturday_1834_0009,,9,17,50,1,50,matched,"He that makes light of small faults, is in a ready way"
 saturday_1834,saturday_1834_0010,,9,52,51,1,51,matched,SIR HENRY SIDNEY was the brave and virtuous father of the more
@@ -68,7 +68,7 @@ saturday_1834,saturday_1834_0018,,12,59,56,1,56,matched,RARE qualities may somet
 saturday_1834,saturday_1834_0019,,12,12,57,1,57,matched,"AMBITION breaks the ties of blood, and forgets the obligations of gratitude."
 saturday_1834,saturday_1834_0020,,12,31,58,1,58,matched,MRS. CHAPONE was asked how it was she was always so early
 saturday_1834,saturday_1834_0021,,12,54,59,1,59,matched,"SIR WILLIAM GOOCH, governor of Williamsburg, walking along the street with a"
-saturday_1834,saturday_1834_0022,PART THE SECOND. IONA; INSULAR CHURCHES,13;14;15,1607,,0,,extra,"EARLY on the 25th, (A.D. 1827,) we started for Staffa and Iona."
+saturday_1834,saturday_1834_0022,PART THE SECOND. IONA; INSULAR CHURCHES,13;14;15,1607,61,1,,matched,"EARLY on the 25th, (A.D. 1827,) we started for Staffa and Iona."
 saturday_1834,saturday_1834_0023,STAFFA,15,448,,0,,extra,"On returning from Iona, we landed at a small cave on the"
 saturday_1834,saturday_1834_0024,MULL,15;16,1396,,0,,extra,"On our return from Staffa, a boat pushed out. from the Bay"
 saturday_1834,saturday_1834_0025,ARISAIG.–HOSPITALITY.-KELP.-ROMAN CATHOLICS.-EDUCATION,16;17;18;19,4032,,0,,extra,"ON the 30th, we made an excursion in a yacht; an excellent"

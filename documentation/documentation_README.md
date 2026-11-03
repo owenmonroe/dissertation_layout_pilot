@@ -119,12 +119,12 @@ Docs: `article_extraction_pipeline_iterative_build/` (`v2_pipeline.md`,
 (`v3_decisions.md`), and frozen as `extraction-v3`.
 
 **Tested on held-out issues** from Penny 1838, Saturday 1834 and Chambers 1843
-(three issues each, 85 gold rows, 76 scored items). First score, before any
-gold corrections:
+(three issues each, 85 gold rows, 76 scored items), scored on the corrected
+gold list:
 - **82%** of items extracted exactly;
-- boundary recall **93%**, boundary precision **72%** (it over-splits);
-- titles 90%, front matter 78%, back matter 68%, series 29%;
-- issue numbers and dates 100%; 8 of 9 imprints.
+- boundary recall **97%**, boundary precision **74%** (it over-splits);
+- titles 88%, front matter 67%, back matter 69%, series 20%;
+- issue numbers 100%, dates 99%.
 
 The score on the v2 test issues (94% exact) is not a held-out result, because
 v3 was built on them.

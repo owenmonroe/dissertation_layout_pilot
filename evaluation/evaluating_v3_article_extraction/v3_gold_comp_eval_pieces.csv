@@ -1,4 +1,6 @@
 volume,gold_id,field,footnote,piece,result
+chambers_1843,2,front_matter,False,Second Article.,in place
+chambers_1843,2,back_matter,True,* Rural and Domestic Life in Germany. By William Howitt. 1 vol. 3vo. Embellished with wood engravings. London: Longman and Co. 1842.,in place
 chambers_1843,3,front_matter,False,"By the Author of “Selwyn,” “Tales of the Moors,” &c.",in place
 chambers_1843,3,back_matter,True,"* This tale may be said to be published here for the first time; for, though it was printed a few years ago in a monthly magazine, so small was the circulation of that work, which sunk at the fifth number, that the articles contained in it could scarcely be said to have seen the light. The “Wedding in Garrison” is here reprinted with the obliging concurrence of the author.",in place
 chambers_1843,5,back_matter,True,"* These statements are partly derived from “ A Report of the state of Literary, Scientific, and Mechanics’ Institutions in Great Britain,” issued by the Society for the Diffusion of Useful Knowledge, and ably drawn up by the secretary, Mr Thomas Coates.",in text
@@ -42,11 +44,20 @@ saturday_1834,47,back_matter,False,Middleton.,in place
 saturday_1834,48,back_matter,True,"* See Vol. III., p. 178, and Vol. IV. p. 43. p. 43",in text
 saturday_1834,48,back_matter,False,F. B.,in text
 saturday_1834,49,back_matter,False,Life and Times of Henry the Eighth.,in place
+saturday_1834,52,back_matter,False,W. [To be continued.],in place
 saturday_1834,54,back_matter,False,M.,missing
 saturday_1834,55,back_matter,True,"* The sketch is from a dried head of the Sus Ethiopicus with part of the scull exposed. The tusks show what a formidable animal it has been. That which rises out of the upper jaw is of great size, and we must admire the manner in which the tusk of the lower jaw closes upon that of the upper one, so as to strengthen it near its roots. The great size and sharpness of the tusks illustrate what is offered in the text, that the main strength of the animal must be directed towards them. The ring of the back of the head will be seen to correspond with the great height and strength of the spinous processes of the back, exhibited in the figure of the wild boar of Germany.",in place
 saturday_1834,55,back_matter,False,[Abridged from Bell’s Bridgewater Treatise.],in place
 saturday_1834,56,back_matter,False,Boyle.,in text
 saturday_1834,57,back_matter,False,Sir W. Scott.,in place
+saturday_1834,61,front_matter,False,Part the Second.,in title
+saturday_1834,61,front_matter,False,Iona; Insular Churches.,in title
+saturday_1834,61,back_matter,True,"* The practice alluded to, reminds us of the superstition of the American Indian, described by the poet: “Who thinks, admitted to an equal say, His faithful dog shall bear him company.”",in text
+saturday_1834,61,back_matter,False,He is now called sheriff.,missing
+saturday_1834,61,back_matter,True,"* The ecclesiastical jurisdiction in Scotland is vested in the presbytery, composed of the ministers and some of the elders of a few adjoining parishes: in a synod, which comprises several presbyteries, and is composed of ministers and elders, elected by the presbyteries: and of the General Assmbly, similar constituted, in which the ultimate appellative jurisdiction is vested.",in place
+saturday_1834,61,back_matter,True,"* (Sinclair’s Survey.) Martin mentions at the beginning of last century, that Macneill of Barra, and his followers, were catholics, and that he exercised considerable influence.",in place
+saturday_1834,61,back_matter,True,"* It was first brought to notice at the commencement of the present century, by Professor Jamieson of Edinburgh. (In the first part of these sketches, the discovery is inadvertently ascribed to Playfair.)",in place
+saturday_1834,61,back_matter,False,P. S. Q. R.,in place
 saturday_1834,63,front_matter,False,"Or, Eve’s Apple Tree of Ceylon.",in title
 saturday_1834,63,back_matter,True,"* The following results are given by Dr Davy as the annual mean temperature at the different places indicated, viz., Trincomalé on the N.E. coast…………….80° 4’ Colombo, on the S.W. coast…………….79 0 Kandy, in the interior…………….73 5 The summit of Adam’s Peak, about 7000 feet above the sea, varied from 51° at 9 P.M., to 59° at 7 A.M., in April, 1817.",in place
 saturday_1834,63,back_matter,True,"† We find that these particulars were furnished by Sir A. Johnston to Captain Grindlay, in illustration of a view of the cinnamon-garden from the back of Sir Alexander’s house, published by Captain G. in his beautiful work on the scenery, architecture, &c., of Western Indian and Ceylon.",in text
