@@ -53,6 +53,9 @@ REJOIN_BELOW = 0.15  # share of page height: above it (masthead, running head) n
 HEADING_MIN_WORDS = 2
 HEADING_INSET = 0.08  # share of the box's width left free on each side: centred
 TABLE_DIGITS = 0.15  # share of a box's characters
+# A capitals line with no box, within this many px of a figure's side and
+# level with it, is the figure's caption (v4).
+CAPTION_GAP_PX = 60
 # Printer's marks caught in a text box: a signature or volume mark after the
 # last sentence ("... perfection. VOL. I.", "... crime. 3-2", "... sea. C").
 TRAILING_MARK = re.compile(r"(?<=[.!?\"”’:;])\s+(?:VOL\.?\s*[IVX]+\.?|[A-Z]|\d{1,2}(?:-\d{1,2})?|[A-Z]\s?\d)\s*$")
@@ -154,6 +157,16 @@ def capitals_line(line: Line) -> bool:
     return line.text.isupper() and len(line.text.split()) >= HEADING_MIN_WORDS
 
 
+def beside_figure(pg: Page, line: Line) -> bool:
+    """A line inside a figure's box or right beside it, level with it (a
+    caption printed sideways along a full-page picture: Saturday 1834 p5)."""
+    x1, y1, x2, y2 = line.bbox
+    for f in (r for r in pg.regions if r.role == "figure"):
+        if f.y1 <= line.cy <= f.y2 and f.x1 - CAPTION_GAP_PX <= x1 and x2 <= f.x2 + CAPTION_GAP_PX:
+            return True
+    return False
+
+
 def heading_region(pg: Page, line: Line, column, index: int, note: str) -> Region:
     return Region(pg.magazine, pg.page, index, "unboxed_ocr", 0.0, line.bbox, role="title",
                   column=column, lines=[line], text=line.text, note=note)
@@ -204,7 +217,12 @@ def recover_unboxed(pg: Page, lines: list[Line]) -> list[Line]:
         col_lines.sort(key=lambda l: l.cy)
         for l in [l for l in col_lines if capitals_line(l) and l.cy >= REJOIN_BELOW * pg.height]:
             # before grouping: stray line-end words nearby would swallow it
-            pg.regions.append(heading_region(pg, l, col, 100 + new, "heading line with no YOLO box"))
+            if beside_figure(pg, l):  # a picture's caption, never a title (v4)
+                pg.regions.append(Region(pg.magazine, pg.page, 100 + new, "unboxed_ocr", 0.0, l.bbox,
+                                         role="caption", column=col, lines=[l], text=l.text,
+                                         note="caption beside a figure with no YOLO box"))
+            else:
+                pg.regions.append(heading_region(pg, l, col, 100 + new, "heading line with no YOLO box"))
             new += 1
             col_lines.remove(l)
         if not col_lines:

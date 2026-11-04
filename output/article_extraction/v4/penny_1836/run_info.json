@@ -1,0 +1,12 @@
+{
+  "pipeline_version": "v4",
+  "git_commit": "7e7f37f",
+  "uncommitted_changes": true,
+  "run_date": "2026-11-03T18:39:18",
+  "volume": "penny_1836",
+  "magazine": "penny",
+  "split": "v2_test",
+  "pdf": "evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/penny_test_3issues_v5_1836_inu-30000093219388-1779827694.pdf",
+  "pages": "6-29",
+  "ocr": "docai"
+}

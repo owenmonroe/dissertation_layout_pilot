@@ -192,15 +192,15 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
     issue_meta = by_issue[["issue_no", "issue_date"]].first()
     for seq, group in by_issue:
         with_year = [d for d in group["issue_date"].dropna() if d[-4:].isdigit()]
-        if with_year:
-            issue_meta.loc[seq, "issue_date"] = with_year[0]
+        if with_year:  # a full date before a month and year ("08-30-1834", "08-1834")
+            issue_meta.loc[seq, "issue_date"] = max(with_year, key=lambda d: d.count("-"))
     # A date OCR'd without its year takes the year of the issue before it.
     year = None
     for seq, date in issue_meta["issue_date"].items():
         if isinstance(date, str) and date[-4:].isdigit():
             year = date[-4:]
         elif isinstance(date, str) and year:
-            issue_meta.loc[seq, "issue_date"] = f"{date}, {year}"
+            issue_meta.loc[seq, "issue_date"] = f"{date}-{year}"
 
     # Issues that follow on: the printed pages run straight on from the issue before.
     printed = printed_pages(page_rows)
@@ -226,6 +226,7 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
             "article_id": a.article_id, "magazine": mag, "issue_seq": a.issue_seq,
             "issue_no": meta.get("issue_no"), "issue_date": meta.get("issue_date"),
             "title": a.title, "title_source": a.title_source, "article_type": a.article_type,
+            "supplement": a.supplement,
             "series": a.series or None, "series_part": a.series_part or None,
             "series_evidence": a.series_evidence or None,
             "part": a.part or None,
@@ -455,6 +456,12 @@ def main() -> None:
     articles = result["tables"]["articles"]
     n_figures = (result["tables"]["regions"]["role"] == "figure").sum()
     print(f"{mag}: {len(result['pages'])} pages, {len(articles)} articles, {n_figures} figures")
+    # A supplement is nearly always one article (v4): list any still in pieces.
+    supp = articles[articles["supplement"] & (articles["article_type"] == "article")]
+    for issue, group in supp.groupby("issue_no", dropna=False):
+        if len(group) > 1:
+            print(f"  supplement check: No. {issue} has {len(group)} articles: "
+                  + " | ".join(f"p{p} {t!r}" for p, t in zip(group.start_page, group.title.fillna(""))))
     for row in articles.itertuples():
         print(f"  {row.article_id}  p{row.pages:<8} {row.title_source:10} "
               f"{row.word_count:5} words  {row.title[:60]!r}")

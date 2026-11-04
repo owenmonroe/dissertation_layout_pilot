@@ -1,0 +1,4 @@
+pipeline_version,volume,magazine,issue_seq,issue_no,issue_date,pages,n_boxes,imprint_text
+v4,chambers_1839,chambers,1,414.0,01-04-1840,14,1,"LONDON: Published, with permission of the proprietors, by W.S. ORR, Paternoster Row; and sold by all booksellers and newsmen.-Printed by Bradbury and Evans, Whitefriars."
+v4,chambers_1839,chambers,2,415.0,01-11-1840,22,1,"LONDON: Published, with permission of the proprietors, by W.S. ORR, Paternoster Row; and sold by all booksellers and newsmen.-Printed by Bradbury and Evans, Whitefriars."
+v4,chambers_1839,chambers,3,416.0,01-18-1840,30,1,"LONDON: Published, with permission of the Proprietors, by W. S. ORR, Paternoster Row; Printed by BRADBURY and EVANS, Whitefriars."

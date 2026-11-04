@@ -1,0 +1,4 @@
+pipeline_version,volume,magazine,issue_seq,issue_no,issue_date,pages,n_boxes,imprint_text
+v4,penny_1836,penny,1,270.0,06-18-1836,13,1,"The Office of the Society for the Diffusion of Useful Knowledge is at 59, Lincoln's Inn Fields. LONDON: CHARLES KNIGHT, 22, LUDGATE STREET. Printed by WILLIAM_CLOWES and Sons, Stamford Street."
+v4,penny_1836,penny,2,271.0,06-25-1836,21,1,"The Office of the Society for the Diffusion of Useful Knowledge is at 59, Lincoln's Inn Fields LONDON: CHARLES KNIGHT, 22, LUDGATE STREET. Printed by WILLIAM CLOWES and Sons, Stamford Street."
+v4,penny_1836,penny,3,272.0,06-30-1836,29,1,"The Office of the Society for the Diffusion of Useful Knowledge is at 59, Lincoln's Inn Fields. LONDON: CHARLES KNIGHT & CO, 22, LUDGATE STREET. Printed by WILLIAM CLOWES and Sons, Stamford Street,"

@@ -124,9 +124,16 @@ def is_footnote(piece: str) -> bool:
 
 def parse_date(text) -> tuple | None:
     """(month, day, year) from "6.18.1836", "June 18, 1836", or the end of a
-    range: "5.31-6.30.1836"."""
+    range: "5.31-6.30.1836". Month and year only ("8.1834"; pipeline v4
+    "08-1834") give day None. Pipeline v4 dates are numeric: "08-30-1834"."""
     if not isinstance(text, str):
         return None
+    m = re.fullmatch(r"\s*(\d{2})-(\d{2})(?:-(\d{4}))?\s*", text)
+    if m:
+        return int(m.group(1)), int(m.group(2)), int(m.group(3)) if m.group(3) else None
+    m = re.fullmatch(r"\s*(\d{1,2})[.-](\d{4})\s*", text)
+    if m:
+        return int(m.group(1)), None, int(m.group(2))
     text = text.split("-")[-1]
     m = re.match(r"^\s*(\d{1,2})\.(\d{1,2})\.(\d{4})", text)
     if m:

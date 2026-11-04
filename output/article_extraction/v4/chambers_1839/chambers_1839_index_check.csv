@@ -1,0 +1,13 @@
+pipeline_version,volume,index_entry,heading,printed_page,scan_pages,article_id,article_title,matched_words,status,magazine
+v4,chambers_1839,"Beranger 45 Rollin, Charles 332 Stanhope, Earl Turgot 405,410 248, Monsieur","Beranger 45 Rollin, Charles 332 Stanhope, Earl Turgot",405,19,chambers_1839_0020,ROBERT BURNS,"charl, earl",matched,chambers
+v4,chambers_1839,"251 Boswell, Writings of James 395","251 Boswell, Writings of James",395,9,chambers_1839_0003,FUGITIVE WRITINGS OF JAMES BOSWELL,"boswe, james, writi",matched,chambers
+v4,chambers_1839,"286 Burns, Heroines Burns, Robert 404","286 Burns, Heroines Burns, Robert",404,18,,,,unmatched,chambers
+v4,chambers_1839,"Century, of 404","Century, of",404,18,chambers_1839_0018,ALCHEMY,centu,matched,chambers
+v4,chambers_1839,"403 Circumstantial Evidence 134, 254, 412",403 Circumstantial Evidence,412,26,chambers_1839_0032,THE SHOP BOY,"circu, evide",matched,chambers
+v4,chambers_1839,"Hybernation of Animals 394, Obscurities",Hybernation of Animals,394,8,chambers_1839_0002,HYBERNATION OR WINTER SLEEP OF ANIMALS,"anima, hyber",matched,chambers
+v4,chambers_1839,History- Alchemy 403 43 Mythology 414,History- Alchemy 403 43 Mythology,414,28,chambers_1839_0039,SCANDINAVIAN MYTHOLOGY,mytho,matched,chambers
+v4,chambers_1839,"379, 403,414 Ants, Migrations of 128 318 Attention to little things 40 159 Auctioneer and the Clock 2808 373 Auld Robin Gray, Authoress of 31 - 16",,403,17,,,,unmatched,chambers
+v4,chambers_1839,"Rules 224 Presentiment instance of Mind Pride Mortified, to 408","Rules 224 Presentiment instance of Mind Pride Mortified, to",408,22,chambers_1839_0023,GRAVE LITERATURE,"mind, prese",matched,chambers
+v4,chambers_1839,272 Tale of Romance 400,272 Tale of Romance,400,14,chambers_1839_0015,A TALE OF ROMANCE,roman,matched,chambers
+v4,chambers_1839,272 Toilet of a Pawnee Indian 416,272 Toilet of a Pawnee Indian,416,30,chambers_1839_0041,TOILET OF A PAWNEE INDIAN DANDY,"india, pawne, toile",matched,chambers
+v4,chambers_1839,"112 War Picture of 32, 400",112 War Picture of,400,14,,,,unmatched,chambers

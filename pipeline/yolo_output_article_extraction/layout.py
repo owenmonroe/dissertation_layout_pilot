@@ -40,9 +40,10 @@ NAME_MIN_PX = 70
 # Masthead lines are short; a longer box near the top is article text.
 MASTHEAD_MAX_WORDS = 40
 # Masthead wording shared by all magazines, for reading down the masthead;
-# each magazine adds its own (magazine_rules_config.py).
+# each magazine adds its own (magazine_rules_config.py). "Supplement": a
+# monthly supplement's masthead opens "MONTHLY SUPPLEMENT OF" (v4).
 MASTHEAD_WORDS = re.compile(
-    ISSUE_MARKS.pattern + r"|\bprice\b|magazine|journal"
+    ISSUE_MARKS.pattern + r"|\bprice\b|magazine|journal|\bsupplement\b"
     r"|january|february|march|april|may|june|july|august|september|october|november"
     r"|december|\b1[78]\d\d\b", re.I)
 # The masthead's row of short lines (number, date, price) sits side by side

@@ -1,0 +1,12 @@
+{
+  "pipeline_version": "v4",
+  "git_commit": "7e7f37f",
+  "uncommitted_changes": true,
+  "run_date": "2026-11-03T18:38:56",
+  "volume": "chambers",
+  "magazine": "chambers",
+  "split": "build",
+  "pdf": "build_texts/chambers_first3sample_hvd-hwrgz7-1779381321.pdf",
+  "pages": "1-24",
+  "ocr": "docai"
+}

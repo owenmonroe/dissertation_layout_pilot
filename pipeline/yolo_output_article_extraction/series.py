@@ -47,6 +47,16 @@ PART_DASH = re.compile(r"^(.*?\S)\s*[—–-]{1,2}\s*(?:No\.?\s*|Part\s+)([IVXLC
 SERIES_NUMBER = re.compile(r"^(.+?)\.\s+([IVXLC]{1,6})\.\s+(\S.*)$")
 # Under a leader: "I. NATURE OF GEOLOGY." Only I, V, X: "M. TURGOT." is a name.
 LEADING_NUMBER = re.compile(r"^([IVX]{1,5})\.\s+(\S.*)$")
+# "No. V." opening the title under a leader, with the piece's own subject
+# ("No. V. LITTLE MUSGRAVE..."): the series' number (v4, rule 3). The title
+# keeps it, as printed.
+NO_NUMBER = re.compile(r"^No\.?\s*([IVXLC]{1,6}|\d{1,3})\.?,?\s+\S", re.I)
+# A leader printed with its number ("ON WILLS. No. IV" / "WILLS OF PERSONAL
+# PROPERTY CONTINUED."), or name, number and subject on one line ("PUBLIC
+# IMPROVEMENTS. —No. II., PROVINCIAL TOWNS."): the name is the series, and
+# the title is the whole heading, since the number is printed with the name.
+NAMED_NUMBER = re.compile(r"^(.*?[A-Za-z].*?)\s*[.,]?\s*[—–-]{0,2}\s*No\.?\s*([IVXLC]{1,6}|\d{1,3})\b\.?,?\s*(.*)$", re.I)
+PART_THE = re.compile(r"\bpart\s+the\s+(second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\b", re.I)
 ORDINAL_NOTE = re.compile(r"\b(second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\s+(?:article|paper|part)\b", re.I)
 ORDINALS = {"second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6, "seventh": 7,
             "eighth": 8, "ninth": 9, "tenth": 10}
@@ -67,7 +77,9 @@ def key(text: str) -> str:
 
 
 def display(text: str) -> str:
-    """One spelling of a series name for every piece: "Column for the Boys"."""
+    """One spelling of a series name for every piece: "Column for the Boys".
+    A word broken across lines is joined: "EXPERI- MENTAL" → "Experimental"."""
+    text = re.sub(r"(?<=[A-Za-z])-\s+(?=[A-Za-z])", "", text)
     words = re.findall(r"[A-Za-z'’]+", text)
     return " ".join(w.capitalize() if i == 0 or w.lower() not in SMALL_WORDS else w.lower()
                     for i, w in enumerate(words))
@@ -146,9 +158,25 @@ def run_in_leaders(articles: list[Article], leaders: dict) -> set:
     return {k for k, (issues, subjects) in seen.items() if len(issues) >= 2 and len(subjects) >= 2}
 
 
+def numbered_leader(found):
+    """(name, number, whole heading) when the leader carries its number."""
+    leader, rest, where = found
+    m = NAMED_NUMBER.match(leader)
+    if m and not m.group(3).strip() and len(m.group(1).split()) >= 1:
+        return clean(m.group(1)), m.group(2).upper(), f"{leader} {rest}".strip()
+    return None
+
+
 def assign_series_leaders(articles: list[Article]) -> None:
     """Split leaders off titles, before the titles are tidied."""
     leaders = {a.article_id: leader_of(a) for a in articles}
+    numbered = {}
+    for a in articles:
+        found = leaders[a.article_id]
+        if found and numbered_leader(found):
+            name, number, whole = numbered_leader(found)
+            numbered[a.article_id] = (number, whole)
+            leaders[a.article_id] = (name, found[1], found[2])
     issues = {}  # leader key -> issues it was printed in, as a leader or a whole title
     for a in articles:
         found = leaders[a.article_id]
@@ -169,6 +197,10 @@ def assign_series_leaders(articles: list[Article]) -> None:
             number = LEADING_NUMBER.match(rest)
             if number:
                 a.series_part, a.title = number.group(1), number.group(2)
+            elif NO_NUMBER.match(rest):
+                a.series_part = NO_NUMBER.match(rest).group(1).upper()
+            if a.article_id in numbered:
+                a.series_part, a.title = numbered[a.article_id]
             a.series_evidence = (f"leader recurs (issues {', '.join(map(str, seen))}); {where}"
                                  if key(leader) in recurring
                                  else f"candidate: leader in one issue so far; {where}")
@@ -186,9 +218,14 @@ def assign_series_leaders(articles: list[Article]) -> None:
         else:
             # A known leader run into one title box: "BIOGRAPHIC SKETCHES. DR. ADAM."
             head, dot, rest = a.title.partition(". ")
+            named = NAMED_NUMBER.match(clean(a.title)) if a.title else None
             if dot and rest and (key(head) in run_in or (key(head) in recurring and key(head) in leader_keys)):
                 a.series, a.title = display(head), rest
                 a.series_evidence = "leader recurs; run into the title box"
+            elif named and named.group(3).strip() and len(named.group(1).split()) >= 2:
+                # Name, number and its own subject in one heading (rule 3)
+                a.series, a.series_part = display(named.group(1)), named.group(2).upper()
+                a.series_evidence = "series name, number and subject in one heading"
 
 
 def caption_title(a: Article) -> None:
@@ -218,7 +255,7 @@ def read_parts(articles: list[Article]) -> None:
         if m and len(m.group(1).split()) >= 2:
             a.part = m.group(2).upper()
             continue
-        m = ORDINAL_NOTE.search(a.front_matter)
+        m = ORDINAL_NOTE.search(a.front_matter) or PART_THE.search(a.front_matter)
         if m:
             a.part = str(ORDINALS[m.group(1).lower()])
 

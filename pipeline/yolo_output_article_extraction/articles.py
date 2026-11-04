@@ -59,12 +59,19 @@ from dataclasses import dataclass, field
 from magazine_rules_config import magazine_rules
 from layout import column_of
 from rules import FOOTNOTE, numeric
-from text import SENTENCE_END, SMALL_TYPE, join_regions, type_size
+from text import SENTENCE_END, SMALL_TYPE, join_lines, join_regions, type_size
 
 MONTHS = ("january february march april may june july august september october "
           "november december").split()
 # Year optional: some mastheads lose it to OCR (run_extraction borrows it).
 DATE = re.compile(r"\b(" + "|".join(MONTHS) + r")\.?\s+(\d{1,2})(?:st|nd|rd|th)?\b(?:\s*,?\s*(1[78]\d\d))?", re.I)
+MONTH_YEAR = re.compile(r"\b(" + "|".join(MONTHS) + r")\.?\s*,?\s*(1[78]\d\d)\b", re.I)
+
+
+def month_number(name: str) -> int:
+    return MONTHS.index(name.lower()) + 1
+
+
 ISSUE_NO = re.compile(r"(?:\bN[oº°]\.?\s*|№\s*\.?\s*|\bNUMBER\s+|\[\s*)(\d{1,4})\s*\.?\s*\]?", re.I)
 PAGE_NO = re.compile(r"^\[?\s*(\d{1,4})\s*\.?\]?$")
 # An issue number on its own in the masthead: "1.]", "No. 2.", "Nº 3.", and
@@ -117,6 +124,14 @@ FIGURE_TITLE = re.compile(r"^([A-Z][A-Z'’ ,&-]{2,80}?)\s*(?:[.(\[]|$)")
 # ... or the whole box is the heading: "ST. OMER'S, IN FRANCE. I." (a stray OCR
 # word or two after it).
 FIGURE_TITLE_WHOLE = re.compile(r"^([A-Z][A-Z'’., &-]{6,80}[A-Z.])(?:\s+[a-z]{1,3})?$")
+# Masthead lines caught in a figure box (v4): the box holds the masthead if it
+# has one of these; every masthead mark (issue number, price, date, year, the
+# publisher's line) is cut away, and the title is read after the last one.
+MASTHEAD_IN_FIGURE = re.compile(r"published every|\bprice\b|under the direction|society for", re.I)
+MASTHEAD_MARK = re.compile(r"published every \w+|\bprice\b|\bn[º°o]\.?\s*\d+|\b\d{1,4}\.\]"
+                           r"|\b1[78]\d\d\b|\bknowledge\b|\bone penny\b", re.I)
+# After the masthead, the title's run of capital words, without its stop.
+FIGURE_TITLE_RUN = re.compile(r"^([A-Z][A-Z'’&-]+(?:[ ,]+[A-Z][A-Z'’&-]+){1,12})")
 FIGURE_TITLE_BEFORE_CAPTION = re.compile(r"\b([A-Z][A-Z'’,&-]+(?: [A-Z][A-Z'’,&-]+){2,12})\s*\.\s*\[")
 # A title box holding only initials ("D. C.") signs off the item above it.
 INITIALS = re.compile(r"^\W*(?:[A-Z]\.\s*){1,3}\W*$")
@@ -183,6 +198,19 @@ CENTRED_MAX_WORDS, CENTRED_INSET = 14, 0.05  # share of the paragraph's width fr
 VERSE_FILL = 0.8  # lines this much of the box wide on average, or less: verse
 # A heading printed with its part number: "THE TOWER OF LONDON.—No. I."
 TITLE_WITH_PART = re.compile(r"^[A-Z][A-Z'’ ,&-]{4,80}\.?\s*[—–-]{0,2}\s*(?:No\.?|Part)\s*[IVXLC\d]+\.?\s*$")
+# A series number with its own subject (v4, rule 3: Owen): "No. V." under a
+# series heading, followed by the piece's own title ("ENGLISH ROMANTIC
+# BALLADS." / "No. V. LITTLE MUSGRAVE. - THE FRIAR OF ORDERS GRAY."). The
+# capitals run is the title; what follows in the same box (an epigraph) is not.
+# With no subject after the number it is a part of one piece (series.PART).
+NUMBERED_SUBJECT = re.compile(r"^No\.?\s*(?:[IVXLC]{1,6}|\d{1,3})\.?,?\s+[A-Z][A-Z'’ ,.&;:—–-]*[A-Z]\.?")
+# The series name, number and subject on one heading line: "PUBLIC
+# IMPROVEMENTS. —No. II., PROVINCIAL TOWNS." (the dash is not a sign-off).
+NAMED_NUMBER_SUBJECT = re.compile(r"^[A-Z][A-Z'’ ,&-]{4,80}\.?\s*[—–-]{0,2}\s*No\.?\s*(?:[IVXLC]{1,6}|\d{1,3})"
+                                  r"\.?,?\s+[A-Z][A-Z'’ ,.&;:-]*[A-Z]\.?$")
+# "PART THE SECOND." under a title: front matter of a piece carried on (v4).
+PART_LINE = re.compile(r"^\W*part\s+(?:the\s+)?(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth"
+                       r"|[IVXLC]{1,6}|\d{1,3})\W*$", re.I)
 # One word then a dash, opening an item already known to be new: "War.—War undoubtedly"
 ONE_WORD_HEAD = re.compile(r"^([A-Z][a-z]{2,})\.?\s*[—–-]{1,2}\s*(?=[A-Z])")
 CONTINUATION_NOTE = re.compile(r"^\W*(?:continued|concluded)(?: from [^.\]]{0,40})?\.?\W*$", re.I)
@@ -250,6 +278,7 @@ class Article:
     continued_from: bool = False  # says it carries on an earlier part
     to_be_continued: bool = False  # says, or implies, that it carries on later
     closed: bool = False  # ended by a sign-off, a note or "To be continued"
+    supplement: bool = False  # in a monthly supplement issue (v4)
     caption_heading: object = None  # an all-capitals caption under the title
 
     @property
@@ -346,6 +375,8 @@ def attribution(text: str, verse: bool = True):
     m = ATTRIBUTION.search(text)
     if not m or "- " in m.group(1):  # a word broken across lines: not a clean sign-off
         return None
+    if re.match(r"No\.?\s*(?:[IVXLC]{1,6}|\d{1,3})\b", m.group(1)):
+        return None  # "—No. II., PROVINCIAL TOWNS.": a heading's number, not a sign-off
     words = m.group(1).split()
     if len(words) <= ATTRIBUTION_MAX_WORDS and title_case(words):
         return text[m.start(1):].strip()
@@ -464,10 +495,15 @@ def page_metadata(pg, extra_text: str = "") -> dict:
         date = dates[1] if ranged else dates[0]
     if pg.issue_start:
         masthead += head_band + extra_text.split(" | ")
+    # Dates are numeric (v4): "08-30-1834"; "08-30" until run_extraction
+    # borrows the year. With no day printed, a monthly supplement is dated
+    # by month and year: "SUPPLEMENT FOR AUGUST, 1834." gives "08-1834".
     date_text = None
     if date:
-        date_text = f"{date.group(1).title()} {int(date.group(2))}"
-        date_text += f", {date.group(3)}" if date.group(3) else ""
+        date_text = f"{month_number(date.group(1)):02d}-{int(date.group(2)):02d}"
+        date_text += f"-{date.group(3)}" if date.group(3) else ""
+    elif m := MONTH_YEAR.search(source):
+        date_text = f"{month_number(m.group(1)):02d}-{m.group(2)}"
     return {
         "printed_page": number,
         "issue_date": date_text,
@@ -577,11 +613,22 @@ def move_lone_figures(articles: list[Article]) -> list[Article]:
 
 
 def figure_title(a: Article):
-    """A title printed inside an illustration's box."""
+    """A title printed inside an illustration's box. On an issue's first page
+    the box can also hold the masthead lines above the title ("432.] PUBLISHED
+    EVERY SATURDAY. [DECEMBER 29, 1838 LE COMTE ... DE LABORDE"): the title is
+    read after the last masthead mark, and only there may it end without a
+    stop (the engraver's signature follows it). A full-page picture with the
+    masthead and no text of its own holds only its caption ("INFANT ACADEMY;
+    AFTER SIR JOSHUA REYNOLDS."): no title is read from it."""
     text = a.figures[0].text.strip() if a.figures else ""
+    after_masthead = MASTHEAD_IN_FIGURE.search(text)
+    if after_masthead and not a.regions:
+        return None
+    if after_masthead:
+        text = text[[m.end() for m in MASTHEAD_MARK.finditer(text)][-1]:].strip(" .,;:]")
     m = FIGURE_TITLE_WHOLE.match(text) or FIGURE_TITLE_BEFORE_CAPTION.search(text) \
-        or FIGURE_TITLE.match(text)
-    return m.group(1) if m and not re.search(r"MAGAZINE|JOURNAL", m.group(1)) else None
+        or FIGURE_TITLE.match(text) or (after_masthead and FIGURE_TITLE_RUN.match(text))
+    return m.group(1).rstrip(" ,") if m and not re.search(r"MAGAZINE|JOURNAL", m.group(1)) else None
 
 
 def rejoin_fragments(articles: list[Article]) -> list[Article]:
@@ -616,10 +663,67 @@ def rejoin_fragments(articles: list[Article]) -> list[Article]:
     return out
 
 
+SUPPLEMENT_MARK = re.compile(r"\bsupplement\b", re.I)
+
+
+def numbered_title(pg, r, current: Article, heading: str) -> None:
+    """The "No. N." line under a series heading is the piece's title (rule 3):
+    the lines it fills become a title box of their own; the rest of the box
+    (an epigraph, the first paragraph) stays text."""
+    n = next((k for k in range(1, len(r.lines) + 1)
+              if len(join_lines([l.text for l in r.lines[:k]])) >= len(heading) - 2), len(r.lines))
+    if not r.lines or n >= len(r.lines):
+        head, r.lines = r, []
+        r.role = "title"
+    else:
+        head_lines = r.lines[:n]
+        x1 = min(l.bbox[0] for l in head_lines)
+        bbox = (x1, min(l.bbox[1] for l in head_lines), max(l.bbox[2] for l in head_lines),
+                max(l.bbox[3] for l in head_lines))
+        head = type(r)(r.magazine, r.page, 300 + r.index if isinstance(r.index, int) else 300,
+                       r.yolo_type, r.score, bbox, role="title", column=r.column,
+                       lines=head_lines, text=join_lines([l.text for l in head_lines]))
+        head.order = r.order
+        pg.regions.append(head)
+        r.lines = r.lines[n:]
+        r.text = join_lines([l.text for l in r.lines])
+        r.bbox = (r.x1, max(r.y1, bbox[3]), r.x2, r.y2)
+    head.note = "series number with its own subject under the heading: the title"
+    current.title = f"{current.title} {head.text}".strip()
+    current.title_regions.append(head)
+
+
+def supplement_issue(pages: list, n_page: int) -> bool:
+    """A monthly supplement says so in its masthead ("MONTHLY SUPPLEMENT OF")
+    and running head ("SUPPLEMENT FOR AUGUST, 1834.")."""
+    for k in range(n_page, len(pages)):
+        pg = pages[k]
+        if k > n_page and pg.issue_start:
+            break
+        if any(r.text and SUPPLEMENT_MARK.search(r.text) and (
+                r.role == "masthead" or (r.role == "furniture" and r.y2 < HEAD_BAND * pg.height))
+               for r in pg.regions):
+            return True
+    return False
+
+
+def supplement_section(current: Article, r, head: str) -> None:
+    """Inside a supplement, a heading is a section of the one long article
+    (Saturday 1834's Highlands tour: "STAFFA.", "MULL."): its words stay in
+    the text and it is listed in the subsections (v4)."""
+    r.role = "text"
+    r.note = (r.note + "; " if r.note else "") + f"section heading in a supplement: subsection {head}"
+    current.subsections.append(head.strip().rstrip(".").strip())
+
+
 def segment(pages: list) -> list[Article]:
+    """... In a supplement issue (v4) a heading or new paragraph opens no
+    article: only a printed rule, the article closing (sign-off, end note,
+    "To be continued"), an editorial notice or the imprint ends it."""
     articles: list[Article] = []
     current = None
     issue_seq = 0
+    supplement = False
 
     def close():
         """The current article has ended: a sign-off, note or "To be continued"."""
@@ -631,7 +735,7 @@ def segment(pages: list) -> list[Article]:
     def start(title, source):
         nonlocal current
         current = Article(f"{pages[0].magazine}_{len(articles) + 1:04d}", pages[0].magazine,
-                          issue_seq, title, source)
+                          issue_seq, title, source, supplement=supplement)
         articles.append(current)
         return current
 
@@ -641,6 +745,7 @@ def segment(pages: list) -> list[Article]:
         if pg.issue_start or issue_seq == 0:
             issue_seq += 1
             current, last = None, None
+            supplement = supplement_issue(pages, n_page)
         in_imprint = False
         magazine = magazine_rules(pg.magazine)
         if issue_end:
@@ -710,6 +815,13 @@ def segment(pages: list) -> list[Article]:
                 r.role, r.note = "text", "heading inside an article (quoted or tabular matter)"
             if r.role == "text" and TITLE_WITH_PART.match(r.text.strip()):
                 r.role, r.note = "title", "heading printed with its part number"
+            if r.role == "text" and NAMED_NUMBER_SUBJECT.match(r.text.strip()) \
+                    and len(words) <= CAPS_TITLE_MAX_WORDS:
+                r.role, r.note = "title", "heading printed with its series number and subject"
+            if r.role == "text" and title_only and NUMBERED_SUBJECT.match(r.text.strip()):
+                numbered_title(pg, r, current, NUMBERED_SUBJECT.match(r.text.strip()).group())
+                if not r.lines:
+                    continue
             if r.role == "text" and r.text.isupper() and 2 <= len(words) <= CAPS_TITLE_MAX_WORDS \
                     and not (title_only and BYLINE.match(r.text)):
                 r.role, r.note = "title", "all-capitals YOLO text read as title"
@@ -717,8 +829,17 @@ def segment(pages: list) -> list[Article]:
                 current.add_back(r)  # "D. C." signing off the item above
                 close()
                 continue
+            # In a supplement, the article runs on past headings unless a
+            # printed rule comes first (rules rarely fall inside an article).
+            runs_on = supplement and current is not None and bool(current.regions) \
+                and not (r.rule_above or current.regions[-1].rule_below)
+            if r.role == "title" and runs_on:
+                supplement_section(current, r, r.text)
+                current.regions.append(r)
+                continue
             if r.role == "title":
                 if title_only and (FRONT_TITLE.search(r.text) or GENERIC_HEADING.match(r.text)
+                                   or PART_LINE.match(r.text)
                                    or current.front_parts
                                    or (r.yolo_type == "unboxed_ocr" and current.title.rstrip().endswith("."))):
                     # A second title box that's a source, quoted saying, byline or
@@ -797,16 +918,19 @@ def segment(pages: list) -> list[Article]:
                     head = None
                 if head and introduced:
                     head = None
+                if head and runs_on:
+                    supplement_section(current, r, head)
+                    head = None
                 if head:
                     start(head, "run_in")
-                elif current is None or (new_item(current, r) and not introduced):
+                elif current is None or (new_item(current, r) and not introduced and not runs_on):
                     start("", "none")
                 elif ruled(current, r) and not reads_as_source(r.text):
                     # (a source line set below the rule stays back matter)
                     m = ONE_WORD_HEAD.match(r.text)
                     start(m.group(1) if m else "", "run_in" if m else "none")
                     r.note = "new item: printed rule above"  # a filler: no title, a rule above
-                elif r.yolo_type == "abandon" and current.regions \
+                elif r.yolo_type == "abandon" and current.regions and not runs_on \
                         and SENTENCE_END.search(current.regions[-1].text.rstrip()):
                     start("", "none")  # a poem YOLO set apart from the page: its own item
                     r.note += "; new item"
