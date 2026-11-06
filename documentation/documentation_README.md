@@ -129,10 +129,31 @@ gold list:
 The score on the v2 test issues (94% exact) is not a held-out result, because
 v3 was built on them.
 
+### 5. Article extraction v4: Document AI + YOLO + rule scripts (built, not frozen)
+
+**Built** from the v3 test findings, one rule at a time, with the v3 test
+issues as build texts (`v4_decisions.md`). The six rules cover:
+- mastheads, front-page pictures and month-only dates;
+- supplements, read as one article with subsections;
+- numbered headings, as series parts or continuations;
+- more footnote marks, and "§" section headings;
+- footnotes boxed with the paragraph above;
+- sources at the end of Chambers paragraphs.
+
+**On the seen v3 test issues** (not a held-out result):
+- exact items 82% → 86%; extra articles 25 → 15;
+- titles 88% → 97%, series 20% → 78%, back matter 69% → 80%.
+
+The v2 test issues and the 1832 checks are unchanged.
+
+**Next:** freeze v4, then test it once on new held-out issues
+(`evaluation/evaluating_v4_article_extraction/`).
+
 ## To do
 
-- **Article extraction v4:** fix the v3 test findings, chiefly inner headings
-  read as new articles. The v3 test texts have now been seen.
+- **Article extraction v4:** freeze it, run it on the v4 held-out issues and
+  score it against their gold list. Then either apply it to all volumes, or
+  make one round of bug fixes first.
 - **OCR evaluation:** WER/CER on sampled passages against a literal
   transcription of what is printed, plus a check for words lost or
   duplicated between boxes.
@@ -152,7 +173,8 @@ dissertation_layout_pilot/
 │   ├── evaluating_v1_article_extraction/  stage 2: reading-order error log, v1-vs-v2 comparison
 │   ├── evaluating_v2_article_extraction/  stage 3: gold article list, scoring script + notebook, results,
 │   │                                     test_texts_extraction_v2/ (held-out test PDFs)
-│   └── evaluating_v3_article_extraction/  stage 4: v3 gold list, results, test_texts_extraction_v3/ (held-out test PDFs)
+│   ├── evaluating_v3_article_extraction/  stage 4: v3 gold list, results, test_texts_extraction_v3/ (held-out test PDFs)
+│   └── evaluating_v4_article_extraction/  stage 5: v4 gold list, item notes and held-out test texts
 ├── output/
 │   ├── output_images_json_establishing_layout_AIs/  model output on the build texts (Document AI, YOLO, PrimaLayout)
 │   ├── output_images_json_v2_article_extraction/    model output on the v2 test texts (Document AI, YOLO)
@@ -192,4 +214,5 @@ dissertation_layout_pilot/
 | `v2_decisions.md` | the 10 decisions behind v2, with evidence and status |
 | `v2_recheck.md` | v2 re-checked against the v1 log |
 | `v3_decisions.md` | the v3 decisions, with evidence and v2-vs-v3 results |
+| `v4_decisions.md` | the v4 rules, with evidence and v3-vs-v4 results on the seen volumes |
 | `gold_article_list_annotation_guide.md` | how the test texts were annotated, and how they are scored |
