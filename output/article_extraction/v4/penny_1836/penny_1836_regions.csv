@@ -436,7 +436,7 @@ v4,penny_1836,penny_1836_p027_r14,penny,27,14,abandon,0.7568,furniture,,,,,182,1
 v4,penny_1836,penny_1836_p027_r16,penny,27,16,abandon,0.6351,furniture,,,,,310,3237,706,3323,0.974,0.999,Digitized by Google,,,,,
 v4,penny_1836,penny_1836_p027_r17,penny,27,17,abandon,0.5465,furniture,,,,,0,1687,78,3256,0.507,0.979,"Generated at University of Illinois at Urbana-Champaign through HathiTrust on 2026-05-26 20:28 GMT https://hdl.handle.net/2027/inu.30000093219388 / Public Domain, Google-digitized",,,,,
 v4,penny_1836,penny_1836_p027_r18,penny,27,18,abandon,0.5001,dropped,,,,,4,1820,73,3274,0.547,0.985,,,,,,covered by #17
-v4,penny_1836,penny_1836_p027_r19,penny,27,19,abandon,0.4615,furniture,,,,,392,3015,846,3056,0.907,0.919,"• Memoirs of the Tower,' p. 253.",,,,,
+v4,penny_1836,penny_1836_p027_r19,penny,27,19,abandon,0.4615,back_matter,,,,penny_1836_0015,392,3015,846,3056,0.907,0.919,"• Memoirs of the Tower,' p. 253.",,,,,footnote set aside as furniture by YOLO: back matter
 v4,penny_1836,penny_1836_p027_r20,penny,27,20,abandon,0.2074,furniture,,,,,1346,3246,1690,3324,0.976,1.0,Original from INDIANA UNIVERSITY,,,,,
 v4,penny_1836,penny_1836_p027_r21,penny,27,21,abandon,0.2015,dropped,,,,,401,3015,847,3056,0.907,0.919,,,,,,covered by #19
 v4,penny_1836,penny_1836_p028_r05,penny,28,5,plain text,0.9699,text,left,0,1,penny_1836_0015,122,207,1004,443,0.062,0.133,"Behind is a quantity of armour and weapons, of different ages, but principally of the fifteenth, sixteenth, and seventeenth centuries, along with a number of figures, neatly and tastefully arranged. The whole collection is exceedingly interesting, and is probably one of the finest armouries in Europe.",,,,,

@@ -143,7 +143,10 @@ CAPS_TITLE_MAX_WORDS = 15
 SIGNATURE_MAX_WORDS = 3
 SIGNATURE_BELOW = 0.88  # share of page height
 # Attribution: a dash then a name or source in capitals / Title Case.
-ATTRIBUTION = re.compile(r"[.!?\"”’,;:)]\s*[—–-]{1,2}\s*([A-Z][A-Za-zÀ-ÿæœ0-9'’.,&\- ]{1,90}?)\.?\s*$")
+# Up to three dashes: OCR prints the long dash as "---" (v4, rule 6), and
+# also as other dash look-alikes (figure dash, bar, minus, two-em dash).
+SIGNOFF_DASH = "—–‒―−⸺⸻-"
+ATTRIBUTION = re.compile(r"[.!?\"”’,;:)]\s*[" + SIGNOFF_DASH + r"]{1,3}\s*([A-Z][A-Za-zÀ-ÿæœ0-9'’.,&\- ]{1,90}?)\.?\s*$")
 ATTRIBUTION_MAX_WORDS = 6
 # After a dash a source may have lowercase words ("—Newspaper paragraph.",
 # "—Waverly Novels, new edition."): the dash is the signal (v3, decision 6). A
@@ -158,7 +161,8 @@ LAST_LINE_INDENT = 0.3  # share of the box's width
 # paragraph is recorded as back matter, with no "looks like a citation" test
 # (that lost "Paradise Lost", "History of the Bible"); it doesn't end the
 # article, since without a dash it may be an ordinary closing line.
-ATTRIBUTION_NO_DASH = re.compile(r"[.!?\"”’]\s+([A-Z][A-Za-zÀ-ÿæœ'’.,& ]{3,80}?)\.?\s*$")
+# A hyphen may join words in it: "Dr Channing's Pamphlet on Self-Culture." (v4, rule 6).
+ATTRIBUTION_NO_DASH = re.compile(r"[.!?\"”’]\s+([A-Z][A-Za-zÀ-ÿæœ'’.,& ]{2,80}?(?:-[A-Za-z][A-Za-zÀ-ÿæœ'’& ]*)*)\.?\s*$")
 NO_DASH_WORDS = (2, 8)
 # A new item needs space (or a column / page break) before it, where the
 # magazines print a short rule; paragraphs within an item sit closer.
@@ -208,6 +212,9 @@ NUMBERED_SUBJECT = re.compile(r"^No\.?\s*(?:[IVXLC]{1,6}|\d{1,3})\.?,?\s+[A-Z][A
 # IMPROVEMENTS. —No. II., PROVINCIAL TOWNS." (the dash is not a sign-off).
 NAMED_NUMBER_SUBJECT = re.compile(r"^[A-Z][A-Z'’ ,&-]{4,80}\.?\s*[—–-]{0,2}\s*No\.?\s*(?:[IVXLC]{1,6}|\d{1,3})"
                                   r"\.?,?\s+[A-Z][A-Z'’ ,.&;:-]*[A-Z]\.?$")
+# A numbered section heading in the text (v4, rule 4): "§ 6. On the Form and
+# Language of Wills." Kept in the text and listed in the subsections.
+SECTION_MARK = re.compile(r"^\s*(§\s*\d{1,3}\.?\s*[^.]{3,150}\.)")
 # "PART THE SECOND." under a title: front matter of a piece carried on (v4).
 PART_LINE = re.compile(r"^\W*part\s+(?:the\s+)?(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth"
                        r"|[IVXLC]{1,6}|\d{1,3})\W*$", re.I)
@@ -310,7 +317,7 @@ class Article:
             self.back_regions.append(r)
             r.role = "back_matter"
             text = r.text
-        self.back_parts.append(text.strip().lstrip("—–- "))
+        self.back_parts.append(text.strip().lstrip(SIGNOFF_DASH + " "))
 
     @property
     def pages(self) -> list[int]:
@@ -707,6 +714,23 @@ def supplement_issue(pages: list, n_page: int) -> bool:
     return False
 
 
+def clean_heading(text: str) -> str:
+    return text.strip().rstrip(".").strip()
+
+
+def supplement_front_sections(articles: list[Article]) -> None:
+    """In a supplement, a section heading printed under the title stays front
+    matter (as under any title) and is also listed first among the sections:
+    "IONA; INSULAR CHURCHES." before Staffa, Mull, ... (v4, rule 4)."""
+    for a in articles:
+        if not a.supplement:
+            continue
+        heads = [clean_heading(p) for p in a.front_parts
+                 if p.isupper() and not PART_LINE.match(p) and not FRONT_TITLE.search(p)
+                 and not BRACKETED.match(p) and not CONTINUATION_NOTE.match(p)]
+        a.subsections[:0] = [h for h in heads if h not in a.subsections]
+
+
 def supplement_section(current: Article, r, head: str) -> None:
     """Inside a supplement, a heading is a section of the one long article
     (Saturday 1834's Highlands tour: "STAFFA.", "MULL."): its words stay in
@@ -863,7 +887,11 @@ def segment(pages: list) -> list[Article]:
                     start("", "none")
                 current.tables.append(r)
             elif r.role == "text":
-                if title_only and (
+                section = SECTION_MARK.match(r.text)
+                if section and current:  # before the front-matter tests: it is text
+                    current.subsections.append(clean_heading(section.group(1)))
+                    r.note = (r.note + "; " if r.note else "") + "numbered section heading: subsection"
+                if title_only and not section and (
                         (BYLINE.match(r.text) and len(words) <= BYLINE_MAX_WORDS)
                         or BRACKETED.match(r.text) or CONTINUATION_NOTE.match(r.text)
                         or (SUBTITLE.match(r.text) and len(words) <= 4)):
@@ -871,11 +899,11 @@ def segment(pages: list) -> list[Article]:
                     # a capitals subtitle ("EDINBURGHSHIRE.")
                     current.add_front(r)
                     continue
-                if centred_under_title(ordered, i, r, title_only):
+                if not section and centred_under_title(ordered, i, r, title_only):
                     current.add_front(r)
                     r.note = "centred under the title: front matter"
                     continue
-                if is_epigraph(ordered, i, r, title_only):
+                if not section and is_epigraph(ordered, i, r, title_only):
                     current.add_front(r)
                     r.note = "epigraph under the title: front matter"
                     continue
@@ -894,7 +922,7 @@ def segment(pages: list) -> list[Article]:
                 # colon, which introduces what follows ("...as under :-" / a
                 # table whose first row reads "Under Seven."; "...of our own
                 # day:—" / a quoted poem), a head is at most a subsection.
-                head = None if numeric(r) else run_in_head(r.text)
+                head = None if numeric(r) or section else run_in_head(r.text)
                 capitals_only = magazine.run_in_capitals_only
                 if head and current and (
                         title_only
@@ -1005,6 +1033,7 @@ def segment(pages: list) -> list[Article]:
             a.title_regions, a.regions = [], []
     articles = [a for a in articles if a.all_regions]
     articles = rejoin_fragments(move_lone_figures(articles))
+    supplement_front_sections(articles)
     for a in articles:
         close_back_matter(a)
     for n, a in enumerate(articles, start=1):  # number without gaps

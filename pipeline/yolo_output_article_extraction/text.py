@@ -32,7 +32,11 @@ SENTENCE_END = re.compile(r"[.!?:;\"”’)\]]$")
 # The scan's own stamps (HathiTrust / Google): never text.
 WATERMARK = re.compile(r"hdl\.handle\.net|google-digitized|public domain|digitized by|"
                        r"generated at|original from|\b\d\d:\d\d GMT\b", re.I)
-FOOTNOTE = re.compile(r"^\s*[*†‡§]")  # a footnote's opening mark
+# A footnote's opening mark. OCR often reads the asterisk as "•" or "+" (v4,
+# rule 4: 5 of 5 such boxes in nine volumes are footnotes); never a full stop.
+# "§" with a number opens a section heading, not a footnote ("§ 6. On the
+# Form and Language of Wills.").
+FOOTNOTE = re.compile(r"^\s*(?:[*†‡•+]|§(?!\s*\d))")
 # A box YOLO set aside (abandon) that is really content (v3, decision 3):
 # enough words, inside the text area, in the page's body type.
 CONTENT_MIN_WORDS = 12
@@ -262,6 +266,45 @@ def type_size(pg: Page, r: Region) -> float:
                   and len(b.lines) >= 5 for l in b.lines)
     mine = sorted(l.bbox[3] - l.bbox[1] for l in r.lines)
     return mine[len(mine) // 2] / body[len(body) // 2] if body and mine else 1.0
+
+
+# A footnote YOLO boxed with the paragraph above it (v4, rule 5): from a line
+# opening with a mark and a capital ("* Nahum, ch. i. v. 8."), in smaller type
+# than the lines above, to the end of the box, no more than a few lines.
+# (A footnote with its mark lost is not looked for by place: at the foot of a
+# column it reads like any last paragraph, poem or notice; v4, rule 5 tested.)
+FOOTNOTE_LINE = re.compile(r"^\s*[*†‡•+]{1,2}\s*[\"'‘“]?[A-Z]")
+FOOTNOTE_TAIL_TYPE = 0.92  # its line height against the lines above
+FOOTNOTE_TAIL_LINES = 8
+FOOTNOTE_TAIL_ABOVE = 3  # lines of paragraph above it at least ("JOHN STOUPIE, Clerk." / "* AIR, ..." is a play)
+
+
+def median_height(lines) -> float:
+    h = sorted(l.bbox[3] - l.bbox[1] for l in lines)
+    return h[len(h) // 2]
+
+
+def split_footnote_tails(pg: Page) -> None:
+    """Cut a footnote off the foot of the text box it was boxed with: it
+    becomes a box of its own, read as a footnote (back matter of the article
+    it annotates). The paragraph above is not changed."""
+    for n, r in enumerate([r for r in pg.regions if r.role == "text"]):
+        for k in range(FOOTNOTE_TAIL_ABOVE, len(r.lines)):
+            tail = r.lines[k:]
+            if not FOOTNOTE_LINE.match(r.lines[k].text) or len(tail) > FOOTNOTE_TAIL_LINES:
+                continue
+            if median_height(tail) >= FOOTNOTE_TAIL_TYPE * median_height(r.lines[:k]):
+                continue
+            bbox = (min(l.bbox[0] for l in tail), tail[0].bbox[1], max(l.bbox[2] for l in tail),
+                    max(l.bbox[3] for l in tail))
+            pg.regions.append(Region(pg.magazine, pg.page, 400 + n, r.yolo_type, r.score, bbox,
+                                     role="text", column=r.column, lines=tail,
+                                     text=join_lines([l.text for l in tail]),
+                                     note="footnote cut from the foot of a text box (mark, smaller type)"))
+            r.lines = r.lines[:k]
+            r.text = join_lines([l.text for l in r.lines])
+            r.bbox = (r.x1, r.y1, r.x2, min(r.y2, tail[0].bbox[1]))
+            break
 
 
 def promote_content(pg: Page) -> None:

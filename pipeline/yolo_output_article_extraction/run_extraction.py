@@ -46,7 +46,8 @@ from duplicates import find_duplicates, set_aside
 from rules import mark_rules
 from volume_index import check_index, parse_index, printed_pages
 from text import (assign_docai_text, assign_tesseract_text, clean_marks, docai_json_path,
-                  drop_empty, promote_content, recover_unboxed, split_headings)
+                  drop_empty, promote_content, recover_unboxed, split_footnote_tails,
+                  split_headings)
 
 # The rules version this code implements; output goes to its own folder.
 # v1 is frozen (git tag extraction-v1; output/article_extraction/v1/ is the
@@ -132,6 +133,7 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         unboxed = assign_docai_text(pg) if use_docai else assign_tesseract_text(pg)
         unboxed = recover_unboxed(pg, unboxed)
         split_headings(pg)
+        split_footnote_tails(pg)
         clean_marks(pg)
         drop_empty(pg)
         promote_content(pg)

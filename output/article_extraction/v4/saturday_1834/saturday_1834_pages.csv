@@ -1,6 +1,6 @@
 pipeline_version,volume,magazine,page,printed_page,issue_date,issue_no,issue_start,masthead_text,ocr,n_boxes,n_content,n_dropped,n_recovered,unboxed_lines,unboxed_text,page_image,duplicate_of,issue_seq,issue_check
 v4,saturday_1834,saturday,5,,08-30-1834,138,True,Saturday | Magazine.,docai,16,2,7,1,1,.,evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/images/saturday_1834_images/saturday_1834_page_005.png,,1,
-v4,saturday_1834,saturday,6,74,08-30-1834,138,False,,docai,18,10,3,0,2,Original from | PURDUE UNIVERSITY,evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/images/saturday_1834_images/saturday_1834_page_006.png,,1,
+v4,saturday_1834,saturday,6,74,08-30-1834,138,False,,docai,18,9,3,0,2,Original from | PURDUE UNIVERSITY,evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/images/saturday_1834_images/saturday_1834_page_006.png,,1,
 v4,saturday_1834,saturday,7,75,08-30-1834,138,False,,docai,21,14,1,0,0,,evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/images/saturday_1834_images/saturday_1834_page_007.png,,1,
 v4,saturday_1834,saturday,8,76,08-30-1834,138,False,,docai,22,14,3,0,3,22:43 GMT | Original from | PURDUE UNIVERSITY,evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/images/saturday_1834_images/saturday_1834_page_008.png,,1,
 v4,saturday_1834,saturday,9,77,08-30-1834,138,False,,docai,19,13,0,0,2,Original from | PURDUE UNIVERSITY,evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/images/saturday_1834_images/saturday_1834_page_009.png,,1,
