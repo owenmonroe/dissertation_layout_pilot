@@ -154,6 +154,13 @@ ATTRIBUTION_MAX_WORDS = 6
 # phrase with more lowercase words than this is a sentence, not a source.
 DASH_SOURCE_MAX_WORDS = 12
 DASH_SOURCE_MAX_LOWER = 2
+# A source opening "From" may be longer and name a work in quotes: "—From a
+# forthcoming work by Dr Busham of Dumfries, entitled "The Philosophy of
+# Instinct and Reason."" (v5). It must name something: 2+ capitalised words
+# after "From", so "—From that day he never spoke again." is not one.
+FROM_SOURCE = re.compile(r"[.!?\"”’,;:)]\s*[" + SIGNOFF_DASH + r"]{1,3}\s*(From\s[^—–]{3,220}?[.\"”’])\s*$")
+FROM_SOURCE_MAX_WORDS = 25
+FROM_SOURCE_MIN_CAPS = 2
 # A name alone on the box's last line, set to the right: "Sterne."
 LAST_LINE_MAX_WORDS = 8
 LAST_LINE_INDENT = 0.3  # share of the box's width
@@ -216,6 +223,12 @@ NAMED_NUMBER_SUBJECT = re.compile(r"^[A-Z][A-Z'’ ,&-]{4,80}\.?\s*[—–-]{0,2
 # A numbered section heading in the text (v4, rule 4): "§ 6. On the Form and
 # Language of Wills." Kept in the text and listed in the subsections.
 SECTION_MARK = re.compile(r"^\s*(§\s*\d{1,3}\.?\s*[^.]{3,150}\.)")
+# A numbered section heading on a line of its own: "SECTION 1." above "EARLY
+# BRITISH ENGRAVING." (v5). The two lines are one heading, and it is a section,
+# never the article's title.
+SECTION_NUMBER = re.compile(r"^\s*(?:SECTION|CHAPTER|§)\s*(?:\d{1,3}|[IVXLC]{1,6})\.?\s*$")
+SECTION_HEAD = re.compile(r"^\s*(?:SECTION|CHAPTER)\s*(?:\d{1,3}|[IVXLC]{1,6})\.\s*[A-Z]")
+SECTION_GAP_PX = 60
 # "PART THE SECOND." under a title: front matter of a piece carried on (v4).
 PART_LINE = re.compile(r"^\W*part\s+(?:the\s+)?(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth"
                        r"|[IVXLC]{1,6}|\d{1,3})\W*$", re.I)
@@ -380,6 +393,11 @@ def attribution(text: str, verse: bool = True):
     sign-off as printed (from its first word to the end), or None. It ends
     the article. In verse the phrase must be title case, or a line of the
     poem would pass ("—This Cot his morning ray.")."""
+    f = FROM_SOURCE.search(text) if not verse else None
+    if f:
+        words = f.group(1).split()
+        if len(words) <= FROM_SOURCE_MAX_WORDS and sum(w.lstrip("\"“‘'(")[:1].isupper() for w in words[1:]) >= FROM_SOURCE_MIN_CAPS:
+            return text[f.start(1):].strip()
     m = ATTRIBUTION.search(text)
     if not m or "- " in m.group(1):  # a word broken across lines: not a clean sign-off
         return None
@@ -745,6 +763,22 @@ def supplement_section(current: Article, r, head: str) -> None:
     current.subsections.append(head.strip().rstrip(".").strip())
 
 
+def join_section_numbers(pg) -> None:
+    """ "SECTION 1." boxed apart from the heading line under it ("EARLY BRITISH
+    ENGRAVING."): the two boxes become one heading (v5)."""
+    boxes = [r for r in pg.ordered if r.role in ("title", "text")]
+    for r, nxt in zip(boxes, boxes[1:]):
+        if SECTION_NUMBER.match(r.text) and nxt.column == r.column and nxt.text.isupper() \
+                and nxt.y1 >= r.y1 - SECTION_GAP_PX and nxt.y1 - r.y2 <= SECTION_GAP_PX \
+                and len(nxt.text.split()) <= CAPS_TITLE_MAX_WORDS:  # boxes may overlap
+            r.text = f"{r.text.strip()} {nxt.text.strip()}"
+            r.lines = r.lines + nxt.lines
+            r.bbox = (min(r.x1, nxt.x1), r.y1, max(r.x2, nxt.x2), nxt.y2)
+            r.role = "title"
+            r.note = (r.note + "; " if r.note else "") + f"section number joined to its heading (box {nxt.index})"
+            nxt.role, nxt.note = "dropped", f"joined to the section number above (box {r.index})"
+
+
 def segment(pages: list) -> list[Article]:
     """... In a supplement issue (v4) a heading or new paragraph opens no
     article: only a printed rule, the article closing (sign-off, end note,
@@ -785,6 +819,7 @@ def segment(pages: list) -> list[Article]:
                 if r.role in ("furniture", "figure") and r.y1 > IMPRINT_BELOW * pg.height \
                         and r.text and magazine.imprint.search(r.text):
                     r.role, r.note = "imprint", f"publisher's imprint (YOLO: {r.yolo_type})"
+        join_section_numbers(pg)
         ordered = pg.ordered
         for i, r in enumerate(ordered):
             words = r.text.split()
@@ -863,6 +898,19 @@ def segment(pages: list) -> list[Article]:
             # printed rule comes first (rules rarely fall inside an article).
             runs_on = supplement and current is not None and bool(current.regions) \
                 and not (r.rule_above or current.regions[-1].rule_below)
+            if r.role == "title" and SECTION_HEAD.match(r.text) and current is not None \
+                    and (current.title_regions or current.regions):
+                # A numbered section is never a title (v5): under the title it is
+                # front matter and the first section; later it stays in the text.
+                current.subsections.append(clean_heading(r.text))
+                if title_only:
+                    current.add_front(r)
+                    r.note = (r.note + "; " if r.note else "") + "numbered section under the title: front matter, subsection"
+                else:
+                    r.role = "text"
+                    r.note = (r.note + "; " if r.note else "") + "numbered section heading: subsection"
+                    current.regions.append(r)
+                continue
             if r.role == "title" and runs_on:
                 supplement_section(current, r, r.text)
                 current.regions.append(r)

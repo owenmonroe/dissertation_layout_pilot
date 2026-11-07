@@ -102,6 +102,21 @@ def figure_leader(a: Article) -> str | None:
     return None
 
 
+def caption_leader(a: Article) -> str | None:
+    """A numbered heading printed with the illustration before the title, as
+    its caption: "A BRIEF HISTORY OF THE FINE ARTS. VIII." over the picture, then
+    "THE HISTORY OF COPPER-PLATE ENGRAVING." (v5). It stays the caption too. A
+    caption with no number ("HEREFORD CATHEDRAL.") is only a caption."""
+    if not a.title_regions:
+        return None
+    first = a.title_regions[0]
+    for c in a.captions:
+        before = c.page < first.page or (c.page == first.page and (c.order or 0) < (first.order or 0))
+        if before and c.text.isupper() and PART.match(c.text.strip()):
+            return c.text.strip()
+    return None
+
+
 def leader_of(a: Article):
     """(leader, rest of the title, where the leader was printed)."""
     parts = [r.text for r in a.title_regions]
@@ -114,6 +129,9 @@ def leader_of(a: Article):
     leader = figure_leader(a)
     if leader:
         return clean(leader), a.title, "heading in illustration box"
+    leader = caption_leader(a)
+    if leader:
+        return clean(leader), a.title, "numbered caption over the illustration"
     return None
 
 
@@ -164,6 +182,8 @@ def numbered_leader(found):
     m = NAMED_NUMBER.match(leader)
     if m and not m.group(3).strip() and len(m.group(1).split()) >= 1:
         return clean(m.group(1)), m.group(2).upper(), f"{leader} {rest}".strip()
+    if where == "numbered caption over the illustration" and (p := PART.match(leader + ".")):
+        return clean(p.group(1)), p.group(2).upper(), rest  # the title stays the article's own
     return None
 
 

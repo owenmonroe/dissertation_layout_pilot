@@ -7,7 +7,8 @@ v5 is the single round of fixes agreed after frozen v4's held-out test (Owen,
 - **gold list:** `evaluation/evaluating_v4_article_extraction/gold_article_list_test_v4.csv`.
 
 Owen approved all five fixes (A–E) and asked for v5 to be frozen and scored
-once on a new v5 test set.
+once on a new v5 test set. After reading his v4 item notes, he added two more
+(F, G).
 
 **How v5 was built:**
 - each fix was built, then checked on all twelve seen volumes;
@@ -26,8 +27,10 @@ worked, not how v5 does on unseen text. The v5 test set gives that.
 | | v4 test texts: v4 | v4 test texts: v5 |
 |---|---|---|
 | Exact items | 95/118 (81%) | 101/118 (86%) |
-| Titles | 102/107 (95%) | 107/111 (96%) |
-| Back matter in place | 31/43 | 32/46 |
+| Titles | 102/107 (95%) | 108/111 (97%) |
+| Front matter in place | 3/7 | 4/7 |
+| Back matter in place | 31/43 | 33/46 |
+| Series | 1/6 | 2/6 |
 | Issue number | 89/107 (83%) | 111/111 (100%) |
 | Issue date | 101/107 (94%) | 111/111 (100%) |
 
@@ -46,6 +49,7 @@ worked, not how v5 does on unseen text. The v5 test set gives that.
 | C | 101 | 105/110 | 110/110 | 110/110 |
 | D | 100 | 106/110 | 110/110 | 110/110 |
 | E | 101 | 107/111 | 111/111 | 111/111 |
+| F, G | 101 | 108/111 | 111/111 | 111/111 |
 
 ---
 
@@ -192,6 +196,85 @@ text. The mark points to a footnote; it doesn't open one.
   by Thomas Wyse…").
 - On the v4 test texts, exact went 100 → 101 and titles 106 → 107.
 
+## F. Numbered sections are sections, never the title
+
+**Decision** (Owen): sections stay sections. The Saturday 1843 supplement
+should read:
+- **series:** "A Brief History of the Fine Arts" (part VIII);
+- **title:** "The History of Copper-Plate Engraving.—Concluded";
+- **first section:** "Section 1. Early British Engraving", as front matter.
+
+The rules:
+1. **Joining:** a "SECTION N." (or "CHAPTER N.") box joins the heading box
+   under it, giving "SECTION 1. EARLY BRITISH ENGRAVING." (`join_section_numbers`).
+2. **Sections:** a "SECTION N. …" heading is a section, never the article's
+   title.
+   - Directly under the title it is front matter and the first subsection,
+     as with Iona in v4.
+   - Later in the article it stays in the text and is listed in the
+     subsections. It opens no new article.
+3. **Series:** a caption printed with the picture before the title and
+   carrying a part number ("A BRIEF HISTORY OF THE FINE ARTS. VIII.") is the
+   series leader: the series and its part (`caption_leader`). It stays the
+   caption too. A caption with no number ("HEREFORD CATHEDRAL.") is only a
+   caption.
+
+**Evidence:** Saturday 1843 PDF p21–28 (gold 47). v5 before this read the
+title as "SECTION 1. EARLY BRITISH ENGRAVING" and the series as "The History of
+Copper Plate Engraving Concluded".
+
+**Status:** built and checked.
+- Title, front matter and series now match the gold.
+- The subsections read "SECTION 1. EARLY BRITISH ENGRAVING; SECTION 2.
+  ENGRAVING ON MONUMENTAL BRASSES; …" through Section 10.
+- "SECTION N." appears in no other volume, and no other article changed.
+
+## G. Longer "From…" sources
+
+**Decision** (Owen): expand the word limit for back matter. A dash sign-off
+opening "From" can be up to 25 words and can name a work in quotes. It must
+name something: at least 2 capitalised words after "From". So "—From that day
+he never spoke again." is not a source.
+
+**Evidence:** Chambers 1837 gold 81, "—From a forthcoming work by Dr Busham
+of Dumfries, entitled "The Philosophy of Instinct and Reason."" Before this it
+was left in the text, being over the 12-word limit for dash sources.
+
+**Status:** built and checked.
+- Chambers 81's source is back matter, and no other article changed in the
+  twelve volumes.
+- **Known miss:** Chambers 88, "…remarkable for longevity. From Observations on
+  the Preservation of Hearing, by J. Harrison Curtis.", has no dash in the
+  OCR, so it reads as a final sentence.
+
+## Checked against Owen's v4 item notes (2026-11-06)
+
+Owen's item notes on the v4 gold list describe how each item's titles,
+sign-offs, printed lines and footnotes appear. Read against the rules, they
+confirm these conventions:
+- **captions:** captions stay captions;
+- **printed lines:** a line proves a new item, but a missing line proves
+  nothing (Chambers' miscellany pages have none);
+- **sign-offs:** they come at the end of the text, after a dash;
+- **Penny 1843 titles:** italic run-in titles with a dash;
+- **footnotes:** a footnote belongs to the article carrying its mark, not
+  the nearest one;
+- **supplements:** the Iona convention for supplement sections.
+
+Two questions were settled:
+- **Series vs continuation stays as built (rule 3, v4).**
+  - "On Dioramic Painting. II. Portable Diorama" is a continuation, not a
+    series, because its theme carries on. It is an accepted edge case and
+    miss.
+  - "Public Improvements.—No. II., Provincial Towns." stays a series.
+- **A printed line under a caption doesn't count as an item rule.**
+  - Penny 1832 p4: the paragraph after "[Horns of the Wapiti.]" is the same
+    article.
+  - An article can have a captioned picture with a line inside a column,
+    mid-article.
+  - The Saturday 1843 p7 line under the caption that does end "Egyptian
+    Sculpture" is accepted as a miss (see fix D).
+
 ---
 
 ## Known limitations carried forward
@@ -204,7 +287,7 @@ text. The mark points to a footnote; it doesn't open one.
 - **Garbled series names:** OCR of decorative series headings (Saturday 1843
   "Royal Residences of Scotland").
 - **Some sources are missed:** short sources with no dash ("Milner.",
-  "Guizot.") and "From…" sources in Chambers.
+  "Guizot."), and "From…" sources whose dash OCR lost.
 - **Lost items:** Saturday's chess problems and the end-of-volume notice.
 
 ## Next

@@ -20,7 +20,7 @@ juxtaposition analysis and publishing history. Pipeline code:
 | `v2_recheck.md` | v2 re-checked against the v1 log (script numbers) |
 | `v3_decisions.md` | the v3 decisions, built 2026-11-02, with evidence, status, v2-vs-v3 results and the held-out test (frozen as `extraction-v3`) |
 | `v4_decisions.md` | the v4 rules, built 2026-11-03 to 11-06, with evidence, status and v3-vs-v4 results on the seen volumes (frozen as `extraction-v4`, with the held-out test) |
-| `v5_decisions.md` | the v5 fixes A–E, built 2026-11-06, with evidence and results on the seen volumes (v5 not frozen yet) |
+| `v5_decisions.md` | the v5 fixes A–G, built 2026-11-06, with evidence and results on the seen volumes (v5 not frozen yet) |
 
 **Before this:** choosing and checking the layout and OCR models (Document AI,
 DocLayout-YOLO, LayoutParser), the box study that chose DocLayout-YOLO, and the
