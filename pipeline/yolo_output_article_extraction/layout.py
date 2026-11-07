@@ -136,6 +136,7 @@ class Page:
     height: int
     regions: list
     issue_start: bool = False
+    foot_issue_no: int | None = None  # "No. 692." printed at the page foot (v5)
     text_left: float = 0
     text_right: float = 0
 
@@ -258,6 +259,38 @@ def mark_masthead(pg: Page) -> None:
         if r.role != "masthead" and r.role != "figure" and r.y1 < ISSUE_MARK_TOP * pg.height \
                 and len(r.text.split()) <= MASTHEAD_ROW_WORDS and MASTHEAD_ROW.search(r.text):
             r.role = "masthead"
+
+
+# From 1841 the Penny prints its masthead only on a volume's first issue; every
+# issue's first page carries its number at the foot instead ("No. 692.") (v5).
+FOOT_ISSUE = re.compile(r"(?:^|\s)N[oº°]\.?\s*(\d{2,4})\.?\s*$")
+FOOT_ISSUE_BELOW = 0.85  # share of page height
+
+
+def mark_foot_issue(pg: Page) -> None:
+    """An issue number alone at the foot of the page ("No. 692."), as its own
+    box or as the last words OCR joined onto the column's last line, marks
+    the first page of an issue and gives its number. Taken out of the text."""
+    for r in pg.regions:
+        if r.role not in CONTENT_ROLES | {"furniture"} or not r.text:
+            continue
+        last = r.lines[-1] if r.lines else None
+        if r.y1 > FOOT_ISSUE_BELOW * pg.height and len(r.text.split()) <= 3:
+            m = FOOT_ISSUE.search(r.text.strip())
+            if m and m.start() == 0:
+                pg.foot_issue_no, pg.issue_start = int(m.group(1)), True
+                r.role, r.note = "furniture", "issue number at the page foot: issue starts here"
+                return
+        elif r.role == "text" and last is not None and last.bbox[1] > FOOT_ISSUE_BELOW * pg.height:
+            m = FOOT_ISSUE.search(last.text.strip())
+            if m:
+                pg.foot_issue_no, pg.issue_start = int(m.group(1)), True
+                last.text = last.text.strip()[:m.start()].rstrip()
+                from text import join_lines
+                r.text = join_lines([l.text for l in r.lines if l.text])
+                r.lines = [l for l in r.lines if l.text]
+                r.note = (r.note + "; " if r.note else "") + f"issue number No. {m.group(1)} at the page foot taken out"
+                return
 
 
 def order_regions(pg: Page) -> None:

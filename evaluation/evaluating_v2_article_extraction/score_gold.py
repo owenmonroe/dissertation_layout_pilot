@@ -153,6 +153,8 @@ def page_list(spec) -> list[int]:
 
 def load_gold(path: Path = GOLD_PATH) -> pd.DataFrame:
     gold = pd.read_csv(path, dtype=str, keep_default_na=False)
+    if "notes" not in gold:  # v4 gold splits notes into figure and item notes
+        gold["notes"] = gold.get("figure_notes", "") + " " + gold.get("item_notes", "")
     gold["pipeline_volume"] = gold.volume.map(lambda v: VOLUME_ALIASES.get(v, v))
     gold["gold_id"] = gold.gold_id.astype(int)
     gold["article_type"] = gold.article_type.str.strip().str.replace(" ", "_")
@@ -194,6 +196,14 @@ def locate(words: str, pipe: dict, pages: range) -> dict:
             if score >= MATCH and score > result["score"] + (0.0 if field == "text" else 0.05):
                 result = {"article_id": aid, "field": field, "pos": pos, "score": round(score, 2)}
         if result["field"] == "text":
+            # The same words can also open another article ("It is well known
+            # that" quoted mid-text, then opening the next article): an equal
+            # match at an article's start wins (v4 test, Chambers 1837 p15).
+            if result["pos"] > 0:
+                for aid, toks in nearby["tok_text"].items():
+                    pos, score = find(needle, toks)
+                    if pos == 0 and score >= result["score"]:
+                        return {"article_id": aid, "field": "text", "pos": 0, "score": round(score, 2)}
             return result  # text first: a run found in the text is where it is
     if result["article_id"]:
         return result

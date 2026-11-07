@@ -40,22 +40,23 @@ import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 
 from articles import page_metadata, segment
-from layout import REPO_ROOT, load_page, mark_masthead, order_regions
+from layout import REPO_ROOT, load_page, mark_foot_issue, mark_masthead, order_regions
 from magazine_rules_config import VOLUMES, magazine_rules, page_range
 from duplicates import find_duplicates, set_aside
 from rules import mark_rules
 from volume_index import check_index, parse_index, printed_pages
 from text import (assign_docai_text, assign_tesseract_text, clean_marks, docai_json_path,
-                  drop_empty, promote_content, recover_unboxed, split_footnote_tails,
+                  drop_empty, promote_content, recover_unboxed, split_footnote_tails, split_heading_tails, strip_junk_tails,
                   split_headings)
 
 # The rules version this code implements; output goes to its own folder.
 # v1 is frozen (git tag extraction-v1; output/article_extraction/v1/ is the
 # output the reading-order evaluation describes). Bump this when a version is
 # frozen and work on the next one starts.
-PIPELINE_VERSION = "v4"
-FROZEN_VERSIONS = {"v1", "v2", "v3"}  # v2: tag extraction-v2; test volumes run 2026-10-16
+PIPELINE_VERSION = "v5"
+FROZEN_VERSIONS = {"v1", "v2", "v3", "v4"}  # v2: tag extraction-v2; test volumes run 2026-10-16
 # v3: tag extraction-v3; test volumes run 2026-11-02
+# v4: tag extraction-v4; test volumes run 2026-11-06
 OUT_ROOT = REPO_ROOT / "output" / "article_extraction" / PIPELINE_VERSION
 DB_PATH = OUT_ROOT / "articles.sqlite"
 CHECK_IMAGE_SCALE = 0.4
@@ -134,11 +135,14 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         unboxed = recover_unboxed(pg, unboxed)
         split_headings(pg)
         split_footnote_tails(pg)
+        strip_junk_tails(pg)
+        split_heading_tails(pg)
         clean_marks(pg)
         drop_empty(pg)
         promote_content(pg)
         mark_rules(pg)
         mark_masthead(pg)
+        mark_foot_issue(pg)
         order_regions(pg)
         pages.append(pg)
         # Unboxed text joins the masthead text: masthead lines YOLO drew no box
@@ -196,7 +200,14 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         with_year = [d for d in group["issue_date"].dropna() if d[-4:].isdigit()]
         if with_year:  # a full date before a month and year ("08-30-1834", "08-1834")
             issue_meta.loc[seq, "issue_date"] = max(with_year, key=lambda d: d.count("-"))
-    # A date OCR'd without its year takes the year of the issue before it.
+    # A date with no year takes the year printed in the issue's own running
+    # heads: from 1841 the Penny splits its date across facing pages ("[JANUARY
+    # 14," / "1843.]") (v5). Failing that, the year of the issue before it.
+    for seq, group in pages_df.groupby("issue_seq"):
+        date, years = issue_meta.loc[seq, "issue_date"], group["head_year"].dropna()
+        if isinstance(date, str) and not date[-4:].isdigit() and len(years):
+            issue_meta.loc[seq, "issue_date"] = f"{date}-{years.mode().iloc[0]}"
+    pages_df = pages_df.drop(columns="head_year")
     year = None
     for seq, date in issue_meta["issue_date"].items():
         if isinstance(date, str) and date[-4:].isdigit():

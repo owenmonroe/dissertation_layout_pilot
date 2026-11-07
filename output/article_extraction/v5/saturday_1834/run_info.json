@@ -1,0 +1,12 @@
+{
+  "pipeline_version": "v5",
+  "git_commit": "48e6222",
+  "uncommitted_changes": true,
+  "run_date": "2026-11-06T18:39:35",
+  "volume": "saturday_1834",
+  "magazine": "saturday",
+  "split": "test",
+  "pdf": "evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/saturday_v4.5_1834_v3_test_3issues.pdf",
+  "pages": "5-28",
+  "ocr": "docai"
+}

@@ -17,10 +17,9 @@ measured result, in the same format as `v3_decisions.md`.
   more complex volumes. A miss that only one page shows stays a known miss.
 - **Chambers 1843 p9** is a badly distorted scan and did not drive any rule.
 
-**Status:** all six rules are built and checked. v4 is **not frozen yet**.
-Next it is frozen, then run once on the new v4 test texts
-(`evaluation/evaluating_v4_article_extraction/`), which were not opened
-while v4 was built.
+**Status:** all six rules are built and checked. v4 is frozen as
+`extraction-v4` (commit `48e6222`) and was run once on the held-out v4 test
+texts (see "Held-out test" at the end).
 
 ## Output conventions settled for v4 (Owen)
 
@@ -342,3 +341,40 @@ fixed only bugs:
 4. If the results are good, apply v4 to all volumes. If not, make one round
    of fixes for bugs and recurring errors only, then run all volumes. Any
    later errors are logged as known limitations.
+
+## Held-out test (2026-11-06)
+
+Frozen v4 (`extraction-v4`) ran once on Penny 1843 (Vol. XII), Saturday 1843
+(Vol. XXIII) and Chambers 1837 (Vol. VI), three issues each. These texts
+were not opened while v4 was built.
+- **Setup:** only the three volumes were added to `magazine_rules_config.py`.
+  `score_gold.py` reads the v4 gold's `figure_notes` and `item_notes` columns
+  in place of `notes`. No rule changed.
+- **Gold corrections from the printed page:**
+  - Penny issues 692–693 are dated 1843 (they were entered as 1834);
+  - Chambers No. 272 is dated April 15, 1837 (it was entered as 4.16);
+  - Chambers gold 81 opens "The actions of the" (it was entered as "The
+    sections of the").
+- **Scorer fix:** an item's first words can also appear earlier on the page,
+  quoted inside another article ("It is well known that…" in Interesting
+  Botanical Experiment, then opening Hydrostatic Bed, Chambers p15). An
+  equally good match at an article's start now wins. This changed 4
+  Chambers items from merged or split to exact (65, 66, 81, 95). It
+  changed nothing in the v2 or v3 gold scores, including frozen v3's
+  held-out score.
+
+Scores are in `evaluation/evaluating_v4_article_extraction/v4_gold_comp_eval_summary.md`:
+
+| | Penny 1843 | Saturday 1843 | Chambers 1837 | All |
+|---|---|---|---|---|
+| Gold items | 20 | 26 | 72 | 118 |
+| Exact | 16 (80%) | 17 (65%) | 62 (86%) | 95 (81%) |
+| Merged / split / lost | 4 / 0 / 0 | 6 / 0 / 3 | 4 / 5 / 1 | 14 / 5 / 4 |
+| Boundary recall | 90% | 77% | 96% | 91% |
+| Boundary precision | 100% | 74% | 90% | 88% |
+| Titles | 16/18 | 18/20 | 68/69 | 102/107 (95%) |
+| Back matter in place | 6/9 | 5/7 | 20/27 | 31/43 (72%) |
+| Front matter in place | – | 1/2 | 2/5 | 3/7 |
+| Series | 1/1 | 0/3 | 0/2 | 1/6 |
+| Issue number | 0/18 | 20/20 | 69/69 | 89/107 |
+| Issue date | 12/18 | 20/20 | 69/69 | 101/107 |

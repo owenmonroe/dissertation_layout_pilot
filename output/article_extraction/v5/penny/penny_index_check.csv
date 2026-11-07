@@ -1,0 +1,64 @@
+pipeline_version,volume,index_entry,heading,printed_page,scan_pages,article_id,article_title,matched_words,status,magazine
+v5,penny,"Air-balloon, 8.",Air-balloon,8,8,penny_0020,,ballo,matched,penny
+v5,penny,"All-fool's day, 5.",All-fool's day,5,5,penny_0009,THE WEEK,fool,shared,penny
+v5,penny,"Angelo, anecdote of Michael, 8.","Angelo, anecdote of Michael",8,8,penny_0021,,"angel, micha",shared,penny
+v5,penny,"Animal sagacity, 3. 44;",Animal sagacity,3,3,penny_0007,Animal Sagacity,"anima, sagac",matched,penny
+v5,penny,"Antipodes, seasons of the, 18,","Antipodes, seasons of the",18,18,penny_0038,THE SEASONS OF THE ANTIPODES,"antip, seaso",matched,penny
+v5,penny,"Beer, antiquity of, 3.","Beer, antiquity of",3,3,penny_0004,ANTIQUITY OF BEER,"antiq, beer",matched,penny
+v5,penny,"British animals, the Dormouse, 12; ib.; the Swallow, the Mole, 20.","British animals, the Dormouse",12,12,penny_0027,THE DORMOUSE,"anima, briti, dormo",matched,penny
+v5,penny,"British animals, the Dormouse, 12; ib.; the Swallow, the Mole, 20.","British animals, the Dormouse",20,20;22,penny_0043,THE MOLE,"anima, briti",shared,penny
+v5,penny,"British Museum, 13, 76, 92, 124, 228, 249, 305, 371.",British Museum,13,13,penny_0030,THE BRITISH MUSEUM,"briti, museu",matched,penny
+v5,penny,"Camel, a tale, 11.","Camel, a tale",11,11,penny_0025,LOST CAMEL,camel,matched,penny
+v5,penny,"Canning, of, 13; notice statue of, 81.","Canning, of",13,13,penny_0029,THE WEEK,canni,shared,penny
+v5,penny,"Changes ofmanners, 3.",Changes ofmanners,3,3,penny_0006,Changes of Manners,chang,matched,penny
+v5,penny,"Charing Cross, account of, 1.","Charing Cross, account of",1,1,penny_0002,CHARING CROSS,"chari, cross",matched,penny
+v5,penny,"Chinese,presumption Chelsea 8; Church, account of, 316. and ignorance of the, fraud and ingenuity of the, 272.","Chinese,presumption Chelsea",8,8,penny_0021,,chine,shared,penny
+v5,penny,"Comfort and good temper, 24.",Comfort and good temper,24,26,penny_0053,,"comfo, good, tempe",matched,penny
+v5,penny,"Crabbe, Rev. G., notice of, 6.","Crabbe, Rev. G., notice of",6,6,penny_0011,ISAAC ASHFORD,crabb,matched,penny
+v5,penny,"DAISY, Wordsworth's poem on a, 15.","DAISY, Wordsworth's poem on a",15,15,penny_0031,POESIE,"daisy, words",shared,penny
+v5,penny,"Des Cartes, notice of, 4.","Des Cartes, notice of",4,4,penny_0009,THE WEEK,carte,shared,penny
+v5,penny,"Diffusion of Knowledge, advantages of, 20.","Diffusion of Knowledge, advantages of",20,20;22,penny_0042,Advantages of the Diffusion of Knowledge,"diffu, knowl",matched,penny
+v5,penny,"Dorse,,,, account of, 12","Dorse,,,, account of",12,12,,,,unmatched,penny
+v5,penny,"Duties devotion of great to their., minds, 8.","Duties devotion of great to their., minds",8,8,penny_0016,The Secret of great Workers,"devot, dutie",shared,penny
+v5,penny,"Excellence not limited by station 5.,",Excellence not limited by station,5,5,penny_0010,EXCELLENCE NOT LIMITED BY STATION,"excel, limit, stati",matched,penny
+v5,penny,"Fair play, -anecdote 3","Fair play, -anecdote",3,3,penny_0005,FAIR PLAY,"fair, play",matched,penny
+v5,penny,"Firmament, lines on the, by Habington, 24.","Firmament, lines on the, by Habington",24,26,penny_0049,THE FIRMAMENT,"firma, habin",matched,penny
+v5,penny,"Flattery,8.",Flattery,8,8,,,,unmatched,penny
+v5,penny,"Frugality, advantages of, 16; its for uses young people 115,.","Frugality, advantages of",16,16,penny_0033,,fruga,matched,penny
+v5,penny,"Gallery of Portraits No. notice of the 87, 1,,.",Gallery of Portraits No. notice of the,1,1,,,,unmatched,penny
+v5,penny,"Ghost Story by Judge,., Powell, 24","Ghost Story by Judge,., Powell",24,26,penny_0052,,"judge, powel, story",matched,penny
+v5,penny,"Good Friday notice of 21.,,.",Good Friday notice of,21,21;23,penny_0044,THE WEEK,"frida, good",shared,penny
+v5,penny,"Great growth of. minds,, 80 workers the secret of.,, 8.","Great growth of. minds,, 80 workers the secret of",8,8,penny_0016,The Secret of great Workers,"secre, worke",shared,penny
+v5,penny,"Grotius, notice of, 13","Grotius, notice of",13,13,penny_0029,THE WEEK,groti,shared,penny
+v5,penny,"HABIT force of 16,,. 20",HABIT force of,16,16,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,force,shared,penny
+v5,penny,"HABIT force of 16,,. 20",HABIT force of,20,20;22,penny_0041,,habit,matched,penny
+v5,penny,"Harvey, of,., ( Dr. ), notice, 5.","Harvey, of,., ( Dr. ), notice",5,5,penny_0009,THE WEEK,harve,shared,penny
+v5,penny,"Instruction and Amusement, 8.",Instruction and Amusement,8,8,penny_0015,A Popular Error,"amuse, instr",shared,penny
+v5,penny,"Intellectual condensation, 8.",Intellectual condensation,8,8,penny_0017,,conde,matched,penny
+v5,penny,"Inventions, neglect of authors of, 19.","Inventions, neglect of authors of",19,19,penny_0039,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,"autho, inven, negle",matched,penny
+v5,penny,"Labouring man's dwelling, choice of, 15.","Labouring man's dwelling, choice of",15,15,penny_0032,ON THE CHOICE OF A LABOURING MAN'S DWELLING,"choic, dwell, labou",shared,penny
+v5,penny,"Library, on the choice of books for, 22.","Library, on the choice of books for",22,24,penny_0045,THE LIBRARY,"books, libra",matched,penny
+v5,penny,"Locke, thoughts of, 19; some, 56; his mode acquiring knowledge notice of, 205.","Locke, thoughts of",19,19,penny_0040,THUS I THINK,locke,matched,penny
+v5,penny,"Man, his perfectibility, 184. overboard, fragments from Capt. Hall, on, 23.","Man, his perfectibility",23,25,,,,unmatched,penny
+v5,penny,"Mole account of., the, 20","Mole account of., the",20,20;22,penny_0043,THE MOLE,mole,shared,penny
+v5,penny,"Palm Sunday, notice of, 20.","Palm Sunday, notice of",20,20;22,penny_0044,THE WEEK,"palm, sunda",shared,penny
+v5,penny,"Poesie, by George Wither, with notice, 15.","Poesie, by George Wither, with notice",15,15,penny_0031,POESIE,"georg, poesi, withe",shared,penny
+v5,penny,"Poland, description of, 7.","Poland, description of",7,7,penny_0013,DESCRIPTION OF POLAND,polan,matched,penny
+v5,penny,"Pompeii, on, by visitor, 9;","Pompeii, on, by visitor",9,9,penny_0023,POMPEII,"pompe, visit",matched,penny
+v5,penny,"Popular error, instances of, 8, 35.","Popular error, instances of",8,8,penny_0015,A Popular Error,"error, popul",shared,penny
+v5,penny,"Postscript to our first readers, 8.",Postscript to our first readers,8,8,penny_0022,A POSTSCRIPT TO OUR FIRST READERS,"first, posts, reade",matched,penny
+v5,penny,"Promise, performance of a, 16,","Promise, performance of a",16,16,penny_0034,,promi,matched,penny
+v5,penny,"Quaint sermon., 6.",Quaint sermon,6,6,penny_0012,A QUAINT SERMON,"quain, sermo",matched,penny
+v5,penny,"RAFFAELLE notice of 13; account of the, of, Cartoons, 349",RAFFAELLE notice of,13,13,penny_0029,THE WEEK,raffa,shared,penny
+v5,penny,"Reading for all, Introduction, 1.","Reading for all, Introduction",1,1,penny_0001,READING FOR ALL,readi,matched,penny
+v5,penny,"Saturday night's wages 294., 11...",Saturday night's wages,11,11,,,,unmatched,penny
+v5,penny,"Somerset House, account of, 17.","Somerset House, account of",17,17,penny_0036,SOMERS ET-HOUSE,"house, somer",matched,penny
+v5,penny,"Steam, power of, 8.","Steam, power of",8,8,penny_0014,Power of Steam,"power, steam",matched,penny
+v5,penny,"Stillingfleet, Bishop, notice of, 20.","Stillingfleet, Bishop, notice of",20,20;22,penny_0044,THE WEEK,"bisho, still",shared,penny
+v5,penny,"Swallow, account of, 12.","Swallow, account of",12,12,penny_0028,THE SWALLOW,swall,matched,penny
+v5,penny,"Trade protection of 23; and manufactures,,, Franklin's remarks on, 155",Trade protection of,23,25,penny_0047,PROTECTION OF TRADE,"prote, trade",matched,penny
+v5,penny,"VAN DIEMEN'S LAND progress of the colony at geography, products, 2;,, and commerce of 10; condition of convicts in 162","VAN DIEMEN'S LAND progress of the colony at geography, products",2,2,penny_0003,VAN DIEMEN'S LAND,"colon, dieme, land, produ, progr",matched,penny
+v5,penny,"VAN DIEMEN'S LAND progress of the colony at geography, products, 2;,, and commerce of 10; condition of convicts in 162","VAN DIEMEN'S LAND progress of the colony at geography, products",10,10,penny_0024,VAN DIEMEN'S LAND,"colon, dieme, geogr, land",matched,penny
+v5,penny,"Vanity,,., remarks on, 8.","Vanity,,., remarks on",8,8,,,,unmatched,penny
+v5,penny,"Woodman's Memorial, a tale, 22","Woodman's Memorial, a tale",22,24,penny_0046,THE WOODMAN'S MEMORIAL,"memor, woodm",matched,penny
+v5,penny,"Zoological Gardens, notices the, 4.","Zoological Gardens, notices the",4,4,penny_0008,THE ZOOLOGICAL GARDENS,"garde, zoolo",matched,penny

@@ -22,7 +22,7 @@ import numpy as np
 from PIL import Image
 
 from layout import Page, Region, column_of, column_width
-from text import FOOTNOTE, join_lines
+from text import FOOTNOTE, MARKED_TITLE, join_lines
 
 FOOT_REACH_PX = 80  # a set-aside box this close below a rule sits under it
 DARK = 60  # grey levels below the page's median that count as ink
@@ -121,7 +121,7 @@ def split_at(pg: Page, r: Region, y: float, n: int) -> Region | None:
 def footnote_below(box: Region | None) -> bool:
     """A footnote: its mark opens the box, or OCR scrambled it into the first
     few words ("and * P.S have since observed")."""
-    return box is not None and bool(
+    return box is not None and not MARKED_TITLE.match(box.text) and bool(
         FOOTNOTE.match(box.text) or "*" in " ".join(box.text.split()[:3]))
 
 

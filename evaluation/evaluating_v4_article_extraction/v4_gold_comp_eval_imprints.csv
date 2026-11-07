@@ -1,0 +1,7 @@
+volume,gold_id,issue_no,issue_seq,result,first_found,last_found,missing_part_found_in,pipeline_imprint
+saturday_1843,34,736,1,complete,True,True,,"JOHN W. PARKER, PUBLISHER, WEST STRAND, LONDON"
+saturday_1843,46,737,2,complete,True,True,,"JOHN W. PARKER, PUBLISHER, WEST STRAND, LONDON."
+saturday_1843,49,738,3,partial,True,False,not found,"LONDON: JOHN W. PARKER, PUBLISHER, WEST STRAND"
+chambers_1837,72,272,1,complete,True,True,,"EDINBURGH: Printed and published by W. and R. CHAMBERS, 19, Waterloo Place.-Agents , W. S. ORR, London; G. YOUNG, Dublin; J. MACLEOD , Glasgow; and sold by all "
+chambers_1837,104,273,2,complete,True,True,,"EDINBURGH: Printed and published by W. and R. CHAMBERS, 19, Waterloo Place.-Agents, W. S. ORR, London; G. YOUNG, Dublin; J. MACLEOD, Glasgow; and sold by all bo"
+chambers_1837,124,274,3,complete,True,True,,"EDINBURGH: Printed and published by W. and R. CHAMBERS, 19, Waterloo Place.-Agents, W. S. ORR, London; G. YOUNG, Dublin; J. MACLEOD, Glasgow; and sold by all bo"

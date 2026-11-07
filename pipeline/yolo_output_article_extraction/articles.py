@@ -59,7 +59,7 @@ from dataclasses import dataclass, field
 from magazine_rules_config import magazine_rules
 from layout import column_of
 from rules import FOOTNOTE, numeric
-from text import SENTENCE_END, SMALL_TYPE, join_lines, join_regions, type_size
+from text import MARKED_TITLE, SENTENCE_END, SMALL_TYPE, join_lines, join_regions, type_size
 
 MONTHS = ("january february march april may june july august september october "
           "november december").split()
@@ -98,7 +98,8 @@ def issue_number(texts: list[str], own_format=None) -> int | None:
 # Sagacity.—In the ...", "THE WASP. The manners ...", "CHEAP STEW—Sour ...",
 # "WHICH WAS THE GREATER FOOL? In a sermon". Each stop / dash in the opening is
 # tried in turn, so "ANECDOTE OF MR. JEFFREY.—" gets past "MR.".
-RUN_IN_SEPARATOR = re.compile(r"\s*(?:[.?!]\s*[—–-]{1,2}|[—–]{1,2}|-(?=[A-Z])|[.?!])\s*(?=[A-Z“\"‘'])")
+# A footnote mark may follow the stop: "MANAGEMENT AND MISMANAGEMENT.* GREAT men" (v5).
+RUN_IN_SEPARATOR = re.compile(r"\s*(?:[.?!][*†‡]?\s*[—–-]{1,2}|[—–]{1,2}|-(?=[A-Z])|[.?!][*†‡]?)\s*(?=[A-Z“\"‘'])")
 # With a dash after it, a head may have lowercase words, as long as it begins
 # and ends capitalised and at least half its words (other than small ones) are
 # capitalised: "Science preceding Art.—", "The Secret of great Workers.—". The
@@ -511,11 +512,15 @@ def page_metadata(pg, extra_text: str = "") -> dict:
         date_text += f"-{date.group(3)}" if date.group(3) else ""
     elif m := MONTH_YEAR.search(source):
         date_text = f"{month_number(m.group(1)):02d}-{m.group(2)}"
+    head_year = next((m.group(1) for t in head_band if (m := re.search(r"\b(1[78]\d\d)\b", t))), None)
+    # From 1841 the Penny's issue number is printed at the first page's foot (v5).
+    issue_no = pg.foot_issue_no or (issue_number(masthead, magazine_rules(pg.magazine).issue_number)
+                                    if pg.issue_start else None)
     return {
         "printed_page": number,
         "issue_date": date_text,
-        "issue_no": issue_number(masthead, magazine_rules(pg.magazine).issue_number)
-        if pg.issue_start else None,
+        "issue_no": issue_no,
+        "head_year": head_year,
     }
 
 
@@ -786,7 +791,8 @@ def segment(pages: list) -> list[Article]:
             if r.role == "caption" and len(words) > CAPTION_MAX_WORDS:
                 r.role, r.note = "text", "long YOLO caption read as text"
             elif r.role == "caption" and r.text.isupper() and not r.text.lstrip().startswith("[") \
-                    and caption_opens_article(ordered, i, current):
+                    and r.yolo_type != "unboxed_ocr" and caption_opens_article(ordered, i, current):
+                # (a caption line found by its place at a figure stays a caption, v5)
                 r.role, r.note = "title", "all-capitals YOLO caption read as title"
             elif r.role == "caption" and r.text.isupper() and title_only_now(current, r):
                 current.caption_heading = r  # a title if the title above is a recurring leader
@@ -907,7 +913,7 @@ def segment(pages: list) -> list[Article]:
                     current.add_front(r)
                     r.note = "epigraph under the title: front matter"
                     continue
-                if current and r.under_rule and "*" in " ".join(words[:3]):
+                if current and r.under_rule and "*" in " ".join(words[:3]) and not MARKED_TITLE.match(r.text):
                     # Under a footnote rule, the asterisk scrambled by OCR ("and *
                     # P.S have since observed").
                     footnote_owner(pg, r, articles, current).add_back(r)

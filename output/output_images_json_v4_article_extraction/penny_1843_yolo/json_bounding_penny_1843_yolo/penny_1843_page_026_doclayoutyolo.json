@@ -1,0 +1,125 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/evaluation/evaluating_v4_article_extraction/test_text_extraction_v4/images/penny_1843_images/penny_1843_page_026.png",
+  "regions": [
+    {
+      "type": "plain text",
+      "score": 0.9161,
+      "bbox": [
+        199.7,
+        2636.4,
+        1087.1,
+        2871.5
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.8067,
+      "bbox": [
+        949.2,
+        191.4,
+        1797.6,
+        786.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.8039,
+      "bbox": [
+        154.5,
+        274.0,
+        943.7,
+        973.2
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.7918,
+      "bbox": [
+        988.1,
+        786.9,
+        1848.9,
+        1798.3
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7546,
+      "bbox": [
+        298.1,
+        3078.3,
+        680.6,
+        3160.9
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.7527,
+      "bbox": [
+        163.3,
+        960.7,
+        1032.0,
+        2648.4
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.6993,
+      "bbox": [
+        1727.0,
+        115.9,
+        1766.7,
+        151.8
+      ]
+    },
+    {
+      "type": "figure",
+      "score": 0.6144,
+      "bbox": [
+        1062.8,
+        1797.7,
+        1881.3,
+        2831.4
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.5107,
+      "bbox": [
+        1252.5,
+        3086.4,
+        1672.3,
+        3162.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4899,
+      "bbox": [
+        3.5,
+        1741.2,
+        71.4,
+        3115.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4844,
+      "bbox": [
+        0.0,
+        1590.0,
+        74.2,
+        3094.0
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.2203,
+      "bbox": [
+        992.0,
+        786.4,
+        1854.1,
+        1798.5
+      ]
+    }
+  ]
+}

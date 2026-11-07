@@ -1,0 +1,4 @@
+pipeline_version,volume,magazine,issue_seq,issue_no,issue_date,pages,n_boxes,imprint_text
+v5,saturday_1843,saturday,1,736.0,12-23-1843,12,1,"JOHN W. PARKER, PUBLISHER, WEST STRAND, LONDON"
+v5,saturday_1843,saturday,2,737.0,12-30-1843,20,1,"JOHN W. PARKER, PUBLISHER, WEST STRAND, LONDON."
+v5,saturday_1843,saturday,3,738.0,12-1843,28,1,"LONDON: JOHN W. PARKER, PUBLISHER, WEST STRAND"

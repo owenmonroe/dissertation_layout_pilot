@@ -126,6 +126,7 @@ MODEL_OUTPUT_DIRS = {
     "build": "output/output_images_json_establishing_layout_AIs",
     "v2_test": "output/output_images_json_v2_article_extraction",
     "test": "output/output_images_json_v3_article_extraction",
+    "v4_test": "output/output_images_json_v4_article_extraction",
 }
 
 VOLUMES = {
@@ -161,6 +162,17 @@ VOLUMES = {
         Volume("chambers_1843", "chambers", "test",
                "evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/chambers_v12_1843_v3_test_3issues.pdf",
                pages="7-30", index_pages="4-6"),
+        # v4's held-out test issues (three issues each). Penny 1843 prints a
+        # masthead only on the volume's first issue.
+        Volume("penny_1843", "penny", "v4_test",
+               "evaluation/evaluating_v4_article_extraction/test_text_extraction_v4/penny_v12_1843_v4_test_3issues.pdf",
+               pages="6-29", index_pages="4"),
+        Volume("saturday_1843", "saturday", "v4_test",
+               "evaluation/evaluating_v4_article_extraction/test_text_extraction_v4/saturday_v22.23_1843_v4_test_3issues.pdf",
+               pages="5-28", index_pages="3-4"),
+        Volume("chambers_1837", "chambers", "v4_test",
+               "evaluation/evaluating_v4_article_extraction/test_text_extraction_v4/chambers_v6_1837_v4_test_3issues.pdf",
+               pages="8-31", index_pages="5-7"),
     ]
 }
 

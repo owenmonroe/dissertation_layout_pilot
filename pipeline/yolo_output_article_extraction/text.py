@@ -18,6 +18,7 @@ Fallback ("tesseract"): OCR each box crop locally with the tesseract CLI.
 import bisect
 import json
 import re
+from collections import Counter
 import subprocess
 import tempfile
 from dataclasses import dataclass
@@ -37,6 +38,9 @@ WATERMARK = re.compile(r"hdl\.handle\.net|google-digitized|public domain|digitiz
 # "§" with a number opens a section heading, not a footnote ("§ 6. On the
 # Form and Language of Wills.").
 FOOTNOTE = re.compile(r"^\s*(?:[*†‡•+]|§(?!\s*\d))")
+# A capitals title carrying a footnote mark ("MANAGEMENT AND MISMANAGEMENT.*
+# GREAT men have written ..."): the mark points to a footnote, it doesn't open one (v5).
+MARKED_TITLE = re.compile(r"^\s*[A-Z][A-Z'’ ,&-]{3,}[A-Z][.!?]?\s*[*†‡]")
 # A box YOLO set aside (abandon) that is really content (v3, decision 3):
 # enough words, inside the text area, in the page's body type.
 CONTENT_MIN_WORDS = 12
@@ -163,10 +167,19 @@ def capitals_line(line: Line) -> bool:
 
 def beside_figure(pg: Page, line: Line) -> bool:
     """A line inside a figure's box or right beside it, level with it (a
-    caption printed sideways along a full-page picture: Saturday 1834 p5)."""
+    caption printed sideways along a full-page picture: Saturday 1834 p5);
+    or right under or over a figure that has no caption box, within its width
+    ("COLOSSAL STATUE DRAWN TO ITS PLACE.", Saturday 1843 p7) (v5)."""
     x1, y1, x2, y2 = line.bbox
     for f in (r for r in pg.regions if r.role == "figure"):
-        if f.y1 <= line.cy <= f.y2 and f.x1 - CAPTION_GAP_PX <= x1 and x2 <= f.x2 + CAPTION_GAP_PX:
+        within = f.x1 - CAPTION_GAP_PX <= x1 and x2 <= f.x2 + CAPTION_GAP_PX
+        if within and f.y1 <= line.cy <= f.y2:
+            return True
+        touching = 0 <= y1 - f.y2 <= CAPTION_GAP_PX or 0 <= f.y1 - y2 <= CAPTION_GAP_PX
+        captioned = any(c.role == "caption" and min(c.x2, f.x2) > max(c.x1, f.x1)
+                        and (0 <= c.y1 - f.y2 <= 2 * CAPTION_GAP_PX or 0 <= f.y1 - c.y2 <= 2 * CAPTION_GAP_PX)
+                        for c in pg.regions)
+        if within and touching and not captioned:
             return True
     return False
 
@@ -190,6 +203,112 @@ def split_headings(pg: Page) -> None:
             r.lines = r.lines[1:]
             r.text = join_lines([l.text for l in r.lines])
             r.bbox = (r.x1, max(r.y1, line.bbox[3]), r.x2, r.y2)
+
+
+JUNK_LINE_MAX_WORDS = 4
+JUNK_TAIL_MAX_LINES = 3
+JUNK_LINE = re.compile(r"^[^A-Z\"“‘'(\[—–*†‡§•+-]")  # opens with no capital, quote, bracket, dash or mark
+FINISHED = re.compile(r"[.!?\"”’]$")
+KNOWN_WORD_COUNT = 2  # a word the OCR reads this often in the volume is a real word
+_vocabulary: dict = {}
+
+
+def volume_vocabulary(magazine: str) -> Counter:
+    """How often each lowercase word appears in the volume's Document AI text
+    (every page's JSON), so a line of words read nowhere else can be told
+    from real text."""
+    if magazine not in _vocabulary:
+        folder = docai_json_path(magazine, 1).parent
+        words = Counter()
+        for f in folder.glob("*_docai.json"):
+            words.update(re.findall(r"[a-z]{2,}", json.loads(f.read_text())["text"].lower()))
+        _vocabulary[magazine] = words
+    return _vocabulary[magazine]
+
+
+def noise_line(text: str, words: Counter) -> bool:
+    """A short line of OCR noise: a word mixing digits and letters ("19VO",
+    "2200ml"), letters outside the Latin script, or only longer words read
+    nowhere else in the volume ("ant oini odord")."""
+    if len(text.split()) > JUNK_LINE_MAX_WORDS or not JUNK_LINE.match(text) or FINISHED.search(text) \
+            or re.search(r"[,;]", text):  # "it, and", "necessities,": real words with punctuation
+        return False
+    if re.search(r"\d[A-Za-z]|[A-Za-z]\d", text) or re.search(r"[^\x00-\u024f\u2000-\u206f]", text):
+        return True
+    alpha = re.findall(r"[a-z]{4,}", text.lower())  # short words ("el", "don") prove nothing
+    return bool(alpha) and all(words[w] < KNOWN_WORD_COUNT for w in alpha)
+
+
+def strip_junk_tails(pg: Page) -> None:
+    """OCR noise read from the margin or a printed rule and taken into the box
+    as its last lines ("...to the Railway Company." / "19VO", "...of
+    Scotland." / "enterol el" / "ant oini odord") (v5). After a finished
+    sentence, up to three short noise lines are dropped, so the end of the
+    text (and a sign-off) is found. Real words OCR set on a line of their own
+    ("death", "it, and") are read elsewhere in the volume and are kept."""
+    words = None
+    for r in pg.regions:
+        if r.role != "text" or len(r.lines) < 2:
+            continue
+        words = words or volume_vocabulary(pg.magazine)
+        k = len(r.lines)
+        while k > 1 and len(r.lines) - k < JUNK_TAIL_MAX_LINES and noise_line(r.lines[k - 1].text.strip(), words):
+            k -= 1
+        if k < len(r.lines) and FINISHED.search(r.lines[k - 1].text.strip()):
+            dropped = " / ".join(l.text for l in r.lines[k:])
+            r.lines = r.lines[:k]
+            r.text = join_lines([l.text for l in r.lines])
+            r.note = (r.note + "; " if r.note else "") + f"OCR noise after the last sentence dropped: {dropped}"
+
+
+HEADING_TAIL_MIN_LETTERS = 4
+HEADING_TAIL_CENTRED = 0.15  # most difference of the left and right gaps (share of the box width)
+
+
+def next_box(pg: Page, r: Region):
+    """The content box read after r: the next one down its column, else the
+    top one of the next column."""
+    boxes = [b for b in pg.regions if b.role in CONTENT_ROLES and b is not r and b.column is not None]
+    below = [b for b in boxes if b.column == r.column and b.cy > r.cy and b.y1 >= r.y2 - 2 * NEAR_PX]
+    if below:
+        return min(below, key=lambda b: b.y1)
+    nxt = [b for b in boxes if b.column == (r.column or 0) + 1]
+    return min(nxt, key=lambda b: b.y1) if nxt else None
+
+
+def split_heading_tails(pg: Page) -> None:
+    """A line of capitals closing a paragraph box, after a finished sentence,
+    is the next item's heading the box swallowed ("...tried in this case. /
+    FROGS.", "...Tower ordnance. / INSURANCE OF SHIPPING.—"LLOYD'S LIST."") (v5).
+    It becomes its own box. Only the last line is looked at: capitals inside a
+    box are section heads. The line must be centred, as headings are, or run
+    on into the next box on the same printed line ("SINGULAR HARE" / "HUNT.
+    A person..."); a capitals line set left or right is a sign-off ("CRABBE.",
+    "EPICTETUS."), and one opening with a dash or a mark is a source or
+    footnote. The box read next must be text (the item's opening), or a title
+    when the line has no closing stop ("GENERAL" / "STATE OF STATISTICS.").""" 
+    for n, r in enumerate([r for r in pg.regions if r.role == "text"]):
+        digits = sum(c.isdigit() for c in r.text) / max(len(r.text), 1)
+        if len(r.lines) < REJOIN_MIN_LINES or digits > TABLE_DIGITS:
+            continue
+        line, prev = r.lines[-1], r.lines[-2]
+        letters = re.sub(r"[^A-Za-z]", "", line.text)
+        if len(letters) < HEADING_TAIL_MIN_LETTERS or not letters.isupper() \
+                or not re.search(r"[A-Z]{3,}", line.text) or re.match(r"^\W*(?:[—–-]|VOL\b)", line.text) \
+                or FOOTNOTE.match(line.text) or not SENTENCE_END.search(prev.text.rstrip()):
+            continue
+        after = next_box(pg, r)
+        if after is None or not (after.role == "text" or (after.role == "title" and not FINISHED.search(line.text.strip()))):
+            continue  # the next item's title follows: a sign-off
+        width = max(r.x2 - r.x1, 1)
+        centred = abs((line.bbox[0] - r.x1) / width - (r.x2 - line.bbox[2]) / width) <= HEADING_TAIL_CENTRED
+        same_line = after.y1 <= line.bbox[3] + NEAR_PX  # the rest of the heading is the next box's first line
+        if not (centred or same_line):
+            continue  # set left or right: a sign-off ("CRABBE.", "EPICTETUS.")
+        pg.regions.append(heading_region(pg, line, r.column, 500 + n, "heading split from the foot of a text box"))
+        r.lines = r.lines[:-1]
+        r.text = join_lines([l.text for l in r.lines])
+        r.bbox = (r.x1, r.y1, r.x2, min(r.y2, line.bbox[1]))
 
 
 def recover_unboxed(pg: Page, lines: list[Line]) -> list[Line]:

@@ -19,7 +19,8 @@ juxtaposition analysis and publishing history. Pipeline code:
 | `v2_decisions.md` | decisions 0–10 with evidence and build status |
 | `v2_recheck.md` | v2 re-checked against the v1 log (script numbers) |
 | `v3_decisions.md` | the v3 decisions, built 2026-11-02, with evidence, status, v2-vs-v3 results and the held-out test (frozen as `extraction-v3`) |
-| `v4_decisions.md` | the v4 rules, built 2026-11-03 to 11-06, with evidence, status and v3-vs-v4 results on the seen volumes (v4 not frozen yet) |
+| `v4_decisions.md` | the v4 rules, built 2026-11-03 to 11-06, with evidence, status and v3-vs-v4 results on the seen volumes (frozen as `extraction-v4`, with the held-out test) |
+| `v5_decisions.md` | the v5 fixes A–E, built 2026-11-06, with evidence and results on the seen volumes (v5 not frozen yet) |
 
 **Before this:** choosing and checking the layout and OCR models (Document AI,
 DocLayout-YOLO, LayoutParser), the box study that chose DocLayout-YOLO, and the
@@ -36,7 +37,8 @@ it's always clear which rules produced which output.
 | v1 | `extraction-v1` | `output/article_extraction/v1/` | `evaluation/evaluating_v1_article_extraction/reading_order_error_log.csv` | Frozen. 74 development pages: 1,068 boxes, 90.9% correct. |
 | v2 | `extraction-v2` | `output/article_extraction/v2/` | re-check: `evaluation/evaluating_v1_article_extraction/reading_order_v1_vs_v2.csv`; test volumes: `evaluation/evaluating_v2_article_extraction/gold_article_list_test.csv` (to annotate) | Frozen 2026-10-16. Test volumes run with it (see below). Development re-check: of 97 v1 errors, 29 fixed (script-checked), 58 changed, 10 unchanged; no v1-correct box broken. |
 | v3 | `extraction-v3` | `output/article_extraction/v3/` | `evaluation/evaluating_v3_article_extraction/gold_article_list_test_v3.csv`, `v3_gold_comp_eval_summary.md` | Frozen 2026-11-02. Held-out test: 62/76 exact (82%). |
-| v4 | (to tag: `extraction-v4`) | `output/article_extraction/v4/` | development: v2 and v3 gold lists; held-out: `evaluation/evaluating_v4_article_extraction/` | Built 2026-11-06, not frozen. Seen v3 test texts: 65/76 exact (86%). |
+| v4 | `extraction-v4` | `output/article_extraction/v4/` | development: v2 and v3 gold lists; held-out: `evaluation/evaluating_v4_article_extraction/gold_article_list_test_v4.csv`, `v4_gold_comp_eval_summary.md` | Frozen 2026-11-06. Held-out test: 95/118 exact (81%). |
+| v5 | (to tag: `extraction-v5`) | `output/article_extraction/v5/` | development: v2, v3 and v4 gold lists; held-out: the v5 test set (to build) | Built 2026-11-06, not frozen. Seen v4 test texts: 101/118 exact (86%). |
 
 How versions are kept apart:
 - **Code:** `PIPELINE_VERSION` in `run_extraction.py` decides the output folder.

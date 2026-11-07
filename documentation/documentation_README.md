@@ -129,7 +129,7 @@ gold list:
 The score on the v2 test issues (94% exact) is not a held-out result, because
 v3 was built on them.
 
-### 5. Article extraction v4: Document AI + YOLO + rule scripts (built, not frozen)
+### 5. Article extraction v4: Document AI + YOLO + rule scripts (frozen, tested)
 
 **Built** from the v3 test findings, one rule at a time, with the v3 test
 issues as build texts (`v4_decisions.md`). The six rules cover:
@@ -146,14 +146,32 @@ issues as build texts (`v4_decisions.md`). The six rules cover:
 
 The v2 test issues and the 1832 checks are unchanged.
 
-**Next:** freeze v4, then test it once on new held-out issues
-(`evaluation/evaluating_v4_article_extraction/`).
+**Frozen** as `extraction-v4` and **tested on held-out issues** from Penny
+1843, Saturday 1843 and Chambers 1837 (118 gold items):
+- **81%** exact; boundary recall **91%**, precision **88%**;
+- titles 95%, back matter 72%, issue dates 94%;
+- Penny 1843's issue numbers are not read (0/18): its later issues have no masthead.
+
+### 6. Article extraction v5: the final round of fixes (built, not frozen)
+
+**Built** from the v4 test findings (`v5_decisions.md`), with the v4 test
+issues as build texts. The five fixes cover:
+- headings boxed with the paragraph above;
+- OCR noise ending a box;
+- Penny issues numbered at the page foot (from 1841);
+- caption lines under figures;
+- titles carrying a footnote mark.
+
+**On the seen v4 test issues** (not a held-out result):
+- exact items 81% → 86%;
+- issue numbers and dates 100%.
+
+The v2 and v3 test issues and the 1832 checks are unchanged.
 
 ## To do
 
-- **Article extraction v4:** freeze it, run it on the v4 held-out issues and
-  score it against their gold list. Then either apply it to all volumes, or
-  make one round of bug fixes first.
+- **Article extraction v5:** freeze it, then score it once on a new v5
+  held-out test set. Then apply it to all volumes.
 - **OCR evaluation:** WER/CER on sampled passages against a literal
   transcription of what is printed, plus a check for words lost or
   duplicated between boxes.
@@ -215,4 +233,5 @@ dissertation_layout_pilot/
 | `v2_recheck.md` | v2 re-checked against the v1 log |
 | `v3_decisions.md` | the v3 decisions, with evidence and v2-vs-v3 results |
 | `v4_decisions.md` | the v4 rules, with evidence and v3-vs-v4 results on the seen volumes |
+| `v5_decisions.md` | the v5 fixes (one round after the v4 test), with evidence and results |
 | `gold_article_list_annotation_guide.md` | how the test texts were annotated, and how they are scored |

@@ -1,0 +1,125 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/evaluation/evaluating_v4_article_extraction/test_text_extraction_v4/images/penny_1843_images/penny_1843_page_024.png",
+  "regions": [
+    {
+      "type": "plain text",
+      "score": 0.9204,
+      "bbox": [
+        187.0,
+        1034.3,
+        1070.4,
+        2858.3
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.91,
+      "bbox": [
+        1085.9,
+        1792.0,
+        1954.2,
+        2808.8
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.8624,
+      "bbox": [
+        163.0,
+        271.6,
+        966.2,
+        1036.2
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.8179,
+      "bbox": [
+        300.0,
+        3068.7,
+        687.7,
+        3153.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7272,
+      "bbox": [
+        1743.0,
+        116.0,
+        1782.7,
+        148.9
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.6934,
+      "bbox": [
+        960.5,
+        200.0,
+        1801.1,
+        436.3
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.6913,
+      "bbox": [
+        989.0,
+        420.1,
+        1867.0,
+        1802.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.5242,
+      "bbox": [
+        1782.9,
+        2752.4,
+        1848.3,
+        2785.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4013,
+      "bbox": [
+        1268.7,
+        3077.0,
+        1694.5,
+        3153.8
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.3619,
+      "bbox": [
+        0.0,
+        1561.7,
+        76.6,
+        3099.9
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.2019,
+      "bbox": [
+        0.9,
+        1661.5,
+        72.0,
+        3075.9
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.2001,
+      "bbox": [
+        0.0,
+        1556.1,
+        76.9,
+        3080.4
+      ]
+    }
+  ]
+}
