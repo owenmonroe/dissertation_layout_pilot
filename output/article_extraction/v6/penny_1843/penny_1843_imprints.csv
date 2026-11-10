@@ -1,0 +1,4 @@
+pipeline_version,volume,magazine,issue_seq,issue_no,issue_date,pages,n_boxes,imprint_text
+v6,penny_1843,penny,1,691.0,01-07-1843,,0,
+v6,penny_1843,penny,2,692.0,01-14-1843,,0,
+v6,penny_1843,penny,3,693.0,01-21-1843,,0,

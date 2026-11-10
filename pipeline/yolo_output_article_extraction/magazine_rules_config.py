@@ -78,7 +78,8 @@ MAGAZINES = {
         Magazine(
             key="chambers",
             columns=3,
-            name=re.compile(r"edinburgh\s+journal", re.I),
+            # OCR can lose the J of the large masthead type: "EDINBURGH OURNAL" (v6).
+            name=re.compile(r"edinburgh\s+j?ournal", re.I),
             masthead_words=re.compile(r"conducted by|author of|editors of|\bedition\b|halfpence"
                                       r"|printed by", re.I),
             # "NUMBER 414.", "No. 1."; or in Roman numerals, "No. CCLXXIV." (v5).
@@ -128,6 +129,7 @@ MODEL_OUTPUT_DIRS = {
     "v2_test": "output/output_images_json_v2_article_extraction",
     "test": "output/output_images_json_v3_article_extraction",
     "v4_test": "output/output_images_json_v4_article_extraction",
+    "v5_test": "output/output_images_json_v5_article_extraction",
 }
 
 VOLUMES = {
@@ -173,6 +175,16 @@ VOLUMES = {
                pages="5-28", index_pages="3-4"),
         Volume("chambers_1837", "chambers", "v4_test",
                "evaluation/evaluating_v4_article_extraction/test_text_extraction_v4/chambers_v6_1837_v4_test_3issues.pdf",
+               pages="8-31", index_pages="5-7"),
+        # v5's held-out test issues (three issues each).
+        Volume("penny_1844", "penny", "v5_test",
+               "evaluation/evaluating_v5_article_extraction/test_text_extraction_v5/penny_v13_1844_v5_test_3issues.pdf",
+               pages="6-29", index_pages="4"),
+        Volume("saturday_1837", "saturday", "v5_test",
+               "evaluation/evaluating_v5_article_extraction/test_text_extraction_v5/saturday_v10.11_1837_v5_test_3issues.pdf",
+               pages="5-28", index_pages="3-4"),
+        Volume("chambers_1840", "chambers", "v5_test",
+               "evaluation/evaluating_v5_article_extraction/test_text_extraction_v5/chambers_v9_1840_v5_test_3issues.pdf",
                pages="8-31", index_pages="5-7"),
     ]
 }

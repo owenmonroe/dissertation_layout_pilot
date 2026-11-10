@@ -1,0 +1,55 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/evaluation/evaluating_v5_article_extraction/test_text_extraction_v5/images/saturday_1837_images/saturday_1837_page_013.png",
+  "regions": [
+    {
+      "type": "figure",
+      "score": 0.6203,
+      "bbox": [
+        106.4,
+        272.9,
+        1938.2,
+        3228.7
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.6191,
+      "bbox": [
+        319.5,
+        3324.7,
+        731.3,
+        3415.4
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4582,
+      "bbox": [
+        1344.8,
+        3333.7,
+        1790.3,
+        3416.2
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.384,
+      "bbox": [
+        0.0,
+        1721.5,
+        84.1,
+        3352.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.3207,
+      "bbox": [
+        0.0,
+        1855.6,
+        79.3,
+        3371.2
+      ]
+    }
+  ]
+}

@@ -40,7 +40,7 @@ import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 
 from articles import page_metadata, segment
-from layout import REPO_ROOT, load_page, mark_foot_issue, mark_masthead, order_regions
+from layout import REPO_ROOT, load_page, mark_foot_issue, mark_masthead, order_regions, picture_masthead_text
 from magazine_rules_config import VOLUMES, magazine_rules, page_range
 from duplicates import find_duplicates, set_aside
 from rules import mark_rules
@@ -53,10 +53,11 @@ from text import (assign_docai_text, assign_tesseract_text, clean_marks, docai_j
 # v1 is frozen (git tag extraction-v1; output/article_extraction/v1/ is the
 # output the reading-order evaluation describes). Bump this when a version is
 # frozen and work on the next one starts.
-PIPELINE_VERSION = "v5"
-FROZEN_VERSIONS = {"v1", "v2", "v3", "v4"}  # v2: tag extraction-v2; test volumes run 2026-10-16
+PIPELINE_VERSION = "v6"
+FROZEN_VERSIONS = {"v1", "v2", "v3", "v4", "v5"}  # v2: tag extraction-v2; test volumes run 2026-10-16
 # v3: tag extraction-v3; test volumes run 2026-11-02
 # v4: tag extraction-v4; test volumes run 2026-11-06
+# v5: tag extraction-v5; test volumes run 2026-11-10
 OUT_ROOT = REPO_ROOT / "output" / "article_extraction" / PIPELINE_VERSION
 DB_PATH = OUT_ROOT / "articles.sqlite"
 CHECK_IMAGE_SCALE = 0.4
@@ -148,7 +149,8 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         # Unboxed text joins the masthead text: masthead lines YOLO drew no box
         # for (e.g. the issue number) are found there.
         meta = page_metadata(pg, " | ".join(l.text for l in unboxed))
-        masthead_text = " | ".join(r.text for r in pg.regions if r.role == "masthead" and r.text)
+        masthead_text = " | ".join([r.text for r in pg.regions if r.role == "masthead" and r.text]
+                                   + ([t] if (t := picture_masthead_text(pg)) else []))
         page_rows.append({
             "magazine": mag, "page": n, **meta, "issue_start": pg.issue_start,
             "masthead_text": masthead_text or None,
@@ -170,6 +172,10 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         row["duplicate_of"] = duplicates.get(row["page"])
         if row["duplicate_of"]:
             row["issue_start"] = False
+    issue_rhythm(pages, page_rows, duplicates)
+    evidence = {pg.page: pg.issue_evidence for pg in pages}
+    for row in page_rows:  # what marked the issue start (or why one was dropped) (v6)
+        row["issue_evidence"] = evidence.get(row["page"]) or None
     articles = segment([pg for pg in pages if pg.page not in duplicates])
     # Segmenting can set boxes aside as furniture (no words, printer's
     # signatures, magazine name): renumber reading order without them.
@@ -313,6 +319,41 @@ def extract(mag: str, page_spec: str | None = None, ocr: str = "docai") -> dict:
         df.insert(0, "volume", mag)
         df.insert(0, "pipeline_version", PIPELINE_VERSION)
     return {"pages": pages, "articles": articles, "article_of": article_of, "tables": tables}
+
+
+ISSUE_PAGES = 8  # every magazine: a new issue every 8 pages, almost without exception (Owen)
+
+
+def issue_rhythm(pages: list, page_rows: list[dict], duplicates: dict) -> None:
+    """Issue starts follow an 8-page rhythm (v6). A start found only by the
+    magazine's name, off the rhythm, is dropped (a running head inside a
+    picture: Penny 1844 p9). A run of more than 8 pages with no start gets
+    one 8 pages on, when that page's printed number (if read) is a first page
+    (1, 9, 17, ...). Starts found by masthead wording or a foot number are
+    kept wherever they fall: a monthly supplement can break the rhythm."""
+    rows = {r["page"]: r for r in page_rows}
+    seq = [pg for pg in pages if pg.page not in duplicates]  # repeated scans don't count
+    pos = {pg.page: i for i, pg in enumerate(seq)}
+    printed = printed_pages(page_rows)
+    last = None
+    for pg in seq:
+        if not pg.issue_start:
+            continue
+        if pg.issue_evidence == "magazine name" and last is not None and pos[pg.page] - pos[last] != ISSUE_PAGES:
+            pg.issue_start, rows[pg.page]["issue_start"] = False, False
+            pg.issue_evidence = "dropped: magazine name off the 8-page rhythm"
+            continue
+        last = pg.page
+    starts = [pos[pg.page] for pg in seq if pg.issue_start]
+    bounds = starts + [len(seq)]
+    for a, b in zip(bounds, bounds[1:]):
+        k = a + ISSUE_PAGES
+        while k < b and k < len(seq):
+            pg, n = seq[k], printed.get(seq[k].page)
+            if n is None or n % ISSUE_PAGES == 1:
+                pg.issue_start, rows[pg.page]["issue_start"] = True, True
+                pg.issue_evidence = "8-page rhythm"
+            k += ISSUE_PAGES
 
 
 # Digits OCR confuses with each other (Chambers "No. 3." read as "No. 8.").

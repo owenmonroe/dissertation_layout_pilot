@@ -12,6 +12,7 @@ venv_build_test/*-env/
 evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/images/
 evaluation/evaluating_v3_article_extraction/test_texts_extraction_v3/images/
 evaluation/evaluating_v4_article_extraction/test_text_extraction_v4/images/
+evaluation/evaluating_v5_article_extraction/test_text_extraction_v5/images/
 
 # Python bytecode caches
 __pycache__/
@@ -25,3 +26,4 @@ __pycache__/
 output/output_images_json_v2_article_extraction/**/*.png
 output/output_images_json_v3_article_extraction/**/*.png
 output/output_images_json_v4_article_extraction/**/*.png
+output/output_images_json_v5_article_extraction/**/*.png

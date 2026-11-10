@@ -1,0 +1,12 @@
+{
+  "pipeline_version": "v5",
+  "git_commit": "e32b055",
+  "uncommitted_changes": true,
+  "run_date": "2026-11-10T16:38:56",
+  "volume": "chambers_1840",
+  "magazine": "chambers",
+  "split": "v5_test",
+  "pdf": "evaluation/evaluating_v5_article_extraction/test_text_extraction_v5/chambers_v9_1840_v5_test_3issues.pdf",
+  "pages": "8-31",
+  "ocr": "docai"
+}

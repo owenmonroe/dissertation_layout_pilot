@@ -152,7 +152,7 @@ The v2 test issues and the 1832 checks are unchanged.
 - titles 95%, back matter 72%, issue dates 94%;
 - Penny 1843's issue numbers are not read (0/18): its later issues have no masthead.
 
-### 6. Article extraction v5: the final round of fixes (built, not frozen)
+### 6. Article extraction v5: the final round of fixes (frozen, tested)
 
 **Built** from the v4 test findings (`v5_decisions.md`), with the v4 test
 issues as build texts. The eight fixes cover:
@@ -171,10 +171,28 @@ issues as build texts. The eight fixes cover:
 
 The v2 and v3 test issues and the 1832 checks are unchanged.
 
+### 7. Article extraction v6: issue starts and mastheads (built, not frozen)
+
+**Built** from v5's held-out test (`v6_decisions.md`):
+- mastheads boxed inside pictures;
+- running heads inside pictures;
+- bare Roman issue numbers;
+- the 8-page issue rhythm;
+- the masthead record, which now shows Saturday dropping the SPCK line from
+  21 January 1837.
+
+All fifteen seen volumes now find their three issues with the right numbers.
+No article-boundary rule changed.
+
 ## To do
 
-- **Article extraction v5:** freeze it, then score it once on a new v5
-  held-out test set. Then apply it to all volumes.
+- **Article extraction v5:** frozen as `extraction-v5` and tested on held-out
+  issues from Penny 1844, Saturday 1837 and Chambers 1840. Results: 78% exact,
+  boundary recall 92%, precision 83%, titles 89%. Issue numbers were mostly
+  missed (18%), from three masthead forms (`v5_decisions.md`), fixed in v6.
+- **Article extraction v6:** freeze it, then apply it to all volumes.
+- **CEJ edition:** the Chambers 1840 test volume is an American reprint; decide
+  which edition the corpus uses.
 - **OCR evaluation:** WER/CER on sampled passages against a literal
   transcription of what is printed, plus a check for words lost or
   duplicated between boxes.
@@ -237,4 +255,5 @@ dissertation_layout_pilot/
 | `v3_decisions.md` | the v3 decisions, with evidence and v2-vs-v3 results |
 | `v4_decisions.md` | the v4 rules, with evidence and v3-vs-v4 results on the seen volumes |
 | `v5_decisions.md` | the v5 fixes (one round after the v4 test), with evidence and results |
+| `v6_decisions.md` | the v6 fixes to issue starts and the masthead record, after the v5 test |
 | `gold_article_list_annotation_guide.md` | how the test texts were annotated, and how they are scored |

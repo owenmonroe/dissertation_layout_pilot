@@ -1,0 +1,185 @@
+{
+  "page_image": "/Users/owenmonroe/Desktop/GitHub/dissertation_layout_pilot/evaluation/evaluating_v5_article_extraction/test_text_extraction_v5/images/saturday_1837_images/saturday_1837_page_028.png",
+  "regions": [
+    {
+      "type": "plain text",
+      "score": 0.9716,
+      "bbox": [
+        213.1,
+        583.0,
+        1111.2,
+        1221.8
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9703,
+      "bbox": [
+        1135.3,
+        271.3,
+        2019.4,
+        1646.0
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9698,
+      "bbox": [
+        198.8,
+        160.0,
+        1103.7,
+        417.6
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9397,
+      "bbox": [
+        210.0,
+        418.6,
+        1104.5,
+        582.8
+      ]
+    },
+    {
+      "type": "figure",
+      "score": 0.9392,
+      "bbox": [
+        289.9,
+        1711.1,
+        2018.9,
+        2960.9
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.9297,
+      "bbox": [
+        1130.5,
+        143.9,
+        2013.2,
+        271.1
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.8708,
+      "bbox": [
+        808.3,
+        79.0,
+        1398.3,
+        120.6
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7736,
+      "bbox": [
+        312.8,
+        3319.1,
+        714.3,
+        3406.0
+      ]
+    },
+    {
+      "type": "plain text",
+      "score": 0.7656,
+      "bbox": [
+        217.9,
+        1332.3,
+        1120.6,
+        1662.4
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.7455,
+      "bbox": [
+        195.5,
+        105.0,
+        255.4,
+        142.0
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.5892,
+      "bbox": [
+        1.7,
+        1745.6,
+        80.5,
+        3342.6
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.538,
+      "bbox": [
+        1662.4,
+        64.1,
+        2011.8,
+        110.5
+      ]
+    },
+    {
+      "type": "title",
+      "score": 0.5372,
+      "bbox": [
+        327.9,
+        1284.4,
+        1030.3,
+        1329.8
+      ]
+    },
+    {
+      "type": "figure_caption",
+      "score": 0.5045,
+      "bbox": [
+        906.4,
+        2974.4,
+        1417.5,
+        3010.6
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.4432,
+      "bbox": [
+        1317.4,
+        3328.2,
+        1753.5,
+        3407.7
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.3883,
+      "bbox": [
+        437.1,
+        3080.6,
+        1884.9,
+        3133.3
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.3602,
+      "bbox": [
+        906.4,
+        2974.4,
+        1417.5,
+        3010.6
+      ]
+    },
+    {
+      "type": "abandon",
+      "score": 0.2104,
+      "bbox": [
+        3.4,
+        1852.2,
+        76.6,
+        3361.0
+      ]
+    }
+  ]
+}

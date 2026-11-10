@@ -136,6 +136,7 @@ class Page:
     height: int
     regions: list
     issue_start: bool = False
+    issue_evidence: str = ""  # what marked the issue start: masthead wording, name, foot number, rhythm
     foot_issue_no: int | None = None  # "No. 692." printed at the page foot (v5)
     text_left: float = 0
     text_right: float = 0
@@ -221,6 +222,17 @@ def column_of(pg: Page, x1: float, x2: float) -> int | None:
     return overlaps.index(max(overlaps)) + 1
 
 
+def named_masthead(pg: Page, r: Region, magazine) -> bool:
+    """The magazine's name in large type. In a picture box it must be a
+    masthead-sized picture or carry other masthead wording: a tall picture
+    can swallow the running head ("THE PENNY MAGAZINE.", Penny 1844 p9) (v6)."""
+    if not (magazine.name.search(r.text) and r.y2 - r.y1 >= NAME_MIN_PX):
+        return False
+    if r.role != "figure" or r.y2 - r.y1 < MASTHEAD_FIGURE_MAX_HEIGHT * pg.height:
+        return True
+    return bool(magazine.masthead_words.search(magazine.name.sub("", r.text)))
+
+
 def mark_masthead(pg: Page) -> None:
     """On an issue's first page, the boxes at the top before the first article.
 
@@ -237,9 +249,16 @@ def mark_masthead(pg: Page) -> None:
     content = [r for r in pg.regions if r.role in CONTENT_ROLES]
     top = [r for r in content if r.y1 < ISSUE_MARK_TOP * pg.height
            and len(r.text.split()) <= MASTHEAD_MAX_WORDS]
+    # A picture box YOLO drew over the masthead and the picture under it holds
+    # mostly OCR noise from the engraving, so its length proves nothing (v6):
+    # Saturday 1837's run to 50-60 words.
+    pictures = [r for r in content if r.role == "figure" and r.y1 < ISSUE_MARK_TOP * pg.height]
     magazine = magazine_rules(pg.magazine)
-    pg.issue_start = any(ISSUE_MARKS.search(r.text) for r in top) or any(
-        magazine.name.search(r.text) and r.y2 - r.y1 >= NAME_MIN_PX for r in top)
+    marks = any(ISSUE_MARKS.search(r.text) for r in top + pictures) or any(
+        magazine.issue_number and magazine.issue_number.search(r.text)
+        and magazine.masthead_words.search(r.text) for r in pictures)  # "No 292." + "ONE PENNY."
+    pg.issue_start = marks or any(named_masthead(pg, r, magazine) for r in top)
+    pg.issue_evidence = "masthead wording" if marks else ("magazine name" if pg.issue_start else "")
     if not pg.issue_start:
         return
     for r in sorted(content, key=lambda r: r.y1):
@@ -279,18 +298,44 @@ def mark_foot_issue(pg: Page) -> None:
             m = FOOT_ISSUE.search(r.text.strip())
             if m and m.start() == 0:
                 pg.foot_issue_no, pg.issue_start = int(m.group(1)), True
+                pg.issue_evidence = "issue number at the foot"
                 r.role, r.note = "furniture", "issue number at the page foot: issue starts here"
                 return
         elif r.role == "text" and last is not None and last.bbox[1] > FOOT_ISSUE_BELOW * pg.height:
             m = FOOT_ISSUE.search(last.text.strip())
             if m:
                 pg.foot_issue_no, pg.issue_start = int(m.group(1)), True
+                pg.issue_evidence = "issue number at the foot"
                 last.text = last.text.strip()[:m.start()].rstrip()
                 from text import join_lines
                 r.text = join_lines([l.text for l in r.lines if l.text])
                 r.lines = [l for l in r.lines if l.text]
                 r.note = (r.note + "; " if r.note else "") + f"issue number No. {m.group(1)} at the page foot taken out"
                 return
+
+
+def picture_masthead_text(pg: Page) -> str:
+    """On an issue's first page, the masthead lines YOLO took into a picture
+    box with the picture under it (Saturday 1834-1840): from the top of the
+    box down to the last line with masthead wording, so the record of each
+    masthead (e.g. Saturday dropping "UNDER THE DIRECTION OF THE COMMITTEE ...
+    SOCIETY FOR PROMOTING CHRISTIAN KNOWLEDGE" from 21 January 1837) keeps
+    them (v6). The picture's OCR noise below is left out."""
+    if not pg.issue_start:
+        return ""
+    magazine = magazine_rules(pg.magazine)
+    out = []
+    for r in pg.regions:
+        if r.role != "figure" or r.y1 >= ISSUE_MARK_TOP * pg.height or not r.lines:
+            continue
+        lines = sorted((l for l in r.lines if l.cy < ISSUE_MARK_TOP * pg.height), key=lambda l: l.cy)
+        wording = [i for i, l in enumerate(lines) if ISSUE_MARKS.search(l.text) or MASTHEAD_WORDS.search(l.text)
+                   or magazine.masthead_words.search(l.text) or magazine.name.search(l.text)]
+        # The name alone is a running head swallowed by the picture ("THE PENNY
+        # MAGAZINE.", Penny from 1841): furniture, not a masthead.
+        if wording and any(ISSUE_MARKS.search(l.text) or magazine.masthead_words.search(l.text) for l in lines):
+            out += [l.text for l in lines[:wording[-1] + 1]]
+    return " | ".join(out)
 
 
 def order_regions(pg: Page) -> None:

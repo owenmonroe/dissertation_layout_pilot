@@ -77,6 +77,9 @@ PAGE_NO = re.compile(r"^\[?\s*(\d{1,4})\s*\.?\]?$")
 # An issue number on its own in the masthead: "1.]", "No. 2.", "Nº 3.", and
 # "2.1" / "2.l" (the closing bracket of "2.]" misread). Punctuation is ignored.
 ISSUE_LABEL = re.compile(r"^\W*(?:N[oº°]\.?\s*)?(\d{1,4})\s*(?:\.\s*[\]1lI|]?|\])?\W*$")
+# Or a Roman numeral alone in its box ("CV.", "CVII."): Chambers' American
+# reprint (v6). Two letters at least: "I." or "V." alone is not an issue number.
+ROMAN_LABEL = re.compile(r"^\W*([IVXLCDM]{2,12})\.?\W*$")
 
 
 ROMAN_VALUES = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
@@ -109,6 +112,11 @@ def issue_number(texts: list[str], own_format=None) -> int | None:
         m = ISSUE_LABEL.match(t.strip())
         if m and not 1700 <= int(m.group(1)) < 1900:  # not the year
             return int(m.group(1))
+    for t in texts:
+        m = ROMAN_LABEL.match(t.strip())
+        value = number_value(m.group(1)) if m else None
+        if value and not 1700 <= value < 1900:
+            return value
     m = ISSUE_NO.search(" ".join(texts))
     return int(m.group(1)) if m else None
 # Run-in head: 2-8 words opening a paragraph, ended by a full stop, "?" or
@@ -622,7 +630,9 @@ def inside_article(pg, r, current: Article | None, introduced: bool) -> bool:
         return False
     prev = current.regions[-1]
     in_run = prev.page == r.page and prev.column == r.column and r.y1 - prev.y2 < ITEM_GAP_PX
-    mixed_case = not r.text.isupper()
+    # "No." in a capitals heading isn't mixed case: "'ESSAYS ON THE LIVES OF
+    # REMARKABLE PAINTERS.—No. XX.*" is a heading, not a quotation (v6).
+    mixed_case = not re.sub(r"\bNo\b\.?", "", r.text).isupper()
     return introduced or re.match(r"^\W*\(", r.text) is not None \
         or (mixed_case and re.match(r"^[\"“‘']", r.text.lstrip()) is not None) \
         or re.search(r"\d[,.]?\d", r.text) is not None and len(r.text.split()) <= 2 \

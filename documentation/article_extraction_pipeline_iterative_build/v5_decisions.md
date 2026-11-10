@@ -17,7 +17,9 @@ once on a new v5 test set. After reading his v4 item notes, he added two more
 - every split, drop or caption a fix made in the twelve volumes was listed and
   read before the fix was kept.
 
-**Status:** built and checked 2026-11-06, not frozen yet.
+**Status:** built and checked 2026-11-06; fix H added 2026-11-10. Frozen as
+`extraction-v5` (commit `e32b055`) and run once on the held-out v5 test set (see
+"Held-out test" at the end).
 
 ## Results on the seen volumes
 
@@ -316,3 +318,47 @@ Two questions were settled:
 2. Owen builds the v5 test set and its gold list from the printed pages.
 3. Run frozen v5 once on it and score it. Then add v5 to `FROZEN_VERSIONS`.
 4. Apply v5 to all volumes. Later errors are known limitations.
+
+## Held-out test (2026-11-10)
+
+Frozen v5 (`extraction-v5`, commit `e32b055`) ran once on Penny 1844 (Vol.
+XIII), Saturday 1837 (Vols. X–XI) and Chambers 1840 (Vol. IX), three issues
+each. These texts were not opened while v5 was built.
+
+**Setup** (no rule changed):
+- **Volumes:** the three were added to `magazine_rules_config.py`.
+- **Scorer:** the old alias from "chambers_1840" to the v2 test volume
+  (Chambers 1839, Vol. VIII) now applies to the v2 gold list only. The v2 and
+  v4 gold scores are unchanged.
+- **Gold correction from the printed page:** Saturday gold 50 is issue 291
+  (it was entered as 281; the masthead reads "Nº 291").
+
+Scores are in `evaluation/evaluating_v5_article_extraction/v5_gold_comp_eval_summary.md`:
+
+| | Penny 1844 | Saturday 1837 | Chambers 1840 | All |
+|---|---|---|---|---|
+| Gold items | 20 | 29 | 38 | 87 |
+| Exact | 16 (80%) | 21 (72%) | 31 (82%) | 68 (78%) |
+| Merged / split / lost | 4 / 0 / 0 | 4 / 4 / 0 | 2 / 3 / 2 | 10 / 7 / 2 |
+| Boundary recall | 90% | 93% | 92% | 92% |
+| Boundary precision | 100% | 84% | 76% | 83% |
+| Titles | 17/18 | 21/27 | 33/35 | 71/80 (89%) |
+| Back matter in place | 5/9 | 10/17 | 11/14 | 26/40 (65%) |
+| Front matter in place | 1/1 | 0/4 | 3/7 | 4/12 |
+| Series | 2/2 | 1/5 | 2/6 | 5/13 |
+| Issue number | 14/18 | 0/27 | 0/35 | 14/80 (18%) |
+| Issue date | 17/18 | 8/27 | 22/35 | 47/80 (59%) |
+
+**Why the issue numbers fail** (three causes, each a masthead form these
+volumes print):
+1. **Saturday 1837:** YOLO drew one figure box over the masthead and the
+   full-page picture under it (50+ words). The issue-start test only reads
+   short boxes (40 words or fewer), so no issue start is found. The three
+   issues run as one, with one date.
+2. **Chambers 1840:** the issue number is a bare Roman numeral in its own box
+   ("CV.", "CVII.") with no "No." or "NUMBER". Fix H expected one of those
+   words. On PDF p24 the OCR reads the masthead name as "EDINBURGH OURNAL",
+   so the third issue's start is missed too.
+3. **Penny 1844 PDF p9:** the running head "THE PENNY MAGAZINE." is inside a
+   tall figure box and reads as the magazine name in large type. That makes a
+   false issue start, numbered from the page number ("4").

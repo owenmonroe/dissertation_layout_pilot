@@ -1,0 +1,97 @@
+volume,article_id,pipeline_title,pages,word_count,gold_starts,n_gold_starts,gold_ends,status,text_start
+chambers_1840,chambers_1840_0001,STORIES OF THE IRISH PEASANTRY,8,12,,0,,extra,""" Mind not high things: but condescend to men of low estate."""
+chambers_1840,chambers_1840_0002,THE CROCK OF GOLD,8;9;10,6193,1,1,1,matched,"In the county of Wexford, and in a nook which, fifty years"
+chambers_1840,chambers_1840_0003,to SUPPOSED CHANGES IN THE WEATHER OF LATE YEARS,10;11,1746,2,1,2,matched,ONE can scarcely meet with a single old or even middle-aged person
+chambers_1840,chambers_1840_0004,THE SILK-WOOL OF THE ALPACA,11,430,3,1,3,matched,"At one of the meetings of the British Association at Birmingham, ""Some"
+chambers_1840,chambers_1840_0005,PICTURE OF A GERMAN STUDENT,11;12,2045,4,1,4,matched,THE German gentleman is well known to be upon the whole a
+chambers_1840,chambers_1840_0006,ISAAC WATTS,12,829,5,1,,matched,"ISAAC WATTS was born at Southampton, in Hants, on kept a boardingthe"
+chambers_1840,chambers_1840_0007,HAPPY FRAILTY,12,603,,0,,extra,"""How meanly dwells the immortal bodies are! How vile these Why was"
+chambers_1840,chambers_1840_0008,THE ROSE,12,158,,0,,extra,How fair is the rose! what a beautiful flower. The glory of
+chambers_1840,chambers_1840_0009,THE ANT OR EMMET,12,825,,0,,extra,Those Emmets-how little they are in our eyes! and a troop of
+chambers_1840,chambers_1840_0010,ACCIDENTAL DISCOVERY OF THE STEAM-ENGINE,12;13,324,6,1,6,matched,"The discovery of the method of making a vacuum by , was"
+chambers_1840,chambers_1840_0011,THE SCOTCH COSTUMES OF LONDON ARTISTS,13,954,7,1,7,matched,"It has long appeared to us a very curious thing, that English"
+chambers_1840,chambers_1840_0012,WHAT CONSTITUTES A PATENT,13,1519,8,1,8,matched,THE following explanations of what peculiarities in an invention are necessary in
+chambers_1840,chambers_1840_0013,WELEES AND DERVISHES,13;14,1417,9,1,9,matched,ONE of the most amusing chapters in Mr. Lane's work on the
+chambers_1840,chambers_1840_0014,YANKEE PEDLAR,14;15,4133,10;11,2,10;11,merged,A clever trick was pedlar upon one of the captains of the
+chambers_1840,chambers_1840_0015,MARIANA,15,539,12,1,12,matched,"MARIANA. ""Mariana in the moated grange."" - Measure for Measure. With blackest"
+chambers_1840,chambers_1840_0016,NOTICE,15,253,,0,,extra,THE Publisher of the American Edition of this popular periodical avails himself
+chambers_1840,chambers_1840_0017,VISITS TO THE SCHOOLS IN DUBLIN,16;17,3631,15,1,15,matched,HAVING long felt an interest in the condition and progress of elementary
+chambers_1840,chambers_1840_0018,"""ADVENTURES OF ROBIN DAY.""",17;18,3047,16,1,16,matched,"SUCH is the title of an amusing, though somewhat coarsely written novel,"
+chambers_1840,chambers_1840_0019,LABOUR SONGS,18;19,946,17,1,,matched,"SINGING to labour is we presume, more common on the our own"
+chambers_1840,chambers_1840_0020,,19,1695,,0,17,extra,"All prosp'rous seems beneath the earth, Full and kindly fill'd the mould:"
+chambers_1840,chambers_1840_0021,HOW THEY CURE NE'ERDOWEELS,19;20,852,18,1,18,matched,"THE story of Jerry Guttridge, which was presented a few weeks ago"
+chambers_1840,chambers_1840_0022,POPULAR INFORMATION ON SCIENCE RED-COLOURED RAIN,20,1671,19,1,19,matched,"THE following curious and important narrative, which is extracted from Gassendi's Life"
+chambers_1840,chambers_1840_0023,SKETCHES OF SUPERSTITIONS,20;21;22,3561,20,1,20,matched,GREEK SUPERSTITIONS. ob- MANKIND have in all ages been prone to the
+chambers_1840,chambers_1840_0024,ANIMAL COTTON,22,1255,21,1,21,matched,In an age when fine loaves of bread are manufactured from rhubarb
+chambers_1840,chambers_1840_0025,INDIAN ANECDOTES,22;23,1949,22,1,22,matched,A CURIOUS anecdote was cited in one of our late numbers Oriental
+chambers_1840,chambers_1840_0026,THE GOVERNMENT CLERK,23,1506,23,1,23,matched,IN France there are as many varieties of Clerks as naturalists ascribe
+chambers_1840,chambers_1840_0027,TASTE FOR MUSIC IN GERMANY,23,297,24,1,24,matched,"There exist in Germany particular bodies of craftsmen, among the members of"
+chambers_1840,chambers_1840_0028,MILITARY PARADE AND COSTUME,23,491,25,1,25,matched,On this subject we find the following observations in Dr. Channing's Lecture
+chambers_1840,chambers_1840_0029,NOTICE,23;24,271,,0,,extra,THE Publisher of the American Edition of this popular periodical avails himself
+chambers_1840,chambers_1840_0030,LITERARY FORMULAS,24,599,28,1,,matched,"Ir a barbarian of good natural understanding were introduced into this country,"
+chambers_1840,chambers_1840_0031,"SATURDAY, JANUARY 18, 1840",24;25,2094,,0,28,extra,"into any one workhouse, they would find the inmates in the enjoyment"
+chambers_1840,chambers_1840_0032,WALKS OUT OF TOWN,25;26,3804,29,1,30,matched,"I HAD passed the three first milestones after leaving Forres, when the"
+chambers_1840,chambers_1840_0033,SPECIMENS OF THE ENGLISH SONNET WRITERS,26;27,2121,31,1,,matched,"SPECIMENS OF THE ENGLISH SONNET WRITERS. Scorn not the sonnet; critic, you"
+chambers_1840,chambers_1840_0034,DRUMMOND TO HIS LUTE,27,116,,0,31,extra,"My lute, be as thou wert when thou did grow With thy"
+chambers_1840,chambers_1840_0035,WOMEN IN AMERICA,27,1164,32,1,32,matched,"In the North American States, women occupy a position in society very"
+chambers_1840,chambers_1840_0036,STAGE-COACH JOURNEY TO THE TOURNAMENT,27;28,1167,,0,33,extra,"At length we found ourselves in motion, and we began to beguile"
+chambers_1840,chambers_1840_0037,"GREEK SUPERSTITIONS CONTINUED ORACLES, SACRIFICES, OMENS",28;29,3159,34,1,34,matched,THE Greeks believed in the possibility of foretelling future events. The wisest
+chambers_1840,chambers_1840_0038,A LESSON IN GOOD HUMOUR,29,974,35,1,35,matched,"In a number of the New York Mirror for January last, we"
+chambers_1840,chambers_1840_0039,STATE OF THE EGYPTIAN PEOPLE,29;30,2334,36,1,36,matched,"WE lately presented a playful and pleasing account of Mehemet Ali, the"
+chambers_1840,chambers_1840_0040,"REPORT OF BIRTHS, MARRIAGES, AND DEATHS IN ENGLAND",30;31,2240,37,1,37,matched,"THE First Annual Report of the Registrar-General of Births, Marriages, and Deaths,"
+chambers_1840,chambers_1840_0041,A WEDDING AT SEA,31,725,38,1,38,matched,A CORRESPONDENT of the New England Review gives the following sketch of
+chambers_1840,chambers_1840_0042,SCENE IN THE MANAGER'S ROOM,31,360,39,1,39,matched,"""(A knock at the door:)-' Come in; what is it?"" cried the"
+chambers_1840,chambers_1840_0043,BANKING IN EARLY TIMES,31,294,40,1,40,matched,A banker in early times pursued a very different trade from that
+chambers_1840,chambers_1840_0044,CURE FOR DRUNKENNESS,31,115,41,1,41,matched,"A man in Maryland, notoriously addicted to this vice, hearing an uproar"
+chambers_1840,chambers_1840_0045,IMPORTANCE OF CORRECT PUNCTUATION,31,100,42,1,42,matched,"The contract made for lighting the town of Liverpool, during the year"
+chambers_1840,chambers_1840_0046,,31,10,,0,,extra,"NEW YORK: Printed and published by WILLIAM JACKSON, 102 BROADWAY,"
+saturday_1837,saturday_1837_0001,VIEW OF SELBORNE,5;6;7,1910,44,1,,matched,"THE view which appears in this number of the Saturday Magazine, is"
+saturday_1837,saturday_1837_0002,THE INVITATION TO SELBORNE,7,511,,0,44,extra,"SEE, , Selborne spreads her boldest beauties round The varied valley, and"
+saturday_1837,saturday_1837_0003,,7,66,45,1,45,matched,THE Arabians have several proverbial sayings concerning pretended false friendships. Some are
+saturday_1837,saturday_1837_0004,SPIDERS. I,7,606,46,1,,matched,"LVERY one who examines the web of a common Spider, whether it"
+saturday_1837,saturday_1837_0005,TA HAJ,8,228,,0,46,extra,"curious geometric snares have generally been described 10 as three claws, the"
+saturday_1837,saturday_1837_0006,intNOTES ON FOREST TREES. No. V,8;9,1215,47,1,47,matched,"THE British Elms are of two sorts, the fine-leaved Elm of England"
+saturday_1837,saturday_1837_0007,ICE PALACE AT MOSCOW,9;10,664,48,1,48,matched,THIS whimsical structure was one of the wonders of the last century.
+saturday_1837,saturday_1837_0008,AUSTRALIAN GRAMMAR. III,10;11,2200,49,1,49,matched,THE following account of the strange fancies which are even now prevalent
+saturday_1837,saturday_1837_0009,CROWNS AND CORONETS,11;12;13,1344,50,1,50,matched,"ALL nations, even in the early stages of civilization, have attached great"
+saturday_1837,saturday_1837_0010,IN SWITZERLAND,14;15;16,4003,52;53,2,52;53,merged,"BERN, the capital of the canton of the same name, is one"
+saturday_1837,saturday_1837_0011,Hs to sinstida THE SPANISH ARMADA,17,831,54,1,54,matched,"a ATTEND all ye who list to hear our noble England's praise,"
+saturday_1837,saturday_1837_0012,,17,34,55,1,55,matched,"IF Providence has thought fit to write in cyphers, shall he be"
+saturday_1837,saturday_1837_0013,"THE POPULAR SUPERSTITIONS, LEGENDS, AND FICTIONS, OF THE MIDDLE AGES",17,54,,0,,extra,A WORK of great utility might be compiled upon the origin of
+saturday_1837,saturday_1837_0014,,17;18,1592,56;57,2,56;57,merged,"I. ON THE ANCIENT INHABITANTS OF EUROPE, AND THEIR SUBSEQUENT DIVISION, &c.-NORTHERN"
+saturday_1837,saturday_1837_0015,,18,158,58,1,58,matched,THAT which I have found the best recreation both to my mind
+saturday_1837,saturday_1837_0016,,18,52,59,1,59,matched,"SWEET were the sauce would please each kind of taste, The life,"
+saturday_1837,saturday_1837_0017,SPIDERS. II,19,1096,60,1,60,matched,No animals fall more universally under observation than the Spiders; we see
+saturday_1837,saturday_1837_0018,"NOTES ON FOREST TREES. No. VI THE LARCH, (Pinus larix.)",19;20,243,61,1,,matched,THE Larch seems to form a kind of connecting link between the
+saturday_1837,saturday_1837_0019,THE LARCH,20;21;22,1794,63,1,61;63,matched,"The timber of the Larch is extremely tough and durable, and so"
+saturday_1837,saturday_1837_0020,ON WINTER,22,595,64,1,,matched,"A ""driving snow-storm"" rages, The weather, too, is intensely cold. It is"
+saturday_1837,saturday_1837_0021,WINTER AND CHARITY,22;23,1105,,0,64,extra,WINTER AND CHARITY.--Public calls are made upon the charity of those who
+saturday_1837,saturday_1837_0022,,23,103,65,1,65,matched,VIRTUE is the queen of labourers: opinion the mistress of fools: vanity
+saturday_1837,saturday_1837_0023,No. II. WIND INSTRUMENTS,24;25,1114,66,1,66,matched,"MANKIND, by the invention of the trumpet, having discovered the property possessed"
+saturday_1837,saturday_1837_0024,,25,86,67,1,67,matched,"поводил As daily experience makes it evident, that misfortunes are unavoidably incident"
+saturday_1837,saturday_1837_0025,,25,39,68,1,68,matched,How can any person have faith to believe that all the wonderful
+saturday_1837,saturday_1837_0026,,25,244,69,1,69,matched,"SUCH facetiousness is not unreasonable or unlawful, which ministereth harmless divertisement and"
+saturday_1837,saturday_1837_0027,TMHARADE,25,643,70,1,70,matched,"PRONOUNCED as one letter, and written with three, Two letters there are,"
+saturday_1837,saturday_1837_0028,,25,161,71,1,71,matched,"IF you should happen to meet with an accident at table, endeavour"
+saturday_1837,saturday_1837_0029,MYTHOLOGY OF THE NURSERY,26,20,,0,,extra,DELUSIONS OF THE NURSERY. - PERNICIOUS CONSE- QUENCES OF EXCITING FEAR. TERROR
+saturday_1837,saturday_1837_0030,,26;27,2078,72,1,72,matched,"Our mothers' maids, says old Reginald Scott, have so frayed us with"
+saturday_1837,saturday_1837_0031,TEUTONIC Mythology,27;28,650,73,1,73,matched,"THE most important addition to nursery-literature has been effected in Germany, by"
+saturday_1837,saturday_1837_0032,CARTLAND CRAIGS AND BRIDGE,28,375,74,1,74,matched,"The annexed engraving illustrates one of the most useful, as well as"
+penny_1844,penny_1844_0001,BUTTERFLIES,6;7;8,2894,76,1,76,matched,"IF, having never seen or heard of a butterfly, one were to"
+penny_1844,penny_1844_0002,PIETRO PERUGINO: 1446-1524. FRANCESCO FRANCIA: 1450-1517,9;10;11,1809,77,1,77,matched,THE fame of Perugino rests more on his having been the master
+penny_1844,penny_1844_0003,ELASTIC CEMENT,11;12;13,2396,78,1,78,matched,THERE have been within the last few years many attempts made to
+penny_1844,penny_1844_0004,,13,569,79,1,79,matched,"Description of Paris in 1579, by a Venetian Ambassador.- From the salubrity"
+penny_1844,penny_1844_0005,Christmas on the Frontiers of Lapland,13,487,80,1,80,matched,"Christmas on the Frontiers of Lapland.-How cold, how gloomy it is! The"
+penny_1844,penny_1844_0006,HUDIBRAS.-No. I,14;15;16,2001,81;82,2,,merged,"ABOUT twenty years ago, two barristers of the circuit, one of whom"
+penny_1844,penny_1844_0007,ROMAN LIGHTHOUSE AT BOULOGNE,17;18,1300,83,1,83,matched,"BOULOGNE is now perhaps the town in France best known to Englishmen,"
+penny_1844,penny_1844_0008,ON THE PRODUCTION OF SOUND UNDER WATER,18;19,2082,84,1,84,matched,EXPERIMENTS of a remarkable kind have at different times been made on
+penny_1844,penny_1844_0009,THE GLACIERS OF THE ALPS,20;21,2606,85,1,85,matched,WITHIN the last few years the subject of Glaciers has engaged the
+penny_1844,penny_1844_0010,"CHURCH AT GREENSTED, ESSEX",22;23,1269,86,1,86,matched,GREENSTED is a little secluded village about a mile from Ongar and
+penny_1844,penny_1844_0011,THE FLOODS AND AVALANCHES OF THE ALPS,23;24;25,2531,87,1,87,matched,"THE sudden inundations of snow, or of ice, and of water, to"
+penny_1844,penny_1844_0012,Pavement of Paris,25,203,88,1,88,matched,"Pavement of Paris. Paris exhibits a mixture of stone, bitumen, and wood"
+penny_1844,penny_1844_0013,Trees of Port Phillip,25,464,89;90,2,89;90,merged,"Trees of Port Phillip. -In point of beauty, it must be confessed"
+penny_1844,penny_1844_0014,The Type of the Spaniards,25,259,91,1,91,matched,The Type of the Spaniards. In the character of the Iberians some
+penny_1844,penny_1844_0015,The Orange-Groves of Mexico,25,301,92,1,92,matched,The Orange-Groves of Mexico. The orange-trees were covered with their golden fruit
+penny_1844,penny_1844_0016,TOULOUSE,26;27;28,2174,93,1,93,matched,"TOULOUSE, a city in France, was formerly the capital of the province"
+penny_1844,penny_1844_0017,USES OF THE POPLAR-TREE,28;29,2139,94,1,94,matched,"THERE is perhaps no tree better distinguished from others, even by those"
+penny_1844,penny_1844_0018,Memory of Bees,29,341,95,1,95,matched,Memory of Bees. I was living in a town where I knew

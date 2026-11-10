@@ -1,0 +1,7 @@
+volume,gold_id,issue_no,issue_seq,result,first_found,last_found,missing_part_found_in,pipeline_imprint
+chambers_1840,14,105,1,missing,False,False,not found,
+chambers_1840,27,106,2,partial,False,True,box role: furniture,"In Weekly Numbers, price $200; or, in Monthly Parts, price $2 25 per annum, payable in advance. | A few Copies of the Numbers for the years 1838 and 1839 may be"
+chambers_1840,43,107,3,missing,False,False,text,
+saturday_1837,51,291,1,complete,True,True,,"LONDON: Published by JOHN WILLIAM PARKER, WEST STRAND; and sold by all Booksellers."
+saturday_1837,62,292,2,missing,False,False,box role: figure,
+saturday_1837,75,293,3,missing,False,False,box role: imprint,

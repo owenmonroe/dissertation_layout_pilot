@@ -1,0 +1,12 @@
+{
+  "pipeline_version": "v6",
+  "git_commit": "e32b055",
+  "uncommitted_changes": true,
+  "run_date": "2026-11-10T17:28:58",
+  "volume": "saturday_1840",
+  "magazine": "saturday",
+  "split": "v2_test",
+  "pdf": "evaluation/evaluating_v2_article_extraction/test_texts_extraction_v2/saturday_test_3issues_v18.19_1841_mdp-39015082315659-1779842682.pdf",
+  "pages": "6-29",
+  "ocr": "docai"
+}

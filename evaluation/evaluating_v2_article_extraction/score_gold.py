@@ -170,7 +170,10 @@ def load_gold(path: Path = GOLD_PATH) -> pd.DataFrame:
     gold = pd.read_csv(path, dtype=str, keep_default_na=False)
     if "notes" not in gold:  # v4 gold splits notes into figure and item notes
         gold["notes"] = gold.get("figure_notes", "") + " " + gold.get("item_notes", "")
-    gold["pipeline_volume"] = gold.volume.map(lambda v: VOLUME_ALIASES.get(v, v))
+    # The v2 gold called Chambers Vol. 8 "chambers_1840"; the v5 test's Chambers
+    # really is 1840, so the alias applies to the v2 gold list only.
+    aliases = VOLUME_ALIASES if Path(path).name == GOLD_PATH.name else {}
+    gold["pipeline_volume"] = gold.volume.map(lambda v: aliases.get(v, v))
     gold["gold_id"] = gold.gold_id.astype(int)
     gold["article_type"] = gold.article_type.str.strip().str.replace(" ", "_")
     # An imprint may have no page: it is found by its words.
@@ -305,7 +308,8 @@ def score(version: str = "v2", gold: pd.DataFrame | None = None) -> dict:
 
         imprint_rows += score_imprints(g, pipe, volume)
 
-    return {"items": pd.DataFrame(item_rows), "pipeline_articles": pd.DataFrame(art_rows),
+    return {"volume_map": dict(zip(gold.volume, gold.pipeline_volume)),
+            "items": pd.DataFrame(item_rows), "pipeline_articles": pd.DataFrame(art_rows),
             "imprints": pd.DataFrame(imprint_rows), "pieces": pd.DataFrame(piece_rows)}
 
 
@@ -443,7 +447,7 @@ def summary_tables(res: dict) -> dict:
     rows = {}
     for v in vols + ["all"]:
         it = items if v == "all" else items[items.volume == v]
-        pa = arts if v == "all" else arts[arts.volume == {**{k: k for k in vols}, **VOLUME_ALIASES}.get(v, v)]
+        pa = arts if v == "all" else arts[arts.volume == res.get("volume_map", {}).get(v, v)]
         n = len(it)
         rows[v] = {
             "gold items": n,
@@ -494,7 +498,8 @@ def summary_tables(res: dict) -> dict:
 def write(res: dict, version: str, out_dir: Path, gold_path: Path = GOLD_PATH) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
     for name, df in res.items():
-        df.to_csv(out_dir / f"{version}_gold_comp_eval_{name}.csv", index=False)
+        if isinstance(df, pd.DataFrame):  # not the volume map
+            df.to_csv(out_dir / f"{version}_gold_comp_eval_{name}.csv", index=False)
     t = summary_tables(res)
     lines = [f"# {version} scored against the gold article list", "",
              "Written by `evaluation/evaluating_v2_article_extraction/score_gold.py`; definitions in its docstring. Gold list:",
