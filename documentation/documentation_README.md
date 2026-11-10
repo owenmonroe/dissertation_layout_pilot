@@ -184,6 +184,8 @@ The v2 and v3 test issues and the 1832 checks are unchanged.
 All fifteen seen volumes now find their three issues with the right numbers.
 No article-boundary rule changed.
 
+**Not yet tested on held-out texts.** v5's 78% remains the latest held-out result.
+
 ## To do
 
 - **Article extraction v5:** frozen as `extraction-v5` and tested on held-out

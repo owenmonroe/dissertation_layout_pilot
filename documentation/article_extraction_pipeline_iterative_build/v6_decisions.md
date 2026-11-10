@@ -12,8 +12,19 @@ printed that way. Owen approved the fixes on 2026-11-10.
 - **Nothing else:** no rule for article boundaries, titles or front and back
   matter changed.
 
-**Status:** built and checked 2026-11-10, not frozen. Owen wants no further
-held-out run for now.
+**Status:** built and checked 2026-11-10, not frozen.
+
+**Not tested on new texts.** v6 has no held-out test of its own yet.
+- **Owen's decision:** no new test set for now, so early results can be
+  presented.
+- **Which result to report:** v5's held-out score (68/87, 78% exact; issue
+  numbers 14/80) remains the latest held-out result. Report it as v5's, not
+  v6's.
+- **What the v6 numbers below are:** checks on texts already seen, including
+  the v5 test texts, which v6 was built from. They show that the fixes work,
+  not how v6 does on texts it hasn't seen.
+- **Later:** a v6 held-out score needs a new test set annotated before v6's
+  output is seen, as for every version before it.
 
 ## Results
 
@@ -28,8 +39,8 @@ held-out run for now.
 | Chambers 1840 | blank, blank (third issue missed) | 105, 106, 107 |
 | the other 12 volumes | right | right (unchanged) |
 
-- **On the v5 test texts,** which are now seen, so these are not held-out
-  numbers:
+- **On the v5 test texts** (seen: v6 was built from them, so these are not
+  held-out numbers):
   - issue numbers 14/80 → 80/80, and issue dates 47/80 → 80/80;
   - exact items 68 → 69 (Chambers "Literary Formulas" is no longer split at
     the missed issue start);
@@ -153,8 +164,9 @@ Only the `masthead_text` column changed in the other volumes' page tables.
 
 ## Next
 
-1. **Freeze v6:** commit, then tag `extraction-v6`. Owen will decide whether
-   to run another held-out test or go straight to all volumes.
+1. **Freeze v6:** commit, then tag `extraction-v6`. There is no held-out
+   test for now (Owen). Whether to test v6 on a new set before the full run,
+   or after it, is still to be decided.
 2. **Still open from the v5 test,** to be logged as known limitations:
    - Penny's run-in titles merging (Hudibras / Practical Philosophy);
    - articles with verse splitting;
