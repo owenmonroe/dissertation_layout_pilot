@@ -79,14 +79,32 @@ PAGE_NO = re.compile(r"^\[?\s*(\d{1,4})\s*\.?\]?$")
 ISSUE_LABEL = re.compile(r"^\W*(?:N[oº°]\.?\s*)?(\d{1,4})\s*(?:\.\s*[\]1lI|]?|\])?\W*$")
 
 
+ROMAN_VALUES = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+ROMAN = re.compile(r"^M{0,3}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})$")
+
+
+def number_value(text: str) -> int | None:
+    """ "274" -> 274; a Roman numeral, as some Chambers mastheads print the
+    issue number ("CCLXXIV") -> 274 (v5); else None."""
+    text = text.strip().rstrip(".").upper()
+    if text.isdigit():
+        return int(text)
+    if not text or not ROMAN.match(text):
+        return None
+    values = [ROMAN_VALUES[c] for c in text]
+    return sum(-v if i + 1 < len(values) and v < values[i + 1] else v for i, v in enumerate(values))
+
+
 def issue_number(texts: list[str], own_format=None) -> int | None:
-    """The issue number from masthead lines: the magazine's own format first,
-    then a line that is only a number, then the shared forms."""
+    """The issue number from masthead lines: the magazine's own format first
+    (in figures or Roman numerals), then a line that is only a number, then
+    the shared forms."""
     if own_format:
         for t in texts:
             for m in own_format.finditer(t):
-                if not 1700 <= int(m.group(1)) < 1900:  # not the year
-                    return int(m.group(1))
+                value = number_value(m.group(1))
+                if value and not 1700 <= value < 1900:  # not the year
+                    return value
     for t in texts:
         m = ISSUE_LABEL.match(t.strip())
         if m and not 1700 <= int(m.group(1)) < 1900:  # not the year

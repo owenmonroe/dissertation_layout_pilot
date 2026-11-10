@@ -155,14 +155,15 @@ The v2 test issues and the 1832 checks are unchanged.
 ### 6. Article extraction v5: the final round of fixes (built, not frozen)
 
 **Built** from the v4 test findings (`v5_decisions.md`), with the v4 test
-issues as build texts. The seven fixes cover:
+issues as build texts. The eight fixes cover:
 - headings boxed with the paragraph above;
 - OCR noise ending a box;
 - Penny issues numbered at the page foot (from 1841);
 - caption lines under figures;
 - titles carrying a footnote mark;
 - numbered sections ("SECTION 1.") read as sections, never titles;
-- longer "From…" sources.
+- longer "From…" sources;
+- issue numbers printed in Roman numerals.
 
 **On the seen v4 test issues** (not a held-out result):
 - exact items 81% → 86%;

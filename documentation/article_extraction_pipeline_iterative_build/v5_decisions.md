@@ -8,7 +8,7 @@ v5 is the single round of fixes agreed after frozen v4's held-out test (Owen,
 
 Owen approved all five fixes (A–E) and asked for v5 to be frozen and scored
 once on a new v5 test set. After reading his v4 item notes, he added two more
-(F, G).
+(F, G), and one for the v5 test set's Roman issue numbers (H).
 
 **How v5 was built:**
 - each fix was built, then checked on all twelve seen volumes;
@@ -50,6 +50,7 @@ worked, not how v5 does on unseen text. The v5 test set gives that.
 | D | 100 | 106/110 | 110/110 | 110/110 |
 | E | 101 | 107/111 | 111/111 | 111/111 |
 | F, G | 101 | 108/111 | 111/111 | 111/111 |
+| H | 101 | 108/111 | 111/111 | 111/111 |
 
 ---
 
@@ -246,6 +247,24 @@ was left in the text, being over the 12-word limit for dash sources.
 - **Known miss:** Chambers 88, "…remarkable for longevity. From Observations on
   the Preservation of Hearing, by J. Harrison Curtis.", has no dash in the
   OCR, so it reads as a final sentence.
+
+## H. Issue numbers in Roman numerals
+
+**Decision** (Owen, 2026-11-10): the v5 test set's Chambers issues print
+their numbers in Roman numerals. The rule is written from that description;
+the v5 test texts were not opened.
+- **Pipeline:** Chambers' masthead pattern accepts a Roman numeral after
+  "NUMBER" or "No." ("No. CCLXXIV."). It is stored as a number (274), so the
+  issue-sequence checks work as before.
+  - The numeral must be in capitals and well formed: "no mild" and "IIII"
+    are not numbers.
+  - A Roman year ("MDCCCXL") is still rejected as a year.
+- **Scorer:** `score_gold.py` reads a gold issue number given in Roman
+  numerals by its value.
+
+**Status:** built and checked. No output changed in the twelve seen volumes,
+which print their numbers in figures. The verified pages and the v1 log are
+unchanged.
 
 ## Checked against Owen's v4 item notes (2026-11-06)
 

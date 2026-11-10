@@ -62,6 +62,21 @@ MONTHS = ["january", "february", "march", "april", "may", "june", "july", "augus
 
 # --- text helpers -----------------------------------------------------------
 
+ROMAN_VALUES = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+ROMAN = re.compile(r"^M{0,3}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})$")
+
+
+def number_value(text) -> int | None:
+    """An issue number in figures ("274") or Roman numerals ("CCLXXIV")."""
+    text = str(text).strip().rstrip(".").upper()
+    if text.isdigit():
+        return int(text)
+    if not text or not ROMAN.match(text):
+        return None
+    values = [ROMAN_VALUES[c] for c in text]
+    return sum(-v if i + 1 < len(values) and v < values[i + 1] else v for i, v in enumerate(values))
+
+
 def tokens(text) -> list[str]:
     """Lowercase word tokens, accents and ligatures folded (œ -> oe)."""
     if not isinstance(text, str) or not text:
@@ -374,7 +389,9 @@ def score_fields(row, art, piece_rows: list) -> dict:
     out["figures_gold"], out["figures_pipeline"] = gold_figs, int(art.n_figures)
     out["figures_result"] = "correct" if gold_figs == int(art.n_figures) else "wrong"
     out["pipeline_issue_no"] = "" if pd.isna(art.issue_no) else str(int(art.issue_no))
-    out["issue_no_result"] = "correct" if out["pipeline_issue_no"] == row.issue_no.strip() else \
+    gold_no = number_value(row.issue_no)  # the gold may give it in Roman numerals (v5)
+    gold_no = str(gold_no) if gold_no is not None else row.issue_no.strip()
+    out["issue_no_result"] = "correct" if out["pipeline_issue_no"] == gold_no else \
         ("missing" if not out["pipeline_issue_no"] else "wrong")
     gd, pdt = parse_date(row.issue_date), parse_date(art.issue_date)
     out["pipeline_issue_date"] = art.issue_date if isinstance(art.issue_date, str) else ""

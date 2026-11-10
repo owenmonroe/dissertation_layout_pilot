@@ -81,8 +81,9 @@ MAGAZINES = {
             name=re.compile(r"edinburgh\s+journal", re.I),
             masthead_words=re.compile(r"conducted by|author of|editors of|\bedition\b|halfpence"
                                       r"|printed by", re.I),
-            # "NUMBER 414.", "No. 1."
-            issue_number=re.compile(r"(?:\bNUMBER|\bNo\.?)\s*(\d{1,4})\b", re.I),
+            # "NUMBER 414.", "No. 1."; or in Roman numerals, "No. CCLXXIV." (v5).
+            # The numeral must be in capitals: "no mild" is not a number.
+            issue_number=re.compile(r"(?:\bNUMBER|\bNo\.?)\s*(\d{1,4}|(?-i:[IVXLCDM]{1,12}))\b", re.I),
             imprint=re.compile(_IMPRINT + r"|^\W*EDINBURGH\s*:|BRADBURY (?:AND|&) EVANS", re.I),
             run_in_capitals_only=True,
         ),
