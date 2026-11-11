@@ -40,7 +40,7 @@ it's always clear which rules produced which output.
 | v3 | `extraction-v3` | `output/article_extraction/v3/` | `evaluation/evaluating_v3_article_extraction/gold_article_list_test_v3.csv`, `v3_gold_comp_eval_summary.md` | Frozen 2026-11-02. Held-out test: 62/76 exact (82%). |
 | v4 | `extraction-v4` | `output/article_extraction/v4/` | development: v2 and v3 gold lists; held-out: `evaluation/evaluating_v4_article_extraction/gold_article_list_test_v4.csv`, `v4_gold_comp_eval_summary.md` | Frozen 2026-11-06. Held-out test: 95/118 exact (81%). |
 | v5 | `extraction-v5` | `output/article_extraction/v5/` | development: v2, v3 and v4 gold lists; held-out: `evaluation/evaluating_v5_article_extraction/gold_article_list_test_v5.csv`, `v5_gold_comp_eval_summary.md`, `evaluate_v5_with_gold.ipynb` | Frozen 2026-11-10. Held-out test: 68/87 exact (78%). |
-| v6 | (to tag: `extraction-v6`) | `output/article_extraction/v6/` | development: v2–v5 gold lists | Built 2026-11-10, not frozen. Issue starts and mastheads only. No held-out test yet. |
+| v6 | `extraction-v6` | `output/article_extraction/v6/` | development: v2–v5 gold lists | Frozen 2026-11-11. Issue starts and mastheads only. No held-out test yet. |
 
 How versions are kept apart:
 - **Code:** `PIPELINE_VERSION` in `run_extraction.py` decides the output folder.

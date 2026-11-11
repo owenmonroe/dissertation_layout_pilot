@@ -12,7 +12,9 @@ printed that way. Owen approved the fixes on 2026-11-10.
 - **Nothing else:** no rule for article boundaries, titles or front and back
   matter changed.
 
-**Status:** built and checked 2026-11-10, not frozen.
+**Status:** built and checked 2026-11-10. Frozen 2026-11-11 as
+`extraction-v6`; all fifteen volumes rerun from the committed code (output
+identical to the checked run). New work goes into v7.
 
 **Not tested on new texts.** v6 has no held-out test of its own yet.
 - **Owen's decision:** no new test set for now, so early results can be
