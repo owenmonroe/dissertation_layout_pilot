@@ -171,7 +171,7 @@ issues as build texts. The eight fixes cover:
 
 The v2 and v3 test issues and the 1832 checks are unchanged.
 
-### 7. Article extraction v6: issue starts and mastheads (built, not frozen)
+### 7. Article extraction v6: issue starts and mastheads (frozen)
 
 **Built** from v5's held-out test (`v6_decisions.md`):
 - mastheads boxed inside pictures;
@@ -184,7 +184,21 @@ The v2 and v3 test issues and the 1832 checks are unchanged.
 All fifteen seen volumes now find their three issues with the right numbers.
 No article-boundary rule changed.
 
-**Not yet tested on held-out texts.** v5's 78% remains the latest held-out result.
+Frozen as `extraction-v6` (2026-11-11). **Not yet tested on held-out texts.** v5's
+78% remains the latest held-out result.
+
+### 8. Topic modelling pilot (built)
+
+**Built** on frozen v6's articles (`topic_modelling/topic_modelling_decisions.md`):
+- **corpus:** 550 articles, body text only, editorial notices left out;
+- **models:** LDA on whole articles, and BERTopic on text boxes (each box a
+  topic; each article a word-weighted mix);
+- **outputs:** topic shares per issue, page and column, and which topics
+  appear together.
+
+**Choice:** BERTopic, 16 topics. It was far more coherent and stable than
+LDA, which is set aside for now. 16 is the count where every topic names one
+subject and the seeds agree. The full corpus will be swept again.
 
 ## To do
 
@@ -192,7 +206,9 @@ No article-boundary rule changed.
   issues from Penny 1844, Saturday 1837 and Chambers 1840. Results: 78% exact,
   boundary recall 92%, precision 83%, titles 89%. Issue numbers were mostly
   missed (18%), from three masthead forms (`v5_decisions.md`), fixed in v6.
-- **Article extraction v6:** freeze it, then apply it to all volumes.
+- **Article extraction v6:** frozen; apply it to all volumes.
+- **Topic modelling:** label the 16 pilot topics, explore co-occurrence, and
+  sweep again on the full corpus.
 - **CEJ edition:** the Chambers 1840 test volume is an American reprint; decide
   which edition the corpus uses.
 - **OCR evaluation:** WER/CER on sampled passages against a literal
@@ -208,22 +224,26 @@ dissertation_layout_pilot/
 ├── documentation/
 │   ├── documentation_README.md       this page
 │   ├── establishing_layout_detection_AIs/          stage 1: the models, their setup, the box evaluation
-│   └── article_extraction_pipeline_iterative_build/ stages 2–3 and on: the article pipeline, version by version
+│   ├── article_extraction_pipeline_iterative_build/ stages 2–3 and on: the article pipeline, version by version
+│   └── topic_modelling/                 stage 8: topic-modelling decisions and results
 ├── evaluation/
 │   ├── evaluating_layout_detection/      stage 1: box error log, analysis notebook, gold boxes, eval images
 │   ├── evaluating_v1_article_extraction/  stage 2: reading-order error log, v1-vs-v2 comparison
 │   ├── evaluating_v2_article_extraction/  stage 3: gold article list, scoring script + notebook, results,
 │   │                                     test_texts_extraction_v2/ (held-out test PDFs)
 │   ├── evaluating_v3_article_extraction/  stage 4: v3 gold list, results, test_texts_extraction_v3/ (held-out test PDFs)
-│   └── evaluating_v4_article_extraction/  stage 5: v4 gold list, item notes and held-out test texts
+│   ├── evaluating_v4_article_extraction/  stage 5: v4 gold list, item notes and held-out test texts
+│   └── topic_modelling/                  stage 8: choose_k.ipynb (choosing the number of topics)
 ├── output/
 │   ├── output_images_json_establishing_layout_AIs/  model output on the build texts (Document AI, YOLO, PrimaLayout)
 │   ├── output_images_json_v2_article_extraction/    model output on the v2 test texts (Document AI, YOLO)
 │   ├── output_images_json_v3_article_extraction/    model output on the v3 test texts (Document AI, YOLO)
-│   └── article_extraction/<version>/<volume>/       extracted articles: CSVs, SQLite, check images, figures
+│   ├── article_extraction/<version>/<volume>/       extracted articles: CSVs, SQLite, check images, figures
+│   └── topic_models/<extraction>/                   topic-model corpus, sweeps and final runs (topics.sqlite)
 ├── pipeline/
 │   ├── run_volume.py, run_doclayoutyolo_batch.py, run_docai_batch.py, run_prima_batch.py, …
-│   └── yolo_output_article_extraction/   the rule-based article pipeline (config, layout, text, articles, series, …)
+│   ├── yolo_output_article_extraction/   the rule-based article pipeline (config, layout, text, articles, series, …)
+│   └── topic_modelling/                  topic models on the extracted articles (LDA, BERTopic); env topicmodel-env
 ├── venv_build_test/                  environment setup checks and pdf_to_images.py (environments themselves git-ignored)
 ├── models/                           downloaded model weights (git-ignored)
 └── work_diary/diary.md               dated working log
@@ -259,3 +279,9 @@ dissertation_layout_pilot/
 | `v5_decisions.md` | the v5 fixes (one round after the v4 test), with evidence and results |
 | `v6_decisions.md` | the v6 fixes to issue starts and the masthead record, after the v5 test |
 | `gold_article_list_annotation_guide.md` | how the test texts were annotated, and how they are scored |
+
+**Stage 8, `topic_modelling/`**
+
+| Page | What it covers |
+|---|---|
+| `topic_modelling_decisions.md` | corpus choices, LDA vs BERTopic, choosing 16 topics, the final run's topics and tables, known limits |

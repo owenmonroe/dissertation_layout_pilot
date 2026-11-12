@@ -1,0 +1,551 @@
+doc_id,volume,article_id,magazine,issue_seq,issue_no,issue_date,title,article_type,supplement,series,series_part,part,continues_article_id,continued_by_article_id,index_group,start_page,end_page,pages,page_columns,word_count,year,us_reprint,short,empty,n_boxes,n_tokens,main_topic,main_weight,modelled
+penny/penny_0001,penny,penny_0001,penny,1,1,03-31-1832,READING FOR ALL,article,0,,,,,,,1,1,1,p1 left;p1 right,737,1832,False,False,False,4,286,1,0.4288,True
+penny/penny_0002,penny,penny_0002,penny,1,1,03-31-1832,CHARING CROSS,article,0,,,,,,,1,2,1;2,p1 right;p2 left,581,1832,False,False,False,6,268,3,0.9707,True
+penny/penny_0003,penny,penny_0003,penny,1,1,03-31-1832,VAN DIEMEN'S LAND,article,0,,,,,penny_0024,,2,3,2;3,p2 left;p2 right;p3 left,1452,1832,False,False,False,12,616,10,0.8733,True
+penny/penny_0004,penny,penny_0004,penny,1,1,03-31-1832,ANTIQUITY OF BEER,article,0,,,,,,,3,3,3,p3 left;p3 right,479,1832,False,False,False,6,205,1,0.8747,True
+penny/penny_0005,penny,penny_0005,penny,1,1,03-31-1832,FAIR PLAY,article,0,,,,,,,3,3,3,p3 right,316,1832,False,False,False,1,114,0,1.0,True
+penny/penny_0006,penny,penny_0006,penny,1,1,03-31-1832,Changes of Manners,article,0,,,,,,,3,3,3,p3 right,85,1832,False,False,False,1,42,0,1.0,True
+penny/penny_0007,penny,penny_0007,penny,1,1,03-31-1832,Animal Sagacity,article,0,,,,,,,3,3,3,p3 right,162,1832,False,False,False,1,71,9,1.0,True
+penny/penny_0008,penny,penny_0008,penny,1,1,03-31-1832,THE ZOOLOGICAL GARDENS,article,0,,,,,,,4,4,4,p4 left;p4 right,602,1832,False,False,False,5,248,9,1.0,True
+penny/penny_0009,penny,penny_0009,penny,1,1,03-31-1832,THE WEEK,article,0,The Week,,,,,,4,5,4;5,p4 right;p5 left;p5 right,1075,1832,False,False,False,7,463,2,0.5163,True
+penny/penny_0010,penny,penny_0010,penny,1,1,03-31-1832,EXCELLENCE NOT LIMITED BY STATION,article,0,,,,,,,5,6,5;6,p5 right;p6 left,571,1832,False,False,False,3,225,2,0.5832,True
+penny/penny_0011,penny,penny_0011,penny,1,1,03-31-1832,ISAAC ASHFORD,article,0,,,,,,,6,6,6,p6 left;p6 right,1162,1832,False,False,False,10,508,0,0.4897,True
+penny/penny_0012,penny,penny_0012,penny,1,1,03-31-1832,A QUAINT SERMON,article,0,,,,,,,6,7,6;7,p6 right;p7 left,463,1832,False,False,False,11,163,2,0.8121,True
+penny/penny_0013,penny,penny_0013,penny,1,1,03-31-1832,DESCRIPTION OF POLAND,article,0,,,,,,,7,7,7,p7 left;p7 right,869,1832,False,False,False,13,375,1,0.9942,True
+penny/penny_0014,penny,penny_0014,penny,1,1,03-31-1832,Power of Steam,article,0,,,,,,,8,8,8,p8 left,76,1832,False,False,False,1,29,1,1.0,True
+penny/penny_0015,penny,penny_0015,penny,1,1,03-31-1832,A Popular Error,article,0,,,,,,,8,8,8,p8 left,239,1832,False,False,False,2,93,13,0.5021,True
+penny/penny_0016,penny,penny_0016,penny,1,1,03-31-1832,The Secret of great Workers,article,0,,,,,,,8,8,8,p8 left,215,1832,False,False,False,2,97,2,0.6605,True
+penny/penny_0017,penny,penny_0017,penny,1,1,03-31-1832,,article,0,,,,,,,8,8,8,p8 left,49,1832,False,True,False,1,21,1,1.0,True
+penny/penny_0018,penny,penny_0018,penny,1,1,03-31-1832,,article,0,,,,,,,8,8,8,p8 left,52,1832,False,False,False,1,18,0,1.0,True
+penny/penny_0019,penny,penny_0019,penny,1,1,03-31-1832,,article,0,,,,,,,8,8,8,p8 left,39,1832,False,True,False,1,17,6,1.0,True
+penny/penny_0020,penny,penny_0020,penny,1,1,03-31-1832,,article,0,,,,,,,8,8,8,p8 left,39,1832,False,True,False,1,16,0,1.0,True
+penny/penny_0021,penny,penny_0021,penny,1,1,03-31-1832,,article,0,,,,,,,8,8,8,p8 left;p8 right,139,1832,False,False,False,2,51,2,1.0,True
+penny/penny_0022,penny,penny_0022,penny,1,1,03-31-1832,A POSTSCRIPT TO OUR FIRST READERS,article,0,,,,,,,8,8,8,p8 right,513,1832,False,False,False,4,207,1,0.5497,True
+penny/penny_0023,penny,penny_0023,penny,2,2,04-07-1832,POMPEII,article,0,,,,,,,9,10,9;10,p9 left;p9 right;p10 left,1122,1832,False,False,False,11,481,7,0.943,True
+penny/penny_0024,penny,penny_0024,penny,2,2,04-07-1832,VAN DIEMEN'S LAND,article,0,,,,penny_0003,,,10,11,10;11,p10 left;p10 right;p11 left;p11 right,1986,1832,False,False,False,14,917,10,0.5146,True
+penny/penny_0025,penny,penny_0025,penny,2,2,04-07-1832,LOST CAMEL,article,0,,,,,,,11,11,11,p11 right,396,1832,False,False,False,1,128,0,1.0,True
+penny/penny_0026,penny,penny_0026,penny,2,2,04-07-1832,Science preceding Art,article,0,,,,,,,11,11,11,p11 right,210,1832,False,False,False,2,84,5,0.7476,True
+penny/penny_0027,penny,penny_0027,penny,2,2,04-07-1832,THE DORMOUSE,article,0,British Animals,,,,,British animals,12,12,12,p12 left;p12 right,520,1832,False,False,False,4,212,9,1.0,True
+penny/penny_0028,penny,penny_0028,penny,2,2,04-07-1832,THE SWALLOW,article,0,British Animals,,,,,British animals,12,13,12;13,p12 right;p13 left,651,1832,False,False,False,5,262,9,0.9247,True
+penny/penny_0029,penny,penny_0029,penny,2,2,04-07-1832,THE WEEK,article,0,The Week,,,,,,13,13,13,p13 left;p13 right,937,1832,False,False,False,4,387,7,0.349,True
+penny/penny_0030,penny,penny_0030,penny,2,2,04-07-1832,THE BRITISH MUSEUM,article,0,,,,,,,13,14,13;14,p13 right;p14 left;p14 right,1607,1832,False,False,False,10,577,3,0.5874,True
+penny/penny_0031,penny,penny_0031,penny,2,2,04-07-1832,POESIE,article,0,,,,,,,15,15,15,p15 left;p15 right,695,1832,False,False,False,4,291,4,1.0,True
+penny/penny_0032,penny,penny_0032,penny,2,2,04-07-1832,ON THE CHOICE OF A LABOURING MAN'S DWELLING,article,0,,,,,,,15,16,15;16,p15 right;p16 left;p16 right,1460,1832,False,False,False,11,537,1,0.9856,True
+penny/penny_0033,penny,penny_0033,penny,2,2,04-07-1832,,article,0,,,,,,,16,16,16,p16 right,163,1832,False,False,False,1,60,1,1.0,True
+penny/penny_0034,penny,penny_0034,penny,2,2,04-07-1832,,article,0,,,,,,,16,16,16,p16 right,115,1832,False,False,False,1,38,5,1.0,True
+penny/penny_0035,penny,penny_0035,penny,2,2,04-07-1832,,article,0,,,,,,,16,16,16,p16 right,143,1832,False,False,False,1,52,6,1.0,True
+penny/penny_0036,penny,penny_0036,penny,3,3,04-14-1832,SOMERS ET-HOUSE,article,0,,,,,,,17,17,17,p17 left;p17 right,374,1832,False,False,False,5,187,3,0.869,True
+penny/penny_0037,penny,penny_0037,penny,3,3,04-14-1832,EMIGRATION TO THE NORTH AMERICAN COLONIES,article,0,,,,,,,17,18,17;18,p17 right;p18 left;p18 right,1155,1832,False,False,False,11,424,10,0.9913,True
+penny/penny_0038,penny,penny_0038,penny,3,3,04-14-1832,THE SEASONS OF THE ANTIPODES,article,0,,,,,,,18,19,18;19,p18 right;p19 left,585,1832,False,False,False,2,225,5,1.0,True
+penny/penny_0039,penny,penny_0039,penny,3,3,04-14-1832,DISAPPOINTMENTS OF THE AUTHORS OF IMPORTANT INVENTIONS,article,0,,,,,,,19,19,19,p19 left;p19 right,796,1832,False,False,False,5,318,6,0.9786,True
+penny/penny_0040,penny,penny_0040,penny,3,3,04-14-1832,THUS I THINK,article,0,,,,,,,19,20,19;20,p19 right;p20 left,578,1832,False,False,False,12,209,2,1.0,True
+penny/penny_0041,penny,penny_0041,penny,3,3,04-14-1832,,article,0,,,,,,,20,20,20,p20 left,147,1832,False,False,False,1,67,2,1.0,True
+penny/penny_0042,penny,penny_0042,penny,3,3,04-14-1832,Advantages of the Diffusion of Knowledge,article,0,,,,,,,20,20,20,p20 left,114,1832,False,False,False,1,57,2,1.0,True
+penny/penny_0043,penny,penny_0043,penny,3,3,04-14-1832,THE MOLE,article,0,British Animals,,,,,British animals,20,20,20,p20 left;p20 right,457,1832,False,False,False,2,191,8,1.0,True
+penny/penny_0044,penny,penny_0044,penny,3,3,04-14-1832,THE WEEK,article,0,The Week,,,,,,20,21,20;21,p20 right;p21 left,511,1832,False,False,False,5,237,4,1.0,True
+penny/penny_0045,penny,penny_0045,penny,3,3,04-14-1832,THE LIBRARY,article,0,,,,,,,21,24,21;24,p21 left;p21 right;p24 left,1637,1832,False,False,False,8,578,2,1.0,True
+penny/penny_0046,penny,penny_0046,penny,3,3,04-14-1832,THE WOODMAN'S MEMORIAL,article,0,,,,,,,24,25,24;25,p24 left;p24 right;p25 left,1169,1832,False,False,False,7,469,6,0.5877,True
+penny/penny_0047,penny,penny_0047,penny,3,3,04-14-1832,PROTECTION OF TRADE,article,0,,,,,,,25,25,25,p25 left;p25 right,453,1832,False,False,False,2,215,1,1.0,True
+penny/penny_0048,penny,penny_0048,penny,3,3,04-14-1832,A MAN OVERBOARD,article,0,,,,,,,25,26,25;26,p25 right;p26 left,909,1832,False,False,False,5,361,6,1.0,True
+penny/penny_0049,penny,penny_0049,penny,3,3,04-14-1832,THE FIRMAMENT,article,0,,,,,,,26,26,26,p26 left,137,1832,False,False,False,1,66,2,1.0,True
+penny/penny_0050,penny,penny_0050,penny,3,3,04-14-1832,,article,0,,,,,,,26,26,26,p26 left;p26 right,202,1832,False,False,False,2,80,0,1.0,True
+penny/penny_0051,penny,penny_0051,penny,3,3,04-14-1832,,article,0,,,,,,,26,26,26,p26 right,145,1832,False,False,False,1,53,0,1.0,True
+penny/penny_0052,penny,penny_0052,penny,3,3,04-14-1832,,article,0,,,,,,,26,26,26,p26 right,290,1832,False,False,False,7,119,0,0.7172,True
+penny/penny_0053,penny,penny_0053,penny,3,3,04-14-1832,,article,0,,,,,,,26,26,26,p26 right,144,1832,False,False,False,1,59,2,1.0,True
+saturday/saturday_0001,saturday,saturday_0001,saturday,1,1,07-07-1832,INTRODUCTION,article,0,,,,,,,1,2,1;2,p1 left;p1 right;p2 left,1302,1832,False,False,False,8,470,2,0.722,True
+saturday/saturday_0002,saturday,saturday_0002,saturday,1,1,07-07-1832,ON THE RIGHT USE OF KNOWLEDGE,article,0,,,,,,,2,3,2;3,p2 left;p2 right;p3 left,1270,1832,False,False,False,8,492,2,1.0,True
+saturday/saturday_0003,saturday,saturday_0003,saturday,1,1,07-07-1832,ON THE STUDY OF NATURAL HISTORY,article,0,,,,,,,3,3,3,p3 left;p3 right,520,1832,False,False,False,5,223,2,0.9212,True
+saturday/saturday_0004,saturday,saturday_0004,saturday,1,1,07-07-1832,TO SOLITUDE,article,0,,,,,,,3,3,3,p3 right,85,1832,False,False,False,1,49,4,1.0,True
+saturday/saturday_0005,saturday,saturday_0005,saturday,1,1,07-07-1832,ANSWER,article,0,,,,,,,3,3,3,p3 right,132,1832,False,False,False,1,63,4,1.0,True
+saturday/saturday_0006,saturday,saturday_0006,saturday,1,1,07-07-1832,,article,0,,,,,,,3,3,3,p3 right,110,1832,False,False,False,1,50,6,1.0,True
+saturday/saturday_0007,saturday,saturday_0007,saturday,1,1,07-07-1832,,article,0,,,,,,,3,3,3,p3 right,50,1832,False,False,False,1,17,2,1.0,True
+saturday/saturday_0008,saturday,saturday_0008,saturday,1,1,07-07-1832,HISTORY OF THE INDIAN SUPERSTITION OF JAGGANATHA,article,0,,,,,saturday_0028,,4,5,4;5,p4 left;p4 right;p5 left;p5 right,1659,1832,False,False,False,12,692,3,0.915,True
+saturday/saturday_0009,saturday,saturday_0009,saturday,1,1,07-07-1832,THE ROCK SAMPHIRE,article,0,,,,,,,5,6,5;6,p5 right;p6 left;p6 right,749,1832,False,False,False,7,290,6,0.6636,True
+saturday/saturday_0010,saturday,saturday_0010,saturday,1,1,07-07-1832,SINGULAR PROPERTIES OF THE FIGURE 9,article,0,,,,,,,6,6,6,p6 right,280,1832,False,False,False,5,70,1,1.0,True
+saturday/saturday_0011,saturday,saturday_0011,saturday,1,1,07-07-1832,,article,0,,,,,,,6,6,6,p6 right,55,1832,False,False,False,1,20,2,1.0,True
+saturday/saturday_0012,saturday,saturday_0012,saturday,1,1,07-07-1832,,article,0,,,,,,,6,6,6,,0,1832,False,False,True,0,0,,,False
+saturday/saturday_0013,saturday,saturday_0013,saturday,1,1,07-07-1832,,article,0,,,,,,,7,7,7,p7 left,234,1832,False,False,False,1,72,2,1.0,True
+saturday/saturday_0014,saturday,saturday_0014,saturday,1,1,07-07-1832,,article,0,,,,,,,7,7,7,p7 left,87,1832,False,False,False,1,40,2,1.0,True
+saturday/saturday_0015,saturday,saturday_0015,saturday,1,1,07-07-1832,FAMILIAR REMARKS ON ARCHITECTURE. I,article,0,,,I,,,,7,8,7;8,p7 left;p7 right;p8 left;p8 right,1326,1832,False,False,False,12,551,3,1.0,True
+saturday/saturday_0016,saturday,saturday_0016,saturday,2,2,07-14-1832,THE GREAT SALCEY OAK,article,0,Botanical Diversions,,,,,,9,10,9;10,p9 left;p9 right;p10 left;p10 right,1500,1832,False,False,False,11,654,5,1.0,True
+saturday/saturday_0017,saturday,saturday_0017,saturday,2,2,07-14-1832,TRAVELLING IN SPAIN,article,0,,,,,,,10,11,10;11,p10 right;p11 left;p11 right,1185,1832,False,False,False,9,550,9,1.0,True
+saturday/saturday_0018,saturday,saturday_0018,saturday,2,2,07-14-1832,,article,0,,,,,,,11,11,11,p11 right,114,1832,False,False,False,1,51,2,1.0,True
+saturday/saturday_0019,saturday,saturday_0019,saturday,2,2,07-14-1832,,article,0,,,,,,,11,11,11,p11 right,192,1832,False,False,False,1,84,2,1.0,True
+saturday/saturday_0020,saturday,saturday_0020,saturday,2,2,07-14-1832,HUMMING BIRDS,article,0,,,,,,,11,11,11,p11 right,105,1832,False,False,False,1,44,9,1.0,True
+saturday/saturday_0021,saturday,saturday_0021,saturday,2,2,07-14-1832,WILD SPORTS OF THE EAST,article,0,,,,,,,12,13,12;13,p12 left;p12 right;p13 left;p13 right,1628,1832,False,False,False,16,692,9,0.9951,True
+saturday/saturday_0022,saturday,saturday_0022,saturday,2,2,07-14-1832,SIR ISAAC NEWTON,article,0,,,,,,,13,14,13;14,p13 right;p14 left,897,1832,False,False,False,19,362,2,0.9175,True
+saturday/saturday_0023,saturday,saturday_0023,saturday,2,2,07-14-1832,SAINT SWITHUN'S DAY,article,0,,,,,,,14,15,14;15,p14 right;p15 left,1141,1832,False,False,False,13,466,3,0.8037,True
+saturday/saturday_0024,saturday,saturday_0024,saturday,2,2,07-14-1832,ON BREAD,article,0,,,,,,,15,16,15;16,p15 left;p15 right;p16 left;p16 right,1327,1832,False,False,False,12,530,1,0.9917,True
+saturday/saturday_0025,saturday,saturday_0025,saturday,2,2,07-14-1832,WICKLIFFE'S CHAIR,article,0,,,,,,,16,16,16,p16 right,243,1832,False,False,False,2,93,2,0.8066,True
+saturday/saturday_0028,saturday,saturday_0028,saturday,3,3,07-21-1832,PROCESSION OF THE IDOL CARS TO THE TEMPLE OF JAGGANATHA (OR JUGGERNAUT.),article,0,,,,saturday_0008,,,17,18,17;18,p17 left;p17 right;p18 left;p18 right,1796,1832,False,False,False,11,764,3,0.7762,True
+saturday/saturday_0029,saturday,saturday_0029,saturday,3,3,07-21-1832,INFANT EDUCATION,article,0,,,,,,,19,20,19;20,p19 left;p19 right;p20 left,1417,1832,False,False,False,7,570,1,0.7071,True
+saturday/saturday_0030,saturday,saturday_0030,saturday,3,3,07-21-1832,THE CHURCH BELLS,article,0,,,,,,,20,20,20,p20 left,110,1832,False,False,False,1,59,4,1.0,True
+saturday/saturday_0031,saturday,saturday_0031,saturday,3,3,07-21-1832,HISTORY OF LELLS,article,0,,,,,,,20,21,20;21,p20 left;p20 right;p21 left,1135,1832,False,False,False,20,482,12,0.9269,True
+saturday/saturday_0032,saturday,saturday_0032,saturday,3,3,07-21-1832,,article,0,,,,,,,21,21,21,p21 left,12,1832,False,True,False,1,5,12,1.0,True
+saturday/saturday_0033,saturday,saturday_0033,saturday,3,3,07-21-1832,A CHILD'S EVENING PRAYER,article,0,,,,,,,21,21,21,p21 right,111,1832,False,False,False,1,44,4,1.0,True
+saturday/saturday_0034,saturday,saturday_0034,saturday,3,3,07-21-1832,ON THE BLACK PESTILENCE OF THE FOURTEENTH CENTURY,article,0,,,,,,,21,23,21;22;23,p21 right;p22 left;p22 right;p23 left,1641,1832,False,False,False,15,683,13,0.769,True
+saturday/saturday_0035,saturday,saturday_0035,saturday,3,3,07-21-1832,WHICH WAS THE GREATER FOOL?,article,0,,,,,,,23,23,23,p23 left,201,1832,False,False,False,3,60,4,0.9204,True
+saturday/saturday_0036,saturday,saturday_0036,saturday,3,3,07-21-1832,THE MYSTERIES OF CREATION,article,0,,,,,,,23,23,23,p23 left;p23 right,527,1832,False,False,False,2,240,2,0.6888,True
+saturday/saturday_0037,saturday,saturday_0037,saturday,3,3,07-21-1832,CAUSE AND EFFECT,article,0,,,,,,,23,24,23;24,p23 right;p24 left,559,1832,False,False,False,5,237,6,0.5242,True
+saturday/saturday_0038,saturday,saturday_0038,saturday,3,3,07-21-1832,BLACK LEAD MINE,article,0,,,,,,,24,24,24,p24 left;p24 right,529,1832,False,False,False,8,218,5,1.0,True
+saturday/saturday_0039,saturday,saturday_0039,saturday,3,3,07-21-1832,EGGS,article,0,,,,,,,24,24,24,p24 right,164,1832,False,False,False,2,68,1,1.0,True
+saturday/saturday_0040,saturday,saturday_0040,saturday,3,3,07-21-1832,,article,0,,,,,,,24,24,24,p24 right,3,1832,False,True,False,1,2,1,1.0,True
+chambers/chambers_0001,chambers,chambers_0001,chambers,1,1,02-04-1832,THE EDITOR'S ADDRESS TO HIS READERS,article,0,,,,,,,1,2,1;2,p1 left;p1 middle;p1 right;p2 left;p2 middle,2473,1832,False,False,False,9,1036,1,0.4011,True
+chambers/chambers_0002,chambers,chambers_0002,chambers,1,1,02-04-1832,ON THE FORMATION OF SCOTTISH SOCIETY,article,0,,,,,chambers_0039,,2,3,2;3,p2 middle;p2 right;p3 left;p3 middle,2375,1832,False,False,False,10,1009,3,0.6539,True
+chambers/chambers_0003,chambers,chambers_0003,chambers,1,1,02-04-1832,EMIGRATION,article,0,,,,,chambers_0025,,3,4,3;4,p3 middle;p3 right;p4 left,2368,1832,False,False,False,16,1041,10,0.7111,True
+chambers/chambers_0004,chambers,chambers_0004,chambers,1,1,02-04-1832,LADY JEAN,article,0,,,,,chambers_0021,,4,5,4;5,p4 left;p4 middle;p4 right;p5 left;p5 middle;p5 right,4618,1832,False,False,False,21,1973,0,0.9381,True
+chambers/chambers_0005,chambers,chambers_0005,chambers,1,1,02-04-1832,,article,0,,,,,,,5,5,5,p5 right,33,1832,False,True,False,1,14,0,1.0,True
+chambers/chambers_0006,chambers,chambers_0006,chambers,1,1,02-04-1832,DR. ADAM,article,0,Biographic Sketches,,,,,,5,6,5;6,p5 right;p6 left;p6 middle,1897,1832,False,False,False,8,770,2,1.0,True
+chambers/chambers_0007,chambers,chambers_0007,chambers,1,1,02-04-1832,PLAGUE. CHOLERA,article,0,,,,,,,6,8,6;7;8,p6 middle;p6 right;p7 left;p7 middle;p7 right;p8 left,5843,1832,False,False,False,33,2427,13,0.9574,True
+chambers/chambers_0008,chambers,chambers_0008,chambers,1,1,02-04-1832,HAARLEM,article,0,,,,,,,8,8,8,p8 left,106,1832,False,False,False,1,46,5,1.0,True
+chambers/chambers_0009,chambers,chambers_0009,chambers,1,1,02-04-1832,FOWLS,article,0,,,,,,,8,8,8,p8 left;p8 middle,212,1832,False,False,False,2,74,9,1.0,True
+chambers/chambers_0010,chambers,chambers_0010,chambers,1,1,02-04-1832,SMOKING,article,0,,,,,,,8,8,8,p8 middle,102,1832,False,False,False,1,47,9,1.0,True
+chambers/chambers_0011,chambers,chambers_0011,chambers,1,1,02-04-1832,ANECDOTE OF MR. JEFFREY,article,0,,,,,,,8,8,8,p8 middle,273,1832,False,False,False,1,102,0,1.0,True
+chambers/chambers_0012,chambers,chambers_0012,chambers,1,1,02-04-1832,THE MUSSULMAUN'S SABBATH,article,0,,,,,,,8,8,8,p8 middle,467,1832,False,False,False,1,192,4,1.0,True
+chambers/chambers_0013,chambers,chambers_0013,chambers,1,1,02-04-1832,THE WASP,article,0,,,,,,,8,8,8,p8 middle;p8 right,567,1832,False,False,False,3,237,8,0.8007,True
+chambers/chambers_0014,chambers,chambers_0014,chambers,1,1,02-04-1832,A JUDGMENT OF GOD,article,0,,,,,,,8,8,8,p8 right,186,1832,False,False,False,1,78,4,1.0,True
+chambers/chambers_0015,chambers,chambers_0015,chambers,1,1,02-04-1832,UNNATURAL CHARACTERS IN FICTION,article,0,,,,,,,8,8,8,p8 right,74,1832,False,False,False,1,26,2,1.0,True
+chambers/chambers_0016,chambers,chambers_0016,chambers,1,1,02-04-1832,CATS,article,0,,,,,,,8,8,8,p8 right,139,1832,False,False,False,1,59,0,1.0,True
+chambers/chambers_0017,chambers,chambers_0017,chambers,2,2,02-11-1832,RETROSPECTIVE REVIEW,article,0,,,,,,,9,9,9,p9 left;p9 middle;p9 right,1654,1832,False,False,False,5,736,2,1.0,True
+chambers/chambers_0018,chambers,chambers_0018,chambers,2,2,02-11-1832,"BURNS'S ""JOLLY BEGGARS.""",article,0,,,,,,,9,10,9;10,p9 right;p10 left;p10 middle;p10 right,2529,1832,False,False,False,12,1120,0,0.998,True
+chambers/chambers_0019,chambers,chambers_0019,chambers,2,2,02-11-1832,OLD SCOTTISH MODE OF DISCOVERING MURDER,article,0,,,,,,,10,11,10;11,p10 right;p11 left,605,1832,False,False,False,2,251,0,1.0,True
+chambers/chambers_0020,chambers,chambers_0020,chambers,2,2,02-11-1832,ORIGIN AND PROGRESS OF THE ART OF PRINTING,article,0,,,,,,,11,11,11,p11 left,553,1832,False,False,False,1,243,7,0.6691,True
+chambers/chambers_0021,chambers,chambers_0021,chambers,2,2,02-11-1832,LADY JEAN,article,0,,,,chambers_0004,,,11,12,11;12,p11 left;p11 middle;p11 right;p12 left;p12 middle;p12 right,4608,1832,False,False,False,11,1921,0,0.8628,True
+chambers/chambers_0022,chambers,chambers_0022,chambers,2,2,02-11-1832,A DERBYSHIRE TALE,article,0,,,,,,,12,12,12,p12 right,487,1832,False,False,False,1,200,0,1.0,True
+chambers/chambers_0023,chambers,chambers_0023,chambers,2,2,02-11-1832,JAMES FERGUSON,article,0,Biographic Sketches,,,,,,12,13,12;13,p12 right;p13 left;p13 middle;p13 right,3135,1832,False,False,False,15,1165,2,1.0,True
+chambers/chambers_0024,chambers,chambers_0024,chambers,2,2,02-11-1832,A SEA FIGHT BETWEEN THE BRITISH AND FRENCH,article,0,,,,,,,13,14,13;14,p13 right;p14 left,1316,1832,False,False,False,10,581,6,1.0,True
+chambers/chambers_0025,chambers,chambers_0025,chambers,2,2,02-11-1832,EMIGRATION,article,0,,,,chambers_0003,chambers_0046,,14,14,14,p14 left;p14 middle;p14 right,1161,1832,False,False,False,7,482,10,1.0,True
+chambers/chambers_0026,chambers,chambers_0026,chambers,2,2,02-11-1832,NEW SOUTH WALES,article,0,,,,,,,14,14,14,p14 right,682,1832,False,False,False,5,245,10,1.0,True
+chambers/chambers_0027,chambers,chambers_0027,chambers,2,2,02-11-1832,NEGRO DOCTOR,article,0,,,,,,,14,14,14,p14 right,286,1832,False,False,False,1,110,13,1.0,True
+chambers/chambers_0028,chambers,chambers_0028,chambers,2,2,02-11-1832,ARCHERY,article,0,Column for the Boys,,,,chambers_0053,,15,15,15,p15 left;p15 middle,1817,1832,False,False,False,12,784,15,0.5311,True
+chambers/chambers_0029,chambers,chambers_0029,chambers,2,2,02-11-1832,ON THE STUDY OF NATURAL PHI- LOSOPHY,article,0,,,,,,,15,16,15;16,p15 middle;p15 right;p16 left,1626,1832,False,False,False,6,632,2,0.7657,True
+chambers/chambers_0030,chambers,chambers_0030,chambers,2,2,02-11-1832,ODE TO POVERTY,article,0,,,,,,,16,16,16,p16 left;p16 middle,777,1832,False,False,False,4,387,4,0.7323,True
+chambers/chambers_0031,chambers,chambers_0031,chambers,2,2,02-11-1832,,article,0,,,,,,,16,16,16,p16 middle,244,1832,False,False,False,1,95,9,1.0,True
+chambers/chambers_0032,chambers,chambers_0032,chambers,2,2,02-11-1832,THE HUMMING BIRD,article,0,,,,,,,16,16,16,p16 middle,199,1832,False,False,False,1,83,9,1.0,True
+chambers/chambers_0033,chambers,chambers_0033,chambers,2,2,02-11-1832,THE NATURE AND PROPERTIES OF MILK,article,0,,,,,,,16,16,16,p16 middle,298,1832,False,False,False,1,138,1,1.0,True
+chambers/chambers_0034,chambers,chambers_0034,chambers,2,2,02-11-1832,WILLIE COSSAR PINS,article,0,,,,,,,16,16,16,p16 middle,181,1832,False,False,False,1,85,0,1.0,True
+chambers/chambers_0035,chambers,chambers_0035,chambers,2,2,02-11-1832,NIGHT-FALL IN ITALY,article,0,,,,,,,16,16,16,p16 middle;p16 right,141,1832,False,False,False,2,69,2,0.5887,True
+chambers/chambers_0036,chambers,chambers_0036,chambers,2,2,02-11-1832,ACCOUNT OF THE PHENIX,article,0,,,,,,,16,16,16,p16 right,644,1832,False,False,False,1,296,12,0.6661,True
+chambers/chambers_0037,chambers,chambers_0037,chambers,2,2,02-11-1832,PUBLIC LIBRARIES OF EUROPF,article,0,,,,,,,16,16,16,p16 right,69,1832,False,False,False,2,23,2,1.0,True
+chambers/chambers_0038,chambers,chambers_0038,chambers,3,3,02-18-1832,FALLACIES OF THE YOUNG,article,0,,,,,,,17,17,17,p17 left;p17 middle;p17 right,1751,1832,False,False,False,7,668,2,0.6922,True
+chambers/chambers_0039,chambers,chambers_0039,chambers,3,3,02-18-1832,FORMATION OF SCOTTISH SOCIETY,article,0,,,,chambers_0002,,,17,18,17;18,p17 right;p18 left,941,1832,False,False,False,2,397,3,1.0,True
+chambers/chambers_0040,chambers,chambers_0040,chambers,3,3,02-18-1832,SKRYME,article,0,,,,,,,18,18,18,p18 middle,855,1832,False,False,False,3,356,6,0.5275,True
+chambers/chambers_0041,chambers,chambers_0041,chambers,3,3,02-18-1832,THE RUSSIAN COURT,article,0,,,,,,,18,18,18,p18 middle;p18 right,395,1832,False,False,False,2,156,11,0.4759,True
+chambers/chambers_0042,chambers,chambers_0042,chambers,3,3,02-18-1832,MAJOR WEIR,article,0,,,,,,,18,19,18;19,p18 right;p19 left,1614,1832,False,False,False,7,618,0,0.9758,True
+chambers/chambers_0043,chambers,chambers_0043,chambers,3,3,02-18-1832,THE RUNAWAY,article,0,,,,,,,19,20,19;20,p19 left;p19 middle;p19 right;p20 left,2823,1832,False,False,False,36,1289,0,0.6649,True
+chambers/chambers_0044,chambers,chambers_0044,chambers,3,3,02-18-1832,SKETCHES IN TOPOGRAPHY,article,0,,,,,,,20,20,20,p20 left;p20 middle;p20 right,1584,1832,False,False,False,6,702,6,0.6282,True
+chambers/chambers_0045,chambers,chambers_0045,chambers,3,3,02-18-1832,,article,0,,,,,,,20,20,20,p20 right,403,1832,False,False,False,1,174,9,1.0,True
+chambers/chambers_0046,chambers,chambers_0046,chambers,3,3,02-18-1832,EMIGRATION,article,0,,,,chambers_0025,,,20,21,20;21,p20 right;p21 left,910,1832,False,False,False,5,362,0,0.9154,True
+chambers/chambers_0047,chambers,chambers_0047,chambers,3,3,02-18-1832,IRON BRIDGES,article,0,,,,,,,21,21,21,p21 left;p21 middle,996,1832,False,False,False,6,446,5,1.0,True
+chambers/chambers_0048,chambers,chambers_0048,chambers,3,3,02-18-1832,DR. ALEXANDER MURRAY,article,0,Biographic Sketches,,,,,,21,22,21;22,p21 middle;p21 right;p22 left;p22 middle,4135,1832,False,False,False,13,1716,2,0.5915,True
+chambers/chambers_0049,chambers,chambers_0049,chambers,3,3,02-18-1832,WOURALI POISON,article,0,,,,,,,22,22,22,p22 middle;p22 right,847,1832,False,False,False,2,333,9,0.5384,True
+chambers/chambers_0050,chambers,chambers_0050,chambers,3,3,02-18-1832,NUMBER OF STARS,article,0,,,,,,,22,22,22,p22 right,58,1832,False,False,False,1,21,2,1.0,True
+chambers/chambers_0051,chambers,chambers_0051,chambers,3,3,02-18-1832,VATICAN,article,0,,,,,,,22,22,22,p22 right,236,1832,False,False,False,1,123,3,1.0,True
+chambers/chambers_0052,chambers,chambers_0052,chambers,3,3,02-18-1832,TWO USEFUL RECEIPTS,article,0,,,,,,,22,22,22,p22 right,162,1832,False,False,False,2,80,0,0.5741,True
+chambers/chambers_0053,chambers,chambers_0053,chambers,3,3,02-18-1832,ARCHERY,article,0,Column for the Boys,,,chambers_0028,,,23,23,23,p23 left;p23 middle,2263,1832,False,False,False,14,874,15,1.0,True
+chambers/chambers_0054,chambers,chambers_0054,chambers,3,3,02-18-1832,HYMN OF THE BRITISH PEASANT,article,0,,,,,,,23,23,23,p23 middle;p23 right,276,1832,False,False,False,7,119,4,1.0,True
+chambers/chambers_0055,chambers,chambers_0055,chambers,3,3,02-18-1832,TURKEY,article,0,,,,,,,23,23,23,p23 right,593,1832,False,False,False,1,246,6,0.6661,True
+chambers/chambers_0056,chambers,chambers_0056,chambers,3,3,02-18-1832,USE OF CAT'S WHISKERS,article,0,,,,,,,23,23,23,p23 right,280,1832,False,False,False,1,106,9,1.0,True
+chambers/chambers_0057,chambers,chambers_0057,chambers,3,3,02-18-1832,BEAR HUNTING,article,0,,,,,,,24,24,24,p24 left,855,1832,False,False,False,1,301,9,1.0,True
+chambers/chambers_0058,chambers,chambers_0058,chambers,3,3,02-18-1832,CHEISE HOPPERS,article,0,,,,,,,24,24,24,p24 left;p24 middle,914,1832,False,False,False,3,392,8,0.7057,True
+chambers/chambers_0059,chambers,chambers_0059,chambers,3,3,02-18-1832,EFFECT OF LIGHT ON PLANTS,article,0,,,,,,,24,24,24,p24 middle,564,1832,False,False,False,1,241,8,1.0,True
+chambers/chambers_0060,chambers,chambers_0060,chambers,3,3,02-18-1832,ASTRONOMY AND CELESTIA MECHANICS,article,0,,,,,,,24,24,24,p24 middle;p24 right,445,1832,False,False,False,2,199,2,1.0,True
+chambers/chambers_0061,chambers,chambers_0061,chambers,3,3,02-18-1832,WOLVES,article,0,,,,,,,24,24,24,p24 right,328,1832,False,False,False,1,133,0,0.5,True
+chambers/chambers_0062,chambers,chambers_0062,chambers,3,3,02-18-1832,AMSTERDAM,article,0,,,,,,,24,24,24,p24 right,208,1832,False,False,False,1,87,5,1.0,True
+penny_1836/penny_1836_0001,penny_1836,penny_1836_0001,penny,1,270,06-18-1836,THE GIRAFFES AT THE ZOOLOGICAL GARDENS,article,0,,,,,,,6,8,6;7;8,p7 left;p7 right;p8 left;p8 right,2321,1836,False,False,False,21,906,9,0.9841,True
+penny_1836/penny_1836_0002,penny_1836,penny_1836_0002,penny,1,270,06-18-1836,Working Men,article,0,,,,,,,8,8,8,p8 right,297,1836,False,False,False,1,128,1,1.0,True
+penny_1836/penny_1836_0003,penny_1836,penny_1836_0003,penny,1,270,06-18-1836,Threshing Machines,article,0,,,,,,,8,8,8,p8 right,171,1836,False,False,False,1,73,1,1.0,True
+penny_1836/penny_1836_0004,penny_1836,penny_1836_0004,penny,1,270,06-18-1836,THE GLYPTOTHEK,article,0,National Galleries for the Fine Arts at Munich,,,,,,9,10,9;10,p9 left;p9 right;p10 left;p10 right,858,1836,False,False,False,7,359,3,0.9767,True
+penny_1836/penny_1836_0005,penny_1836,penny_1836_0005,penny,1,270,06-18-1836,ARTS OF ANCIENT EGYPT-GLASS AND PORCELAIN,article,0,,,,,,,10,11,10;11,p10 right;p11 left;p11 right,1178,1836,False,False,False,10,466,7,0.9244,True
+penny_1836/penny_1836_0006,penny_1836,penny_1836_0006,penny,1,270,06-18-1836,War,article,0,,,,,,,11,11,11,p11 right,201,1836,False,False,False,1,97,1,1.0,True
+penny_1836/penny_1836_0007,penny_1836,penny_1836_0007,penny,1,270,06-18-1836,IMPORTANCE OF THE CULTIVATION OF THE VINE IN FRANCE,article,0,,,,,,,11,13,11;12;13,p11 right;p12 left;p12 right;p13 left;p13 right,2372,1836,False,False,False,23,975,1,1.0,True
+penny_1836/penny_1836_0008,penny_1836,penny_1836_0008,penny,1,270,06-18-1836,State of the Fine Arts in Geneva,article,0,,,,,,,13,13,13,p13 right,267,1836,False,False,False,1,111,7,1.0,True
+penny_1836/penny_1836_0009,penny_1836,penny_1836_0009,penny,1,270,06-18-1836,Division of Employments,article,0,,,,,,,13,13,13,p13 right,331,1836,False,False,False,1,151,1,1.0,True
+penny_1836/penny_1836_0010,penny_1836,penny_1836_0010,penny,2,271,06-25-1836,RIEVAULX ABBEY,article,0,,,,,,,14,15,14;15,p14 left;p14 right;p15 left;p15 right,1497,1836,False,False,False,16,637,3,0.9813,True
+penny_1836/penny_1836_0011,penny_1836,penny_1836_0011,penny,2,271,06-25-1836,MANNERS OF THE NORTHERN COAL MINERS,article,0,,,,,,,15,17,15;16;17,p15 right;p16 left;p16 right;p17 left;p17 right,1658,1836,False,False,False,23,744,1,0.7756,True
+penny_1836/penny_1836_0012,penny_1836,penny_1836_0012,penny,2,271,06-25-1836,THE PINACOTHEK,article,0,National Galleries for the Fine Arts at Munich,,,,,,17,18,17;18,p17 left;p17 right;p18 left;p18 right,941,1836,False,False,False,7,388,3,0.9458,True
+penny_1836/penny_1836_0013,penny_1836,penny_1836_0013,penny,2,271,06-25-1836,KNIGHTS OF MALTA.-No. III,article,0,,,III,,,,18,21,18;19;20;21,p18 right;p19 left;p19 right;p20 left;p20 right;p21 left,2940,1836,False,False,False,13,1267,3,0.9925,True
+penny_1836/penny_1836_0014,penny_1836,penny_1836_0014,penny,2,271,06-25-1836,"ORIGINAL COLONIZATION OF CANADA, BY FRANCIS I",article,0,,,,,,,21,21,21,p21 left;p21 right,1292,1836,False,False,False,45,484,10,0.8746,True
+penny_1836/penny_1836_0015,penny_1836,penny_1836_0015,penny,3,272,06-30-1836,THE TOWER OF LONDON.—No. I,article,1,,,I,,,,22,29,22;23;24;25;26;27;28;29,p22 left;p22 right;p23 left;p23 right;p24 left;p24 right;p25 left;p25 right;p26 left;p26 right;p27 left;p27 right;p28 left;p28 right;p29 left;p29 right,8599,1836,False,False,False,86,3766,3,0.8582,True
+saturday_1840/saturday_1840_0001,saturday_1840,saturday_1840_0001,saturday,1,482,01-04-1840,SIR JOSHUA REYNOLDS AND HIS WORKS,article,0,,,,,,,6,8,6;7;8,p7 left;p7 right;p8 left,1732,1840,False,False,False,16,693,7,0.9024,True
+saturday_1840/saturday_1840_0002,saturday_1840,saturday_1840_0002,saturday,1,482,01-04-1840,,article,0,,,,,,,8,8,8,p8 left,78,1840,False,False,False,1,45,2,1.0,True
+saturday_1840/saturday_1840_0003,saturday_1840,saturday_1840_0003,saturday,1,482,01-04-1840,THE CALENDAR,article,0,,,,,,,8,9,8;9,p8 right;p9 left,1134,1840,False,False,False,15,444,5,1.0,True
+saturday_1840/saturday_1840_0004,saturday_1840,saturday_1840_0004,saturday,1,482,01-04-1840,,article,0,,,,,,,9,9,9,p9 left,64,1840,False,False,False,1,35,0,1.0,True
+saturday_1840/saturday_1840_0005,saturday_1840,saturday_1840_0005,saturday,1,482,01-04-1840,THE DUCHY OF SAXE-COBURG-GOTHA,article,0,,,,,,,9,11,9;10;11,p9 right;p10 left;p10 right;p11 left,1823,1840,False,False,False,24,848,1,0.5211,True
+saturday_1840/saturday_1840_0006,saturday_1840,saturday_1840_0006,saturday,1,482,01-04-1840,THE LAND OF CONTRADICTIONS,article,0,,,,,,,11,11,11,p11 right,273,1840,False,False,False,2,129,6,1.0,True
+saturday_1840/saturday_1840_0007,saturday_1840,saturday_1840_0007,saturday,1,482,01-04-1840,,article,0,,,,,,,11,11,11,p11 right,88,1840,False,False,False,1,29,2,1.0,True
+saturday_1840/saturday_1840_0008,saturday_1840,saturday_1840_0008,saturday,1,482,01-04-1840,,article,0,,,,,,,11,11,11,p11 right,83,1840,False,False,False,1,35,2,1.0,True
+saturday_1840/saturday_1840_0009,saturday_1840,saturday_1840_0009,saturday,1,482,01-04-1840,,article,0,,,,,,,11,11,11,p11 right,211,1840,False,False,False,1,74,2,1.0,True
+saturday_1840/saturday_1840_0010,saturday_1840,saturday_1840_0010,saturday,1,482,01-04-1840,JANUARY,article,0,The Natural History of the Months,I,,,,,12,13,12;13,p12 left;p12 right;p13 left;p13 right,1992,1840,False,False,False,21,906,5,0.5065,True
+saturday_1840/saturday_1840_0011,saturday_1840,saturday_1840_0011,saturday,1,482,01-04-1840,MIGRATION OF HERRINGS,article,0,,,,,,,13,13,13,p13 right,471,1840,False,False,False,3,189,6,1.0,True
+saturday_1840/saturday_1840_0012,saturday_1840,saturday_1840_0012,saturday,2,483,01-11-1840,THE TIMBER-FLOATS OF GERMANY AND ITALY,article,0,,,,,,,14,16,14;15;16,p14 left;p14 right;p15 left;p15 right;p16 left,1813,1840,False,False,False,19,735,5,0.9812,True
+saturday_1840/saturday_1840_0013,saturday_1840,saturday_1840_0013,saturday,2,483,01-11-1840,NATURE OF GEOLOGY,article,0,A Discourse on Geology,I,,,,,16,17,16;17,p16 left;p16 right;p17 left;p17 right,2174,1840,False,False,False,22,885,8,0.5423,True
+saturday_1840/saturday_1840_0014,saturday_1840,saturday_1840_0014,saturday,2,483,01-11-1840,,article,0,,,,,,,17,17,17,p17 right,36,1840,False,True,False,1,24,2,1.0,True
+saturday_1840/saturday_1840_0015,saturday_1840,saturday_1840_0015,saturday,2,483,01-11-1840,NINEVEН,article,0,,,,,,,18,19,18;19,p18 left;p18 right;p19 left,1056,1840,False,False,False,6,418,3,0.9943,True
+saturday_1840/saturday_1840_0016,saturday_1840,saturday_1840_0016,saturday,2,483,01-11-1840,,article,0,,,,,,,19,19,19,p19 left,69,1840,False,False,False,1,31,4,1.0,True
+saturday_1840/saturday_1840_0017,saturday_1840,saturday_1840_0017,saturday,2,483,01-11-1840,,article,0,,,,,,,19,19,19,p19 left,144,1840,False,False,False,2,59,2,0.9722,True
+saturday_1840/saturday_1840_0018,saturday_1840,saturday_1840_0018,saturday,2,483,01-11-1840,,article,0,,,,,,,19,19,19,p19 left,158,1840,False,False,False,1,56,2,1.0,True
+saturday_1840/saturday_1840_0019,saturday_1840,saturday_1840_0019,saturday,2,483,01-11-1840,THE VARIED POWERS OF MAN,article,0,,,,,,,19,19,19,p19 right,676,1840,False,False,False,2,286,9,0.682,True
+saturday_1840/saturday_1840_0020,saturday_1840,saturday_1840_0020,saturday,2,483,01-11-1840,,article,0,,,,,,,19,19,19,p19 right,106,1840,False,False,False,1,62,2,1.0,True
+saturday_1840/saturday_1840_0021,saturday_1840,saturday_1840_0021,saturday,2,483,01-11-1840,ON NEW YEAR'S GIFTS,article,0,,,,,,,20,21,20;21,p20 left;p20 right;p21 left,1923,1840,False,False,False,17,900,4,0.8669,True
+saturday_1840/saturday_1840_0022,saturday_1840,saturday_1840_0022,saturday,2,483,01-11-1840,THE PROGRESS OF IMPROVEMENT,article,0,,,,,,,21,21,21,p21 right,537,1840,False,False,False,3,246,2,0.6015,True
+saturday_1840/saturday_1840_0023,saturday_1840,saturday_1840_0023,saturday,3,484,01-18-1840,"ST. OMER'S, IN FRANCE. I",article,0,,,I,,,,22,23,22;23,p22 left;p22 right;p23 left;p23 right,1229,1840,False,False,False,14,517,3,0.8633,True
+saturday_1840/saturday_1840_0024,saturday_1840,saturday_1840_0024,saturday,3,484,01-18-1840,ON MILITARY DRILLING. I,article,0,,,I,,,,23,24,23;24,p23 right;p24 left;p24 right,1498,1840,False,False,False,12,576,2,1.0,True
+saturday_1840/saturday_1840_0025,saturday_1840,saturday_1840_0025,saturday,3,484,01-18-1840,,article,0,,,,,,,24,24,24,p24 right,130,1840,False,False,False,1,66,4,1.0,True
+saturday_1840/saturday_1840_0026,saturday_1840,saturday_1840_0026,saturday,3,484,01-18-1840,"RICHMOND CASTLE, YORKSHIRE",article,0,,,,,,,25,26,25;26,p25 left;p25 right;p26 left;p26 right,2018,1840,False,False,False,17,837,3,0.8568,True
+saturday_1840/saturday_1840_0027,saturday_1840,saturday_1840_0027,saturday,3,484,01-18-1840,,article,0,,,,,,,26,26,26,p26 right,89,1840,False,False,False,1,28,2,1.0,True
+saturday_1840/saturday_1840_0028,saturday_1840,saturday_1840_0028,saturday,3,484,01-18-1840,,article,0,,,,,,,26,26,26,p26 right,49,1840,False,True,False,1,30,4,1.0,True
+saturday_1840/saturday_1840_0029,saturday_1840,saturday_1840_0029,saturday,3,484,01-18-1840,ON GARDEN HERBS. I,article,0,,,I,,,,27,28,27;28,p27 left;p27 right;p28 left,1959,1840,False,False,False,14,876,8,0.9592,True
+saturday_1840/saturday_1840_0030,saturday_1840,saturday_1840_0030,saturday,3,484,01-18-1840,ON WAX FIGURES,article,0,,,,,,,28,29,28;29,p28 right;p29 left;p29 right,1786,1840,False,False,False,16,772,7,0.9261,True
+saturday_1840/saturday_1840_0031,saturday_1840,saturday_1840_0031,saturday,3,484,01-18-1840,,article,0,,,,,,,29,29,29,p29 right,77,1840,False,False,False,1,30,2,1.0,True
+chambers_1839/chambers_1839_0001,chambers_1839,chambers_1839_0001,chambers,1,414,01-04-1840,LIVING IN PARIS,article,0,,,,,,,7,8,7;8,p7 left;p7 middle;p7 right;p8 left;p8 middle;p8 right,3921,1840,False,False,False,13,1524,1,1.0,True
+chambers_1839/chambers_1839_0002,chambers_1839,chambers_1839_0002,chambers,1,414,01-04-1840,HYBERNATION OR WINTER SLEEP OF ANIMALS,article,0,,,,,,,8,9,8;9,p8 right;p9 left;p9 middle;p9 right,2527,1840,False,False,False,12,1075,9,1.0,True
+chambers_1839/chambers_1839_0003,chambers_1839,chambers_1839_0003,chambers,1,414,01-04-1840,FUGITIVE WRITINGS OF JAMES BOSWELL,article,0,,,,,,,9,10,9;10,p9 right;p10 left;p10 middle,1516,1840,False,False,False,10,705,0,0.5996,True
+chambers_1839/chambers_1839_0004,chambers_1839,chambers_1839_0004,chambers,1,414,01-04-1840,,article,0,,,,,,,10,10,10,p10 middle,82,1840,False,False,False,1,40,0,1.0,True
+chambers_1839/chambers_1839_0005,chambers_1839,chambers_1839_0005,chambers,1,414,01-04-1840,Flaw-Finder,article,0,,,,,,,10,10,10,p10 middle;p10 right,628,1840,False,False,False,11,260,0,0.9634,True
+chambers_1839/chambers_1839_0006,chambers_1839,chambers_1839_0006,chambers,1,414,01-04-1840,THE MONT DE PIETE OF LIMERICK,article,0,,,,,,,10,11,10;11,p10 right;p11 left;p11 middle;p11 right,2149,1840,False,False,False,22,869,1,0.8571,True
+chambers_1839/chambers_1839_0007,chambers_1839,chambers_1839_0007,chambers,1,414,01-04-1840,THE GOOD OF GRUMBLING,article,0,,,,,,,11,12,11;12,p11 right;p12 left;p12 middle;p12 right,3032,1840,False,False,False,9,1092,2,0.6722,True
+chambers_1839/chambers_1839_0008,chambers_1839,chambers_1839_0008,chambers,1,414,01-04-1840,THE HEIR OF THE ST GERANS,article,0,,,,,,,12,14,12;13;14,p12 right;p13 left;p13 middle;p13 right;p14 left,3913,1840,False,False,False,16,1569,11,1.0,True
+chambers_1839/chambers_1839_0009,chambers_1839,chambers_1839_0009,chambers,1,414,01-04-1840,QUACK ADVERTISEMENTS,article,0,,,,,,,14,14,14,p14 left;p14 middle,687,1840,False,False,False,2,255,13,0.6608,True
+chambers_1839/chambers_1839_0010,chambers_1839,chambers_1839_0010,chambers,1,414,01-04-1840,,article,0,,,,,,,14,14,14,p14 middle,295,1840,False,False,False,1,132,13,1.0,True
+chambers_1839/chambers_1839_0011,chambers_1839,chambers_1839_0011,chambers,1,414,01-04-1840,MONUMENTS OF THE PACIFIC ISLES,article,0,,,,,,,14,14,14,p14 middle;p14 right,751,1840,False,False,False,5,305,6,1.0,True
+chambers_1839/chambers_1839_0012,chambers_1839,chambers_1839_0012,chambers,1,414,01-04-1840,DRAWING THE LINE,article,0,,,,,,,14,14,14,p14 right,214,1840,False,False,False,1,90,0,1.0,True
+chambers_1839/chambers_1839_0013,chambers_1839,chambers_1839_0013,chambers,1,414,01-04-1840,,article,0,,,,,,,14,14,14,p14 right,83,1840,False,False,False,1,36,2,1.0,True
+chambers_1839/chambers_1839_0014,chambers_1839,chambers_1839_0014,chambers,1,414,01-04-1840,PHYSICAL AND MORAL PURITY COMPARED,article,0,,,,,,,14,14,14,p14 right,144,1840,False,False,False,1,64,2,1.0,True
+chambers_1839/chambers_1839_0015,chambers_1839,chambers_1839_0015,chambers,1,414,01-04-1840,A TALE OF ROMANCE,article,0,,,,,,,14,14,14,p14 right,429,1840,False,False,False,1,175,11,0.5012,True
+chambers_1839/chambers_1839_0016,chambers_1839,chambers_1839_0016,chambers,2,415,01-11-1840,OPPOSITE GOOD QUALITIES NOT TO BE EXPECTED,article,0,,,,,,,15,16,15;16,p15 left;p15 middle;p15 right;p16 left,2108,1840,False,False,False,9,820,2,0.9061,True
+chambers_1839/chambers_1839_0017,chambers_1839,chambers_1839_0017,chambers,2,415,01-11-1840,RECOLLECTIONS OF AN AUTHORESS,article,0,,,,,,,16,17,16;17,p16 left;p16 middle;p16 right;p17 left;p17 middle,3929,1840,False,False,False,20,1568,11,0.8783,True
+chambers_1839/chambers_1839_0018,chambers_1839,chambers_1839_0018,chambers,2,415,01-11-1840,ALCHEMY,article,0,Sketches of Superstitions,,,,,,17,18,17;18,p17 middle;p17 right;p18 left;p18 middle;p18 right,3352,1840,False,False,False,17,1426,12,0.9517,True
+chambers_1839/chambers_1839_0019,chambers_1839,chambers_1839_0019,chambers,2,415,01-11-1840,FOOTE THE COMEDIAN,article,0,Last Century Anecdotes,,,,,,18,19,18;19,p18 right;p19 left,1461,1840,False,False,False,11,605,0,0.9692,True
+chambers_1839/chambers_1839_0020,chambers_1839,chambers_1839_0020,chambers,2,415,01-11-1840,ROBERT BURNS,article,0,,,,,,,19,19,19,p19 left;p19 middle,824,1840,False,False,False,7,344,0,0.8677,True
+chambers_1839/chambers_1839_0021,chambers_1839,chambers_1839_0021,chambers,2,415,01-11-1840,M. TURGOт,article,0,Biographic Sketches,,,,,,19,20,19;20,p19 middle;p19 right;p20 left;p20 middle,2943,1840,False,False,False,15,1192,1,0.931,True
+chambers_1839/chambers_1839_0022,chambers_1839,chambers_1839_0022,chambers,2,415,01-11-1840,THE ABENCERRAGE,article,0,,,,,,,20,21,20;21,p20 middle;p20 right;p21 left;p21 middle;p21 right,4136,1840,False,False,False,50,1687,0,0.9816,True
+chambers_1839/chambers_1839_0023,chambers_1839,chambers_1839_0023,chambers,2,415,01-11-1840,GRAVE LITERATURE,article,0,,,,,,,21,22,21;22,p21 right;p22 left,1168,1840,False,False,False,7,531,11,0.9949,True
+chambers_1839/chambers_1839_0024,chambers_1839,chambers_1839_0024,chambers,2,415,01-11-1840,TRUE WISDOM,article,0,,,,,,,22,22,22,p22 left,52,1840,False,False,False,1,28,2,1.0,True
+chambers_1839/chambers_1839_0025,chambers_1839,chambers_1839_0025,chambers,2,415,01-11-1840,LABOUR NOT HOSTILE TO MENTAL IMPROVEMENT,article,0,,,,,,,22,22,22,p22 middle,275,1840,False,False,False,1,111,1,1.0,True
+chambers_1839/chambers_1839_0026,chambers_1839,chambers_1839_0026,chambers,2,415,01-11-1840,LIEUTENANT LUFF,article,0,,,,,,,22,22,22,p22 middle,365,1840,False,False,False,1,138,0,1.0,True
+chambers_1839/chambers_1839_0027,chambers_1839,chambers_1839_0027,chambers,2,415,01-11-1840,PRIVATE FORTUNES OF SOME OF THE GREAT PERSONAGES OF ANCIENT TIMES,article,0,,,,,,,22,22,22,p22 middle;p22 right,314,1840,False,False,False,2,134,3,1.0,True
+chambers_1839/chambers_1839_0028,chambers_1839,chambers_1839_0028,chambers,2,415,01-11-1840,AN INFORMER'S LETTER TO A FRIEND,article,0,,,,,,,22,22,22,p22 right,766,1840,False,False,False,2,305,0,1.0,True
+chambers_1839/chambers_1839_0029,chambers_1839,chambers_1839_0029,chambers,2,415,01-11-1840,GRAHAM OF CLAVERHOUSE,article,0,,,,,,,22,22,22,p22 right,260,1840,False,False,False,1,109,0,1.0,True
+chambers_1839/chambers_1839_0030,chambers_1839,chambers_1839_0030,chambers,3,416,01-18-1840,ENGLISH INGENUITY AND ENTERPRISE IN A NEW POINT OF VIEW,article,0,,,,,,,23,24,23;24,p23 left;p23 middle;p23 right;p24 left;p24 middle;p24 right,3473,1840,False,False,False,14,1457,2,0.315,True
+chambers_1839/chambers_1839_0031,chambers_1839,chambers_1839_0031,chambers,3,416,01-18-1840,M. TURGOT,article,0,Biographic Sketches,,2,,,,24,26,24;25;26,p24 right;p25 left;p25 middle;p25 right;p26 left,3966,1840,False,False,False,23,1594,1,0.9506,True
+chambers_1839/chambers_1839_0032,chambers_1839,chambers_1839_0032,chambers,3,416,01-18-1840,THE SHOP BOY,article,0,Remarkable Cases of Circumstantial Evidence,,,,,,26,26,26,p26 left;p26 middle,779,1840,False,False,False,5,329,0,0.9127,True
+chambers_1839/chambers_1839_0033,chambers_1839,chambers_1839_0033,chambers,3,416,01-18-1840,THE JEWS,article,0,,,,,,,26,26,26,p26 middle,259,1840,False,False,False,1,97,0,1.0,True
+chambers_1839/chambers_1839_0034,chambers_1839,chambers_1839_0034,chambers,3,416,01-18-1840,THE FLEMISH CURATE,article,0,,,,,,,26,26,26,p26 middle;p26 right,639,1840,False,False,False,4,258,0,1.0,True
+chambers_1839/chambers_1839_0035,chambers_1839,chambers_1839_0035,chambers,3,416,01-18-1840,HAWKINS AND SIMPSON,article,0,,,,,,,26,26,26,p26 right,847,1840,False,False,False,6,303,0,1.0,True
+chambers_1839/chambers_1839_0036,chambers_1839,chambers_1839_0036,chambers,3,416,01-18-1840,THE BARBER'S APPRENTICE,article,0,,,,,,,26,27,26;27,p26 right;p27 left,285,1840,False,False,False,3,109,0,1.0,True
+chambers_1839/chambers_1839_0037,chambers_1839,chambers_1839_0037,chambers,3,416,01-18-1840,POINTS OF ETIQUETTE,article,0,,,,,,,27,27,27,p27 left;p27 middle;p27 right,2268,1840,False,False,False,15,870,0,0.7809,True
+chambers_1839/chambers_1839_0038,chambers_1839,chambers_1839_0038,chambers,3,416,01-18-1840,SPECULATIONS ON WORDS,article,0,,,2,,,,27,28,27;28,p27 right;p28 left;p28 middle,1769,1840,False,False,False,13,664,2,0.6167,True
+chambers_1839/chambers_1839_0039,chambers_1839,chambers_1839_0039,chambers,3,416,01-18-1840,SCANDINAVIAN MYTHOLOGY,article,0,Sketches of Superstitions,,,,,,28,29,28;29,p28 middle;p28 right;p29 left;p29 middle;p29 right,3346,1840,False,False,False,28,1517,12,0.9235,True
+chambers_1839/chambers_1839_0040,chambers_1839,chambers_1839_0040,chambers,3,416,01-18-1840,SHIPWRECK OF THE MENTOR,article,0,,,,,,,29,30,29;30,p29 right;p30 left;p30 middle,2566,1840,False,False,False,12,1082,6,0.9248,True
+chambers_1839/chambers_1839_0041,chambers_1839,chambers_1839_0041,chambers,3,416,01-18-1840,TOILET OF A PAWNEE INDIAN DANDY,article,0,,,,,,,30,30,30,p30 right,674,1840,False,False,False,3,309,0,1.0,True
+chambers_1839/chambers_1839_0042,chambers_1839,chambers_1839_0042,chambers,3,416,01-18-1840,NATURAL CURIOSITY,article,0,,,,,,,30,30,30,p30 right,165,1840,False,False,False,1,76,5,1.0,True
+penny_1838/penny_1838_0001,penny_1838,penny_1838_0001,penny,1,431,12-22-1838,No. V. LITTLE MUSGRAVE. - THE FRIAR OF ORDERS GRAY,article,0,English Romantic Ballads,V,,,,,6,8,6;7;8,p6 left;p6 right;p7 left;p7 right;p8 left;p8 right,2625,1838,False,False,False,52,1087,4,0.7417,True
+penny_1838/penny_1838_0002,penny_1838,penny_1838_0002,penny,1,431,12-22-1838,CHRISTMAS GAMES IN THE OLDEN TIME,article,0,,,,,,,9,11,9;10;11,p9 left;p9 right;p10 left;p10 right;p11 left;p11 right,2621,1838,False,False,False,20,1127,4,0.7074,True
+penny_1838/penny_1838_0003,penny_1838,penny_1838_0003,penny,1,431,12-22-1838,"""A CAROL:- BRYNGING IN THE BOAR'S HEAD",article,0,,,,,,,11,12,11;12,p11 right;p12 left,368,1838,False,False,False,5,180,4,0.8967,True
+penny_1838/penny_1838_0004,penny_1838,penny_1838_0004,penny,1,431,12-22-1838,"""CEREMONIES FOR CHRISTMASSE",article,0,,,,,,,12,12,12,p12 left,292,1838,False,False,False,2,126,4,1.0,True
+penny_1838/penny_1838_0005,penny_1838,penny_1838_0005,penny,1,431,12-22-1838,QUACKS AND QUACK MEDICINES,article,0,,,,,penny_1838_0007,,12,13,12;13,p12 left;p12 right;p13 left;p13 right,1987,1838,False,False,False,21,807,13,0.9446,True
+penny_1838/penny_1838_0006,penny_1838,penny_1838_0006,penny,2,432,12-29-1838,LE COMTE ALEXANDRE-LOUIS-JOSEPH DE LABORDE,article,0,,,,,,,14,15,14;15,p14 left;p14 right;p15 left;p15 right,1094,1838,False,False,False,8,483,11,0.6216,True
+penny_1838/penny_1838_0007,penny_1838,penny_1838_0007,penny,2,432,12-29-1838,QUACKS AND QUACK MEDICINES,article,0,,,,penny_1838_0005,,,15,17,15;16;17,p15 right;p16 left;p16 right;p17 left;p17 right,1820,1838,False,False,False,15,788,13,0.9797,True
+penny_1838/penny_1838_0008,penny_1838,penny_1838_0008,penny,3,433,12-31-1838,"PUBLIC IMPROVEMENTS. —No. II., PROVINCIAL TOWNS",article,1,Public Improvements,II,,,,,18,25,18;19;20;21;22;23;24;25,p18 left;p18 right;p19 left;p19 right;p20 left;p20 right;p21 left;p21 right;p22 left;p22 right;p23 left;p23 right;p24 left;p24 right;p25 left;p25 right,7595,1838,False,False,False,35,3256,1,0.8196,True
+saturday_1834/saturday_1834_0001,saturday_1834,saturday_1834_0001,saturday,1,138,08-30-1834,HEREFORD CATHEDRAL,article,0,,,,,,,5,7,5;6;7,p6 left;p6 right;p7 left;p7 right,2048,1834,False,False,False,16,886,3,0.8242,True
+saturday_1834/saturday_1834_0002,saturday_1834,saturday_1834_0002,saturday,1,138,08-30-1834,,article,0,,,,,,,7,7,7,p7 right,14,1834,False,True,False,1,6,4,1.0,True
+saturday_1834/saturday_1834_0003,saturday_1834,saturday_1834_0003,saturday,1,138,08-30-1834,,article,0,,,,,,,7,7,7,p7 right,104,1834,False,False,False,1,45,2,1.0,True
+saturday_1834/saturday_1834_0004,saturday_1834,saturday_1834_0004,saturday,1,138,08-30-1834,,article,0,,,,,,,7,7,7,p7 right,16,1834,False,True,False,1,7,4,1.0,True
+saturday_1834/saturday_1834_0005,saturday_1834,saturday_1834_0005,saturday,1,138,08-30-1834,,article,0,,,,,,,7,7,7,p7 right,39,1834,False,True,False,1,14,4,1.0,True
+saturday_1834/saturday_1834_0006,saturday_1834,saturday_1834_0006,saturday,1,138,08-30-1834,"No. III. ON THE DISCOVERY OF MINERAL VEINS, AND THE MODE OF FIRST OPENING A MINE",article,0,The Mines of Great Britain,III,,,,,8,9,8;9,p8 left;p8 right;p9 left;p9 right,1934,1834,False,False,False,17,796,5,1.0,True
+saturday_1834/saturday_1834_0007,saturday_1834,saturday_1834_0007,saturday,1,138,08-30-1834,,article,0,,,,,,,9,9,9,p9 right,28,1834,False,True,False,1,9,5,1.0,True
+saturday_1834/saturday_1834_0008,saturday_1834,saturday_1834_0008,saturday,1,138,08-30-1834,,article,0,,,,,,,9,9,9,p9 right,17,1834,False,True,False,1,7,2,1.0,True
+saturday_1834/saturday_1834_0009,saturday_1834,saturday_1834_0009,saturday,1,138,08-30-1834,,article,0,,,,,,,9,9,9,p9 right,52,1834,False,False,False,1,19,2,1.0,True
+saturday_1834/saturday_1834_0010,saturday_1834,saturday_1834_0010,saturday,1,138,08-30-1834,ON WILLS. No. IV WILLS OF PERSONAL PROPERTY CONTINUED,article,0,On Wills,IV,,,,,10,11,10;11,p10 left;p10 right;p11 left,1333,1834,False,False,False,19,505,1,0.9782,True
+saturday_1834/saturday_1834_0011,saturday_1834,saturday_1834_0011,saturday,1,138,08-30-1834,ADDRESS TO A GODCHILD,article,0,,,,,,,11,11,11,p11 left,169,1834,False,False,False,1,74,2,1.0,True
+saturday_1834/saturday_1834_0012,saturday_1834,saturday_1834_0012,saturday,1,138,08-30-1834,MY DEAR GODCHILD,article,0,To Adam Steinmetz K,,,,,,11,11,11,p11 left;p11 right,528,1834,False,False,False,7,214,4,1.0,True
+saturday_1834/saturday_1834_0013,saturday_1834,saturday_1834_0013,saturday,1,138,08-30-1834,"Grove, Highgate, S. T. COLERIDGE",article,0,,,,,,,11,11,11,p11 right,18,1834,False,True,False,2,7,4,0.5556,True
+saturday_1834/saturday_1834_0014,saturday_1834,saturday_1834_0014,saturday,1,138,08-30-1834,"THE TORTOISE, THE FROG, AND THE DUCK",article,0,,,,,,,11,11,11,p11 right,339,1834,False,False,False,5,147,9,0.6814,True
+saturday_1834/saturday_1834_0015,saturday_1834,saturday_1834_0015,saturday,1,138,08-30-1834,ON THE STRUCTURE OF ANIMALS. II,article,0,,,II,,,,12,12,12,p12 left;p12 right,615,1834,False,False,False,7,236,9,1.0,True
+saturday_1834/saturday_1834_0016,saturday_1834,saturday_1834_0016,saturday,1,138,08-30-1834,,article,0,,,,,,,12,12,12,p12 right,59,1834,False,False,False,1,22,2,1.0,True
+saturday_1834/saturday_1834_0017,saturday_1834,saturday_1834_0017,saturday,1,138,08-30-1834,,article,0,,,,,,,12,12,12,p12 right,12,1834,False,True,False,1,7,2,1.0,True
+saturday_1834/saturday_1834_0018,saturday_1834,saturday_1834_0018,saturday,1,138,08-30-1834,,article,0,,,,,,,12,12,12,p12 right,31,1834,False,True,False,1,7,0,1.0,True
+saturday_1834/saturday_1834_0019,saturday_1834,saturday_1834_0019,saturday,1,138,08-30-1834,,article,0,,,,,,,12,12,12,p12 right,54,1834,False,False,False,1,24,6,1.0,True
+saturday_1834/saturday_1834_0020,saturday_1834,saturday_1834_0020,saturday,2,139,08-1834,SKETCHES OF THE HIGHLANDS AND ISLANDS OF SCOTLAND,article,1,,,2,,,,13,20,13;14;15;16;17;18;19;20,p14 left;p14 right;p15 left;p15 right;p16 left;p16 right;p17 left;p17 right;p18 left;p18 right;p19 left;p19 right;p20 left;p20 right,9116,1834,False,False,False,88,4128,6,0.4645,True
+saturday_1834/saturday_1834_0021,saturday_1834,saturday_1834_0021,saturday,3,140,09-06-1834,"OR, EVE'S APPLE TREE OF CEYLON",article,0,The Forbidden Fruit,,,,,,21,22,21;22,p22 left;p22 right,969,1834,False,False,False,7,427,8,0.7946,True
+saturday_1834/saturday_1834_0022,saturday_1834,saturday_1834_0022,saturday,3,140,09-06-1834,,article,0,,,,,,,22,22,22,p22 right,22,1834,False,True,False,1,7,2,1.0,True
+saturday_1834/saturday_1834_0023,saturday_1834,saturday_1834_0023,saturday,3,140,09-06-1834,,article,0,,,,,,,22,22,22,p22 right,125,1834,False,False,False,1,48,2,1.0,True
+saturday_1834/saturday_1834_0024,saturday_1834,saturday_1834_0024,saturday,3,140,09-06-1834,ON HABITS,article,0,,,,,,,23,23,23,p23 left;p23 right,979,1834,False,False,False,8,380,2,0.7814,True
+saturday_1834/saturday_1834_0025,saturday_1834,saturday_1834_0025,saturday,3,140,09-06-1834,THE COMMON BEE,article,0,,,,,,,23,24,23;24,p23 right;p24 left;p24 right,1547,1834,False,False,False,14,597,8,1.0,True
+saturday_1834/saturday_1834_0026,saturday_1834,saturday_1834_0026,saturday,3,140,09-06-1834,HENRY PRINCE OF WALES; ELDEST SON OF KING JAMES THE FIRST,article,0,,,,,,,25,26,25;26,p25 left;p25 right;p26 left,938,1834,False,False,False,7,394,4,0.5043,True
+saturday_1834/saturday_1834_0027,saturday_1834,saturday_1834_0027,saturday,3,140,09-06-1834,FROM KING JAMES TO PRINCE HENRY,article,0,,,,,,,26,26,26,p26 left;p26 right,533,1834,False,False,False,14,225,11,0.8161,True
+saturday_1834/saturday_1834_0028,saturday_1834,saturday_1834_0028,saturday,3,140,09-06-1834,,article,0,,,,,,,26,26,26,p26 right,49,1834,False,True,False,1,20,2,1.0,True
+saturday_1834/saturday_1834_0029,saturday_1834,saturday_1834_0029,saturday,3,140,09-06-1834,,article,0,,,,,,,26,26,26,p26 right,116,1834,False,False,False,1,52,2,1.0,True
+saturday_1834/saturday_1834_0030,saturday_1834,saturday_1834_0030,saturday,3,140,09-06-1834,,article,0,,,,,,,26,26,26,p26 right,153,1834,False,False,False,1,67,2,1.0,True
+saturday_1834/saturday_1834_0031,saturday_1834,saturday_1834_0031,saturday,3,140,09-06-1834,THE DAISY IN INDIA,article,0,,,,,,,27,27,27,p27 left,284,1834,False,False,False,1,148,4,1.0,True
+saturday_1834/saturday_1834_0032,saturday_1834,saturday_1834_0032,saturday,3,140,09-06-1834,No. IV. HEAT. TEMPERATURE. RADIATION. CONDUCTION,article,0,Familiar Illustrations of Experimental Science,IV,,,,,27,28,27;28,p27 left;p27 right;p28 left;p28 right,1435,1834,False,False,False,16,567,8,0.9784,True
+saturday_1834/saturday_1834_0033,saturday_1834,saturday_1834_0033,saturday,3,140,09-06-1834,,article,0,,,,,,,28,28,28,p28 right,248,1834,False,False,False,1,107,9,1.0,True
+chambers_1843/chambers_1843_0001,chambers_1843,chambers_1843_0001,chambers,1,573,01-21-1843,,article,0,,,,,,,7,8,7;8,p7 left;p7 middle;p7 right;p8 left;p8 middle,2858,1843,False,False,False,19,1208,2,0.7271,True
+chambers_1843/chambers_1843_0002,chambers_1843,chambers_1843_0002,chambers,1,573,01-21-1843,"IN GERMANY.""*",article,0,Rural and Domestic Life,,2,,,,8,8,8,p8 middle,124,1843,False,False,False,1,50,1,1.0,True
+chambers_1843/chambers_1843_0003,chambers_1843,chambers_1843_0003,chambers,1,573,01-21-1843,GERMAN ECONOMY,article,0,,,,,,,8,8,8,p8 middle,603,1843,False,False,False,2,272,1,1.0,True
+chambers_1843/chambers_1843_0004,chambers_1843,chambers_1843_0004,chambers,1,573,01-21-1843,THE GERMAN PEASANT'S HOME,article,0,,,,,,,8,8,8,p8 middle;p8 right,388,1843,False,False,False,2,151,1,1.0,True
+chambers_1843/chambers_1843_0005,chambers_1843,chambers_1843_0005,chambers,1,573,01-21-1843,GERMAN DOMESTIC LIFE,article,0,,,,,,,8,9,8;9,p8 right;p9 left;p9 middle,1336,1843,False,False,False,8,588,1,0.8728,True
+chambers_1843/chambers_1843_0006,chambers_1843,chambers_1843_0006,chambers,1,573,01-21-1843,A WEDDING IN GARRISON.*,article,0,,,,,,,9,9,9,p9 left;p9 middle,287,1843,False,False,False,3,127,2,0.6829,True
+chambers_1843/chambers_1843_0007,chambers_1843,chambers_1843_0007,chambers,1,573,01-21-1843,SERVANTS,article,0,,,,,,,9,9,9,p9 middle,149,1843,False,False,False,1,65,0,1.0,True
+chambers_1843/chambers_1843_0008,chambers_1843,chambers_1843_0008,chambers,1,573,01-21-1843,,article,0,,,,,,,9,9,9,,25,1843,False,True,False,1,10,2,1.0,True
+chambers_1843/chambers_1843_0009,chambers_1843,chambers_1843_0009,chambers,1,573,01-21-1843,,article,0,,,,,,,9,10,9;10,p9 left;p9 middle;p9 right;p10 left;p10 middle;p10 right,3644,1843,False,False,False,37,1598,0,0.7464,True
+chambers_1843/chambers_1843_0010,chambers_1843,chambers_1843_0010,chambers,1,573,01-21-1843,SCOTCH BANKS,article,0,Occasional N,,,,,,10,11,10;11,p10 right;p11 left;p11 middle;p11 right,1305,1843,False,False,False,10,536,1,1.0,True
+chambers_1843/chambers_1843_0011,chambers_1843,chambers_1843_0011,chambers,1,573,01-21-1843,A WORD ON MECHANICS' GENERALLY,article,0,,,,,,,11,12,11;12,p11 left;p11 middle;p11 right;p12 left,2464,1843,False,False,False,12,1049,1,0.9801,True
+chambers_1843/chambers_1843_0012,chambers_1843,chambers_1843_0012,chambers,1,573,01-21-1843,NURSERY RHYMES OF ENGLAND,article,0,,,,,,,12,13,12;13,p12 left;p12 middle;p12 right;p13 left,2340,1843,False,False,False,36,988,4,0.3842,True
+chambers_1843/chambers_1843_0013,chambers_1843,chambers_1843_0013,chambers,1,573,01-21-1843,,article,0,,,,,,,13,13,13,p13 left,482,1843,False,False,False,7,222,4,0.9315,True
+chambers_1843/chambers_1843_0014,chambers_1843,chambers_1843_0014,chambers,1,573,01-21-1843,A PEEVISH OLD SCOTSWOMAN,article,0,,,,,,,13,13,13,p13 left;p13 middle,606,1843,False,False,False,12,260,0,1.0,True
+chambers_1843/chambers_1843_0015,chambers_1843,chambers_1843_0015,chambers,1,573,01-21-1843,GENEALOGY OF THE QUEEN,article,0,,,,,,,13,13,13,p13 middle,91,1843,False,False,False,1,46,3,1.0,True
+chambers_1843/chambers_1843_0016,chambers_1843,chambers_1843_0016,chambers,1,573,01-21-1843,1. ANGLO-SAXON DESCENT OF HER MAJESTY,article,0,,,,,,,13,13,13,p13 middle;p13 right,360,1843,False,False,False,5,177,3,1.0,True
+chambers_1843/chambers_1843_0017,chambers_1843,chambers_1843_0017,chambers,1,573,01-21-1843,2. SCOTTISH DESCENT OF HER MAJESTY,article,0,,,,,,,13,14,13;14,p13 right;p14 left;p14 middle,2489,1843,False,False,False,18,1200,3,1.0,True
+chambers_1843/chambers_1843_0018,chambers_1843,chambers_1843_0018,chambers,1,573,01-21-1843,PREJUDICE AS TO FOOD,article,0,,,,,,,14,14,14,p14 middle;p14 right,600,1843,False,False,False,4,221,1,0.5633,True
+chambers_1843/chambers_1843_0019,chambers_1843,chambers_1843_0019,chambers,1,573,01-21-1843,BLEEDING AT THE NOSE,article,0,,,,,,,14,14,14,p14 right,279,1843,False,False,False,1,113,13,1.0,True
+chambers_1843/chambers_1843_0020,chambers_1843,chambers_1843_0020,chambers,1,573,01-21-1843,THE FRENCH PRESS,article,0,,,,,,,14,14,14,p14 right,214,1843,False,False,False,1,78,1,1.0,True
+chambers_1843/chambers_1843_0021,chambers_1843,chambers_1843_0021,chambers,1,573,01-21-1843,AN INDIAN'S INGENUITY,article,0,,,,,,,14,14,14,p14 right,168,1843,False,False,False,1,63,0,1.0,True
+chambers_1843/chambers_1843_0022,chambers_1843,chambers_1843_0022,chambers,1,573,01-21-1843,"HEAR, HEAR!",article,0,,,,,,,14,14,14,p14 right,110,1843,False,False,False,1,52,0,1.0,True
+chambers_1843/chambers_1843_0023,chambers_1843,chambers_1843_0023,chambers,2,574,01-28-1843,DINNERS,article,0,,,,,,,15,16,15;16,p15 left;p15 middle;p15 right;p16 left;p16 middle;p16 right,3664,1843,False,False,False,22,1565,0,0.9203,True
+chambers_1843/chambers_1843_0024,chambers_1843,chambers_1843_0024,chambers,2,574,01-28-1843,FAIRY RINGS IN PASTURE,article,0,Popular Information on Science,,,,,,16,17,16;17,p16 right;p17 left;p17 middle;p17 right,3075,1843,False,False,False,20,1261,8,0.9746,True
+chambers_1843/chambers_1843_0025,chambers_1843,chambers_1843_0025,chambers,2,574,01-28-1843,"""KOHL'S RUSSIA."" ST PETERSBURG.*",article,0,,,,,,,17,18,17;18,p17 right;p18 left;p18 middle;p18 right,3094,1843,False,False,False,19,1307,5,0.7999,True
+chambers_1843/chambers_1843_0026,chambers_1843,chambers_1843_0026,chambers,2,574,01-28-1843,THE FIRST PIANO-FORTE.*,article,0,,,,,,,18,19,18;19,p18 right;p19 left;p19 middle;p19 right,2613,1843,False,False,False,30,1136,11,0.9568,True
+chambers_1843/chambers_1843_0027,chambers_1843,chambers_1843_0027,chambers,2,574,01-28-1843,HOW TO LEARN LANGUAGES,article,0,,,,,,,19,20,19;20,p19 right;p20 left;p20 middle;p20 right,2498,1843,False,False,False,10,1027,2,1.0,True
+chambers_1843/chambers_1843_0028,chambers_1843,chambers_1843_0028,chambers,2,574,01-28-1843,VISIT TO THE MAMMOTH CAVE OF KENTUCKY,article,0,,,,,,,20,21,20;21,p20 right;p21 left;p21 middle;p21 right,3211,1843,False,False,False,24,1325,6,0.426,True
+chambers_1843/chambers_1843_0029,chambers_1843,chambers_1843_0029,chambers,2,574,01-28-1843,A HINT TO BENEVOLENT IMPROVERS,article,0,,,,,,,21,22,21;22,p21 right;p22 left;p22 middle,2381,1843,False,False,False,27,926,0,0.5993,True
+chambers_1843/chambers_1843_0030,chambers_1843,chambers_1843_0030,chambers,2,574,01-28-1843,A CHINESE INVENTION,article,0,,,,,,,22,22,22,p22 middle;p22 right,284,1843,False,False,False,2,123,10,1.0,True
+chambers_1843/chambers_1843_0031,chambers_1843,chambers_1843_0031,chambers,2,574,01-28-1843,THE BELEAGUERED WIDOW,article,0,,,,,,,22,22,22,p22 right,479,1843,False,False,False,1,243,4,1.0,True
+chambers_1843/chambers_1843_0032,chambers_1843,chambers_1843_0032,chambers,2,574,01-28-1843,WHAT TO DO WITH A WATCH WHICH HAS FALLEN INTO WATER,article,0,,,,,,,22,22,22,p22 right,62,1843,False,False,False,1,25,2,1.0,True
+chambers_1843/chambers_1843_0033,chambers_1843,chambers_1843_0033,chambers,2,574,01-28-1843,NOT A BAD HIT,article,0,,,,,,,22,22,22,p22 right,80,1843,False,False,False,1,28,0,1.0,True
+chambers_1843/chambers_1843_0034,chambers_1843,chambers_1843_0034,chambers,3,575,02-04-1843,ENSIGN MARTYN'S FIRST SCRAPE,article,0,,,,,,,23,23,23,p23 left;p23 middle,715,1843,False,False,False,9,307,0,0.8573,True
+chambers_1843/chambers_1843_0035,chambers_1843,chambers_1843_0035,chambers,3,575,02-04-1843,WILLIAM MARTYN,article,0,,,,,,,23,25,23;24;25,p23 middle;p23 right;p24 left;p24 middle;p24 right;p25 left,4221,1843,False,False,False,45,1604,0,0.9972,True
+chambers_1843/chambers_1843_0036,chambers_1843,chambers_1843_0036,chambers,3,575,02-04-1843,"""KOHL'S RUSSIA."" - MOSCOW.*",article,0,,,,,,,25,26,25;26,p25 left;p25 middle;p25 right;p26 left,3142,1843,False,False,False,18,1338,5,0.7925,True
+chambers_1843/chambers_1843_0037,chambers_1843,chambers_1843_0037,chambers,3,575,02-04-1843,BOURBONNAIS,article,0,,,,,,,26,26,26,p26 left;p26 middle;p26 right,2231,1843,False,False,False,9,936,3,0.4917,True
+chambers_1843/chambers_1843_0038,chambers_1843,chambers_1843_0038,chambers,3,575,02-04-1843,ISLE OF SKYE,article,0,,,,,,,26,27,26;27,p26 right;p27 left,326,1843,False,False,False,2,144,6,1.0,True
+chambers_1843/chambers_1843_0039,chambers_1843,chambers_1843_0039,chambers,3,575,02-04-1843,ON A MYSTERIOUS CIRCUMSTANCE CONNECTED WITH SCOTTISH GASTRONOMY,article,0,,,,,,,27,27,27,p27 left;p27 middle,1175,1843,False,False,False,7,433,0,1.0,True
+chambers_1843/chambers_1843_0040,chambers_1843,chambers_1843_0040,chambers,3,575,02-04-1843,A NIGHT AT A GERMAN VILLAGE,article,0,,,,,,,27,27,27,p27 middle;p27 right,1021,1843,False,False,False,9,424,4,0.4721,True
+chambers_1843/chambers_1843_0041,chambers_1843,chambers_1843_0041,chambers,3,575,02-04-1843,THE NIMBUS,article,0,,,,,,,27,28,27;28,p27 right;p28 left,828,1843,False,False,False,6,365,7,1.0,True
+chambers_1843/chambers_1843_0042,chambers_1843,chambers_1843_0042,chambers,3,575,02-04-1843,AGRICULTURE IN ENGLAND,article,0,,,,,,,28,30,28;29;30,p28 left;p28 middle;p28 right;p29 left;p29 middle;p29 right;p30 left,5581,1843,False,False,False,43,2351,3,0.4999,True
+chambers_1843/chambers_1843_0043,chambers_1843,chambers_1843_0043,chambers,3,575,02-04-1843,AN EDUCATIONAL TREAD-MILL,article,0,,,,,,,30,30,30,p30 left,760,1843,False,False,False,4,276,1,1.0,True
+chambers_1843/chambers_1843_0044,chambers_1843,chambers_1843_0044,chambers,3,575,02-04-1843,CASE OF PREMATURE INTERMENT,article,0,,,,,,,30,30,30,p30 left;p30 middle,476,1843,False,False,False,2,174,0,1.0,True
+chambers_1843/chambers_1843_0045,chambers_1843,chambers_1843_0045,chambers,3,575,02-04-1843,THE FRIENDS OF MY YOUTH,article,0,,,,,,,30,30,30,p30 middle,311,1843,False,False,False,4,124,4,1.0,True
+chambers_1843/chambers_1843_0046,chambers_1843,chambers_1843_0046,chambers,3,575,02-04-1843,A FIGHT BETWEEN A MUNGOOZE AND COBRA CAPELLO,article,0,,,,,,,30,30,30,p30 middle;p30 right,674,1843,False,False,False,2,281,9,1.0,True
+chambers_1843/chambers_1843_0047,chambers_1843,chambers_1843_0047,chambers,3,575,02-04-1843,MAKER OF WEALTH AND HIS HEIR,article,0,,,,,,,30,30,30,p30 right,487,1843,False,False,False,1,206,1,0.501,True
+chambers_1843/chambers_1843_0048,chambers_1843,chambers_1843_0048,chambers,3,575,02-04-1843,HEIGHT OF SOLDIERS,article,0,,,,,,,30,30,30,p30 right,148,1843,False,False,False,1,67,2,1.0,True
+penny_1843/penny_1843_0001,penny_1843,penny_1843_0001,penny,1,691,01-07-1843,SIR ROGER DE COVERLEY.-No. I,article,0,,,I,,,,6,7,6;7,p6 left;p6 right;p7 left;p7 right,1653,1843,False,False,False,14,637,0,0.7834,True
+penny_1843/penny_1843_0002,penny_1843,penny_1843_0002,penny,1,691,01-07-1843,PORTABLE DIORAMA. - DISSOLVING VIEWS,article,0,,,,,,,7,8,7;8,p7 right;p8 left;p8 right,1453,1843,False,False,False,12,595,7,1.0,True
+penny_1843/penny_1843_0003,penny_1843,penny_1843_0003,penny,1,691,01-07-1843,BATS,article,0,Curiosities of British Natural History,,,,,,9,11,9;10;11,p9 left;p9 right;p10 left;p10 right;p11 left;p11 right,2833,1843,False,False,False,17,1239,8,1.0,True
+penny_1843/penny_1843_0004,penny_1843,penny_1843_0004,penny,1,691,01-07-1843,THE PRIVILEGES AND LIABILITIES OF BRITISH SHIPPING,article,0,,,,,,,11,13,11;12;13,p11 right;p12 left;p12 right;p13 left,1968,1843,False,False,False,13,875,10,0.9924,True
+penny_1843/penny_1843_0005,penny_1843,penny_1843_0005,penny,1,691,01-07-1843,Usefulness of Moles,article,0,,,,,,,13,13,13,p13 left,359,1843,False,False,False,1,140,8,0.5014,True
+penny_1843/penny_1843_0006,penny_1843,penny_1843_0006,penny,1,691,01-07-1843,Autumnal Travelling in Siberia,article,0,,,,,,,13,13,13,p13 left;p13 right,525,1843,False,False,False,2,186,5,1.0,True
+penny_1843/penny_1843_0007,penny_1843,penny_1843_0007,penny,1,691,01-07-1843,Importance of Cities,article,0,,,,,,,13,13,13,p13 right,320,1843,False,False,False,1,122,1,0.5,True
+penny_1843/penny_1843_0008,penny_1843,penny_1843_0008,penny,1,691,01-07-1843,Fossil Trees,article,0,,,,,,,13,13,13,p13 right,159,1843,False,False,False,1,71,5,1.0,True
+penny_1843/penny_1843_0009,penny_1843,penny_1843_0009,penny,2,692,01-14-1843,,article,0,,,,,,,14,15,14;15,p14 left;p14 right;p15 left,1138,1843,False,False,False,4,491,1,1.0,True
+penny_1843/penny_1843_0010,penny_1843,penny_1843_0010,penny,2,692,01-14-1843,THE WALHALLA,article,0,,,,,,,15,16,15;16,p15 right;p16 left;p16 right,2011,1843,False,False,False,9,828,3,0.6738,True
+penny_1843/penny_1843_0011,penny_1843,penny_1843_0011,penny,2,692,01-14-1843,PROGRESSES OF QUEEN ELIZAВЕТН,article,0,,,,,,,17,20,17;18;19;20,p17 left;p17 right;p18 left;p18 right;p19 left;p19 right;p20 left,3706,1843,False,False,False,29,1574,11,0.8883,True
+penny_1843/penny_1843_0012,penny_1843,penny_1843_0012,penny,2,692,01-14-1843,"INSURANCE OF SHIPPING.-""LLOYD'S LIST.""",article,0,,,,,,,20,21,20;21,p20 left;p20 right;p21 left;p21 right,1861,1843,False,False,False,15,783,10,1.0,True
+penny_1843/penny_1843_0013,penny_1843,penny_1843_0013,penny,2,692,01-14-1843,The Arein,article,0,,,,,,,21,21,21,p21 right,303,1843,False,False,False,1,130,5,0.5017,True
+penny_1843/penny_1843_0014,penny_1843,penny_1843_0014,penny,3,693,01-21-1843,"THE NIAGARA DISTRICT, WESTERN CANADA. No. I",article,0,,,I,,,,22,23,22;23,p22 left;p22 right;p23 left;p23 right,1568,1843,False,False,False,7,683,10,1.0,True
+penny_1843/penny_1843_0015,penny_1843,penny_1843_0015,penny,3,693,01-21-1843,THE FELLING AND TRANSPORT OF THE PINE AND FIR,article,0,,,,,,,23,25,23;24;25,p23 right;p24 left;p24 right;p25 left;p25 right,2239,1843,False,False,False,13,955,5,0.962,True
+penny_1843/penny_1843_0016,penny_1843,penny_1843_0016,penny,3,693,01-21-1843,ETRUSCAN ANTIQUITIES AT THE BRITISH MUSEUM,article,0,,,,,,,25,26,25;26,p25 left;p25 right;p26 left;p26 right,1237,1843,False,False,False,7,528,7,0.9741,True
+penny_1843/penny_1843_0017,penny_1843,penny_1843_0017,penny,3,693,01-21-1843,THE TRINITY HOUSE,article,0,,,,,,,27,29,27;28;29,p27 left;p27 right;p28 left;p28 right;p29 left;p29 right,3480,1843,False,False,False,16,1449,10,1.0,True
+penny_1843/penny_1843_0018,penny_1843,penny_1843_0018,penny,3,693,01-21-1843,Power of Learning,article,0,,,,,,,29,29,29,p29 right,120,1843,False,False,False,1,48,2,1.0,True
+penny_1843/penny_1843_0019,penny_1843,penny_1843_0019,penny,3,693,01-21-1843,Food best adapted for Man,article,0,,,,,,,29,29,29,p29 right,413,1843,False,False,False,1,186,9,1.0,True
+saturday_1843/saturday_1843_0001,saturday_1843,saturday_1843_0001,saturday,1,736,12-23-1843,Saturday WITHOUT SOUL BE COODL THAT THE,article,0,,,,,,,5,5,5,,0,1843,False,False,True,0,0,,,False
+saturday_1843/saturday_1843_0002,saturday_1843,saturday_1843_0002,saturday,1,736,12-23-1843,AVIR EGYPTIAN SCULPTURE. HT,article,0,,,,,,,6,7,6;7,p6 left;p6 right;p7 left,1877,1843,False,False,False,15,824,7,0.7608,True
+saturday_1843/saturday_1843_0003,saturday_1843,saturday_1843_0003,saturday,1,736,12-23-1843,,article,0,,,,,,,7,7,7,p7 left,15,1843,False,True,False,1,4,2,1.0,True
+saturday_1843/saturday_1843_0004,saturday_1843,saturday_1843_0004,saturday,1,736,12-23-1843,THE FREEZING OF THE RIVER NEVA,article,0,,,,,,,7,8,7;8,p7 right;p8 left,1250,1843,False,False,False,8,481,5,1.0,True
+saturday_1843/saturday_1843_0005,saturday_1843,saturday_1843_0005,saturday,1,736,12-23-1843,,article,0,,,,,,,8,8,8,p8 left,100,1843,False,False,False,1,38,2,1.0,True
+saturday_1843/saturday_1843_0006,saturday_1843,saturday_1843_0006,saturday,1,736,12-23-1843,,article,0,,,,,,,8,8,8,p8 left,67,1843,False,False,False,1,37,4,1.0,True
+saturday_1843/saturday_1843_0007,saturday_1843,saturday_1843_0007,saturday,1,736,12-23-1843,PLANT-LIKE ANIMALS.o,article,0,,,,,,,8,9,8;9,p8 right;p9 left;p9 right,1499,1843,False,False,False,14,608,8,0.8979,True
+saturday_1843/saturday_1843_0008,saturday_1843,saturday_1843_0008,saturday,1,736,12-23-1843,,article,0,,,,,,,9,9,9,p9 right,34,1843,False,True,False,1,12,2,1.0,True
+saturday_1843/saturday_1843_0009,saturday_1843,saturday_1843_0009,saturday,1,736,12-23-1843,ON DIORAMIC PAINTING,article,0,,,,,,,10,11,10;11,p10 left;p10 right;p11 left,1822,1843,False,False,False,19,735,7,1.0,True
+saturday_1843/saturday_1843_0010,saturday_1843,saturday_1843_0010,saturday,1,736,12-23-1843,,article,0,,,,,,,11,11,11,p11 left,262,1843,False,False,False,2,92,2,1.0,True
+saturday_1843/saturday_1843_0011,saturday_1843,saturday_1843_0011,saturday,1,736,12-23-1843,ON QUARRYING STONE,article,0,,,,,,,11,12,11;12,p11 right;p12 left;p12 right,1947,1843,False,False,False,17,820,5,1.0,True
+saturday_1843/saturday_1843_0012,saturday_1843,saturday_1843_0012,saturday,1,736,12-23-1843,,article,0,,,,,,,12,12,12,p12 right,25,1843,False,True,False,1,10,2,1.0,True
+saturday_1843/saturday_1843_0013,saturday_1843,saturday_1843_0013,saturday,2,737,12-30-1843,HOLYROOD HOUSE,article,0,Svinadat Herutar Be Soul the Royal,,,,,,13,15,13;14;15,p13 left;p13 right;p14 left;p14 right;p15 left;p15 right,2746,1843,False,False,False,20,1177,3,0.6184,True
+saturday_1843/saturday_1843_0014,saturday_1843,saturday_1843_0014,saturday,2,737,12-30-1843,,article,0,,,,,,,15,15,15,p15 right,126,1843,False,False,False,1,51,2,1.0,True
+saturday_1843/saturday_1843_0015,saturday_1843,saturday_1843_0015,saturday,2,737,12-30-1843,,article,0,,,,,,,15,15,15,p15 right,228,1843,False,False,False,1,105,2,1.0,True
+saturday_1843/saturday_1843_0016,saturday_1843,saturday_1843_0016,saturday,2,737,12-30-1843,,article,0,,,,,,,15,15,15,p15 right,178,1843,False,False,False,1,74,2,1.0,True
+saturday_1843/saturday_1843_0017,saturday_1843,saturday_1843_0017,saturday,2,737,12-30-1843,PORTABLE DIORAMAS,article,0,Ot Yton Dioramic Painting a Ht,,,,,,16,17,16;17,p16 left;p16 right;p17 left,1598,1843,False,False,False,23,606,7,1.0,True
+saturday_1843/saturday_1843_0018,saturday_1843,saturday_1843_0018,saturday,2,737,12-30-1843,THE APPLICATION OF ELECTRICITY TO THE BLASTING OF ROCKS,article,0,,,,,,,17,19,17;18;19,p17 right;p18 left;p18 right;p19 left,2263,1843,False,False,False,21,964,5,0.9717,True
+saturday_1843/saturday_1843_0019,saturday_1843,saturday_1843_0019,saturday,2,737,12-30-1843,,article,0,,,,,,,19,19,19,p19 left,99,1843,False,False,False,1,34,2,1.0,True
+saturday_1843/saturday_1843_0020,saturday_1843,saturday_1843_0020,saturday,2,737,12-30-1843,,article,0,,,,,,,19,19,19,p19 left,54,1843,False,False,False,1,20,2,1.0,True
+saturday_1843/saturday_1843_0021,saturday_1843,saturday_1843_0021,saturday,2,737,12-30-1843,,article,0,,,,,,,19,19,19,p19 left,190,1843,False,False,False,1,82,2,1.0,True
+saturday_1843/saturday_1843_0022,saturday_1843,saturday_1843_0022,saturday,2,737,12-30-1843,CHESS,article,0,,,,,,,19,20,19;20,p19 left;p19 right;p20 left,1209,1843,False,False,False,27,446,14,0.962,True
+saturday_1843/saturday_1843_0023,saturday_1843,saturday_1843_0023,saturday,2,737,12-30-1843,"PROBLEM XXI., page 152",article,0,,,,,,,20,20,20,p20 left,42,1843,False,True,False,1,11,14,1.0,True
+saturday_1843/saturday_1843_0024,saturday_1843,saturday_1843_0024,saturday,2,737,12-30-1843,"PROBLEM XXII., page 224",article,0,,,,,,,20,20,20,p20 left,43,1843,False,True,False,1,13,14,1.0,True
+saturday_1843/saturday_1843_0025,saturday_1843,saturday_1843_0025,saturday,2,737,12-30-1843,SOLUTIONS TO CURIOUS CHESS PROBLEMS,article,0,,,,,,,20,20,20,p20 left;p20 right,581,1843,False,False,False,12,201,14,0.9793,True
+saturday_1843/saturday_1843_0026,saturday_1843,saturday_1843_0026,saturday,2,737,12-30-1843,BLACK,article,0,,,,,,,20,20,20,p20 right,106,1843,False,False,False,2,28,14,0.9623,True
+saturday_1843/saturday_1843_0027,saturday_1843,saturday_1843_0027,saturday,2,737,12-30-1843,WHITE,article,0,,,,,,,20,20,20,p20 right,31,1843,False,True,False,1,9,14,1.0,True
+saturday_1843/saturday_1843_0028,saturday_1843,saturday_1843_0028,saturday,3,738,12-1843,THE HISTORY OF COPPER-PLATE ENGRAVING. CONCLUDED,article,1,A Brief History of the Fine Arts,VIII,,,,,21,28,21;22;23;24;25;26;27;28,p22 left;p22 right;p23 left;p23 right;p24 left;p24 right;p25 left;p25 right;p26 left;p26 right;p27 left;p27 right;p28 left;p28 right,10779,1843,False,False,False,81,4617,7,0.9685,True
+chambers_1837/chambers_1837_0001,chambers_1837,chambers_1837_0001,chambers,1,272,04-15-1837,I THOUGHT IT MY,article,0,,,,,,,8,8,8,p8 left;p8 middle;p8 right,1406,1837,False,False,False,11,541,2,1.0,True
+chambers_1837/chambers_1837_0002,chambers_1837,chambers_1837_0002,chambers,1,272,04-15-1837,MAGAZINE DAY.*,article,0,,,,,,,8,9,8;9,p8 right;p9 left;p9 middle;p9 right,2229,1837,False,False,False,15,865,1,0.9103,True
+chambers_1837/chambers_1837_0003,chambers_1837,chambers_1837_0003,chambers,1,272,04-15-1837,EMIGRATION ON A LARGE SCALE,article,0,,,,,,,9,10,9;10,p9 right;p10 left;p10 middle,2111,1837,False,False,False,9,856,10,0.8664,True
+chambers_1837/chambers_1837_0004,chambers_1837,chambers_1837_0004,chambers,1,272,04-15-1837,YOUNG NAPOLEON,article,0,,,,,,,10,11,10;11,p10 middle;p10 right;p11 left;p11 middle,2912,1837,False,False,False,14,1196,11,0.965,True
+chambers_1837/chambers_1837_0005,chambers_1837,chambers_1837_0005,chambers,1,272,04-15-1837,YANKEE HUMOUR,article,0,,,,,,,11,11,11,p11 middle,187,1837,False,False,False,1,78,2,1.0,True
+chambers_1837/chambers_1837_0006,chambers_1837,chambers_1837_0006,chambers,1,272,04-15-1837,SOFT SAWDER AND HUMAN NATUR,article,0,,,,,,,11,11,11,p11 middle;p11 right,1116,1837,False,False,False,3,411,2,1.0,True
+chambers_1837/chambers_1837_0007,chambers_1837,chambers_1837_0007,chambers,1,272,04-15-1837,NOVA-SCOTIAN HORSES,article,0,,,,,,,11,11,11,p11 right,672,1837,False,False,False,2,265,6,1.0,True
+chambers_1837/chambers_1837_0008,chambers_1837,chambers_1837_0008,chambers,1,272,04-15-1837,ILLUSTRATION OF SUBTERRANEAN WEALTH,article,0,,,,,,,12,12,12,p12 left,612,1837,False,False,False,1,252,0,1.0,True
+chambers_1837/chambers_1837_0009,chambers_1837,chambers_1837_0009,chambers,1,272,04-15-1837,OLD MARGARET AND THE MINISTER,article,0,,,,,,,12,12,12,p12 left;p12 middle,612,1837,False,False,False,3,255,0,0.719,True
+chambers_1837/chambers_1837_0010,chambers_1837,chambers_1837_0010,chambers,1,272,04-15-1837,MY FRIEND BROMELY,article,0,,,,,,,12,13,12;13,p12 middle;p12 right;p13 left;p13 middle,2868,1837,False,False,False,44,980,0,0.9874,True
+chambers_1837/chambers_1837_0011,chambers_1837,chambers_1837_0011,chambers,1,272,04-15-1837,TRAITS OF SPANISH MISRULE,article,0,He Has Not Touched Card Nor Dice Box Since,,2,,,,13,14,13;14,p13 middle;p13 right;p14 left,2143,1837,False,False,False,14,888,9,0.5954,True
+chambers_1837/chambers_1837_0012,chambers_1837,chambers_1837_0012,chambers,1,272,04-15-1837,MR LOCKHART'S LIFE OF SIR WALTER SCOTT,article,0,,,,,,,14,14,14,p14 left;p14 middle;p14 right,2099,1837,False,False,False,14,813,0,0.4993,True
+chambers_1837/chambers_1837_0013,chambers_1837,chambers_1837_0013,chambers,1,272,04-15-1837,NEW SPECIES OF HAT,article,0,,,,,,,14,14,14,p14 right,472,1837,False,False,False,1,200,0,1.0,True
+chambers_1837/chambers_1837_0014,chambers_1837,chambers_1837_0014,chambers,1,272,04-15-1837,SPIDERS THE BEST BAROMETER,article,0,,,,,,,14,14,14,p14 right,173,1837,False,False,False,1,70,8,1.0,True
+chambers_1837/chambers_1837_0015,chambers_1837,chambers_1837_0015,chambers,1,272,04-15-1837,ECONOMY,article,0,,,,,,,14,14,14,p14 right,172,1837,False,False,False,1,65,1,1.0,True
+chambers_1837/chambers_1837_0016,chambers_1837,chambers_1837_0016,chambers,1,272,04-15-1837,THE FALLACY THAT OLD BIRDS ARE NOT TO BE CAUGHT WITH CHAFF. THE,article,0,,,,,,,15,15,15,p15 left,742,1837,False,False,False,1,287,0,0.7493,True
+chambers_1837/chambers_1837_0017,chambers_1837,chambers_1837_0017,chambers,1,272,04-15-1837,SHOW OF WASHINGTON'S NURSE,article,0,,,,,,,15,15,15,p15 left;p15 middle,538,1837,False,False,False,2,205,0,0.632,True
+chambers_1837/chambers_1837_0018,chambers_1837,chambers_1837_0018,chambers,1,272,04-15-1837,"SONNET ON ""GLORY.""",article,0,,,,,,,15,15,15,p15 middle,120,1837,False,False,False,1,57,4,1.0,True
+chambers_1837/chambers_1837_0019,chambers_1837,chambers_1837_0019,chambers,1,272,04-15-1837,INTERESTING BOTANICAL EXPERIMENT,article,0,,,,,,,15,15,15,p15 middle,601,1837,False,False,False,2,256,8,1.0,True
+chambers_1837/chambers_1837_0020,chambers_1837,chambers_1837_0020,chambers,1,272,04-15-1837,HYDROSTATIC BED,article,0,,,,,,,15,15,15,p15 middle;p15 right,707,1837,False,False,False,2,290,0,1.0,True
+chambers_1837/chambers_1837_0021,chambers_1837,chambers_1837_0021,chambers,1,272,04-15-1837,GENERAL STATE OF STATISTICS,article,0,,,,,,,15,15,15,p15 right,154,1837,False,False,False,1,64,1,1.0,True
+chambers_1837/chambers_1837_0022,chambers_1837,chambers_1837_0022,chambers,1,272,04-15-1837,SINGULAR HARE,article,0,,,,,,,15,15,15,p15 right,110,1837,False,False,False,1,45,9,1.0,True
+chambers_1837/chambers_1837_0023,chambers_1837,chambers_1837_0023,chambers,1,272,04-15-1837,REMARKABLE CIRCUMSTANCE,article,0,,,,,,,15,15,15,p15 right,252,1837,False,False,False,1,108,9,1.0,True
+chambers_1837/chambers_1837_0024,chambers_1837,chambers_1837_0024,chambers,1,272,04-15-1837,FROGS,article,0,,,,,,,15,15,15,p15 right,469,1837,False,False,False,1,196,9,1.0,True
+chambers_1837/chambers_1837_0025,chambers_1837,chambers_1837_0025,chambers,1,272,04-15-1837,PRECEDENCE TO A BULLET,article,0,,,,,,,15,15,15,p15 right,89,1837,False,False,False,1,40,0,1.0,True
+chambers_1837/chambers_1837_0026,chambers_1837,chambers_1837_0026,chambers,2,273,04-22-1837,"MR JOSEPH HANSON, THE HABERDASHER. BY MISS MITFORD",article,0,,,,,,,16,17,16;17,p16 left;p16 middle;p16 right;p17 left;p17 middle;p17 right,3788,1837,False,False,False,43,1615,0,0.7497,True
+chambers_1837/chambers_1837_0027,chambers_1837,chambers_1837_0027,chambers,2,273,04-22-1837,SONG-BIRDS,article,0,,,,,,,17,18,17;18,p17 right;p18 left;p18 middle,2419,1837,False,False,False,12,1041,9,0.8334,True
+chambers_1837/chambers_1837_0028,chambers_1837,chambers_1837_0028,chambers,2,273,04-22-1837,CATHERINE OF RUSSIA,article,0,,,,,,,18,19,18;19,p18 middle;p18 right;p19 left;p19 middle,2569,1837,False,False,False,16,1066,3,0.8719,True
+chambers_1837/chambers_1837_0029,chambers_1837,chambers_1837_0029,chambers,2,273,04-22-1837,THOUGHTS ON COMMONPLACE SUBJECTS,article,0,,,,,,,19,19,19,p19 middle,364,1837,False,False,False,1,148,1,1.0,True
+chambers_1837/chambers_1837_0030,chambers_1837,chambers_1837_0030,chambers,2,273,04-22-1837,A WORD UPON THE HIGHLAND POOR,article,0,,,,,,,19,19,19,p19 middle;p19 right,847,1837,False,False,False,4,340,1,1.0,True
+chambers_1837/chambers_1837_0031,chambers_1837,chambers_1837_0031,chambers,2,273,04-22-1837,THE TWO BLIND FIDDLERS,article,0,,,,,,,19,20,19;20,p19 right;p20 left;p20 middle;p20 right,3049,1837,False,False,False,36,1243,0,1.0,True
+chambers_1837/chambers_1837_0032,chambers_1837,chambers_1837_0032,chambers,2,273,04-22-1837,TEXAS.-THIRD ARTICLE,article,0,,,,,,,20,21,20;21,p20 right;p21 left;p21 middle,1990,1837,False,False,False,7,868,9,0.9101,True
+chambers_1837/chambers_1837_0033,chambers_1837,chambers_1837_0033,chambers,2,273,04-22-1837,ROBBERY OF A POST-LETTER,article,0,,,,,,,21,21,21,p21 middle;p21 right,771,1837,False,False,False,4,314,0,1.0,True
+chambers_1837/chambers_1837_0034,chambers_1837,chambers_1837_0034,chambers,2,273,04-22-1837,PRESENT CONDITION OF BELGIUM,article,0,,,,,,,21,21,21,p21 right,352,1837,False,False,False,2,169,1,1.0,True
+chambers_1837/chambers_1837_0035,chambers_1837,chambers_1837_0035,chambers,2,273,04-22-1837,BELGIAN INDUSTRY,article,0,,,,,,,21,22,21;22,p21 right;p22 left;p22 middle,1753,1837,False,False,False,13,775,1,1.0,True
+chambers_1837/chambers_1837_0036,chambers_1837,chambers_1837_0036,chambers,2,273,04-22-1837,STEAM IN BELGIUM,article,0,,,,,,,22,22,22,p22 middle;p22 right,307,1837,False,False,False,4,105,1,1.0,True
+chambers_1837/chambers_1837_0037,chambers_1837,chambers_1837_0037,chambers,2,273,04-22-1837,INSTINCT AND REASON,article,0,,,,,,,22,23,22;23,p22 right;p23 left,1350,1837,False,False,False,6,490,2,0.9474,True
+chambers_1837/chambers_1837_0038,chambers_1837,chambers_1837_0038,chambers,2,273,04-22-1837,LONDON MERCHANTS,article,0,,,,,,,23,23,23,p23 left,567,1837,False,False,False,1,277,3,1.0,True
+chambers_1837/chambers_1837_0039,chambers_1837,chambers_1837_0039,chambers,2,273,04-22-1837,5. DRESSING FOR COMPANY,article,0,,,,,,,23,23,23,p23 left,87,1837,False,False,False,1,34,0,1.0,True
+chambers_1837/chambers_1837_0040,chambers_1837,chambers_1837_0040,chambers,2,273,04-22-1837,SHARP RETORT,article,0,,,,,,,23,23,23,p23 left,29,1837,False,True,False,1,14,2,1.0,True
+chambers_1837/chambers_1837_0041,chambers_1837,chambers_1837_0041,chambers,2,273,04-22-1837,MALTHUSIAN CAT,article,0,,,,,,,23,23,23,p23 left,100,1837,False,False,False,1,32,0,1.0,True
+chambers_1837/chambers_1837_0042,chambers_1837,chambers_1837_0042,chambers,2,273,04-22-1837,ESCAPE OF NELSON,article,0,,,,,,,23,23,23,p23 middle,116,1837,False,False,False,1,52,6,1.0,True
+chambers_1837/chambers_1837_0043,chambers_1837,chambers_1837_0043,chambers,2,273,04-22-1837,HOW TO MAKE A MAD DOG,article,0,,,,,,,23,23,23,p23 middle,242,1837,False,False,False,1,93,0,1.0,True
+chambers_1837/chambers_1837_0044,chambers_1837,chambers_1837_0044,chambers,2,273,04-22-1837,NUMBER OF DEAF AND DUMB,article,0,,,,,,,23,23,23,p23 middle,287,1837,False,False,False,1,119,1,1.0,True
+chambers_1837/chambers_1837_0045,chambers_1837,chambers_1837_0045,chambers,2,273,04-22-1837,SMART RETORT,article,0,,,,,,,23,23,23,p23 middle,55,1837,False,False,False,1,26,0,1.0,True
+chambers_1837/chambers_1837_0046,chambers_1837,chambers_1837_0046,chambers,2,273,04-22-1837,EDIFICATION OF MARRIED MEN,article,0,,,,,,,23,23,23,p23 middle,54,1837,False,False,False,1,21,0,1.0,True
+chambers_1837/chambers_1837_0047,chambers_1837,chambers_1837_0047,chambers,2,273,04-22-1837,QUICK TRAVELLING,article,0,,,,,,,23,23,23,p23 middle,35,1837,False,True,False,1,13,1,1.0,True
+chambers_1837/chambers_1837_0048,chambers_1837,chambers_1837_0048,chambers,2,273,04-22-1837,REASONS FOR THE CHOICE OF A HUSBAND,article,0,,,,,,,23,23,23,p23 middle,29,1837,False,True,False,1,9,0,1.0,True
+chambers_1837/chambers_1837_0049,chambers_1837,chambers_1837_0049,chambers,2,273,04-22-1837,SOLDIERS,article,0,,,,,,,23,23,23,p23 middle,115,1837,False,False,False,1,52,3,1.0,True
+chambers_1837/chambers_1837_0050,chambers_1837,chambers_1837_0050,chambers,2,273,04-22-1837,ANECDOTES OF BONAPARTE,article,0,,,,,,,23,23,23,p23 middle,186,1837,False,False,False,1,80,11,1.0,True
+chambers_1837/chambers_1837_0051,chambers_1837,chambers_1837_0051,chambers,2,273,04-22-1837,A FINE STYLE OF ADVERTISING,article,0,,,,,,,23,23,23,p23 middle,115,1837,False,False,False,1,47,0,1.0,True
+chambers_1837/chambers_1837_0052,chambers_1837,chambers_1837_0052,chambers,2,273,04-22-1837,TWO WILLS IN ONE BODY,article,0,,,,,,,23,23,23,p23 right,82,1837,False,False,False,1,30,2,1.0,True
+chambers_1837/chambers_1837_0053,chambers_1837,chambers_1837_0053,chambers,2,273,04-22-1837,UNCOMMON GOOD SHOT,article,0,,,,,,,23,23,23,p23 right,285,1837,False,False,False,1,115,0,1.0,True
+chambers_1837/chambers_1837_0054,chambers_1837,chambers_1837_0054,chambers,2,273,04-22-1837,THE PASSIONS,article,0,,,,,,,23,23,23,p23 right,128,1837,False,False,False,1,48,0,1.0,True
+chambers_1837/chambers_1837_0055,chambers_1837,chambers_1837_0055,chambers,2,273,04-22-1837,PRESENCE OF MIND,article,0,,,,,,,23,23,23,p23 right,133,1837,False,False,False,1,55,11,1.0,True
+chambers_1837/chambers_1837_0056,chambers_1837,chambers_1837_0056,chambers,2,273,04-22-1837,HOW TO DETECT ADULTERATED BREAD,article,0,,,,,,,23,23,23,p23 right,206,1837,False,False,False,1,83,1,1.0,True
+chambers_1837/chambers_1837_0057,chambers_1837,chambers_1837_0057,chambers,2,273,04-22-1837,FOOD FOR HORSES,article,0,,,,,,,23,23,23,p23 right,104,1837,False,False,False,1,47,1,1.0,True
+chambers_1837/chambers_1837_0058,chambers_1837,chambers_1837_0058,chambers,2,273,04-22-1837,POST-OFFICE IN FRANCE.011,article,0,,,011,,,,23,23,23,p23 right,282,1837,False,False,False,2,116,0,0.7837,True
+chambers_1837/chambers_1837_0059,chambers_1837,chambers_1837_0059,chambers,2,273,04-22-1837,CURE FOR THE EAR-ACHE,article,0,,,,,,,23,23,23,p23 right,47,1837,False,True,False,1,19,13,1.0,True
+chambers_1837/chambers_1837_0060,chambers_1837,chambers_1837_0060,chambers,3,274,04-29-1837,THE TWO FUNERALS,article,0,,,,,,,24,24,24,p24 left;p24 middle;p24 right,1922,1837,False,False,False,9,753,0,1.0,True
+chambers_1837/chambers_1837_0061,chambers_1837,chambers_1837_0061,chambers,3,274,04-29-1837,PAUL CUFFEE,article,0,,,,,,,25,25,25,p25 left;p25 middle;p25 right,2796,1837,False,False,False,15,1185,6,0.9821,True
+chambers_1837/chambers_1837_0062,chambers_1837,chambers_1837_0062,chambers,3,274,04-29-1837,THE BRAGGE FAMILY,article,0,,,,,,,25,27,25;26;27,p25 right;p26 left;p26 middle;p26 right;p27 left,4228,1837,False,False,False,15,1785,0,1.0,True
+chambers_1837/chambers_1837_0063,chambers_1837,chambers_1837_0063,chambers,3,274,04-29-1837,BETTING AT NEWMARKET AND DONCASTER,article,0,,,,,,,27,27,27,p27 left;p27 middle,481,1837,False,False,False,2,189,0,1.0,True
+chambers_1837/chambers_1837_0064,chambers_1837,chambers_1837_0064,chambers,3,274,04-29-1837,TEXAS.-FOURTH ARTICLE,article,0,,,,,,,27,28,27;28,p27 middle;p27 right;p28 left,2160,1837,False,False,False,9,949,9,1.0,True
+chambers_1837/chambers_1837_0065,chambers_1837,chambers_1837_0065,chambers,3,274,04-29-1837,THE PICKWICK PAPERS,article,0,,,,,,,28,29,28;29,p28 left;p28 middle;p28 right;p29 left,3513,1837,False,False,False,43,1513,0,1.0,True
+chambers_1837/chambers_1837_0066,chambers_1837,chambers_1837_0066,chambers,3,274,04-29-1837,LOSS OF BRITISH SHIPPING,article,0,,,,,,,29,29,29,p29 left,337,1837,False,False,False,1,144,10,1.0,True
+chambers_1837/chambers_1837_0067,chambers_1837,chambers_1837_0067,chambers,3,274,04-29-1837,,article,0,,,,,,,29,29,29,p29 left;p29 middle,277,1837,False,False,False,2,107,10,1.0,True
+chambers_1837/chambers_1837_0068,chambers_1837,chambers_1837_0068,chambers,3,274,04-29-1837,FRANCE. BERANGER,article,0,Poetry of Many Lands,,,,,,29,29,29,p29 middle;p29 right,1021,1837,False,False,False,7,441,4,0.667,True
+chambers_1837/chambers_1837_0069,chambers_1837,chambers_1837_0069,chambers,3,274,04-29-1837,THE CARRIER DOVE OF ATHENS,article,0,,,,,,,29,30,29;30,p29 right;p30 left,1157,1837,False,False,False,3,531,4,1.0,True
+chambers_1837/chambers_1837_0070,chambers_1837,chambers_1837_0070,chambers,3,274,04-29-1837,MANAGEMENT AND MISMANAGEMENT,article,0,,,,,,,30,30,30,p30 left;p30 middle;p30 right,2272,1837,False,False,False,16,823,0,0.743,True
+chambers_1837/chambers_1837_0071,chambers_1837,chambers_1837_0071,chambers,3,274,04-29-1837,THE BLOOD-HOUND,article,0,,,,,,,30,31,30;31,p30 right;p31 left,998,1837,False,False,False,9,467,9,1.0,True
+chambers_1837/chambers_1837_0072,chambers_1837,chambers_1837_0072,chambers,3,274,04-29-1837,MISPLACING WORDS,article,0,,,,,,,31,31,31,p31 left,236,1837,False,False,False,1,95,2,1.0,True
+chambers_1837/chambers_1837_0073,chambers_1837,chambers_1837_0073,chambers,3,274,04-29-1837,THE FIRST DAY OF TERM,article,0,,,,,,,31,31,31,p31 middle,886,1837,False,False,False,2,374,0,1.0,True
+chambers_1837/chambers_1837_0074,chambers_1837,chambers_1837_0074,chambers,3,274,04-29-1837,COW-DEALING EXTRAORDINARY,article,0,,,,,,,31,31,31,p31 middle;p31 right,656,1837,False,False,False,2,252,0,1.0,True
+chambers_1837/chambers_1837_0075,chambers_1837,chambers_1837_0075,chambers,3,274,04-29-1837,THE POWER OF WOMEN,article,0,,,,,,,31,31,31,p31 right,103,1837,False,False,False,1,37,1,1.0,True
+chambers_1837/chambers_1837_0076,chambers_1837,chambers_1837_0076,chambers,3,274,04-29-1837,NOT COMFORTABLE YET,article,0,,,,,,,31,31,31,p31 right,95,1837,False,False,False,1,37,1,1.0,True
+chambers_1837/chambers_1837_0077,chambers_1837,chambers_1837_0077,chambers,3,274,04-29-1837,UNION OF AN EAR,article,0,,,,,,,31,31,31,p31 right,228,1837,False,False,False,1,93,13,1.0,True
+chambers_1837/chambers_1837_0078,chambers_1837,chambers_1837_0078,chambers,3,274,04-29-1837,A HOAX EXTRAORDINARY,article,0,,,,,,,31,31,31,p31 right,571,1837,False,False,False,3,272,6,0.9282,True
+chambers_1837/chambers_1837_0079,chambers_1837,chambers_1837_0079,chambers,3,274,04-29-1837,EBENEZER ADAMS,article,0,,,,,,,31,31,31,p31 right,95,1837,False,False,False,1,39,0,1.0,True
+penny_1844/penny_1844_0001,penny_1844,penny_1844_0001,penny,1,755,01-06-1844,BUTTERFLIES,article,0,Curiosities of British Natural History,,,,,,6,8,6;7;8,p6 left;p6 right;p7 left;p7 right;p8 left;p8 right,2894,1844,False,False,False,28,1309,8,0.9838,True
+penny_1844/penny_1844_0002,penny_1844,penny_1844_0002,penny,1,755,01-06-1844,PIETRO PERUGINO: 1446-1524. FRANCESCO FRANCIA: 1450-1517,article,0,'essays on the Lives of Remarkable Painters No Xx,,,,,,9,11,9;10;11,p9 left;p9 right;p10 left;p10 right;p11 left;p11 right,1809,1844,False,False,False,18,796,7,1.0,True
+penny_1844/penny_1844_0003,penny_1844,penny_1844_0003,penny,1,755,01-06-1844,ELASTIC CEMENT,article,0,,,,,,,11,13,11;12;13,p11 right;p12 left;p12 right;p13 left,2396,1844,False,False,False,17,983,5,1.0,True
+penny_1844/penny_1844_0004,penny_1844,penny_1844_0004,penny,1,755,01-06-1844,,article,0,,,,,,,13,13,13,p13 left;p13 right,569,1844,False,False,False,2,247,1,1.0,True
+penny_1844/penny_1844_0005,penny_1844,penny_1844_0005,penny,1,755,01-06-1844,Christmas on the Frontiers of Lapland,article,0,,,,,,,13,13,13,p13 right,487,1844,False,False,False,1,228,4,1.0,True
+penny_1844/penny_1844_0006,penny_1844,penny_1844_0006,penny,2,756,01-13-1844,HUDIBRAS.-No. I,article,0,,,,,,,14,16,14;15;16,p14 left;p14 right;p15 left;p15 right;p16 left;p16 right,2001,1844,False,False,False,21,802,2,0.6032,True
+penny_1844/penny_1844_0007,penny_1844,penny_1844_0007,penny,2,756,01-13-1844,ROMAN LIGHTHOUSE AT BOULOGNE,article,0,,,,,,,17,18,17;18,p17 left;p17 right;p18 left,1300,1844,False,False,False,7,510,3,1.0,True
+penny_1844/penny_1844_0008,penny_1844,penny_1844_0008,penny,2,756,01-13-1844,ON THE PRODUCTION OF SOUND UNDER WATER,article,0,,,,,,,18,19,18;19,p18 left;p18 right;p19 left;p19 right,2082,1844,False,False,False,15,827,8,1.0,True
+penny_1844/penny_1844_0009,penny_1844,penny_1844_0009,penny,2,756,01-13-1844,THE GLACIERS OF THE ALPS,article,0,,,,,,,20,21,20;21,p20 left;p20 right;p21 left;p21 right,2606,1844,False,False,False,18,1058,5,1.0,True
+penny_1844/penny_1844_0010,penny_1844,penny_1844_0010,penny,3,757,01-20-1844,"CHURCH AT GREENSTED, ESSEX",article,0,,,,,,,22,23,22;23,p22 left;p22 right;p23 left,1269,1844,False,False,False,10,523,3,0.9488,True
+penny_1844/penny_1844_0011,penny_1844,penny_1844_0011,penny,3,757,01-20-1844,THE FLOODS AND AVALANCHES OF THE ALPS,article,0,,,,,,,23,25,23;24;25,p23 left;p23 right;p24 left;p24 right;p25 left,2531,1844,False,False,False,17,1049,5,0.8815,True
+penny_1844/penny_1844_0012,penny_1844,penny_1844_0012,penny,3,757,01-20-1844,Pavement of Paris,article,0,,,,,,,25,25,25,p25 left,203,1844,False,False,False,1,94,1,1.0,True
+penny_1844/penny_1844_0013,penny_1844,penny_1844_0013,penny,3,757,01-20-1844,Trees of Port Phillip,article,0,,,,,,,25,25,25,p25 left;p25 right,464,1844,False,False,False,2,186,5,0.5237,True
+penny_1844/penny_1844_0014,penny_1844,penny_1844_0014,penny,3,757,01-20-1844,The Type of the Spaniards,article,0,,,,,,,25,25,25,p25 right,259,1844,False,False,False,1,107,9,1.0,True
+penny_1844/penny_1844_0015,penny_1844,penny_1844_0015,penny,3,757,01-20-1844,The Orange-Groves of Mexico,article,0,,,,,,,25,25,25,p25 right,301,1844,False,False,False,1,152,9,1.0,True
+penny_1844/penny_1844_0016,penny_1844,penny_1844_0016,penny,3,757,01-20-1844,TOULOUSE,article,0,,,,,,,26,28,26;27;28,p26 left;p26 right;p27 left;p27 right;p28 left,2174,1844,False,False,False,16,971,3,0.9002,True
+penny_1844/penny_1844_0017,penny_1844,penny_1844_0017,penny,3,757,01-20-1844,USES OF THE POPLAR-TREE,article,0,,,,,,,28,29,28;29,p28 left;p28 right;p29 left;p29 right,2139,1844,False,False,False,17,939,5,1.0,True
+penny_1844/penny_1844_0018,penny_1844,penny_1844_0018,penny,3,757,01-20-1844,Memory of Bees,article,0,,,,,,,29,29,29,p29 right,341,1844,False,False,False,1,122,8,1.0,True
+saturday_1837/saturday_1837_0001,saturday_1837,saturday_1837_0001,saturday,1,291,01-14-1837,VIEW OF SELBORNE,article,0,,,,,,,5,7,5;6;7,p5 left;p5 right;p6 left;p6 right;p7 left,1910,1837,False,False,False,17,862,6,0.7948,True
+saturday_1837/saturday_1837_0002,saturday_1837,saturday_1837_0002,saturday,1,291,01-14-1837,THE INVITATION TO SELBORNE,article,0,,,,,,,7,7,7,p7 left,511,1837,False,False,False,7,300,6,0.8689,True
+saturday_1837/saturday_1837_0003,saturday_1837,saturday_1837_0003,saturday,1,291,01-14-1837,,article,0,,,,,,,7,7,7,p7 left,66,1837,False,False,False,1,32,2,1.0,True
+saturday_1837/saturday_1837_0004,saturday_1837,saturday_1837_0004,saturday,1,291,01-14-1837,SPIDERS. I,article,0,,,,,,,7,7,7,p7 right,606,1837,False,False,False,6,248,8,1.0,True
+saturday_1837/saturday_1837_0005,saturday_1837,saturday_1837_0005,saturday,1,291,01-14-1837,TA HAJ,article,0,,,,,,,8,8,8,p8 left,228,1837,False,False,False,3,92,8,1.0,True
+saturday_1837/saturday_1837_0006,saturday_1837,saturday_1837_0006,saturday,1,291,01-14-1837,intNOTES ON FOREST TREES. No. V,article,0,,,V,,,,8,9,8;9,p8 left;p8 right;p9 left,1215,1837,False,False,False,18,520,5,0.8041,True
+saturday_1837/saturday_1837_0007,saturday_1837,saturday_1837_0007,saturday,1,291,01-14-1837,ICE PALACE AT MOSCOW,article,0,,,,,,,9,10,9;10,p9 right;p10 left,664,1837,False,False,False,6,292,3,0.9367,True
+saturday_1837/saturday_1837_0008,saturday_1837,saturday_1837_0008,saturday,1,291,01-14-1837,AUSTRALIAN GRAMMAR. III,article,0,,,III,,,,10,11,10;11,p10 left;p10 right;p11 left,2200,1837,False,False,False,26,944,6,0.8059,True
+saturday_1837/saturday_1837_0009,saturday_1837,saturday_1837_0009,saturday,1,291,01-14-1837,CROWNS AND CORONETS,article,0,,,,,,,11,12,11;12,p11 right;p12 left;p12 right,1344,1837,False,False,False,12,586,3,1.0,True
+saturday_1837/saturday_1837_0010,saturday_1837,saturday_1837_0010,saturday,2,292,01-21-1837,IN SWITZERLAND,article,0,The Town of Bern,,,,,,13,16,13;14;15;16,p14 left;p14 right;p15 left;p15 right;p16 left;p16 right,4003,1837,False,False,False,43,1746,3,0.601,True
+saturday_1837/saturday_1837_0011,saturday_1837,saturday_1837_0011,saturday,2,292,01-21-1837,Hs to sinstida THE SPANISH ARMADA,article,0,,,,,,,17,17,17,p17 left,831,1837,False,False,False,2,465,6,0.7112,True
+saturday_1837/saturday_1837_0012,saturday_1837,saturday_1837_0012,saturday,2,292,01-21-1837,,article,0,,,,,,,17,17,17,p17 left,34,1837,False,True,False,1,13,2,1.0,True
+saturday_1837/saturday_1837_0013,saturday_1837,saturday_1837_0013,saturday,2,292,01-21-1837,"THE POPULAR SUPERSTITIONS, LEGENDS, AND FICTIONS, OF THE MIDDLE AGES",article,0,,,,,,,17,17,17,p17 right,54,1837,False,False,False,1,23,4,1.0,True
+saturday_1837/saturday_1837_0014,saturday_1837,saturday_1837_0014,saturday,2,292,01-21-1837,,article,0,,,,,,,17,18,17;18,p17 right;p18 left;p18 right,1592,1837,False,False,False,21,730,3,0.3744,True
+saturday_1837/saturday_1837_0015,saturday_1837,saturday_1837_0015,saturday,2,292,01-21-1837,,article,0,,,,,,,18,18,18,p18 right,158,1837,False,False,False,1,59,4,1.0,True
+saturday_1837/saturday_1837_0016,saturday_1837,saturday_1837_0016,saturday,2,292,01-21-1837,,article,0,,,,,,,18,18,18,p18 right,52,1837,False,False,False,1,22,2,1.0,True
+saturday_1837/saturday_1837_0017,saturday_1837,saturday_1837_0017,saturday,2,292,01-21-1837,SPIDERS. II,article,0,,,,,,,19,19,19,p19 left;p19 right,1096,1837,False,False,False,7,436,8,1.0,True
+saturday_1837/saturday_1837_0018,saturday_1837,saturday_1837_0018,saturday,2,292,01-21-1837,"NOTES ON FOREST TREES. No. VI THE LARCH, (Pinus larix.)",article,0,Notes on Forest Trees,VI,,,,,19,20,19;20,p19 right;p20 left,243,1837,False,False,False,2,99,5,1.0,True
+saturday_1837/saturday_1837_0019,saturday_1837,saturday_1837_0019,saturday,2,292,01-21-1837,THE LARCH,article,0,,,,,,,20,20,20,p20 left;p20 right,700,1837,False,False,False,8,290,5,1.0,True
+saturday_1837/saturday_1837_0020,saturday_1837,saturday_1837_0020,saturday,3,293,01-28-1837,,article,0,,,,,,,21,22,21;22,p21 left;p21 right;p22 left,1094,1837,False,False,False,10,467,9,0.9698,True
+saturday_1837/saturday_1837_0021,saturday_1837,saturday_1837_0021,saturday,3,293,01-28-1837,ON WINTER,article,0,,,,,,,22,22,22,p22 right,595,1837,False,False,False,6,282,4,0.6437,True
+saturday_1837/saturday_1837_0022,saturday_1837,saturday_1837_0022,saturday,3,293,01-28-1837,WINTER AND CHARITY,article,0,,,,,,,22,23,22;23,p22 right;p23 left;p23 right,1105,1837,False,False,False,15,506,2,0.8018,True
+saturday_1837/saturday_1837_0023,saturday_1837,saturday_1837_0023,saturday,3,293,01-28-1837,,article,0,,,,,,,23,23,23,p23 right,103,1837,False,False,False,1,49,2,1.0,True
+saturday_1837/saturday_1837_0024,saturday_1837,saturday_1837_0024,saturday,3,293,01-28-1837,No. II. WIND INSTRUMENTS,article,0,Musical Instruments,II,,,,,24,25,24;25,p24 left;p24 right;p25 left,1114,1837,False,False,False,18,453,5,0.9964,True
+saturday_1837/saturday_1837_0025,saturday_1837,saturday_1837_0025,saturday,3,293,01-28-1837,,article,0,,,,,,,25,25,25,p25 left,86,1837,False,False,False,1,38,2,1.0,True
+saturday_1837/saturday_1837_0026,saturday_1837,saturday_1837_0026,saturday,3,293,01-28-1837,,article,0,,,,,,,25,25,25,p25 left,39,1837,False,True,False,1,11,2,1.0,True
+saturday_1837/saturday_1837_0027,saturday_1837,saturday_1837_0027,saturday,3,293,01-28-1837,,article,0,,,,,,,25,25,25,p25 left,244,1837,False,False,False,1,104,2,1.0,True
+saturday_1837/saturday_1837_0028,saturday_1837,saturday_1837_0028,saturday,3,293,01-28-1837,TMHARADE,article,0,,,,,,,25,25,25,p25 right,643,1837,False,False,False,1,223,4,1.0,True
+saturday_1837/saturday_1837_0029,saturday_1837,saturday_1837_0029,saturday,3,293,01-28-1837,,article,0,,,,,,,25,25,25,p25 right,161,1837,False,False,False,1,58,0,1.0,True
+saturday_1837/saturday_1837_0030,saturday_1837,saturday_1837_0030,saturday,3,293,01-28-1837,MYTHOLOGY OF THE NURSERY,article,0,,,,,,,26,26,26,p26 left,20,1837,False,True,False,1,13,4,1.0,True
+saturday_1837/saturday_1837_0031,saturday_1837,saturday_1837_0031,saturday,3,293,01-28-1837,,article,0,,,,,,,26,27,26;27,p26 left;p26 right;p27 left;p27 right,2078,1837,False,False,False,17,912,4,0.8667,True
+saturday_1837/saturday_1837_0032,saturday_1837,saturday_1837_0032,saturday,3,293,01-28-1837,TEUTONIC Mythology,article,0,,,,,,,27,28,27;28,p27 right;p28 left,650,1837,False,False,False,6,285,4,1.0,True
+saturday_1837/saturday_1837_0033,saturday_1837,saturday_1837_0033,saturday,3,293,01-28-1837,CARTLAND CRAIGS AND BRIDGE,article,0,,,,,,,28,28,28,p28 left;p28 right,375,1837,False,False,False,3,173,6,0.9387,True
+chambers_1840/chambers_1840_0001,chambers_1840,chambers_1840_0001,chambers,1,105,01-04-1840,STORIES OF THE IRISH PEASANTRY,article,0,,,,,,,8,8,8,p8 left,12,1840,True,True,False,1,6,2,1.0,True
+chambers_1840/chambers_1840_0002,chambers_1840,chambers_1840_0002,chambers,1,105,01-04-1840,THE CROCK OF GOLD,article,0,,,,,,,8,10,8;9;10,p8 left;p8 middle;p8 right;p9 left;p9 middle;p9 right;p10 left;p10 middle,6193,1840,True,False,False,69,2496,0,0.7982,True
+chambers_1840/chambers_1840_0003,chambers_1840,chambers_1840_0003,chambers,1,105,01-04-1840,to SUPPOSED CHANGES IN THE WEATHER OF LATE YEARS,article,0,,,,,,,10,11,10;11,p10 middle;p10 right;p11 left,1746,1840,True,False,False,12,626,5,1.0,True
+chambers_1840/chambers_1840_0004,chambers_1840,chambers_1840_0004,chambers,1,105,01-04-1840,THE SILK-WOOL OF THE ALPACA,article,0,,,,,,,11,11,11,p11 left;p11 middle,430,1840,True,False,False,2,174,9,1.0,True
+chambers_1840/chambers_1840_0005,chambers_1840,chambers_1840_0005,chambers,1,105,01-04-1840,PICTURE OF A GERMAN STUDENT,article,0,,,,,,,11,12,11;12,p11 middle;p11 right;p12 left,2045,1840,True,False,False,5,845,1,0.7095,True
+chambers_1840/chambers_1840_0006,chambers_1840,chambers_1840_0006,chambers,1,105,01-04-1840,ISAAC WATTS,article,0,Biographic Sketches,,,,,,12,12,12,p12 left;p12 middle,829,1840,True,False,False,5,331,2,0.5151,True
+chambers_1840/chambers_1840_0007,chambers_1840,chambers_1840_0007,chambers,1,105,01-04-1840,HAPPY FRAILTY,article,0,,,,,,,12,12,12,p12 middle,603,1840,True,False,False,6,300,4,0.9635,True
+chambers_1840/chambers_1840_0008,chambers_1840,chambers_1840_0008,chambers,1,105,01-04-1840,THE ROSE,article,0,,,,,,,12,12,12,p12 middle;p12 right,158,1840,True,False,False,2,65,4,0.8924,True
+chambers_1840/chambers_1840_0009,chambers_1840,chambers_1840_0009,chambers,1,105,01-04-1840,THE ANT OR EMMET,article,0,,,,,,,12,12,12,p12 right,825,1840,True,False,False,6,337,2,0.6461,True
+chambers_1840/chambers_1840_0010,chambers_1840,chambers_1840_0010,chambers,1,105,01-04-1840,ACCIDENTAL DISCOVERY OF THE STEAM-ENGINE,article,0,,,,,,,12,13,12;13,p12 right;p13 left,324,1840,True,False,False,2,141,1,1.0,True
+chambers_1840/chambers_1840_0011,chambers_1840,chambers_1840_0011,chambers,1,105,01-04-1840,THE SCOTCH COSTUMES OF LONDON ARTISTS,article,0,,,,,,,13,13,13,p13 left;p13 middle,954,1840,True,False,False,4,408,6,0.8742,True
+chambers_1840/chambers_1840_0012,chambers_1840,chambers_1840_0012,chambers,1,105,01-04-1840,WHAT CONSTITUTES A PATENT,article,0,,,,,,,13,13,13,p13 middle;p13 right,1519,1840,True,False,False,10,584,5,1.0,True
+chambers_1840/chambers_1840_0013,chambers_1840,chambers_1840_0013,chambers,1,105,01-04-1840,WELEES AND DERVISHES,article,0,,,,,,,13,14,13;14,p13 right;p14 left,1417,1840,True,False,False,5,573,6,0.7622,True
+chambers_1840/chambers_1840_0014,chambers_1840,chambers_1840_0014,chambers,1,105,01-04-1840,YANKEE PEDLAR,article,0,,,,,,,14,15,14;15,p14 left;p14 middle;p14 right;p15 left;p15 middle,4133,1840,True,False,False,24,1684,7,0.8686,True
+chambers_1840/chambers_1840_0015,chambers_1840,chambers_1840_0015,chambers,1,105,01-04-1840,MARIANA,article,0,,,,,,,15,15,15,p15 right,539,1840,True,False,False,1,234,4,1.0,True
+chambers_1840/chambers_1840_0017,chambers_1840,chambers_1840_0017,chambers,2,106,01-11-1840,VISITS TO THE SCHOOLS IN DUBLIN,article,0,,,,,,,16,17,16;17,p16 left;p16 middle;p16 right;p17 left;p17 middle;p17 right,3631,1840,True,False,False,18,1502,1,0.8529,True
+chambers_1840/chambers_1840_0018,chambers_1840,chambers_1840_0018,chambers,2,106,01-11-1840,"""ADVENTURES OF ROBIN DAY.""",article,0,,,,,,,17,18,17;18,p17 right;p18 left;p18 middle;p18 right,3047,1840,True,False,False,29,1223,6,0.596,True
+chambers_1840/chambers_1840_0019,chambers_1840,chambers_1840_0019,chambers,2,106,01-11-1840,LABOUR SONGS,article,0,,,2,,,,18,19,18;19,p18 right;p19 left,946,1840,True,False,False,8,486,4,0.9218,True
+chambers_1840/chambers_1840_0020,chambers_1840,chambers_1840_0020,chambers,2,106,01-11-1840,,article,0,,,,,,,19,19,19,p19 left;p19 middle;p19 right,1695,1840,True,False,False,25,745,4,0.7392,True
+chambers_1840/chambers_1840_0021,chambers_1840,chambers_1840_0021,chambers,2,106,01-11-1840,HOW THEY CURE NE'ERDOWEELS,article,0,Snatches of Continental Recollections,,,,,,19,20,19;20,p19 right;p20 left,852,1840,True,False,False,5,329,1,1.0,True
+chambers_1840/chambers_1840_0022,chambers_1840,chambers_1840_0022,chambers,2,106,01-11-1840,POPULAR INFORMATION ON SCIENCE RED-COLOURED RAIN,article,0,,,,,,,20,20,20,p20 left;p20 middle;p20 right,1671,1840,True,False,False,13,727,8,0.9563,True
+chambers_1840/chambers_1840_0023,chambers_1840,chambers_1840_0023,chambers,2,106,01-11-1840,SKETCHES OF SUPERSTITIONS,article,0,Sketches of Superstitions,,,,,,20,22,20;21;22,p20 right;p21 left;p21 middle;p21 right;p22 left,3561,1840,True,False,False,15,1578,12,0.9893,True
+chambers_1840/chambers_1840_0024,chambers_1840,chambers_1840_0024,chambers,2,106,01-11-1840,ANIMAL COTTON,article,0,,,,,,,22,22,22,p22 left;p22 middle,1255,1840,True,False,False,5,530,8,1.0,True
+chambers_1840/chambers_1840_0025,chambers_1840,chambers_1840_0025,chambers,2,106,01-11-1840,INDIAN ANECDOTES,article,0,,,,,,,22,23,22;23,p22 middle;p22 right;p23 left,1949,1840,True,False,False,7,845,0,0.4931,True
+chambers_1840/chambers_1840_0026,chambers_1840,chambers_1840_0026,chambers,2,106,01-11-1840,THE GOVERNMENT CLERK,article,0,,,,,,,23,23,23,p23 left;p23 middle,1506,1840,True,False,False,11,647,1,0.8964,True
+chambers_1840/chambers_1840_0027,chambers_1840,chambers_1840_0027,chambers,2,106,01-11-1840,TASTE FOR MUSIC IN GERMANY,article,0,,,,,,,23,23,23,p23 middle;p23 right,297,1840,True,False,False,2,125,11,1.0,True
+chambers_1840/chambers_1840_0028,chambers_1840,chambers_1840_0028,chambers,2,106,01-11-1840,MILITARY PARADE AND COSTUME,article,0,,,,,,,23,23,23,p23 right,491,1840,True,False,False,1,206,2,0.501,True
+chambers_1840/chambers_1840_0030,chambers_1840,chambers_1840_0030,chambers,3,107,01-18-1840,LITERARY FORMULAS,article,0,Cvii,,,,,,24,25,24;25,p24 left;p24 middle;p24 right;p25 left;p25 middle,2693,1840,True,False,False,10,1059,1,0.6814,True
+chambers_1840/chambers_1840_0031,chambers_1840,chambers_1840_0031,chambers,3,107,01-18-1840,WALKS OUT OF TOWN,article,0,,,,,,,25,26,25;26,p25 middle;p25 right;p26 left;p26 middle,3804,1840,True,False,False,19,1511,0,0.4361,True
+chambers_1840/chambers_1840_0032,chambers_1840,chambers_1840_0032,chambers,3,107,01-18-1840,SPECIMENS OF THE ENGLISH SONNET WRITERS,article,0,,,,,,,26,27,26;27,p26 right;p27 left;p27 middle,2121,1840,True,False,False,22,892,4,0.9033,True
+chambers_1840/chambers_1840_0033,chambers_1840,chambers_1840_0033,chambers,3,107,01-18-1840,DRUMMOND TO HIS LUTE,article,0,,,,,,,27,27,27,p27 middle,116,1840,True,False,False,1,52,4,1.0,True
+chambers_1840/chambers_1840_0034,chambers_1840,chambers_1840_0034,chambers,3,107,01-18-1840,WOMEN IN AMERICA,article,0,,,,,,,27,27,27,p27 middle;p27 right,1164,1840,True,False,False,10,464,0,1.0,True
+chambers_1840/chambers_1840_0035,chambers_1840,chambers_1840_0035,chambers,3,107,01-18-1840,STAGE-COACH JOURNEY TO THE TOURNAMENT,article,0,,,,,,,27,28,27;28,p27 right;p28 left;p28 middle,1167,1840,True,False,False,8,448,0,1.0,True
+chambers_1840/chambers_1840_0036,chambers_1840,chambers_1840_0036,chambers,3,107,01-18-1840,"GREEK SUPERSTITIONS CONTINUED ORACLES, SACRIFICES, OMENS",article,0,Sketches of Superstitions,,,,,,28,29,28;29,p28 middle;p28 right;p29 left;p29 middle,3159,1840,True,False,False,15,1375,12,0.9478,True
+chambers_1840/chambers_1840_0037,chambers_1840,chambers_1840_0037,chambers,3,107,01-18-1840,A LESSON IN GOOD HUMOUR,article,0,,,,,,,29,29,29,p29 middle;p29 right,974,1840,True,False,False,19,402,0,0.616,True
+chambers_1840/chambers_1840_0038,chambers_1840,chambers_1840_0038,chambers,3,107,01-18-1840,STATE OF THE EGYPTIAN PEOPLE,article,0,,,,,,,29,30,29;30,p29 right;p30 left;p30 middle,2334,1840,True,False,False,7,963,9,0.931,True
+chambers_1840/chambers_1840_0039,chambers_1840,chambers_1840_0039,chambers,3,107,01-18-1840,"REPORT OF BIRTHS, MARRIAGES, AND DEATHS IN ENGLAND",article,0,,,,,,,30,31,30;31,p30 middle;p30 right;p31 left;p31 middle,2240,1840,True,False,False,17,932,1,0.996,True
+chambers_1840/chambers_1840_0040,chambers_1840,chambers_1840_0040,chambers,3,107,01-18-1840,A WEDDING AT SEA,article,0,,,,,,,31,31,31,p31 middle;p31 right,725,1840,True,False,False,3,287,0,0.9628,True
+chambers_1840/chambers_1840_0041,chambers_1840,chambers_1840_0041,chambers,3,107,01-18-1840,SCENE IN THE MANAGER'S ROOM,article,0,,,,,,,31,31,31,p31 right,360,1840,True,False,False,1,132,0,0.5,True
+chambers_1840/chambers_1840_0042,chambers_1840,chambers_1840_0042,chambers,3,107,01-18-1840,BANKING IN EARLY TIMES,article,0,,,,,,,31,31,31,p31 right,294,1840,True,False,False,1,115,1,1.0,True
+chambers_1840/chambers_1840_0043,chambers_1840,chambers_1840_0043,chambers,3,107,01-18-1840,CURE FOR DRUNKENNESS,article,0,,,,,,,31,31,31,p31 right,115,1840,True,False,False,1,50,0,1.0,True
+chambers_1840/chambers_1840_0044,chambers_1840,chambers_1840_0044,chambers,3,107,01-18-1840,IMPORTANCE OF CORRECT PUNCTUATION,article,0,,,,,,,31,31,31,p31 right,100,1840,True,False,False,1,40,1,1.0,True
+chambers_1840/chambers_1840_0045,chambers_1840,chambers_1840_0045,chambers,3,107,01-18-1840,,article,0,,,,,,,31,31,31,p31 right,10,1840,True,True,False,1,7,1,1.0,True

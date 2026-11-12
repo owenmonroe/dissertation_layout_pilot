@@ -27,3 +27,6 @@ output/output_images_json_v2_article_extraction/**/*.png
 output/output_images_json_v3_article_extraction/**/*.png
 output/output_images_json_v4_article_extraction/**/*.png
 output/output_images_json_v5_article_extraction/**/*.png
+# topic models: embeddings and saved model files (rebuilt by pipeline/topic_modelling/)
+output/topic_models/**/embeddings_*.npy
+output/topic_models/**/model/
