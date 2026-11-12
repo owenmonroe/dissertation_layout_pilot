@@ -192,7 +192,12 @@ The names are suggestions. The `label` column in `topics` is left for Owen.
 ## Next
 
 1. Label the 16 topics (`topics.label`).
-2. Explore co-occurrence by issue, page and column (a notebook on
-   `topics.sqlite`).
+2. Explore co-occurrence by issue, page and column. Built:
+   - `evaluation/topic_modelling/topic_explorer.ipynb` (with
+     `topic_explorer.py`): for any topic, its strongest issue and its
+     strongest page beside another article, with partner topics and article
+     titles marked as meld (same article) or juxtaposition (same or
+     neighbouring column);
+   - `topic_examples_walkthrough.md`: five worked examples.
 3. On the full corpus: rebuild the corpus and sweep again. LDA could be
    tried again there with a tighter vocabulary.
