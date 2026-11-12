@@ -310,6 +310,55 @@ def article_boxes(doc_id: str):
                                            for i in b.box_id]}))
 
 
+def page(volume: str, pg: int):
+    """Any page's topics and its articles in reading order. volume and pg as in
+    the page image's file name, e.g. saturday_1834_page_022 -> page("saturday_1834", 22)."""
+    b = BOXES[(BOXES.volume == volume) & (BOXES.page == pg)]
+    if b.empty:
+        _md(f"## No modelled text on {volume} page {pg}.")
+        return
+    seq = int(ARTICLES.issue_seq[b.doc_id.iloc[0]])
+    share = PAGES[(PAGES.volume == volume) & (PAGES.page == pg)].sort_values("share", ascending=False)
+    _md(f"## {issue_name(volume, seq)}, page {pg}\n\n"
+        "Page topics: " + "; ".join(f"{tag(r.topic_id)} {r.share:.0%} ({r.words:,.0f} words)"
+                                    for r in share.itertuples()))
+    _md("**The page in reading order** (runs of boxes of one article and one topic):")
+    _table(_runs(b).drop(columns="page"))
+
+
+def _runs(b: pd.DataFrame) -> pd.DataFrame:
+    """Boxes in reading order, grouped into runs of one page, column, article and topic."""
+    b = b.sort_values(["page", "reading_order", "chunk"])
+    run_id = ((b.page != b.page.shift()) | (b.column != b.column.shift())
+              | (b.doc_id != b.doc_id.shift()) | (b.topic_id != b.topic_id.shift())).cumsum()
+    runs = (b.groupby(run_id).agg(page=("page", "first"), column=("column", "first"),
+                                  doc_id=("doc_id", "first"), topic_id=("topic_id", "first"),
+                                  words=("words", "sum"), boxes=("box_id", "count"))
+             .reset_index(drop=True))
+    return pd.DataFrame({"page": runs.page, "column": runs.column,
+                         "article": runs.doc_id.map(title), "doc_id": runs.doc_id,
+                         "topic": runs.topic_id.map(tag), "boxes": runs.boxes,
+                         "words": runs.words})
+
+
+def issue(volume: str, issue_no: int):
+    """Any issue's topics and its articles in reading order, page by page.
+    issue_no is the printed number, e.g. issue("chambers_1843", 575)."""
+    docs = ARTICLES[(ARTICLES.volume == volume) & (ARTICLES.issue_no.astype(str) == str(issue_no))]
+    if docs.empty:
+        _md(f"## No issue {issue_no} in {volume}.")
+        return
+    seq = int(docs.issue_seq.iloc[0])
+    share = ISSUES[(ISSUES.volume == volume) & (ISSUES.issue_seq == seq)].sort_values(
+        "share", ascending=False)
+    _md(f"## {issue_name(volume, seq)}: {int(share.words.sum()):,} words, "
+        f"pages {docs.start_page.min()}–{docs.end_page.max()}\n\n"
+        "Issue topics: " + "; ".join(f"{tag(r.topic_id)} {r.share:.0%} ({r.words:,.0f} words)"
+                                     for r in share.itertuples()))
+    _md("**The issue in reading order** (runs of boxes of one page, column, article and topic):")
+    _table(_runs(BOXES[BOXES.doc_id.isin(docs.index)]))
+
+
 _box_cache = {}
 
 
