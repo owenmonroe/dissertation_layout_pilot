@@ -149,12 +149,12 @@ def strongest_issue(t: int, rank: int = 0):
 
 def _relation(col_a: str, col_b: str) -> str:
     if col_a == col_b:
-        return "same column"
+        return "juxtaposition: same column"
     if "spanning" in (col_a, col_b):
-        return "same page (spanning)"
+        return "juxtaposition: same page (spanning)"
     if abs(COLUMNS.index(col_a) - COLUMNS.index(col_b)) == 1:
-        return "neighbouring column"
-    return "same page"
+        return "juxtaposition: neighbouring column"
+    return "juxtaposition: same page"
 
 
 def _partner_pages(t: int, need: str) -> set:
@@ -218,7 +218,8 @@ def strongest_page(t: int, rank: int = 0, need: str = "article"):
         same = p.doc_id in set(mine.doc_id)
         rel = "same article (meld)" if same else min(
             (_relation(p.column, m.column) for m in mine.itertuples()),
-            key=["same column", "neighbouring column", "same page (spanning)", "same page"].index)
+            key=["juxtaposition: same column", "juxtaposition: neighbouring column",
+                 "juxtaposition: same page (spanning)", "juxtaposition: same page"].index)
         rows.append({"partner topic": tag(p.topic_id), "partner article": title(p.doc_id),
                      "column": p.column, "words": p.words,
                      f"topic {t} article(s) beside it": "; ".join(sorted({title(d) for d in mine.doc_id})),
@@ -261,6 +262,62 @@ def partners(t: int, n: int = 5, titles: int = 3):
         "chance. Titles: the partner's articles in those shared issues with the most words on it "
         f"(mainly on the partner where there are any, otherwise carrying it at {CARRIES:.0%} or more).")
     _table(pd.DataFrame(rows))
+
+
+# --- 5. Melds: one article holding topic t and another topic --------------------------
+
+def melds(t: int, other: int = None, min_share: float = 0.25, min_words: int = 300, n: int = 10):
+    """Articles where topic t and another topic each hold at least min_share of
+    the article's words (other=None: any other topic). Longest articles first."""
+    w = ART_TOPICS.pivot_table(index="doc_id", columns="topic_id", values="weight", fill_value=0)
+    w = w[(w.get(t, 0) >= min_share)]
+    rows = []
+    for d, r in w.iterrows():
+        if ARTICLES.word_count[d] < min_words:
+            continue
+        for o, ow in r.items():
+            if o == t or ow < min_share or (other is not None and o != other):
+                continue
+            rows.append({"doc_id": d, "article": title(d),
+                         "issue": f"{ARTICLES.magazine[d].title()} No. {ARTICLES.issue_no[d]}, "
+                                  f"{ARTICLES.issue_date[d]}",
+                         "pages": f"{ARTICLES.start_page[d]}–{ARTICLES.end_page[d]}",
+                         "words": ARTICLES.word_count[d], f"topic {t}": r[t],
+                         "other topic": tag(o), "other's share": ow})
+    rows = pd.DataFrame(rows)
+    _md(f"## Melds: articles with topic {tag(t)} and "
+        f"{'topic ' + tag(other) if other is not None else 'another topic'}\n\n"
+        f"Each at least {min_share:.0%} of the article; articles of {min_words}+ words; "
+        f"{len(rows)} found. Use `article_boxes(doc_id)` to see where each topic falls.")
+    if rows.empty:
+        return
+    _table(rows.sort_values("words", ascending=False).head(n))
+
+
+def article_boxes(doc_id: str):
+    """An article's text boxes in reading order: column, topic, words and the
+    opening words of each box, so a meld can be checked by eye."""
+    b = BOXES[BOXES.doc_id == doc_id].sort_values(["page", "reading_order", "chunk"])
+    text = _box_text()
+    _md(f"## {title(doc_id)}: {ARTICLES.word_count[doc_id]:,} words, box by box\n\n"
+        "Mix: " + "; ".join(f"{tag(r.topic_id)} {r.weight:.0%}" for r in
+                            ART_TOPICS[ART_TOPICS.doc_id == doc_id]
+                            .sort_values("weight", ascending=False).itertuples()))
+    _table(pd.DataFrame({"page": b.page, "column": b.column, "order": b.reading_order,
+                         "topic": b.topic_id.map(tag), "words": b.words,
+                         "similarity": b.similarity,
+                         "opening words": [" ".join(text.get(i, "").split()[:12]) + "…"
+                                           for i in b.box_id]}))
+
+
+_box_cache = {}
+
+
+def _box_text():
+    if not _box_cache:
+        bc = pd.read_csv(CORPUS.parent / "boxes_corpus.csv", keep_default_na=False)
+        _box_cache.update(zip(bc.box_id, bc.text))
+    return _box_cache
 
 
 def explore(t: int):
