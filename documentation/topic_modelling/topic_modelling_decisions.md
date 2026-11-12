@@ -173,6 +173,19 @@ The names are suggestions. The `label` column in `topics` is left for Owen.
     merged.
 - **OCR noise:** some appears among topic words (the chess notation "chg").
 - **No lemmatising:** "animal" and "animals" are separate words.
+- **Tiny boxes get their own topics:**
+  - **How many:** 399 boxes have fewer than 20 words, under 1% of all words.
+  - **What they are:** mostly fragments, such as a last line cut off before a
+    column break, a line of verse or a line of dialogue.
+  - **How well they fit:** average similarity to their topic 0.40, against
+    0.58 for boxes of 50 or more words.
+  - **The effect:** they barely move article or issue shares, but they add
+    small stray entries. For example, an 8-word fragment of "Wild Sports of
+    the East" (Saturday 1832, p12) is topic 6, while the rest of the article
+    is topic 9.
+  - **Possible fix:** a box under about 20 words takes its neighbouring box's
+    topic. Left as it is for now (Owen, 2026-11-11); to reconsider for the
+    full-corpus run.
 - **The American reprint** is in the corpus, flagged, until the edition
   question is decided.
 
