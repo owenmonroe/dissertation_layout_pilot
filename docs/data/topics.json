@@ -1,0 +1,818 @@
+{
+ "meta": {
+  "articles": 548,
+  "issues": 45,
+  "words": 586445,
+  "years": [
+   1832,
+   1844
+  ]
+ },
+ "topics": [
+  {
+   "id": 0,
+   "label": "fiction",
+   "words": [
+    "lady",
+    "man",
+    "old",
+    "house",
+    "young",
+    "did",
+    "gentleman",
+    "jean"
+   ],
+   "share": 0.1759,
+   "n_main": 95,
+   "articles": [
+    {
+     "id": "chambers_1840_0002",
+     "title": "The Crock of Gold",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "105",
+     "date": "01-04-1840",
+     "pages": "pp. 8–10",
+     "topic": 0,
+     "us_reprint": true,
+     "topic_share": 0.798
+    },
+    {
+     "id": "chambers_0004",
+     "title": "Lady Jean",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "1",
+     "date": "02-04-1832",
+     "pages": "pp. 4–5",
+     "topic": 0,
+     "us_reprint": false,
+     "topic_share": 0.938
+    },
+    {
+     "id": "chambers_1837_0062",
+     "title": "The Bragge Family",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "274",
+     "date": "04-29-1837",
+     "pages": "pp. 25–27",
+     "topic": 0,
+     "us_reprint": false,
+     "topic_share": 1.0
+    }
+   ]
+  },
+  {
+   "id": 1,
+   "label": "education and improvement",
+   "words": [
+    "schools",
+    "population",
+    "education",
+    "england",
+    "towns",
+    "public",
+    "money",
+    "classes"
+   ],
+   "share": 0.139,
+   "n_main": 68,
+   "articles": [
+    {
+     "id": "penny_1838_0008",
+     "title": "Public Improvements. —No. II., Provincial Towns",
+     "magazine": "The Penny Magazine",
+     "issue": "433",
+     "date": "12-31-1838",
+     "pages": "pp. 18–25",
+     "topic": 1,
+     "us_reprint": false,
+     "topic_share": 0.82
+    },
+    {
+     "id": "chambers_1839_0001",
+     "title": "Living in Paris",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "414",
+     "date": "01-04-1840",
+     "pages": "pp. 7–8",
+     "topic": 1,
+     "us_reprint": false,
+     "topic_share": 1.0
+    },
+    {
+     "id": "saturday_1834_0020",
+     "title": "Sketches of the Highlands and Islands of Scotland",
+     "magazine": "The Saturday Magazine",
+     "issue": "139",
+     "date": "08-1834",
+     "pages": "pp. 13–20",
+     "topic": 6,
+     "us_reprint": false,
+     "topic_share": 0.426
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "label": "knowledge and books",
+   "words": [
+    "knowledge",
+    "man",
+    "books",
+    "mind",
+    "world",
+    "school",
+    "nature",
+    "book"
+   ],
+   "share": 0.1002,
+   "n_main": 103,
+   "articles": [
+    {
+     "id": "chambers_0023",
+     "title": "James Ferguson",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "2",
+     "date": "02-11-1832",
+     "pages": "pp. 12–13",
+     "topic": 2,
+     "us_reprint": false,
+     "topic_share": 1.0
+    },
+    {
+     "id": "chambers_1843_0027",
+     "title": "How to Learn Languages",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "574",
+     "date": "01-28-1843",
+     "pages": "pp. 19–20",
+     "topic": 2,
+     "us_reprint": false,
+     "topic_share": 1.0
+    },
+    {
+     "id": "chambers_0048",
+     "title": "Dr. Alexander Murray",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "3",
+     "date": "02-18-1832",
+     "pages": "pp. 21–22",
+     "topic": 2,
+     "us_reprint": false,
+     "topic_share": 0.592
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "label": "royalty and architecture",
+   "words": [
+    "tower",
+    "henry",
+    "king",
+    "earl",
+    "edward",
+    "building",
+    "armour",
+    "ancient"
+   ],
+   "share": 0.0934,
+   "n_main": 37,
+   "articles": [
+    {
+     "id": "penny_1836_0015",
+     "title": "The Tower of London.—No. I",
+     "magazine": "The Penny Magazine",
+     "issue": "272",
+     "date": "06-30-1836",
+     "pages": "pp. 22–29",
+     "topic": 3,
+     "us_reprint": false,
+     "topic_share": 0.858
+    },
+    {
+     "id": "penny_1836_0013",
+     "title": "Knights of Malta.-No. III",
+     "magazine": "The Penny Magazine",
+     "issue": "271",
+     "date": "06-25-1836",
+     "pages": "pp. 18–21",
+     "topic": 3,
+     "us_reprint": false,
+     "topic_share": 0.993
+    },
+    {
+     "id": "chambers_1843_0042",
+     "title": "Agriculture in England",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "575",
+     "date": "02-04-1843",
+     "pages": "pp. 28–30",
+     "topic": 3,
+     "us_reprint": false,
+     "topic_share": 0.5
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "label": "christmas and songs",
+   "words": [
+    "love",
+    "day",
+    "christmas",
+    "yule",
+    "fair",
+    "heart",
+    "popular",
+    "song"
+   ],
+   "share": 0.0589,
+   "n_main": 50,
+   "articles": [
+    {
+     "id": "penny_1838_0001",
+     "title": "No. V. Little Musgrave. - the Friar of Orders Gray",
+     "magazine": "The Penny Magazine",
+     "issue": "431",
+     "date": "12-22-1838",
+     "pages": "pp. 6–8",
+     "topic": 4,
+     "us_reprint": false,
+     "topic_share": 0.742
+    },
+    {
+     "id": "chambers_1840_0032",
+     "title": "Specimens of the English Sonnet Writers",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "107",
+     "date": "01-18-1840",
+     "pages": "pp. 26–27",
+     "topic": 4,
+     "us_reprint": true,
+     "topic_share": 0.903
+    },
+    {
+     "id": "penny_1838_0002",
+     "title": "Christmas Games in the Olden Time",
+     "magazine": "The Penny Magazine",
+     "issue": "431",
+     "date": "12-22-1838",
+     "pages": "pp. 9–11",
+     "topic": 4,
+     "us_reprint": false,
+     "topic_share": 0.707
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "label": "ice and timber",
+   "words": [
+    "ice",
+    "feet",
+    "timber",
+    "wood",
+    "snow",
+    "tree",
+    "trees",
+    "patent"
+   ],
+   "share": 0.0746,
+   "n_main": 34,
+   "articles": [
+    {
+     "id": "penny_1844_0009",
+     "title": "The Glaciers of the Alps",
+     "magazine": "The Penny Magazine",
+     "issue": "756",
+     "date": "01-13-1844",
+     "pages": "pp. 20–21",
+     "topic": 5,
+     "us_reprint": false,
+     "topic_share": 1.0
+    },
+    {
+     "id": "chambers_1843_0036",
+     "title": "Kohl's Russia. - Moscow",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "575",
+     "date": "02-04-1843",
+     "pages": "pp. 25–26",
+     "topic": 5,
+     "us_reprint": false,
+     "topic_share": 0.792
+    },
+    {
+     "id": "chambers_1843_0025",
+     "title": "Kohl's Russia. St Petersburg",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "574",
+     "date": "01-28-1843",
+     "pages": "pp. 17–18",
+     "topic": 5,
+     "us_reprint": false,
+     "topic_share": 0.8
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "label": "sea voyage and travel",
+   "words": [
+    "boat",
+    "island",
+    "paul",
+    "sea",
+    "pique",
+    "isles",
+    "canoe",
+    "like"
+   ],
+   "share": 0.0654,
+   "n_main": 32,
+   "articles": [
+    {
+     "id": "saturday_1834_0020",
+     "title": "Sketches of the Highlands and Islands of Scotland",
+     "magazine": "The Saturday Magazine",
+     "issue": "139",
+     "date": "08-1834",
+     "pages": "pp. 13–20",
+     "topic": 6,
+     "us_reprint": false,
+     "topic_share": 0.465
+    },
+    {
+     "id": "chambers_1837_0061",
+     "title": "Paul Cuffee",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "274",
+     "date": "04-29-1837",
+     "pages": "p. 25",
+     "topic": 6,
+     "us_reprint": false,
+     "topic_share": 0.982
+    },
+    {
+     "id": "chambers_1839_0040",
+     "title": "Shipwreck of the Mentor",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "416",
+     "date": "01-18-1840",
+     "pages": "pp. 29–30",
+     "topic": 6,
+     "us_reprint": false,
+     "topic_share": 0.925
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "label": "art and craftsmanship",
+   "words": [
+    "wax",
+    "artist",
+    "picture",
+    "artists",
+    "light",
+    "plate",
+    "engraving",
+    "painting"
+   ],
+   "share": 0.0539,
+   "n_main": 16,
+   "articles": [
+    {
+     "id": "saturday_1843_0028",
+     "title": "The History of Copper-Plate Engraving. Concluded",
+     "magazine": "The Saturday Magazine",
+     "issue": "738",
+     "date": "12-1843",
+     "pages": "pp. 21–28",
+     "topic": 7,
+     "us_reprint": false,
+     "topic_share": 0.969
+    },
+    {
+     "id": "chambers_1840_0014",
+     "title": "Yankee Pedlar",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "105",
+     "date": "01-04-1840",
+     "pages": "pp. 14–15",
+     "topic": 7,
+     "us_reprint": true,
+     "topic_share": 0.869
+    },
+    {
+     "id": "saturday_1843_0009",
+     "title": "On Dioramic Painting",
+     "magazine": "The Saturday Magazine",
+     "issue": "736",
+     "date": "12-23-1843",
+     "pages": "pp. 10–11",
+     "topic": 7,
+     "us_reprint": false,
+     "topic_share": 1.0
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "label": "plants and insects",
+   "words": [
+    "plants",
+    "wings",
+    "bat",
+    "butterfly",
+    "species",
+    "water",
+    "heat",
+    "sound"
+   ],
+   "share": 0.0503,
+   "n_main": 23,
+   "articles": [
+    {
+     "id": "chambers_1843_0024",
+     "title": "Fairy Rings in Pasture",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "574",
+     "date": "01-28-1843",
+     "pages": "pp. 16–17",
+     "topic": 8,
+     "us_reprint": false,
+     "topic_share": 0.975
+    },
+    {
+     "id": "penny_1844_0001",
+     "title": "Butterflies",
+     "magazine": "The Penny Magazine",
+     "issue": "755",
+     "date": "01-06-1844",
+     "pages": "pp. 6–8",
+     "topic": 8,
+     "us_reprint": false,
+     "topic_share": 0.984
+    },
+    {
+     "id": "penny_1843_0003",
+     "title": "Bats",
+     "magazine": "The Penny Magazine",
+     "issue": "691",
+     "date": "01-07-1843",
+     "pages": "pp. 9–11",
+     "topic": 8,
+     "us_reprint": false,
+     "topic_share": 1.0
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "label": "animals",
+   "words": [
+    "animals",
+    "animal",
+    "bird",
+    "tiger",
+    "birds",
+    "food",
+    "respiration",
+    "elephant"
+   ],
+   "share": 0.0547,
+   "n_main": 36,
+   "articles": [
+    {
+     "id": "chambers_1839_0002",
+     "title": "Hybernation or Winter Sleep of Animals",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "414",
+     "date": "01-04-1840",
+     "pages": "pp. 8–9",
+     "topic": 9,
+     "us_reprint": false,
+     "topic_share": 1.0
+    },
+    {
+     "id": "penny_1836_0001",
+     "title": "The Giraffes at the Zoological Gardens",
+     "magazine": "The Penny Magazine",
+     "issue": "270",
+     "date": "06-18-1836",
+     "pages": "pp. 6–8",
+     "topic": 9,
+     "us_reprint": false,
+     "topic_share": 0.984
+    },
+    {
+     "id": "chambers_1840_0038",
+     "title": "State of the Egyptian People",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "107",
+     "date": "01-18-1840",
+     "pages": "pp. 29–30",
+     "topic": 9,
+     "us_reprint": true,
+     "topic_share": 0.931
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "label": "shipping",
+   "words": [
+    "ships",
+    "ship",
+    "canada",
+    "corporation",
+    "colony",
+    "british",
+    "shipping",
+    "land"
+   ],
+   "share": 0.0343,
+   "n_main": 15,
+   "articles": [
+    {
+     "id": "penny_1843_0017",
+     "title": "The Trinity House",
+     "magazine": "The Penny Magazine",
+     "issue": "693",
+     "date": "01-21-1843",
+     "pages": "pp. 27–29",
+     "topic": 10,
+     "us_reprint": false,
+     "topic_share": 1.0
+    },
+    {
+     "id": "penny_1843_0004",
+     "title": "The Privileges and Liabilities of British Shipping",
+     "magazine": "The Penny Magazine",
+     "issue": "691",
+     "date": "01-07-1843",
+     "pages": "pp. 11–13",
+     "topic": 10,
+     "us_reprint": false,
+     "topic_share": 0.992
+    },
+    {
+     "id": "penny_1843_0012",
+     "title": "Insurance of Shipping.-Lloyd's List",
+     "magazine": "The Penny Magazine",
+     "issue": "692",
+     "date": "01-14-1843",
+     "pages": "pp. 20–21",
+     "topic": 10,
+     "us_reprint": false,
+     "topic_share": 1.0
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "label": "aristocracy",
+   "words": [
+    "countess",
+    "child",
+    "queen",
+    "marchioness",
+    "count",
+    "napoleon",
+    "madame",
+    "grace"
+   ],
+   "share": 0.0409,
+   "n_main": 13,
+   "articles": [
+    {
+     "id": "chambers_1839_0008",
+     "title": "The Heir of the St Gerans",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "414",
+     "date": "01-04-1840",
+     "pages": "pp. 12–14",
+     "topic": 11,
+     "us_reprint": false,
+     "topic_share": 1.0
+    },
+    {
+     "id": "chambers_1839_0017",
+     "title": "Recollections of an Authoress",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "415",
+     "date": "01-11-1840",
+     "pages": "pp. 16–17",
+     "topic": 11,
+     "us_reprint": false,
+     "topic_share": 0.878
+    },
+    {
+     "id": "penny_1843_0011",
+     "title": "Progresses of Queen Elizaветн",
+     "magazine": "The Penny Magazine",
+     "issue": "692",
+     "date": "01-14-1843",
+     "pages": "pp. 17–20",
+     "topic": 11,
+     "us_reprint": false,
+     "topic_share": 0.888
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "label": "mythology and superstition",
+   "words": [
+    "bells",
+    "jupiter",
+    "gods",
+    "gold",
+    "thor",
+    "odin",
+    "deities",
+    "goddess"
+   ],
+   "share": 0.0271,
+   "n_main": 7,
+   "articles": [
+    {
+     "id": "chambers_1840_0023",
+     "title": "Sketches of Superstitions",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "106",
+     "date": "01-11-1840",
+     "pages": "pp. 20–22",
+     "topic": 12,
+     "us_reprint": true,
+     "topic_share": 0.989
+    },
+    {
+     "id": "chambers_1839_0018",
+     "title": "Alchemy",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "415",
+     "date": "01-11-1840",
+     "pages": "pp. 17–18",
+     "topic": 12,
+     "us_reprint": false,
+     "topic_share": 0.952
+    },
+    {
+     "id": "chambers_1839_0039",
+     "title": "Scandinavian Mythology",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "416",
+     "date": "01-18-1840",
+     "pages": "pp. 28–29",
+     "topic": 12,
+     "us_reprint": false,
+     "topic_share": 0.923
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "label": "disease and medicine",
+   "words": [
+    "plague",
+    "pills",
+    "disease",
+    "pestilence",
+    "gamboge",
+    "died",
+    "quack",
+    "cholera"
+   ],
+   "share": 0.0227,
+   "n_main": 11,
+   "articles": [
+    {
+     "id": "chambers_0007",
+     "title": "Plague. Cholera",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "1",
+     "date": "02-04-1832",
+     "pages": "pp. 6–8",
+     "topic": 13,
+     "us_reprint": false,
+     "topic_share": 0.957
+    },
+    {
+     "id": "penny_1838_0005",
+     "title": "Quacks and Quack Medicines",
+     "magazine": "The Penny Magazine",
+     "issue": "431",
+     "date": "12-22-1838",
+     "pages": "pp. 12–13",
+     "topic": 13,
+     "us_reprint": false,
+     "topic_share": 0.945
+    },
+    {
+     "id": "penny_1838_0007",
+     "title": "Quacks and Quack Medicines",
+     "magazine": "The Penny Magazine",
+     "issue": "432",
+     "date": "12-29-1838",
+     "pages": "pp. 15–17",
+     "topic": 13,
+     "us_reprint": false,
+     "topic_share": 0.98
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "label": "chess problems",
+   "words": [
+    "square",
+    "takes",
+    "checking",
+    "chg",
+    "seventh",
+    "sixth",
+    "pawn",
+    "mate"
+   ],
+   "share": 0.0033,
+   "n_main": 6,
+   "articles": [
+    {
+     "id": "saturday_1843_0022",
+     "title": "Chess",
+     "magazine": "The Saturday Magazine",
+     "issue": "737",
+     "date": "12-30-1843",
+     "pages": "pp. 19–20",
+     "topic": 14,
+     "us_reprint": false,
+     "topic_share": 0.962
+    },
+    {
+     "id": "saturday_1843_0025",
+     "title": "Solutions to Curious Chess Problems",
+     "magazine": "The Saturday Magazine",
+     "issue": "737",
+     "date": "12-30-1843",
+     "pages": "p. 20",
+     "topic": 14,
+     "us_reprint": false,
+     "topic_share": 0.979
+    },
+    {
+     "id": "saturday_1843_0026",
+     "title": "Black",
+     "magazine": "The Saturday Magazine",
+     "issue": "737",
+     "date": "12-30-1843",
+     "pages": "p. 20",
+     "topic": 14,
+     "us_reprint": false,
+     "topic_share": 0.962
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "label": "archery",
+   "words": [
+    "bow",
+    "archer",
+    "string",
+    "shooting",
+    "arrows",
+    "mark",
+    "arrow",
+    "targets"
+   ],
+   "share": 0.0055,
+   "n_main": 2,
+   "articles": [
+    {
+     "id": "chambers_0053",
+     "title": "Archery",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "3",
+     "date": "02-18-1832",
+     "pages": "p. 23",
+     "topic": 15,
+     "us_reprint": false,
+     "topic_share": 1.0
+    },
+    {
+     "id": "chambers_0028",
+     "title": "Archery",
+     "magazine": "Chambers's Edinburgh Journal",
+     "issue": "2",
+     "date": "02-11-1832",
+     "pages": "p. 15",
+     "topic": 15,
+     "us_reprint": false,
+     "topic_share": 0.531
+    }
+   ]
+  }
+ ]
+}
