@@ -341,20 +341,62 @@ def _runs(b: pd.DataFrame) -> pd.DataFrame:
                          "words": runs.words})
 
 
-def issue(volume: str, issue_no: int):
-    """Any issue's topics and its articles in reading order, page by page.
-    issue_no is the printed number, e.g. issue("chambers_1843", 575)."""
+def _issue_header(volume: str, issue_no: int):
+    """The issue's articles, after printing its header and topic shares (None if not found)."""
     docs = ARTICLES[(ARTICLES.volume == volume) & (ARTICLES.issue_no.astype(str) == str(issue_no))]
     if docs.empty:
         _md(f"## No issue {issue_no} in {volume}.")
-        return
+        return None
     seq = int(docs.issue_seq.iloc[0])
     share = ISSUES[(ISSUES.volume == volume) & (ISSUES.issue_seq == seq)].sort_values(
         "share", ascending=False)
-    _md(f"## {issue_name(volume, seq)}: {int(share.words.sum()):,} words, "
+    _md(f"## {issue_name(volume, seq)}: {len(docs)} articles, {int(share.words.sum()):,} words, "
         f"pages {docs.start_page.min()}–{docs.end_page.max()}\n\n"
         "Issue topics: " + "; ".join(f"{tag(r.topic_id)} {r.share:.0%} ({r.words:,.0f} words)"
                                      for r in share.itertuples()))
+    return docs
+
+
+def issue(volume: str, issue_no: int, min_weight: float = 0.05):
+    """Any issue's articles in reading order, one row each, with their topics.
+    issue_no is the printed number, e.g. issue("chambers_1843", 575).
+    Other topics are listed when they hold at least min_weight of the article."""
+    docs = _issue_header(volume, issue_no)
+    if docs is None:
+        return
+    first = (BOXES[BOXES.doc_id.isin(docs.index)].sort_values(["page", "reading_order"])
+             .groupby("doc_id").first())
+    docs = docs.assign(_page=first.page.reindex(docs.index).fillna(docs.start_page),
+                       _order=first.reading_order.reindex(docs.index).fillna(0),
+                       column=first.column.reindex(docs.index).fillna(""))
+    docs = docs.sort_values(["_page", "_order"])
+    rows = []
+    for d, a in docs.iterrows():
+        mix = ART_TOPICS[(ART_TOPICS.doc_id == d) & (ART_TOPICS.weight >= min_weight)] \
+            .sort_values("weight", ascending=False)
+        others = mix[mix.topic_id != a.main_topic]
+        rows.append({
+            "pages": f"{a.start_page}" if a.start_page == a.end_page else f"{a.start_page}–{a.end_page}",
+            "starts in": a.column, "article": title(d), "doc_id": d, "words": a.word_count,
+            "main topic": tag(int(a.main_topic)) if a.modelled else "(not modelled)",
+            "main share": a.main_weight if a.modelled else None,
+            "other topics": "; ".join(f"{tag(r.topic_id)} {r.weight:.0%}" for r in others.itertuples()),
+            "mix": "single topic" if others.empty else "meld",
+            "series": " ".join(x for x in [a.series, a.series_part] if isinstance(x, str) and x),
+            "boxes": a.n_boxes,
+            "flags": ", ".join(f for f, on in [("short", a.short), ("US reprint", a.us_reprint),
+                                               ("supplement", a.supplement)] if on == 1)})
+    _md(f"**Articles in reading order** (other topics listed at {min_weight:.0%} or more of the "
+        "article; `issue_boxes()` shows the same issue box by box):")
+    _table(pd.DataFrame(rows))
+
+
+def issue_boxes(volume: str, issue_no: int):
+    """Any issue's boxes in reading order, page by page: runs of boxes of one
+    page, column, article and topic. e.g. issue_boxes("chambers_1843", 575)."""
+    docs = _issue_header(volume, issue_no)
+    if docs is None:
+        return
     _md("**The issue in reading order** (runs of boxes of one page, column, article and topic):")
     _table(_runs(BOXES[BOXES.doc_id.isin(docs.index)]))
 
