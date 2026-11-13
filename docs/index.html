@@ -13,8 +13,8 @@
 <body>
   <header class="masthead">
     <div class="wrap">
-      <a class="brand" href="#/">Three Magazines, Sixteen Topics</a>
-      <p class="tagline">The <i>Penny Magazine</i>, the <i>Saturday Magazine</i> and <i>Chambers's Edinburgh Journal</i>, 1832–1844</p>
+      <a class="brand" href="#/">Knowledge Magazines: Articles and Topics</a>
+      <p class="tagline"><i>The Penny Magazine</i>, <i>The Saturday Magazine</i> and <i>Chambers's Edinburgh Journal</i>, 1832–1844</p>
     </div>
   </header>
 
@@ -22,11 +22,23 @@
 
   <footer class="colophon">
     <div class="wrap">
-      <p>The topics come from a topic model (BERTopic, 16 topics) of 548 articles in 45 issues of
-        three cheap illustrated weeklies. Each text box of an article is assigned a topic, and an
-        article's topics are its boxes' topics, weighted by their words.</p>
-      <p>Texts are machine-read (OCR) from page scans and are shown uncorrected. This is a pilot
-        on a small sample: the topics describe these 45 issues, not the magazines as a whole.</p>
+      <p> This website features articles extracted from a sample of issues from three knowledge magazines. 
+        The topic model, BERTopic, grouped article texts into 16 different topics. The website
+        displays the three most reflective articles for each topic and presents each with
+        the title of the article that appears next to it within a magazine issue and the other topics present
+        in that issue. The topic modeling was conducted from 548 articles taken from five groups of 
+        three-issue runs from each magazine, randomly chosen from 1832 to 1844, comprising 45 total issues. 
+        Texts were downloaded from the HathiTrust Digital Library. 
+
+        The AI tools DocLayout-YOLO and Google Document AI along with code scripts extracted boxed paragraphs 
+        of text from HathiTrust magazine PDF files and combined these boxes into magazine articles.
+        BERTopic assigns each text box a topic, and an article's overall topic is its boxes' topics, 
+        weighted by their words. Texts are machine-read (OCR) from page scans and are shown uncorrected.</p>
+      <p> This is an early pilot study of Owen Monroe's doctoral dissertation at the University of Illinois 
+        Urbana-Champaign, School of Information Sciences. This was conducted on a small sample of issues, 
+        not the magazines as a whole. This study is meant to show how texts and ideas are incorporated and 
+        juxtaposed within the knowledge magazines, revealing publisher perspectives, editorial practices, and
+       the genre's structure.</p>
     </div>
   </footer>
 
