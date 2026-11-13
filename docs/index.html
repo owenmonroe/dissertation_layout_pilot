@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Three Magazines, Sixteen Topics</title>
+  <title>Knowledge Magazines: Articles and Topics</title>
   <meta name="description" content="Topics found by a topic model in the Penny Magazine, the Saturday Magazine and Chambers's Edinburgh Journal, 1832–1844.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,29 +18,26 @@
     </div>
   </header>
 
+  <section id="intro" class="wrap intro">
+    <p>This website features articles extracted from a sample of issues from three knowledge magazines.
+      The topic model, BERTopic, grouped article texts into 16 different topics. The website
+      displays the three most reflective articles for each topic and presents each with
+      the title of the article that appears next to it within a magazine issue and the other topics present
+      in that issue. The topic modeling was conducted from 548 articles taken from five groups of
+      three-issue runs from each magazine, randomly chosen from 1832 to 1844, comprising 45 total issues.
+      Texts were downloaded from the HathiTrust Digital Library.</p>
+    <p>The AI tools DocLayout-YOLO and Google Document AI along with code scripts extracted boxed paragraphs
+      of text from HathiTrust magazine PDF files and combined these boxes into magazine articles.
+      BERTopic assigns each text box a topic, and an article's overall topic is its boxes' topics,
+      weighted by their words. Texts are machine-read (OCR) from page scans and are shown uncorrected.</p>
+    <p>This is an early pilot study of Owen Monroe's doctoral dissertation at the University of Illinois
+      Urbana-Champaign, School of Information Sciences. This was conducted on a small sample of issues,
+      not the magazines as a whole. This study is meant to show how texts and ideas are incorporated and
+      juxtaposed within the knowledge magazines, revealing publisher perspectives, editorial practices, and
+      the genre's structure.</p>
+  </section>
+
   <main id="app" class="wrap" aria-live="polite"></main>
-
-  <footer class="colophon">
-    <div class="wrap">
-      <p> This website features articles extracted from a sample of issues from three knowledge magazines. 
-        The topic model, BERTopic, grouped article texts into 16 different topics. The website
-        displays the three most reflective articles for each topic and presents each with
-        the title of the article that appears next to it within a magazine issue and the other topics present
-        in that issue. The topic modeling was conducted from 548 articles taken from five groups of 
-        three-issue runs from each magazine, randomly chosen from 1832 to 1844, comprising 45 total issues. 
-        Texts were downloaded from the HathiTrust Digital Library. 
-
-        The AI tools DocLayout-YOLO and Google Document AI along with code scripts extracted boxed paragraphs 
-        of text from HathiTrust magazine PDF files and combined these boxes into magazine articles.
-        BERTopic assigns each text box a topic, and an article's overall topic is its boxes' topics, 
-        weighted by their words. Texts are machine-read (OCR) from page scans and are shown uncorrected.</p>
-      <p> This is an early pilot study of Owen Monroe's doctoral dissertation at the University of Illinois 
-        Urbana-Champaign, School of Information Sciences. This was conducted on a small sample of issues, 
-        not the magazines as a whole. This study is meant to show how texts and ideas are incorporated and 
-        juxtaposed within the knowledge magazines, revealing publisher perspectives, editorial practices, and
-       the genre's structure.</p>
-    </div>
-  </footer>
 
   <script src="app.js"></script>
 </body>

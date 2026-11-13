@@ -1,10 +1,11 @@
-// Three Magazines, Sixteen Topics: a small hash-routed site.
+// Knowledge Magazines: Articles and Topics: a small hash-routed site.
 //   #/                 the 16 topics
 //   #/topic/<id>       a topic's top three articles
 //   #/article/<id>     an article: text, figures, closest article, topics in its issue
 // Data comes from data/, built by build_site.py.
 
 const app = document.getElementById("app");
+const intro = document.getElementById("intro");   // shown on the start page only
 let DATA = null;
 const articleCache = {};
 
@@ -38,8 +39,7 @@ async function getJSON(url) {
 // --- Views -------------------------------------------------------------------------
 
 function home() {
-  document.title = "Three Magazines, Sixteen Topics";
-  const m = DATA.meta;
+  document.title = "Knowledge Magazines: Articles and Topics";
   const cards = [...DATA.topics].sort((a, b) => b.share - a.share).map(t => `
     <a class="topic-card" href="#/topic/${t.id}">
       <span class="num">TOPIC ${t.id}</span>
@@ -49,10 +49,6 @@ function home() {
       <span class="stat">${pct(t.share)} of all words · ${t.n_main} article${t.n_main === 1 ? "" : "s"} mainly on it</span>
     </a>`).join("");
   app.innerHTML = `
-    <p class="lede">A topic model read ${m.articles.toLocaleString()} articles
-      (${(m.words / 1000).toFixed(0)},000 words) from ${m.issues} issues of three magazines,
-      ${m.years[0]}–${m.years[1]}, and found sixteen recurring subjects. Choose a topic to see
-      the articles that carry it most, then follow the threads from article to article.</p>
     <h2>The sixteen topics, largest first</h2>
     <div class="grid">${cards}</div>`;
 }
@@ -60,7 +56,7 @@ function home() {
 function topicView(id) {
   const t = topic(id);
   if (!t) return notFound();
-  document.title = `${cap(t.label)} · Three Magazines, Sixteen Topics`;
+  document.title = `${cap(t.label)} · Knowledge Magazines: Articles and Topics`;
   const items = t.articles.map((a, i) => `
     <a class="article-card" href="#/article/${encodeURIComponent(a.id)}">
       <span class="rank">${i + 1}</span>
@@ -88,7 +84,7 @@ async function articleView(id, from) {
     try { a = articleCache[id] = await getJSON(`data/articles/${encodeURIComponent(id)}.json`); }
     catch { return notFound(); }
   }
-  document.title = `${a.title} · Three Magazines, Sixteen Topics`;
+  document.title = `${a.title} · Knowledge Magazines: Articles and Topics`;
   const back = from != null && topic(from) ? from : a.topic;
 
   const mix = a.mix.map((m, i) => `
@@ -153,6 +149,7 @@ async function route() {
   if (kind === "topic") { lastTopic = +id; topicView(+id); }
   else if (kind === "article") await articleView(decodeURIComponent(id), lastTopic);
   else { lastTopic = null; home(); }
+  intro.hidden = !(kind === undefined || kind === "");
   window.scrollTo(0, 0);
 }
 
